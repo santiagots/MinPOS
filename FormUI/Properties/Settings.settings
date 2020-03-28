@@ -1,7 +1,27 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FormUI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PaginadoCantidadElementosPorPagina" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="ImpresoraNombre" Type="System.String" Scope="User">
+      <Value Profile="(Default)">80mm Series Printer</Value>
+    </Setting>
+    <Setting Name="NombreFantasia" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Azulgrana</Value>
+    </Setting>
+    <Setting Name="Direccion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Av. Saavedra 299 – Chacabuco</Value>
+    </Setting>
+    <Setting Name="ComprobanteCompraSeparador" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-----------------------------------</Value>
+    </Setting>
+    <Setting Name="ComprobanteCompraCabecera" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Comprobante de Compra\nNo valido como factura</Value>
+    </Setting>
+    <Setting Name="ComprobanteCompraPie" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Gracias por su compra</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

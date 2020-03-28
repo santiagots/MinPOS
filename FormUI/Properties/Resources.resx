@@ -130,11 +130,11 @@
   <data name="btn_eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\btn_eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NavigatorNextItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\NavigatorNextItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_CerrarCaja_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_CerrarCaja_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_ventas_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\btn_ventas_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,6 +157,9 @@
   <data name="comboSeleccionarOpcion" xml:space="preserve">
     <value>Seleccione una opción</value>
   </data>
+  <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ProductosMasivos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\ProductosMasivos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,8 +178,14 @@
   <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btn_agregar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\btn_agregar_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="success" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="guardadoOk" xml:space="preserve">
     <value>Los datos se han guardado de forma correcta.</value>
@@ -184,14 +193,20 @@
   <data name="accionError" xml:space="preserve">
     <value>Error al realizar la accion. Por favor, intente mas tarde o consulte con el administrador.</value>
   </data>
+  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NavigatorFirstItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\NavigatorFirstItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bt_Egresos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\bt_Egresos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_agregar_241" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_agregar_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ingresoMercaderiaOk" xml:space="preserve">
     <value>Se ha registrado el ingreso de mercadería de forma correcta.</value>
+  </data>
+  <data name="btn_resumen_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_resumen_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NavigatorPreviousItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\NavigatorPreviousItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,20 +214,17 @@
   <data name="icono_buscar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\icono_buscar_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="desconectado_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\desconectado_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="eliminarElemento" xml:space="preserve">
     <value>¿Está seguro de que desea eliminar el elemento?</value>
   </data>
   <data name="bt_Gastos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\bt_Gastos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_CerrarCaja_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_CerrarCaja_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bt_Egresos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\bt_Egresos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_resumen_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_resumen_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NavigatorNextItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\NavigatorNextItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bt_Caja_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\bt_Caja_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,22 +235,13 @@
   <data name="btn_Egreso_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\btn_Egreso_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_agregar_241" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_agregar_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="desconectado_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\desconectado_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="conectado_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\conectado_32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="success" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icono_imprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\icono_imprimir.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

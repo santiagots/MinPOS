@@ -8,22 +8,99 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FormUI.Properties
-{
-
-
+namespace FormUI.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int PaginadoCantidadElementosPorPagina {
+            get {
+                return ((int)(this["PaginadoCantidadElementosPorPagina"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("80mm Series Printer")]
+        public string ImpresoraNombre {
+            get {
+                return ((string)(this["ImpresoraNombre"]));
+            }
+            set {
+                this["ImpresoraNombre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Azulgrana")]
+        public string NombreFantasia {
+            get {
+                return ((string)(this["NombreFantasia"]));
+            }
+            set {
+                this["NombreFantasia"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Av. Saavedra 299 – Chacabuco")]
+        public string Direccion {
+            get {
+                return ((string)(this["Direccion"]));
+            }
+            set {
+                this["Direccion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-----------------------------------")]
+        public string ComprobanteCompraSeparador {
+            get {
+                return ((string)(this["ComprobanteCompraSeparador"]));
+            }
+            set {
+                this["ComprobanteCompraSeparador"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Comprobante de Compra\\nNo valido como factura")]
+        public string ComprobanteCompraCabecera {
+            get {
+                return ((string)(this["ComprobanteCompraCabecera"]));
+            }
+            set {
+                this["ComprobanteCompraCabecera"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gracias por su compra")]
+        public string ComprobanteCompraPie {
+            get {
+                return ((string)(this["ComprobanteCompraPie"]));
+            }
+            set {
+                this["ComprobanteCompraPie"] = value;
             }
         }
     }

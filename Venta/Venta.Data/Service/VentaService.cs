@@ -31,5 +31,11 @@ namespace Venta.Data.Service
             VentaRepository ventaRepository = new VentaRepository(new Context());
             return ventaRepository.Guardar(venta);
         }
+
+        public static Task<Model.Venta> Obtener(int id)
+        {
+            VentaRepository ventaRepository = new VentaRepository(new Context());
+            return ventaRepository.Obtener(id);
+        }
     }
 }

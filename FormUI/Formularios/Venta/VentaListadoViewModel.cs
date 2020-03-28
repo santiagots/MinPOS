@@ -53,5 +53,12 @@ namespace FormUI.Formularios.Venta
 
             NotifyPropertyChanged(nameof(FormasDePago));
         }
+
+        internal async Task ModificarAsync(VentaListadoItem ventaListadoItem)
+        {
+            Model.Venta venta = await VentaService.Obtener(ventaListadoItem.Venta.Id);
+            VentaDetalleForm ventaDetalleForm = new VentaDetalleForm(venta);
+            ventaDetalleForm.ShowDialog();
+        }
     }
 }

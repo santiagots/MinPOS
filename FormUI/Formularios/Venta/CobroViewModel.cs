@@ -35,8 +35,6 @@ namespace FormUI.Formularios.Venta
 
         internal bool CobroValido()
         {
-
-
             if (ObtenerMontoPago() >= TotalACobrar)
                 return true;
             else

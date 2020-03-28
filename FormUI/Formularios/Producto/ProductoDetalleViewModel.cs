@@ -8,6 +8,8 @@ using FormUI.Componentes;
 using System;
 using FormUI.Properties;
 using System.Windows.Forms;
+using Dispositivos.Documento;
+using Dispositivos;
 
 namespace FormUI.Formularios.Producto
 {
@@ -88,6 +90,15 @@ namespace FormUI.Formularios.Producto
         {
             Modelo.Producto producto = new Modelo.Producto(Id, Codigo, Descripcion, CategoriaSeleccionada.Key, Proveedores, Suelto, Costo, Precio, Habilitado, StockMinimo, StockOptimo, StockActual, Sesion.Usuario.Alias);
             await ProductoService.Guardar(producto);
+        }
+
+        internal void ImprimirEtiqueta()
+        {
+            Modelo.Producto producto = new Modelo.Producto(Id, Codigo, Descripcion, CategoriaSeleccionada.Key, Proveedores, Suelto, Costo, Precio, Habilitado, StockMinimo, StockOptimo, StockActual, Sesion.Usuario.Alias);
+            EtiquetaGondola etiquetaGondola = new EtiquetaGondola(producto);
+
+            Impresora impresora = new Impresora(Settings.Default.ImpresoraNombre, etiquetaGondola);
+            impresora.Imprimir();
         }
     }
 }

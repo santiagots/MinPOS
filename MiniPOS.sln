@@ -33,6 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructura", "Infraest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Venta.Data", "Venta\Venta.Data\Venta.Data.csproj", "{154A7E1B-8567-4943-A3BF-0D08E951A14C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "impresoraText", "impresoraText\impresoraText.csproj", "{5A58B5B1-9335-4011-98B8-DF1734CDCAC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispositivos", "Dispositivos\Dispositivos.csproj", "{199F4D7B-9180-4553-9128-CF2D034E272F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,14 @@ Global
 		{154A7E1B-8567-4943-A3BF-0D08E951A14C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{154A7E1B-8567-4943-A3BF-0D08E951A14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{154A7E1B-8567-4943-A3BF-0D08E951A14C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A58B5B1-9335-4011-98B8-DF1734CDCAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A58B5B1-9335-4011-98B8-DF1734CDCAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A58B5B1-9335-4011-98B8-DF1734CDCAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A58B5B1-9335-4011-98B8-DF1734CDCAC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{199F4D7B-9180-4553-9128-CF2D034E272F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{199F4D7B-9180-4553-9128-CF2D034E272F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{199F4D7B-9180-4553-9128-CF2D034E272F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{199F4D7B-9180-4553-9128-CF2D034E272F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

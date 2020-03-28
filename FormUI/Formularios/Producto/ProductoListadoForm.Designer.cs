@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductoListadoFrom));
@@ -91,7 +92,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(862, 154);
+            this.groupBox1.Size = new System.Drawing.Size(862, 157);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
@@ -114,6 +115,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label9, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.comboBox1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -123,7 +125,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(856, 129);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(856, 132);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // comboBox4
@@ -132,11 +134,11 @@
             this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoListadoViewModelBindingSource, "FaltanteSeleccionado", true));
             this.comboBox4.DataSource = this.faltanteBindingSource;
             this.comboBox4.DisplayMember = "Value";
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(103, 91);
+            this.comboBox4.Location = new System.Drawing.Point(103, 92);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(322, 26);
+            this.comboBox4.Size = new System.Drawing.Size(322, 28);
             this.comboBox4.TabIndex = 20;
             this.comboBox4.ValueMember = "Key";
             // 
@@ -155,11 +157,11 @@
             this.comboBox3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoListadoViewModelBindingSource, "HabilitadoSeleccionado", true));
             this.comboBox3.DataSource = this.habilitadoBindingSource;
             this.comboBox3.DisplayMember = "Value";
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(531, 47);
+            this.comboBox3.Location = new System.Drawing.Point(531, 46);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(322, 26);
+            this.comboBox3.Size = new System.Drawing.Size(322, 28);
             this.comboBox3.TabIndex = 19;
             this.comboBox3.ValueMember = "Key";
             // 
@@ -172,10 +174,10 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label3.Location = new System.Drawing.Point(3, 95);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(3, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 18);
+            this.label3.Size = new System.Drawing.Size(94, 20);
             this.label3.TabIndex = 16;
             this.label3.Text = "Faltantes";
             // 
@@ -183,10 +185,10 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoListadoViewModelBindingSource, "Codigo", true));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox1.Location = new System.Drawing.Point(103, 8);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(103, 7);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(322, 24);
+            this.textBox1.Size = new System.Drawing.Size(322, 26);
             this.textBox1.TabIndex = 0;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
@@ -194,10 +196,10 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label2.Location = new System.Drawing.Point(431, 11);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(431, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 18);
+            this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Categoria";
             // 
@@ -207,11 +209,11 @@
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoListadoViewModelBindingSource, "ProveedorSeleccionado", true));
             this.comboBox2.DataSource = this.proveedoresBindingSource;
             this.comboBox2.DisplayMember = "Value";
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(103, 47);
+            this.comboBox2.Location = new System.Drawing.Point(103, 46);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(322, 26);
+            this.comboBox2.Size = new System.Drawing.Size(322, 28);
             this.comboBox2.TabIndex = 2;
             this.comboBox2.ValueMember = "Key";
             // 
@@ -224,10 +226,10 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label4.Location = new System.Drawing.Point(3, 51);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(3, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 18);
+            this.label4.Size = new System.Drawing.Size(94, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Proveedor";
             // 
@@ -235,10 +237,10 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 36);
+            this.label1.Size = new System.Drawing.Size(94, 40);
             this.label1.TabIndex = 13;
             this.label1.Text = "Código / Descripción";
             // 
@@ -246,10 +248,10 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label9.Location = new System.Drawing.Point(431, 51);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(431, 50);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 18);
+            this.label9.Size = new System.Drawing.Size(94, 20);
             this.label9.TabIndex = 14;
             this.label9.Text = "Habilitado";
             // 
@@ -259,11 +261,11 @@
             this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoListadoViewModelBindingSource, "CategoriaSeleccionada", true));
             this.comboBox1.DataSource = this.categoriasBindingSource;
             this.comboBox1.DisplayMember = "Value";
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(531, 7);
+            this.comboBox1.Location = new System.Drawing.Point(531, 6);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(322, 26);
+            this.comboBox1.Size = new System.Drawing.Size(322, 28);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.ValueMember = "Key";
             // 
@@ -274,7 +276,6 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -284,11 +285,12 @@
             this.tableLayoutPanel2.Controls.Add(this.btnBuscar, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnNuevo, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnHacerPedido, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(431, 84);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(431, 83);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(422, 42);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(422, 46);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // btnBuscar
@@ -297,9 +299,9 @@
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = global::FormUI.Properties.Resources.icono_buscar_24;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(315, 4);
+            this.btnBuscar.Location = new System.Drawing.Point(315, 3);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(104, 33);
+            this.btnBuscar.Size = new System.Drawing.Size(104, 40);
             this.btnBuscar.TabIndex = 0;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -314,7 +316,7 @@
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(205, 3);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(104, 35);
+            this.btnNuevo.Size = new System.Drawing.Size(104, 40);
             this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -330,7 +332,7 @@
             this.btnHacerPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHacerPedido.Location = new System.Drawing.Point(45, 3);
             this.btnHacerPedido.Name = "btnHacerPedido";
-            this.btnHacerPedido.Size = new System.Drawing.Size(154, 35);
+            this.btnHacerPedido.Size = new System.Drawing.Size(154, 40);
             this.btnHacerPedido.TabIndex = 2;
             this.btnHacerPedido.Text = "Hacer Pedido";
             this.btnHacerPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -350,7 +352,7 @@
             this.dgProductos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -372,7 +374,7 @@
             this.dgProductos.DataSource = this.productosBindingSource;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -382,13 +384,21 @@
             this.dgProductos.MultiSelect = false;
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgProductos.RowHeadersVisible = false;
             this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProductos.ShowCellErrors = false;
             this.dgProductos.ShowCellToolTips = false;
             this.dgProductos.ShowEditingIcon = false;
             this.dgProductos.ShowRowErrors = false;
-            this.dgProductos.Size = new System.Drawing.Size(854, 536);
+            this.dgProductos.Size = new System.Drawing.Size(854, 436);
             this.dgProductos.TabIndex = 1;
             this.dgProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgProductos_CellFormatting);
             this.dgProductos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgProductos_CellMouseClick);
@@ -403,7 +413,7 @@
             this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
             this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
             this.codigoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.codigoDataGridViewTextBoxColumn.Width = 81;
+            this.codigoDataGridViewTextBoxColumn.Width = 84;
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
@@ -425,7 +435,7 @@
             this.costoDataGridViewTextBoxColumn.Name = "costoDataGridViewTextBoxColumn";
             this.costoDataGridViewTextBoxColumn.ReadOnly = true;
             this.costoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.costoDataGridViewTextBoxColumn.Width = 74;
+            this.costoDataGridViewTextBoxColumn.Width = 76;
             // 
             // precioDataGridViewTextBoxColumn
             // 
@@ -437,7 +447,7 @@
             this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
             this.precioDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.precioDataGridViewTextBoxColumn.Width = 76;
+            this.precioDataGridViewTextBoxColumn.Width = 78;
             // 
             // stockMinimoDataGridViewTextBoxColumn
             // 
@@ -447,7 +457,7 @@
             this.stockMinimoDataGridViewTextBoxColumn.Name = "stockMinimoDataGridViewTextBoxColumn";
             this.stockMinimoDataGridViewTextBoxColumn.ReadOnly = true;
             this.stockMinimoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.stockMinimoDataGridViewTextBoxColumn.Width = 79;
+            this.stockMinimoDataGridViewTextBoxColumn.Width = 82;
             // 
             // stockOptimoDataGridViewTextBoxColumn
             // 
@@ -457,7 +467,7 @@
             this.stockOptimoDataGridViewTextBoxColumn.Name = "stockOptimoDataGridViewTextBoxColumn";
             this.stockOptimoDataGridViewTextBoxColumn.ReadOnly = true;
             this.stockOptimoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.stockOptimoDataGridViewTextBoxColumn.Width = 79;
+            this.stockOptimoDataGridViewTextBoxColumn.Width = 83;
             // 
             // stockActualDataGridViewTextBoxColumn
             // 
@@ -467,7 +477,7 @@
             this.stockActualDataGridViewTextBoxColumn.Name = "stockActualDataGridViewTextBoxColumn";
             this.stockActualDataGridViewTextBoxColumn.ReadOnly = true;
             this.stockActualDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.stockActualDataGridViewTextBoxColumn.Width = 76;
+            this.stockActualDataGridViewTextBoxColumn.Width = 81;
             // 
             // sueltoDataGridViewCheckBoxColumn
             // 
@@ -477,7 +487,7 @@
             this.sueltoDataGridViewCheckBoxColumn.Name = "sueltoDataGridViewCheckBoxColumn";
             this.sueltoDataGridViewCheckBoxColumn.ReadOnly = true;
             this.sueltoDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.sueltoDataGridViewCheckBoxColumn.Width = 75;
+            this.sueltoDataGridViewCheckBoxColumn.Width = 80;
             // 
             // habilitadoDataGridViewCheckBoxColumn
             // 
@@ -487,7 +497,7 @@
             this.habilitadoDataGridViewCheckBoxColumn.Name = "habilitadoDataGridViewCheckBoxColumn";
             this.habilitadoDataGridViewCheckBoxColumn.ReadOnly = true;
             this.habilitadoDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.habilitadoDataGridViewCheckBoxColumn.Width = 64;
+            this.habilitadoDataGridViewCheckBoxColumn.Width = 68;
             // 
             // Editar
             // 
@@ -514,6 +524,9 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.dgProductos, 0, 0);
@@ -523,14 +536,14 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(860, 577);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(860, 477);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // paginado
             // 
             this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.productoListadoViewModelBindingSource, "TotalElementos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.paginado.Leyenda = "{0} de {1}";
-            this.paginado.Location = new System.Drawing.Point(3, 545);
+            this.paginado.Location = new System.Drawing.Point(3, 445);
             this.paginado.Name = "paginado";
             this.paginado.Size = new System.Drawing.Size(282, 27);
             this.paginado.TabIndex = 2;
@@ -545,11 +558,12 @@
             this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 761);
+            this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductoListadoFrom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado Productos";
             this.Load += new System.EventHandler(this.ProductosFrom_Load);
             this.groupBox1.ResumeLayout(false);

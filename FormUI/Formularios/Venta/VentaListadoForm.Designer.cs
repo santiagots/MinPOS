@@ -47,14 +47,14 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgVentas = new System.Windows.Forms.DataGridView();
-            this.ventaListadoItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paginado = new FormUI.Controles.Paginado();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalVentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anuladaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fechaAnuladaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ventaListadoItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.paginado = new FormUI.Controles.Paginado();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventaListadoViewModelBindingSource)).BeginInit();
@@ -67,19 +67,19 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(11, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(862, 104);
+            this.groupBox1.Size = new System.Drawing.Size(862, 113);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -92,6 +92,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnBuscar, 3, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -100,7 +101,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(856, 79);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(856, 88);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // comboBox2
@@ -109,11 +110,11 @@
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.ventaListadoViewModelBindingSource, "AnuladaSeleccionado", true));
             this.comboBox2.DataSource = this.anuladaBindingSource;
             this.comboBox2.DisplayMember = "Value";
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(103, 47);
+            this.comboBox2.Location = new System.Drawing.Point(103, 50);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(322, 26);
+            this.comboBox2.Size = new System.Drawing.Size(322, 28);
             this.comboBox2.TabIndex = 21;
             this.comboBox2.ValueMember = "Key";
             // 
@@ -130,10 +131,10 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(3, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 18);
+            this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 13;
             this.label1.Text = "Fecha";
             // 
@@ -142,10 +143,10 @@
             this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.dateTimePicker2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ventaListadoViewModelBindingSource, "Fecha", true));
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.dateTimePicker2.Location = new System.Drawing.Point(103, 8);
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePicker2.Location = new System.Drawing.Point(103, 7);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(322, 24);
+            this.dateTimePicker2.Size = new System.Drawing.Size(322, 26);
             this.dateTimePicker2.TabIndex = 1;
             // 
             // comboBox1
@@ -154,11 +155,11 @@
             this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.ventaListadoViewModelBindingSource, "FormaDePagoSeleccionada", true));
             this.comboBox1.DataSource = this.mercaderiaEstadosBindingSource;
             this.comboBox1.DisplayMember = "Value";
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(531, 7);
+            this.comboBox1.Location = new System.Drawing.Point(531, 6);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(322, 26);
+            this.comboBox1.Size = new System.Drawing.Size(322, 28);
             this.comboBox1.TabIndex = 19;
             this.comboBox1.ValueMember = "Key";
             // 
@@ -171,10 +172,10 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label4.Location = new System.Drawing.Point(431, 11);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(431, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 18);
+            this.label4.Size = new System.Drawing.Size(94, 40);
             this.label4.TabIndex = 18;
             this.label4.Text = "Forma Pago";
             // 
@@ -182,10 +183,10 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label5.Location = new System.Drawing.Point(3, 51);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(3, 54);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 18);
+            this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 20;
             this.label5.Text = "Anulada";
             // 
@@ -195,9 +196,9 @@
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = global::FormUI.Properties.Resources.icono_buscar_24;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(747, 43);
+            this.btnBuscar.Location = new System.Drawing.Point(747, 44);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(106, 33);
+            this.btnBuscar.Size = new System.Drawing.Size(106, 40);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,12 +214,12 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.dgVentas, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.paginado, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 122);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 131);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(860, 627);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(860, 518);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
             // dgVentas
@@ -227,9 +228,6 @@
             this.dgVentas.AllowUserToDeleteRows = false;
             this.dgVentas.AllowUserToResizeColumns = false;
             this.dgVentas.AllowUserToResizeRows = false;
-            this.dgVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgVentas.AutoGenerateColumns = false;
             this.dgVentas.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -257,6 +255,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgVentas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgVentas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgVentas.Location = new System.Drawing.Point(3, 3);
             this.dgVentas.MultiSelect = false;
             this.dgVentas.Name = "dgVentas";
@@ -267,28 +266,11 @@
             this.dgVentas.ShowCellToolTips = false;
             this.dgVentas.ShowEditingIcon = false;
             this.dgVentas.ShowRowErrors = false;
-            this.dgVentas.Size = new System.Drawing.Size(854, 586);
+            this.dgVentas.Size = new System.Drawing.Size(854, 477);
             this.dgVentas.TabIndex = 1;
+            this.dgVentas.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgVentas_CellMouseClick);
+            this.dgVentas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgVentas_CellMouseDoubleClick);
             this.dgVentas.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgVentas_ColumnHeaderMouseClick);
-            // 
-            // ventaListadoItemsBindingSource
-            // 
-            this.ventaListadoItemsBindingSource.DataMember = "VentaListadoItems";
-            this.ventaListadoItemsBindingSource.DataSource = this.ventaListadoViewModelBindingSource;
-            // 
-            // paginado
-            // 
-            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.ventaListadoViewModelBindingSource, "TotalElementos", true));
-            this.paginado.Leyenda = "{0} de {1}";
-            this.paginado.Location = new System.Drawing.Point(3, 595);
-            this.paginado.Name = "paginado";
-            this.paginado.Size = new System.Drawing.Size(282, 27);
-            this.paginado.TabIndex = 2;
-            this.paginado.TotalElementos = 0;
-            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
-            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
-            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
-            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
             // 
             // fechaDataGridViewTextBoxColumn
             // 
@@ -351,11 +333,30 @@
             this.Editar.ReadOnly = true;
             this.Editar.Width = 5;
             // 
+            // ventaListadoItemsBindingSource
+            // 
+            this.ventaListadoItemsBindingSource.DataMember = "VentaListadoItems";
+            this.ventaListadoItemsBindingSource.DataSource = this.ventaListadoViewModelBindingSource;
+            // 
+            // paginado
+            // 
+            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.ventaListadoViewModelBindingSource, "TotalElementos", true));
+            this.paginado.Leyenda = "{0} de {1}";
+            this.paginado.Location = new System.Drawing.Point(3, 486);
+            this.paginado.Name = "paginado";
+            this.paginado.Size = new System.Drawing.Size(282, 27);
+            this.paginado.TabIndex = 2;
+            this.paginado.TotalElementos = 0;
+            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
+            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
+            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
+            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
+            // 
             // VentaListadoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 761);
+            this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

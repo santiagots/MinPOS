@@ -10,6 +10,7 @@ namespace Venta.Data
         public Context() : base("Conexion")
         {
             Database.Log = sql => Debug.Write(sql);
+            Database.SetInitializer<Context>(null);
             var intancia = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
@@ -23,9 +24,8 @@ namespace Venta.Data
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<Model.Pago>().ToTable("Pago");
-            modelBuilder.Entity<Model.Pago>().Ignore(x => x.MontoPago);
 
-            modelBuilder.Entity<Model.Producto>().ToTable("Producto");
+            modelBuilder.Entity<Model.Venta>().ToTable("Producto");
 
             modelBuilder.Entity<Model.Venta>().ToTable("Venta");
             modelBuilder.Entity<Model.Venta>().HasRequired(x => x.Pago).WithMany().HasForeignKey(x => x.IdPago);

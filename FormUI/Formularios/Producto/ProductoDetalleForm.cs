@@ -40,6 +40,11 @@ namespace FormUI.Formularios.Producto
             });
         }
 
+        private void btnEtiquetaGondola_Click(object sender, EventArgs e)
+        {
+            Ejecutar(() => productoDetalleViewModel.ImprimirEtiqueta());
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();

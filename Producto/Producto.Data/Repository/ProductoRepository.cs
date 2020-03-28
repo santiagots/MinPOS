@@ -50,13 +50,32 @@ namespace Producto.Data.Repository
         internal async Task Guardar(Modelo.Producto producto)
         {
             _context.Entry(producto.Categoria).State = EntityState.Unchanged;
-            producto.Proveedores.ToList().ForEach(x => _context.Entry(x).State = EntityState.Unchanged);
+            producto.Proveedores.ToList().ForEach(x => _context.Entry(x).State = EntityState.Modified);
 
             if (producto.Id == 0)
                 _context.Producto.Add(producto);
             else
             {
-                _context.Entry(producto).State = EntityState.Modified;
+                var ProductoDB = _context.Producto
+                                         .Include(x => x.Proveedores)
+                                         .Include(x => x.Categoria)
+                                         .FirstOrDefault(x => x.Id == producto.Id);
+
+                _context.Entry(ProductoDB).CurrentValues.SetValues(producto);
+
+                ProductoDB.Proveedores.ToList().ForEach(ProveedoresDB =>
+                {
+                    Proveedor proveedorLocal = producto.Proveedores.FirstOrDefault(x => x.Id == ProveedoresDB.Id);
+                    if (proveedorLocal == null)
+                        ProductoDB.Proveedores.Remove(ProveedoresDB);
+                });
+
+                producto.Proveedores.ToList().ForEach(Proveedores =>
+                {
+                    Proveedor mercaderiaItemLocal = ProductoDB.Proveedores.FirstOrDefault(x => x.Id == Proveedores.Id);
+                    if (mercaderiaItemLocal == null)
+                        ProductoDB.Proveedores.Add(Proveedores);
+                });
             }
 
             await _context.SaveChangesAsync();

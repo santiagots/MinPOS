@@ -17,7 +17,7 @@ namespace Venta.Data.Repository
         {
         }
 
-        internal Task<List<Core.Model.Venta>> Buscar(DateTime fecha, FormaPago? formaPago, bool? anulado, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
+        internal Task<List<Model.Venta>> Buscar(DateTime fecha, FormaPago? formaPago, bool? anulado, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             IQueryable<Model.Venta> venta = _context.Venta
                                                     .Include(x => x.Pago)
@@ -36,7 +36,14 @@ namespace Venta.Data.Repository
         {
             if (venta.Id == 0)
             {
-                venta.VentaItems.ToList().ForEach(x => _context.Entry(x.Producto).State = EntityState.Modified);
+                venta.VentaItems.ToList()
+                                .ForEach(x => {
+                                    if (x.Producto.Suelto)
+                                        _context.Entry(x.Producto).State = EntityState.Unchanged;
+                                    else
+                                        _context.Entry(x.Producto).State = EntityState.Modified;
+                                });
+
                 _context.Venta.Add(venta);
             }
             else
@@ -47,5 +54,9 @@ namespace Venta.Data.Repository
 
             await _context.SaveChangesAsync();
         }
+
+        internal Task<Model.Venta> Obtener(int id) => _context.Venta.Include(x => x.Pago)
+                                                                    .Include(x => x.VentaItems.Select(y => y.Producto))
+                                                                    .FirstOrDefaultAsync(x => x.Id == id);
     }
 }

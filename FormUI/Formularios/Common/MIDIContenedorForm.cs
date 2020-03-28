@@ -5,6 +5,7 @@ using FormUI.Formularios.Saldo;
 using FormUI.Formularios.Usuario;
 using FormUI.Formularios.Venta;
 using System;
+using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 
 namespace FormUI.Formularios.Common
@@ -46,13 +47,18 @@ namespace FormUI.Formularios.Common
 
         private void MIDIContenedorForm_Load(object sender, EventArgs e)
         {
-            PopupNotifier popupNotifier2 = new PopupNotifier();
-            popupNotifier2.TitleText = "Ingreso Mercaderia";
-            popupNotifier2.TitleFont = new System.Drawing.Font("Segoe UI", 8);
-            popupNotifier2.ContentText = "Tiene 3 ingresos de mercaderia por ingresar.";
-            popupNotifier2.ContentFont = new System.Drawing.Font("Segoe UI", 11);
-            popupNotifier2.IsRightToLeft = false;
-            popupNotifier2.Popup();
+            //PopupNotifier popupNotifier2 = new PopupNotifier();
+            //popupNotifier2.TitleText = "Ingreso Mercaderia";
+            //popupNotifier2.TitleFont = new System.Drawing.Font("Segoe UI", 8);
+            //popupNotifier2.ContentText = "Tiene 3 ingresos de mercaderia por ingresar.";
+            //popupNotifier2.ContentFont = new System.Drawing.Font("Segoe UI", 11);
+            //popupNotifier2.IsRightToLeft = false;
+            //popupNotifier2.Popup();
+        }
+
+        private void MIDIContenedorForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

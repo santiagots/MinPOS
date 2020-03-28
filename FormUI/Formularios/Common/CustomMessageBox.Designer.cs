@@ -40,13 +40,13 @@
             // 
             // lblMensaje
             // 
+            this.lblMensaje.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(63, 0);
+            this.lblMensaje.Location = new System.Drawing.Point(86, 24);
             this.lblMensaje.MaximumSize = new System.Drawing.Size(410, 0);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(369, 56);
+            this.lblMensaje.Size = new System.Drawing.Size(365, 36);
             this.lblMensaje.TabIndex = 2;
             this.lblMensaje.Text = "El asdasd asdasdasd asdasd asdasda asdasd asdasd asdasdasd asdasd";
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -56,7 +56,7 @@
             this.pbIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pbIcon.Image = global::FormUI.Properties.Resources.success;
             this.pbIcon.InitialImage = null;
-            this.pbIcon.Location = new System.Drawing.Point(3, 3);
+            this.pbIcon.Location = new System.Drawing.Point(3, 17);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Size = new System.Drawing.Size(54, 50);
             this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -107,11 +107,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.pbIcon, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblMensaje, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(435, 56);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(478, 85);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // CustomMessageBox

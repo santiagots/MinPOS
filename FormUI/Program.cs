@@ -1,4 +1,5 @@
-﻿using FormUI.Formularios.Usuario;
+﻿using FormUI.Componentes;
+using FormUI.Formularios.Usuario;
 using System;
 using System.Globalization;
 using System.Windows.Forms;
@@ -13,17 +14,28 @@ namespace FormUI
         [STAThread]
         static void Main()
         {
-            var culture = CultureInfo.GetCultureInfo("es-AR");
+            ConfigurarCultura();
 
-            //Culture for any thread
-            CultureInfo.DefaultThreadCurrentCulture = culture;
-
-            //Culture for UI in any thread
-            CultureInfo.DefaultThreadCurrentUICulture = culture;
+            //TODO:Mover esto splashScreen!!
+            BaseDatos.Inicializar("MiniPOS");            
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogInFrom());
+        }
+
+        private static void ConfigurarCultura()
+        {
+            var culture = CultureInfo.GetCultureInfo("es-AR");
+
+            CultureInfo ci = new CultureInfo(culture.Name);
+            ci.NumberFormat.NumberDecimalSeparator = ".";
+
+            //Culture for any thread
+            CultureInfo.DefaultThreadCurrentCulture = ci;
+
+            //Culture for UI in any thread
+            CultureInfo.DefaultThreadCurrentUICulture = ci;
         }
     }
 }

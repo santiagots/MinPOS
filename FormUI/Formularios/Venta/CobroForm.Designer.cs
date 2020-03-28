@@ -53,9 +53,9 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::FormUI.Properties.Resources.desconectado_32;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(236, 218);
+            this.btnCancelar.Location = new System.Drawing.Point(236, 227);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(175, 45);
+            this.btnCancelar.Size = new System.Drawing.Size(175, 55);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -68,9 +68,9 @@
             this.btnPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagar.Image = global::FormUI.Properties.Resources.conectado_32;
             this.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagar.Location = new System.Drawing.Point(417, 218);
+            this.btnPagar.Location = new System.Drawing.Point(417, 227);
             this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(135, 45);
+            this.btnPagar.Size = new System.Drawing.Size(135, 55);
             this.btnPagar.TabIndex = 1;
             this.btnPagar.Text = "Pagar";
             this.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -183,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(570, 273);
+            this.ClientSize = new System.Drawing.Size(570, 291);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnPagar);

@@ -86,9 +86,7 @@ namespace Producto.Data.Repository
                     if (mercaderiaItemLocal != null)
                         mercaderiaItemDB.ModificarCantidad(mercaderiaItemLocal.Cantidad);
                     else
-                    {
                         _context.MercaderiaItem.Remove(mercaderiaItemDB);
-                    }
                 });
 
                 mercaderia.MercaderiaItems.Where(x => x.Id == 0).ToList().ForEach(mercaderiaItemLocal =>

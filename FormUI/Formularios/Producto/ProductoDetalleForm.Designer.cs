@@ -67,6 +67,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnEtiquetaGondola = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
@@ -134,7 +135,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -172,7 +173,7 @@
             this.dgProveedor.ShowCellToolTips = false;
             this.dgProveedor.ShowEditingIcon = false;
             this.dgProveedor.ShowRowErrors = false;
-            this.dgProveedor.Size = new System.Drawing.Size(324, 148);
+            this.dgProveedor.Size = new System.Drawing.Size(324, 142);
             this.dgProveedor.TabIndex = 14;
             this.dgProveedor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgProveedor_CellMouseClick);
             // 
@@ -206,10 +207,10 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "Codigo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox1.Location = new System.Drawing.Point(103, 5);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(103, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(324, 24);
+            this.textBox1.Size = new System.Drawing.Size(324, 26);
             this.textBox1.TabIndex = 0;
             // 
             // label2
@@ -227,10 +228,10 @@
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "Descripcion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox2.Location = new System.Drawing.Point(103, 40);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox2.Location = new System.Drawing.Point(103, 39);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(324, 24);
+            this.textBox2.Size = new System.Drawing.Size(324, 26);
             this.textBox2.TabIndex = 1;
             // 
             // label3
@@ -238,7 +239,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(3, 172);
+            this.label3.Location = new System.Drawing.Point(3, 169);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 20);
             this.label3.TabIndex = 4;
@@ -250,11 +251,11 @@
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoDetalleViewModelBindingSource, "CategoriaSeleccionada", true));
             this.comboBox2.DataSource = this.categoriasBindingSource;
             this.comboBox2.DisplayMember = "Value";
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(103, 74);
+            this.comboBox2.Location = new System.Drawing.Point(103, 73);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(324, 26);
+            this.comboBox2.Size = new System.Drawing.Size(324, 28);
             this.comboBox2.TabIndex = 2;
             this.comboBox2.ValueMember = "Key";
             // 
@@ -311,10 +312,10 @@
             // 
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "Precio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox6.Location = new System.Drawing.Point(103, 374);
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox6.Location = new System.Drawing.Point(103, 373);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(324, 24);
+            this.textBox6.Size = new System.Drawing.Size(324, 26);
             this.textBox6.TabIndex = 6;
             // 
             // label5
@@ -332,10 +333,10 @@
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "Costo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox5.Location = new System.Drawing.Point(103, 339);
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox5.Location = new System.Drawing.Point(103, 338);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(324, 24);
+            this.textBox5.Size = new System.Drawing.Size(324, 26);
             this.textBox5.TabIndex = 5;
             // 
             // label9
@@ -366,9 +367,9 @@
             this.btnAgregarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarProveedor.Image = global::FormUI.Properties.Resources.btn_agregar_241;
             this.btnAgregarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(253, 262);
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(253, 256);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
-            this.btnAgregarProveedor.Size = new System.Drawing.Size(174, 34);
+            this.btnAgregarProveedor.Size = new System.Drawing.Size(174, 40);
             this.btnAgregarProveedor.TabIndex = 15;
             this.btnAgregarProveedor.Text = "Agregar Proveedor";
             this.btnAgregarProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -417,10 +418,10 @@
             // 
             this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "StockActual", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox7.Location = new System.Drawing.Point(103, 76);
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox7.Location = new System.Drawing.Point(103, 75);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(312, 24);
+            this.textBox7.Size = new System.Drawing.Size(312, 26);
             this.textBox7.TabIndex = 2;
             // 
             // label6
@@ -438,10 +439,10 @@
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "StockMinimo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox3.Location = new System.Drawing.Point(103, 5);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox3.Location = new System.Drawing.Point(103, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(312, 24);
+            this.textBox3.Size = new System.Drawing.Size(312, 26);
             this.textBox3.TabIndex = 0;
             // 
             // label7
@@ -459,10 +460,10 @@
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "StockOptimo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox4.Location = new System.Drawing.Point(103, 40);
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox4.Location = new System.Drawing.Point(103, 39);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(312, 24);
+            this.textBox4.Size = new System.Drawing.Size(312, 26);
             this.textBox4.TabIndex = 1;
             // 
             // label11
@@ -482,9 +483,9 @@
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Image = global::FormUI.Properties.Resources.conectado_32;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(118, 5);
+            this.btnNuevo.Location = new System.Drawing.Point(236, 3);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(105, 35);
+            this.btnNuevo.Size = new System.Drawing.Size(105, 40);
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Guardar";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -497,9 +498,9 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::FormUI.Properties.Resources.desconectado_32;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(5, 5);
+            this.btnCancelar.Location = new System.Drawing.Point(120, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(105, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(105, 40);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -528,17 +529,34 @@
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.btnCancelar, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnNuevo, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(655, 421);
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.Controls.Add(this.btnEtiquetaGondola, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnNuevo, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnCancelar, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(537, 421);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(226, 46);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 46);
             this.tableLayoutPanel5.TabIndex = 5;
+            // 
+            // btnEtiquetaGondola
+            // 
+            this.btnEtiquetaGondola.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEtiquetaGondola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEtiquetaGondola.Image = global::FormUI.Properties.Resources.icono_imprimir;
+            this.btnEtiquetaGondola.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEtiquetaGondola.Location = new System.Drawing.Point(6, 3);
+            this.btnEtiquetaGondola.Name = "btnEtiquetaGondola";
+            this.btnEtiquetaGondola.Size = new System.Drawing.Size(105, 40);
+            this.btnEtiquetaGondola.TabIndex = 2;
+            this.btnEtiquetaGondola.Text = "Etiqueta Góndola";
+            this.btnEtiquetaGondola.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEtiquetaGondola.UseVisualStyleBackColor = true;
+            this.btnEtiquetaGondola.Click += new System.EventHandler(this.btnEtiquetaGondola_Click);
             // 
             // groupBox3
             // 
@@ -586,10 +604,10 @@
             this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "UsuarioActualizacion", true));
             this.textBox9.Enabled = false;
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox9.Location = new System.Drawing.Point(103, 5);
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox9.Location = new System.Drawing.Point(103, 4);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(312, 24);
+            this.textBox9.Size = new System.Drawing.Size(312, 26);
             this.textBox9.TabIndex = 0;
             // 
             // label13
@@ -608,10 +626,10 @@
             this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "FechaActualizacion", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "g"));
             this.textBox10.Enabled = false;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox10.Location = new System.Drawing.Point(103, 43);
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox10.Location = new System.Drawing.Point(103, 42);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(312, 24);
+            this.textBox10.Size = new System.Drawing.Size(312, 26);
             this.textBox10.TabIndex = 1;
             // 
             // ProductoDetalleForm
@@ -693,5 +711,6 @@
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn razonSocialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.Button btnEtiquetaGondola;
     }
 }

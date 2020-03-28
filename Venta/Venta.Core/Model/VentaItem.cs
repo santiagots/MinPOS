@@ -11,12 +11,18 @@ namespace Venta.Core.Model
         public int IdProducto { get; protected set; }
         public Producto Producto { get; protected set; }
         public int Cantidad { get; protected set; }
+        public decimal Precio { get; protected set; }
+        public decimal Total => Cantidad * Precio;
 
-        public VentaItem(Producto producto, int cantidad)
+        internal VentaItem()
+        { }
+
+        public VentaItem(Producto producto, int cantidad, decimal precio)
         {
             IdProducto = producto.Id;
             Producto = producto;
             Cantidad = cantidad;
+            Precio = precio;
         }
 
         internal void DisminuirStock() => Producto.DisminuirStock(Cantidad);

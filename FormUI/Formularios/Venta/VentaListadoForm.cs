@@ -1,14 +1,8 @@
 ﻿using Common.Core.Enum;
 using FormUI.Formularios.Common;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model = Venta.Core.Model;
 
 namespace FormUI.Formularios.Venta
 {
@@ -22,11 +16,42 @@ namespace FormUI.Formularios.Venta
 
         private void VentaListadoForm_Load(object sender, EventArgs e)
         {
-            Ejecutar(() =>
+            EjecutarAsync(async () =>
             {
                 ventaListadoViewModel.ElementosPorPagina = paginado.ElementosPorPagina;
                 ventaListadoViewModelBindingSource.DataSource = ventaListadoViewModel;
                 ventaListadoViewModel.CargarFormasDePago();
+                await ventaListadoViewModel.BuscarAsync();
+            });
+        }
+
+        private void dgVentas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            EjecutarAsync(async () =>
+            {
+                if (e.RowIndex < 0)
+                    return;
+
+                VentaListadoItem ventaListadoItem = (VentaListadoItem)dgVentas.CurrentRow.DataBoundItem;
+
+                if (dgVentas.Columns[e.ColumnIndex].Name == "Editar")
+                {
+                    await ventaListadoViewModel.ModificarAsync(ventaListadoItem);
+                    await ventaListadoViewModel.BuscarAsync();
+                }
+            });
+        }
+
+        private void dgVentas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            EjecutarAsync(async () =>
+            {
+                if (e.RowIndex < 0)
+                    return;
+
+                VentaListadoItem ventaListadoItem = (VentaListadoItem)dgVentas.CurrentRow.DataBoundItem;
+                await ventaListadoViewModel.ModificarAsync(ventaListadoItem);
+                await ventaListadoViewModel.BuscarAsync();
             });
         }
 

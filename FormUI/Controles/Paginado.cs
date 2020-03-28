@@ -12,7 +12,7 @@ namespace FormUI.Controles
         public event EventHandler PaginaSiguienteClick;
         public event EventHandler PaginaFinalClick;
 
-        public int ElementosPorPagina { get; internal set; } = 2;
+        public int ElementosPorPagina => Properties.Settings.Default.PaginadoCantidadElementosPorPagina;
         public int PaginaActual { get; internal set; } = 1;
         public int TotalElementos
         {

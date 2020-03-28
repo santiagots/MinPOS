@@ -8,14 +8,15 @@ namespace FormUI.Formularios.Venta
 
         public string Codigo => Producto.Codigo;
         public string Descripcion => Producto.Descripcion;
-        public decimal Precio => Producto.Precio;
+        public decimal Precio { get; set; }
         public int Cantidad { get; set; }
         public decimal Total => Cantidad * Precio;
 
-        public VentaItem(Modelo.Producto producto, int cantidad)
+        public VentaItem(Modelo.Producto producto, int cantidad, decimal precio)
         {
             Producto = producto;
             Cantidad = cantidad;
+            Precio = precio;
         }
     }
 }

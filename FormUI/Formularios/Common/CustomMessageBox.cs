@@ -33,8 +33,7 @@ namespace FormUI.Formularios.Common
             messageBoxTest.AgregarBoton();
             messageBoxTest.PonerFocoEnDefaultButton();
 
-            if (timeOut.HasValue)
-                messageBoxTest.InicializarTimeOut(timeOut.Value);
+            if (timeOut.HasValue) messageBoxTest.InicializarTimeOut(timeOut.Value);
 
             return messageBoxTest.ShowDialog();
         }

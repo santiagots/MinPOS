@@ -284,7 +284,7 @@
             // 
             // productosBindingSource
             // 
-            this.productosBindingSource.DataMember = "Productos";
+            this.productosBindingSource.DataMember = "VentaItems";
             this.productosBindingSource.DataSource = this.ventaViewModelBindingSource;
             // 
             // btnCancelar

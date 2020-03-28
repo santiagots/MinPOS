@@ -10,6 +10,7 @@ namespace Producto.Data
         public Context(): base("Conexion")
         {
             Database.Log = sql => Debug.Write(sql);
+            Database.SetInitializer<Context>(null);
             var intancia = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
