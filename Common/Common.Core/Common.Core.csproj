@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.8.6.2\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NLog.4.6.8\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -58,12 +61,14 @@
   <ItemGroup>
     <Compile Include="Enum\DireccionOrdenamiento.cs" />
     <Compile Include="Extension\Paginado.cs" />
+    <Compile Include="Helper\Encriptado.cs" />
     <Compile Include="Helper\Log.cs" />
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Exception\NegocioException.cs" />
     <Compile Include="Extension\Enum.cs" />
-    <Compile Include="Model\UsuarioAgreggate\Usuario.cs" />
+    <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validadores\UsuarioValidador.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

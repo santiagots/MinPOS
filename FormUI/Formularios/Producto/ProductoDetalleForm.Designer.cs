@@ -66,14 +66,15 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnEtiquetaGondola = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnEtiquetaGondola = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProveedor)).BeginInit();
@@ -84,9 +85,10 @@
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -99,7 +101,7 @@
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.tableLayoutPanel3.SetRowSpan(this.groupBox1, 3);
-            this.groupBox1.Size = new System.Drawing.Size(436, 464);
+            this.groupBox1.Size = new System.Drawing.Size(436, 409);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Producto";
@@ -140,7 +142,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(430, 439);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(430, 384);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -173,7 +175,7 @@
             this.dgProveedor.ShowCellToolTips = false;
             this.dgProveedor.ShowEditingIcon = false;
             this.dgProveedor.ShowRowErrors = false;
-            this.dgProveedor.Size = new System.Drawing.Size(324, 142);
+            this.dgProveedor.Size = new System.Drawing.Size(324, 87);
             this.dgProveedor.TabIndex = 14;
             this.dgProveedor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgProveedor_CellMouseClick);
             // 
@@ -239,7 +241,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(3, 169);
+            this.label3.Location = new System.Drawing.Point(3, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 20);
             this.label3.TabIndex = 4;
@@ -280,7 +282,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(3, 411);
+            this.label8.Location = new System.Drawing.Point(3, 356);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 20);
             this.label8.TabIndex = 13;
@@ -291,7 +293,7 @@
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
             this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productoDetalleViewModelBindingSource, "Habilitado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBox2.Location = new System.Drawing.Point(103, 414);
+            this.checkBox2.Location = new System.Drawing.Point(103, 359);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(324, 14);
             this.checkBox2.TabIndex = 7;
@@ -302,7 +304,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label10.Location = new System.Drawing.Point(3, 376);
+            this.label10.Location = new System.Drawing.Point(3, 321);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 20);
             this.label10.TabIndex = 11;
@@ -313,7 +315,7 @@
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "Precio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox6.Location = new System.Drawing.Point(103, 373);
+            this.textBox6.Location = new System.Drawing.Point(103, 318);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(324, 26);
             this.textBox6.TabIndex = 6;
@@ -323,7 +325,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(3, 341);
+            this.label5.Location = new System.Drawing.Point(3, 286);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 0;
@@ -334,7 +336,7 @@
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "Costo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox5.Location = new System.Drawing.Point(103, 338);
+            this.textBox5.Location = new System.Drawing.Point(103, 283);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(324, 26);
             this.textBox5.TabIndex = 5;
@@ -344,7 +346,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label9.Location = new System.Drawing.Point(3, 306);
+            this.label9.Location = new System.Drawing.Point(3, 251);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 20);
             this.label9.TabIndex = 8;
@@ -355,7 +357,7 @@
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productoDetalleViewModelBindingSource, "Suelto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBox1.Location = new System.Drawing.Point(103, 309);
+            this.checkBox1.Location = new System.Drawing.Point(103, 254);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(324, 14);
             this.checkBox1.TabIndex = 4;
@@ -364,12 +366,12 @@
             // btnAgregarProveedor
             // 
             this.btnAgregarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAgregarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarProveedor.Image = global::FormUI.Properties.Resources.btn_agregar_241;
             this.btnAgregarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(253, 256);
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(322, 201);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
-            this.btnAgregarProveedor.Size = new System.Drawing.Size(174, 40);
+            this.btnAgregarProveedor.Size = new System.Drawing.Size(105, 40);
             this.btnAgregarProveedor.TabIndex = 15;
             this.btnAgregarProveedor.Text = "Agregar Proveedor";
             this.btnAgregarProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -387,7 +389,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(445, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(424, 132);
+            this.groupBox2.Size = new System.Drawing.Size(424, 91);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Stock";
@@ -411,7 +413,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(418, 107);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(418, 66);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // textBox7
@@ -419,7 +421,7 @@
             this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "StockActual", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox7.Location = new System.Drawing.Point(103, 75);
+            this.textBox7.Location = new System.Drawing.Point(103, 74);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(312, 26);
             this.textBox7.TabIndex = 2;
@@ -471,7 +473,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label11.Location = new System.Drawing.Point(3, 78);
+            this.label11.Location = new System.Drawing.Point(3, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 20);
             this.label11.TabIndex = 6;
@@ -512,62 +514,32 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.groupBox2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.groupBox3, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 1, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.09615F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.90385F));
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.39743F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.0241F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.60241F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(884, 470);
             this.tableLayoutPanel3.TabIndex = 4;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Controls.Add(this.btnEtiquetaGondola, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnNuevo, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnCancelar, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(537, 421);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 46);
-            this.tableLayoutPanel5.TabIndex = 5;
-            // 
-            // btnEtiquetaGondola
-            // 
-            this.btnEtiquetaGondola.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnEtiquetaGondola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEtiquetaGondola.Image = global::FormUI.Properties.Resources.icono_imprimir;
-            this.btnEtiquetaGondola.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEtiquetaGondola.Location = new System.Drawing.Point(6, 3);
-            this.btnEtiquetaGondola.Name = "btnEtiquetaGondola";
-            this.btnEtiquetaGondola.Size = new System.Drawing.Size(105, 40);
-            this.btnEtiquetaGondola.TabIndex = 2;
-            this.btnEtiquetaGondola.Text = "Etiqueta Góndola";
-            this.btnEtiquetaGondola.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEtiquetaGondola.UseVisualStyleBackColor = true;
-            this.btnEtiquetaGondola.Click += new System.EventHandler(this.btnEtiquetaGondola_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel4);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(445, 149);
+            this.groupBox3.Location = new System.Drawing.Point(445, 100);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(424, 101);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Datos Actualización";
+            this.groupBox3.Text = "Ultima Actualización";
             // 
             // tableLayoutPanel4
             // 
@@ -632,6 +604,49 @@
             this.textBox10.Size = new System.Drawing.Size(312, 26);
             this.textBox10.TabIndex = 1;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.Controls.Add(this.btnEtiquetaGondola, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnNuevo, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnCancelar, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(537, 421);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 46);
+            this.tableLayoutPanel5.TabIndex = 5;
+            // 
+            // btnEtiquetaGondola
+            // 
+            this.btnEtiquetaGondola.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEtiquetaGondola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEtiquetaGondola.Image = global::FormUI.Properties.Resources.icono_imprimir;
+            this.btnEtiquetaGondola.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEtiquetaGondola.Location = new System.Drawing.Point(6, 3);
+            this.btnEtiquetaGondola.Name = "btnEtiquetaGondola";
+            this.btnEtiquetaGondola.Size = new System.Drawing.Size(105, 40);
+            this.btnEtiquetaGondola.TabIndex = 2;
+            this.btnEtiquetaGondola.Text = "Etiqueta Góndola";
+            this.btnEtiquetaGondola.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEtiquetaGondola.UseVisualStyleBackColor = true;
+            this.btnEtiquetaGondola.Click += new System.EventHandler(this.btnEtiquetaGondola_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox1.Location = new System.Drawing.Point(462, 230);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(402, 159);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            // 
             // ProductoDetalleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -656,10 +671,11 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -712,5 +728,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn razonSocialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.Button btnEtiquetaGondola;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

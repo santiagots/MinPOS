@@ -4,6 +4,7 @@ using System;
 using System.Windows.Forms;
 using FormUI.Properties;
 using FormUI.Enum;
+using FormUI.Imprimir.Documento;
 
 namespace FormUI.Formularios.Producto
 {
@@ -70,6 +71,13 @@ namespace FormUI.Formularios.Producto
                         productoDetalleViewModel.QuitarProveedor(proveedor);
                 }
             });
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Modelo.Producto producto = new Modelo.Producto(productoDetalleViewModel.Id, productoDetalleViewModel.Codigo, productoDetalleViewModel.Descripcion, productoDetalleViewModel.CategoriaSeleccionada.Key, productoDetalleViewModel.Proveedores, productoDetalleViewModel.Suelto, productoDetalleViewModel.Costo, productoDetalleViewModel.Precio, productoDetalleViewModel.Habilitado, productoDetalleViewModel.StockMinimo, productoDetalleViewModel.StockOptimo, productoDetalleViewModel.StockActual, null);
+            EtiquetaGondola etiquetaGondola = new EtiquetaGondola(producto);
+            etiquetaGondola.Imprimir(e.ClipRectangle, e.Graphics);
         }
     }
 }

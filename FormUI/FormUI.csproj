@@ -48,12 +48,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>cinderella.ico</ApplicationIcon>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="BarcodeStandard, Version=2.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.2.2.5\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -95,6 +101,12 @@
     <Compile Include="Formularios\Common\CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Common\SplashScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Common\SplashScreenForm.Designer.cs">
+      <DependentUpon>SplashScreenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Producto\CategoriaDetalleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +142,9 @@
     <Compile Include="Formularios\Saldo\CierreCajaListado.Designer.cs">
       <DependentUpon>CierreCajaListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Usuario\LogInViewModel.cs" />
+    <Compile Include="Formularios\Usuario\UsuarioDetalleViewModel.cs" />
+    <Compile Include="Formularios\Usuario\UsuarioListadoViewModel.cs" />
     <Compile Include="Formularios\Venta\CobroForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +272,14 @@
     <Compile Include="Formularios\Venta\VueltoForm.Designer.cs">
       <DependentUpon>VueltoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Imprimir\Documento\DocumentoBase.cs" />
+    <Compile Include="Imprimir\Documento\Elemento\Elemento.cs" />
+    <Compile Include="Imprimir\Documento\Elemento\Imagen.cs" />
+    <Compile Include="Imprimir\Documento\Elemento\Linea.cs" />
+    <Compile Include="Imprimir\Documento\Elemento\Texto.cs" />
+    <Compile Include="Imprimir\Documento\EtiquetaGondola.cs" />
+    <Compile Include="Imprimir\Documento\Ticket.cs" />
+    <Compile Include="Imprimir\Impresora.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Formularios\Venta\VentaForm.cs">
@@ -276,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Common\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Common\SplashScreenForm.resx">
+      <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Producto\CategoriaDetalleForm.resx">
       <DependentUpon>CategoriaDetalleForm.cs</DependentUpon>
@@ -373,6 +399,9 @@
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorBusquedaViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorListadoViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Usuario.LogInViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Usuario.UsuarioDetalleViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Usuario.UsuarioListadoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.CobroViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.ProductoSueltoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.VentaDetalleViewModel.datasource" />
@@ -466,9 +495,9 @@
       <Project>{F3385D32-8FFC-434B-8311-04313CCFDE33}</Project>
       <Name>Common.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dispositivos\Dispositivos.csproj">
-      <Project>{199f4d7b-9180-4553-9128-cf2d034e272f}</Project>
-      <Name>Dispositivos</Name>
+    <ProjectReference Include="..\Common\Common.Data\Common.Data.csproj">
+      <Project>{44C3C3E7-4D20-43B0-8996-3A638C40663C}</Project>
+      <Name>Common.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gasto\Gasto.Core\Gasto.Core.csproj">
       <Project>{575a8e4d-fa64-436c-aa83-5da7078cfd27}</Project>
@@ -540,7 +569,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cinderella.ico" />
     <Content Include="DB\MiniPOS.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -549,6 +577,8 @@
       <DependentUpon>MiniPOS.mdf</DependentUpon>
     </Content>
     <Content Include="DB\Scripts\V0.0.0.1.sql" />
+    <Content Include="logo.ico" />
+    <None Include="Imagenes\MiniPos.png" />
     <None Include="Imagenes\icono_imprimir.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

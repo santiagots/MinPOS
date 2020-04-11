@@ -1,5 +1,7 @@
 ﻿using BarcodeLib;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using Modelo = Producto.Core.Model;
 
 namespace Dispositivos.Documento
@@ -20,10 +22,13 @@ namespace Dispositivos.Documento
             Texto precio = new Texto(producto.Precio.ToString("c2"), StringAlignment.Center);
             AgregarLinea(Cabecera1, precio);
 
+            AgregarLineaBlanco(cuerpo1);
+
             if (!producto.Suelto)
             {
                 Barcode b = new Barcode();
-                Image img = b.Encode(TYPE.EAN13, producto.Codigo, Color.Black, Color.White, 290, 120);
+                Image img = b.Encode(TYPE.EAN13, producto.Codigo, Color.Black, Color.White, 217, 35);
+                AgregarImagen(img);
 
                 Texto codigo = new Texto(producto.Codigo, StringAlignment.Center);
                 AgregarLinea(cuerpo1, codigo);

@@ -1,4 +1,5 @@
 ﻿using FormUI.Componentes;
+using FormUI.Formularios.Common;
 using FormUI.Formularios.Usuario;
 using System;
 using System.Globalization;
@@ -15,9 +16,6 @@ namespace FormUI
         static void Main()
         {
             ConfigurarCultura();
-
-            //TODO:Mover esto splashScreen!!
-            BaseDatos.Inicializar("MiniPOS");            
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -7,24 +7,40 @@ namespace Dispositivos.Documento
     {
         public readonly List<Linea> Lineas = new List<Linea>();
 
-        public void AgregarLinea(Font fuente, params Texto[] textos)
+        internal void AgregarLinea(Font fuente, params Texto[] textos)
         {
             Linea linea = new Linea(fuente, textos);
             Lineas.Add(linea);
         }
 
-        public void AgregarLineaSeparador(Font fuente, string separador)
+        internal void AgregarLineaSeparador(Font fuente, string separador)
         {
             Texto texto = new Texto(separador, StringAlignment.Near);
             Linea linea = new Linea(fuente, texto);
             Lineas.Add(linea);
         }
 
-        public void AgregarLineaBlanco(Font fuente)
+        internal void AgregarLineaBlanco(Font fuente)
         {
             Texto texto = new Texto(" ", StringAlignment.Near);
             Linea linea = new Linea(fuente, texto);
             Lineas.Add(linea);
+        }
+
+        internal void AgregarImagen(Image image)
+        {
+            Imagen imagen = new Imagen(image);
+            Linea linea = new Linea(null, imagen);
+            Lineas.Add(linea);
+        }
+
+        public void Imprimir(Rectangle areaImpresion, Graphics graphics)
+        {
+            int offset = 0;
+            foreach (Linea linea in Lineas)
+            {
+                offset += linea.Imprimir(areaImpresion, graphics, offset);
+            }
         }
     }
 }

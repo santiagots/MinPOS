@@ -8,7 +8,7 @@ namespace FormUI.Componentes
     {
         private static string[] ExtencionesBaseDatos = { ".mdf", "_log.ldf" };
 
-        public static void Inicializar(string NombreBaseDatos)
+        public static void InstalarEnCarpetaLocal(string NombreBaseDatos)
         {
             CopiarBaseDatosEnAppData(NombreBaseDatos);
             DefinirDataDirectory();
@@ -16,7 +16,6 @@ namespace FormUI.Componentes
 
         private static void CopiarBaseDatosEnAppData(string NombreBaseDatos)
         {
-
             if (!Directory.Exists(ObtenerRutaDestinoBaseDatos()))
                 Directory.CreateDirectory(ObtenerRutaDestinoBaseDatos());
 

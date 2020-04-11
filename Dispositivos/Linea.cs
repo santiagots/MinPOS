@@ -6,34 +6,29 @@ namespace Dispositivos
 {
     public class Linea
     {
-        private static readonly int MaximoCaracteresPorLinea = 36;
-
-        public Texto[] Textos { get; }
+        public Elemento[] Elementos { get; }
         public Font Fuente { get; }
 
-        public Linea(Font fuente, params Texto[] textos)
+        public Linea(Font fuente, params Elemento[] elementos)
         {
-            Textos = textos;
+            this.Elementos = elementos;
             Fuente = fuente;
         }
 
-        internal int Imprimir(Rectangle areaImpresion, Graphics graphics, int yOffset)
+        public int Imprimir(Rectangle areaImpresion, Graphics graphics, int yOffset)
         {
-            SolidBrush sb = new SolidBrush(Color.Black);
-            int xOffset = 0;
-            
+            int xOffset = 0;           
             int altoAreaImpresion = CalcularAltoAreaImpresion(areaImpresion, graphics);
 
-            foreach (Texto texto in Textos)
+            foreach (Elemento elemento in Elementos)
             {
-                int anchoAreaImpresion = CalcularAnchoAreaImpresion(areaImpresion, texto);
-                Rectangle rect = new Rectangle(xOffset, yOffset, anchoAreaImpresion, altoAreaImpresion);
+                int anchoAreaImpresion = elemento.AnchoImpresion(areaImpresion);
+                Rectangle areaImpresionElementos = new Rectangle(xOffset, yOffset, anchoAreaImpresion, altoAreaImpresion);
 
-                graphics.DrawString(texto.Valor, Fuente, sb, rect, texto.Alineacion);
-
+                elemento.Dibujar(graphics, areaImpresionElementos, areaImpresion, Fuente);
+               
                 xOffset += anchoAreaImpresion;
             }
-
             return altoAreaImpresion;
         }
 
@@ -44,18 +39,10 @@ namespace Dispositivos
 
         private int CalcularAltoAreaImpresion(Rectangle areaImpresion, Graphics graphics)
         {
-            int AltoAreaImpresionMaxima = 0;
-            foreach (Texto texto in Textos)
-            {
-                int anchoAreaImpresion = CalcularAnchoAreaImpresion(areaImpresion, texto);
-                float anchoLinealDelTexto = graphics.MeasureString(texto.Valor, Fuente).Width;
-                int renglones = (int)Math.Ceiling(anchoLinealDelTexto / anchoAreaImpresion);
-                int AltoAreaImpresion = Fuente.Height* renglones;
-
-                if (AltoAreaImpresion > AltoAreaImpresionMaxima)
-                    AltoAreaImpresionMaxima = AltoAreaImpresion;
-            }
-            return AltoAreaImpresionMaxima;
+            return Elementos
+                .Select(x => x.AltoImpresion(graphics, areaImpresion, Fuente))
+                .ToList()
+                .Max();
         }
     }
 }

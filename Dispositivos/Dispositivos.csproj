@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Documento\DocumentoBase.cs" />
     <Compile Include="Documento\EtiquetaGondola.cs" />
+    <Compile Include="Elemento.cs" />
     <Compile Include="Imagen.cs" />
     <Compile Include="Documento\Ticket.cs" />
     <Compile Include="Impresora.cs" />

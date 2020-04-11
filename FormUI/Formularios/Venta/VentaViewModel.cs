@@ -1,8 +1,8 @@
 ﻿using Common.Core.Exception;
 using Dispositivos;
-using Dispositivos.Documento;
 using FormUI.Componentes;
 using FormUI.Formularios.Common;
+using FormUI.Imprimir.Documento;
 using FormUI.Properties;
 using System;
 using System.Collections.Generic;

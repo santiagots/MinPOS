@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dispositivos
 {
-    public class Texto
+    public class Texto: Elemento
     {
         public string Valor { get; }
         public StringFormat Alineacion { get; }
@@ -31,6 +31,25 @@ namespace Dispositivos
 
         public Texto(string valor, StringAlignment alineacion): this(valor, alineacion, 1)
         {
+        }
+
+        public override int AnchoImpresion(Rectangle areaImpresion)
+        {
+            return Convert.ToInt32(areaImpresion.Width * PorcentajeImpresion);
+        }
+
+        public override int AltoImpresion(Graphics graphics, Rectangle areaImpresion, Font fuente)
+        {
+            int ancho = AnchoImpresion(areaImpresion);
+            float anchoLinealDelTexto = graphics.MeasureString(Valor, fuente).Width;
+            int renglones = (int)Math.Ceiling(anchoLinealDelTexto / ancho);
+            return fuente.Height * renglones;
+        }
+
+        public override void Dibujar(Graphics graphics, Rectangle areaImpresionElemento, Rectangle areaImpresion, Font fuente)
+        {
+            SolidBrush sb = new SolidBrush(Color.Black);
+            graphics.DrawString(Valor, fuente, sb, areaImpresionElemento, Alineacion);
         }
     }
 }

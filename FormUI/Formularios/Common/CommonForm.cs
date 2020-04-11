@@ -97,5 +97,10 @@ namespace FormUI.Formularios.Common
                 this.UseWaitCursor = false;
             }
         }
+
+        private void CommonForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

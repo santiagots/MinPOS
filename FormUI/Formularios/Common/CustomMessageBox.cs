@@ -120,11 +120,11 @@ namespace FormUI.Formularios.Common
             boton.Anchor = ancla;
             boton.AutoSize = true;
             boton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            boton.MinimumSize = new Size(75, 25);
             boton.Font = fuente;
             boton.Text = texto;
             boton.UseVisualStyleBackColor = true;
             boton.Click += onClick;
-
             if (esDefaultButton)
                 DefaultBoton = boton;
 

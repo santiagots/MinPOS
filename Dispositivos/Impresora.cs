@@ -42,11 +42,7 @@ namespace Dispositivos
         }
         void ImprimirPagina(object sender, PrintPageEventArgs e)
         {
-            int offset = 0;
-            foreach (Linea linea in Documento.Lineas)
-            {
-                offset += linea.Imprimir(e.PageBounds, e.Graphics, offset);
-            }
+            Documento.Imprimir(e.PageBounds, e.Graphics);
         }
     }
 }

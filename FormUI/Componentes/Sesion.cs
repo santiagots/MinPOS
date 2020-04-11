@@ -1,4 +1,4 @@
-﻿using Common.Core.Model.UsuarioAgreggate;
+﻿using Common.Core.Model;
 
 namespace FormUI.Componentes
 {

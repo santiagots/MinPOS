@@ -8,8 +8,8 @@ using FormUI.Componentes;
 using System;
 using FormUI.Properties;
 using System.Windows.Forms;
-using Dispositivos.Documento;
 using Dispositivos;
+using FormUI.Imprimir.Documento;
 
 namespace FormUI.Formularios.Producto
 {
