@@ -73,11 +73,19 @@ namespace FormUI.Formularios.Producto
             });
         }
 
+        private void chkSuelto_CheckedChanged(object sender, EventArgs e)
+        {
+            Ejecutar(() => productoDetalleViewModel.CambiarTipoEmpaque());
+        }
+
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            Modelo.Producto producto = new Modelo.Producto(productoDetalleViewModel.Id, productoDetalleViewModel.Codigo, productoDetalleViewModel.Descripcion, productoDetalleViewModel.CategoriaSeleccionada.Key, productoDetalleViewModel.Proveedores, productoDetalleViewModel.Suelto, productoDetalleViewModel.Costo, productoDetalleViewModel.Precio, productoDetalleViewModel.Habilitado, productoDetalleViewModel.StockMinimo, productoDetalleViewModel.StockOptimo, productoDetalleViewModel.StockActual, null);
-            EtiquetaGondola etiquetaGondola = new EtiquetaGondola(producto);
-            etiquetaGondola.Imprimir(e.ClipRectangle, e.Graphics);
+            Ejecutar(() =>
+            {
+                Modelo.Producto producto = new Modelo.Producto(productoDetalleViewModel.Id, productoDetalleViewModel.Codigo, productoDetalleViewModel.Descripcion, productoDetalleViewModel.CategoriaSeleccionada.Key, productoDetalleViewModel.Proveedores, productoDetalleViewModel.Suelto, productoDetalleViewModel.Costo, productoDetalleViewModel.Precio, productoDetalleViewModel.Habilitado, productoDetalleViewModel.StockMinimo, productoDetalleViewModel.StockOptimo, productoDetalleViewModel.StockActual, null);
+                EtiquetaGondola etiquetaGondola = new EtiquetaGondola(producto);
+                etiquetaGondola.Imprimir(e.ClipRectangle, e.Graphics);
+            });
         }
     }
 }

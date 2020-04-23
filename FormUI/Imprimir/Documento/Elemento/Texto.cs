@@ -40,10 +40,16 @@ namespace FormUI.Imprimir.Documento.Elemento
 
         public override int AltoImpresion(Graphics graphics, Rectangle areaImpresion, Font fuente)
         {
-            int ancho = AnchoImpresion(areaImpresion);
-            float anchoLinealDelTexto = graphics.MeasureString(Valor, fuente).Width;
-            int renglones = (int)Math.Ceiling(anchoLinealDelTexto / ancho);
-            return fuente.Height * renglones;
+            if (string.IsNullOrWhiteSpace(Valor))
+                return fuente.Height;
+            else
+            {
+                int ancho = AnchoImpresion(areaImpresion);
+                float anchoLinealDelTexto = graphics.MeasureString(Valor, fuente).Width;
+
+                int renglones = (int)Math.Ceiling(anchoLinealDelTexto / ancho);
+                return fuente.Height * renglones;
+            }
         }
 
         public override void Dibujar(Graphics graphics, Rectangle areaImpresionElemento, Rectangle areaImpresion, Font fuente)

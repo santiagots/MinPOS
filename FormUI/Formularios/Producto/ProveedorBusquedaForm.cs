@@ -29,6 +29,12 @@ namespace FormUI.Formularios.Producto
             });
         }
 
+        private void dgProveedor_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Proveedro = (Proveedor)dgProveedor.CurrentRow.DataBoundItem;
+            DialogResult = DialogResult.OK;
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Proveedro = (Proveedor)dgProveedor.CurrentRow.DataBoundItem;

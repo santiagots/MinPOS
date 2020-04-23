@@ -42,11 +42,11 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgCategoria = new System.Windows.Forms.DataGridView();
+            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitadaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.habilitadaDataGridViewCheckBoxColumn = new FormUI.Componentes.DataGridViewSiNoCellColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaListadoViewModelBindingSource)).BeginInit();
@@ -213,6 +213,11 @@
             this.dgCategoria.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgCategoria_CellMouseClick);
             this.dgCategoria.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgCategoria_CellMouseDoubleClick);
             // 
+            // categoriasBindingSource
+            // 
+            this.categoriasBindingSource.DataMember = "Categorias";
+            this.categoriasBindingSource.DataSource = this.categoriaListadoViewModelBindingSource;
+            // 
             // descripcionDataGridViewTextBoxColumn
             // 
             this.descripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -228,6 +233,7 @@
             this.habilitadaDataGridViewCheckBoxColumn.HeaderText = "Habilitada";
             this.habilitadaDataGridViewCheckBoxColumn.Name = "habilitadaDataGridViewCheckBoxColumn";
             this.habilitadaDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.habilitadaDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.habilitadaDataGridViewCheckBoxColumn.Width = 78;
             // 
             // Editar
@@ -245,11 +251,6 @@
             this.Eliminar.Image = global::FormUI.Properties.Resources.btn_eliminar;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Width = 5;
-            // 
-            // categoriasBindingSource
-            // 
-            this.categoriasBindingSource.DataMember = "Categorias";
-            this.categoriasBindingSource.DataSource = this.categoriaListadoViewModelBindingSource;
             // 
             // CategoriaListadoForm
             // 
@@ -286,7 +287,7 @@
         private System.Windows.Forms.BindingSource categoriaListadoViewModelBindingSource;
         private System.Windows.Forms.BindingSource categoriasBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn habilitadaDataGridViewCheckBoxColumn;
+        private Componentes.DataGridViewSiNoCellColumn habilitadaDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }

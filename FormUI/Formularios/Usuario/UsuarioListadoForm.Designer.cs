@@ -45,14 +45,14 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.habilitadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgUsuario = new System.Windows.Forms.DataGridView();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aliasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.habilitadoDataGridViewCheckBoxColumn = new FormUI.Componentes.DataGridViewSiNoCellColumn();
             this.fechaUltimoAccesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioListadoViewModelBindingSource)).BeginInit();
@@ -254,6 +254,11 @@
             this.dgUsuario.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgUsuario_CellMouseClick);
             this.dgUsuario.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgUsuario_CellMouseDoubleClick);
             // 
+            // usuariosBindingSource
+            // 
+            this.usuariosBindingSource.DataMember = "Usuarios";
+            this.usuariosBindingSource.DataSource = this.usuarioListadoViewModelBindingSource;
+            // 
             // aliasDataGridViewTextBoxColumn
             // 
             this.aliasDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -285,6 +290,7 @@
             this.habilitadoDataGridViewCheckBoxColumn.HeaderText = "Habilitado";
             this.habilitadoDataGridViewCheckBoxColumn.Name = "habilitadoDataGridViewCheckBoxColumn";
             this.habilitadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.habilitadoDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.habilitadoDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.habilitadoDataGridViewCheckBoxColumn.Width = 98;
             // 
@@ -312,11 +318,6 @@
             this.Eliminar.Image = global::FormUI.Properties.Resources.btn_eliminar;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Width = 5;
-            // 
-            // usuariosBindingSource
-            // 
-            this.usuariosBindingSource.DataMember = "Usuarios";
-            this.usuariosBindingSource.DataSource = this.usuarioListadoViewModelBindingSource;
             // 
             // UsuarioListadoForm
             // 
@@ -359,7 +360,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aliasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn habilitadoDataGridViewCheckBoxColumn;
+        private Componentes.DataGridViewSiNoCellColumn habilitadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaUltimoAccesoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;

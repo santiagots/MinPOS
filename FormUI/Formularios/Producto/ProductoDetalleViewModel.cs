@@ -15,25 +15,40 @@ namespace FormUI.Formularios.Producto
 {
     class ProductoDetalleViewModel : CommonViewModel
     {
+
+        private int StockMinimoAuxiliar = 0;
+        private int StockOptimoAuxiliar = 0;
+        private int StockActualAuxiliar = 0;
+        private decimal PrecioAuxiliar = 0;
+
         public int Id { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
         public KeyValuePair<Modelo.Categoria, string> CategoriaSeleccionada { get; set; }
         public List<KeyValuePair<Modelo.Categoria, string>> Categorias { get; set; } = new List<KeyValuePair<Modelo.Categoria, string>>();
         public List<Modelo.Proveedor> Proveedores { get; set; } = new List<Modelo.Proveedor>();
-        public bool Suelto { get; set; }
+        private bool _Suelto;
+        public bool Suelto
+        {
+            get { return _Suelto; }
+            set
+            {
+                _Suelto = value;
+                NotifyPropertyChanged(nameof(Suelto));
+            }
+        }
         public decimal Costo { get; set; }
         public decimal Precio { get; set; }
         public bool Habilitado { get; set; } = true;
-        public int  StockMinimo { get; set; }
+        public int StockMinimo { get; set; }
         public int StockOptimo { get; set; }
         public int StockActual { get; set; }
+        public bool Empaquetado => !Suelto;
         public string UsuarioActualizacion { get; set; } = Sesion.Usuario.Alias;
         public DateTime FechaActualizacion { get; set; } = DateTime.Now;
 
-
-        public ProductoDetalleViewModel() 
-        { 
+        public ProductoDetalleViewModel()
+        {
         }
 
         public ProductoDetalleViewModel(Modelo.Producto producto)
@@ -52,6 +67,11 @@ namespace FormUI.Formularios.Producto
             UsuarioActualizacion = producto.UsuarioActualizacion;
             FechaActualizacion = producto.FechaActualizacion;
 
+            StockMinimoAuxiliar = StockMinimo;
+            StockOptimoAuxiliar = StockOptimo;
+            StockActualAuxiliar = StockActual;
+            PrecioAuxiliar = Precio;
+
             if (producto.Categoria != null)
                 CategoriaSeleccionada = new KeyValuePair<Modelo.Categoria, string>(producto.Categoria, producto.Categoria.Descripcion);
         }
@@ -64,12 +84,6 @@ namespace FormUI.Formularios.Producto
                 Proveedores.Add(proveedorBusquedaForm.Proveedro);
                 NotifyPropertyChanged(nameof(Proveedores));
             }
-        }
-
-        internal void QuitarProveedor(Modelo.Proveedor proveedor)
-        {
-            Proveedores.Remove(proveedor);
-            NotifyPropertyChanged(nameof(Proveedores));
         }
 
         internal async Task CargarAsync()
@@ -86,6 +100,33 @@ namespace FormUI.Formularios.Producto
             NotifyPropertyChanged(nameof(Categorias));
         }
 
+        internal void CambiarTipoEmpaque()
+        {
+            if (Suelto)
+            {
+                StockMinimoAuxiliar = StockMinimo;
+                StockOptimoAuxiliar = StockOptimo;
+                StockActualAuxiliar = StockActual;
+                PrecioAuxiliar = Precio;
+
+                StockMinimo = 0;
+                StockOptimo = 0;
+                StockActual = 0;
+                Precio = 0;
+            }
+            else
+            {
+                StockMinimo = StockMinimoAuxiliar;
+                StockOptimo = StockOptimoAuxiliar;
+                StockActual = StockActualAuxiliar;
+                Precio = PrecioAuxiliar;
+            }
+            NotifyPropertyChanged(nameof(StockMinimo));
+            NotifyPropertyChanged(nameof(StockOptimo));
+            NotifyPropertyChanged(nameof(StockActual));
+            NotifyPropertyChanged(nameof(Precio));
+        }
+
         internal async Task GuardarAsync()
         {
             Modelo.Producto producto = new Modelo.Producto(Id, Codigo, Descripcion, CategoriaSeleccionada.Key, Proveedores, Suelto, Costo, Precio, Habilitado, StockMinimo, StockOptimo, StockActual, Sesion.Usuario.Alias);
@@ -99,6 +140,12 @@ namespace FormUI.Formularios.Producto
 
             Impresora impresora = new Impresora(Settings.Default.ImpresoraNombre, etiquetaGondola);
             impresora.Imprimir();
+        }
+
+        internal void QuitarProveedor(Modelo.Proveedor proveedor)
+        {
+            Proveedores.Remove(proveedor);
+            NotifyPropertyChanged(nameof(Proveedores));
         }
     }
 }

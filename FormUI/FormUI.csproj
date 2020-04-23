@@ -76,6 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Componentes\BaseDatos.cs" />
+    <Compile Include="Componentes\DataGridViewRolloverCellColumn.cs" />
+    <Compile Include="Componentes\DataGridViewSiNoCell.cs" />
     <Compile Include="Controles\AutoCompleteTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

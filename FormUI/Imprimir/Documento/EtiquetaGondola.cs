@@ -7,8 +7,8 @@ namespace FormUI.Imprimir.Documento
 {
     public class EtiquetaGondola : DocumentoBase
     {
-        public static readonly Font Cabecera1 = new Font("Courier New", 20, FontStyle.Bold);
-        public static readonly Font Cabecera2 = new Font("Courier New", 14);
+        public static readonly Font Cabecera1 = new Font("Courier New", 22, FontStyle.Bold);
+        public static readonly Font Cabecera2 = new Font("Courier New", 14, FontStyle.Bold);
         public static readonly Font Cabecera2Negrita = new Font("Courier New", 11, FontStyle.Bold);
         public static readonly Font cuerpo1 = new Font("Courier New", 9);
         public static readonly Font cuerpo1Negrita = new Font("Courier New", 9, FontStyle.Bold);
@@ -23,14 +23,12 @@ namespace FormUI.Imprimir.Documento
 
             AgregarLineaBlanco(cuerpo1);
 
-            if (!producto.Suelto)
+            if (!producto.Suelto && long.TryParse(producto.Codigo, out _))
             {
-                Barcode b = new Barcode();
-                Image img = b.Encode(TYPE.EAN13, producto.Codigo, Color.Black, Color.White, 217, 35);
+                Barcode barcode = new Barcode();
+                barcode.IncludeLabel = true;
+                Image img = barcode.Encode(TYPE.EAN13, producto.Codigo, Color.Black, Color.White, 190, 60);
                 AgregarImagen(img);
-
-                Texto codigo = new Texto(producto.Codigo, StringAlignment.Center);
-                AgregarLinea(cuerpo1, codigo);
             }
         }
     }
