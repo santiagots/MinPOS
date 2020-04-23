@@ -190,6 +190,16 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cargando {
+            get {
+                object obj = ResourceManager.GetObject("cargando", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Seleccione una opción.
         /// </summary>
         internal static string comboSeleccionarOpcion {
@@ -327,9 +337,9 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Menu {
+        internal static System.Drawing.Bitmap Logo2 {
             get {
-                object obj = ResourceManager.GetObject("Menu", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -337,9 +347,9 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MiniPos {
+        internal static System.Drawing.Bitmap Menu {
             get {
-                object obj = ResourceManager.GetObject("MiniPos", resourceCulture);
+                object obj = ResourceManager.GetObject("Menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

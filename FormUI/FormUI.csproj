@@ -87,6 +87,12 @@
     <Compile Include="Controles\Paginado.Designer.cs">
       <DependentUpon>Paginado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\SiNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\SiNo.Designer.cs">
+      <DependentUpon>SiNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enum\CustomMessageBoxIcon.cs" />
     <Compile Include="Formularios\Common\CommonForm.cs">
       <SubType>Form</SubType>
@@ -293,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\Paginado.resx">
       <DependentUpon>Paginado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\SiNo.resx">
+      <DependentUpon>SiNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Common\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
@@ -577,6 +586,8 @@
       <DependentUpon>MiniPOS.mdf</DependentUpon>
     </Content>
     <Content Include="DB\Scripts\V0.0.0.1.sql" />
+    <None Include="Imagenes\Logo2.png" />
+    <None Include="Imagenes\cargando.gif" />
     <Content Include="logo.ico" />
     <None Include="Imagenes\MiniPos.png" />
     <None Include="Imagenes\icono_imprimir.gif" />

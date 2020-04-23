@@ -30,29 +30,44 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreenForm));
             this.lblVersion = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblVersion
             // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.BackColor = System.Drawing.Color.White;
-            this.lblVersion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(12, 390);
+            this.lblVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(130)))), ((int)(((byte)(32)))));
+            this.lblVersion.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.ForeColor = System.Drawing.Color.White;
+            this.lblVersion.Location = new System.Drawing.Point(25, 282);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(56, 20);
+            this.lblVersion.Size = new System.Drawing.Size(395, 31);
             this.lblVersion.TabIndex = 0;
             this.lblVersion.Text = "Ver. 1.0";
+            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // progressBar
+            // pictureBox1
             // 
-            this.progressBar.Location = new System.Drawing.Point(12, 413);
-            this.progressBar.MarqueeAnimationSpeed = 25;
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(419, 18);
-            this.progressBar.Step = 20;
-            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar.TabIndex = 1;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::FormUI.Properties.Resources.Logo2;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(443, 443);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::FormUI.Properties.Resources.cargando;
+            this.pictureBox2.Location = new System.Drawing.Point(171, 328);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
             // 
             // SplashScreenForm
             // 
@@ -60,8 +75,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(443, 443);
-            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblVersion);
+            this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -69,14 +85,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SplashScreenForm";
             this.Load += new System.EventHandler(this.SplashScreenForm_LoadAsync);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label lblVersion;
-        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
