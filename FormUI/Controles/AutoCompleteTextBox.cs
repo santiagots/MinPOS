@@ -21,11 +21,10 @@ namespace FormUI.Controles
         {
             this.KeyDown += this_KeyDown;
             this.KeyUp += this_KeyUp;
-            this.LostFocus += this_LostFocus;
             _listBox = new ListBox();
             _listBox.KeyDown += this_KeyDown;
             _listBox.KeyUp += this_KeyUp;
-            _listBox.Click += _listBox_Click;
+            _listBox.Click += new System.EventHandler(this._listBox_Click);
         }
 
         private void ShowListBox()
@@ -183,6 +182,5 @@ namespace FormUI.Controles
                 return new List<String>(result);
             }
         }
-
     }
 }
