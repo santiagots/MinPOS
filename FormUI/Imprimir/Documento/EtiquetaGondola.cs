@@ -1,4 +1,5 @@
 ﻿using BarcodeLib;
+using Common.Core.Exception;
 using FormUI.Imprimir.Documento.Elemento;
 using System.Drawing;
 using Modelo = Producto.Core.Model;
@@ -25,10 +26,17 @@ namespace FormUI.Imprimir.Documento
 
             if (!producto.Suelto && long.TryParse(producto.Codigo, out _))
             {
-                Barcode barcode = new Barcode();
-                barcode.IncludeLabel = true;
-                Image img = barcode.Encode(TYPE.EAN13, producto.Codigo, Color.Black, Color.White, 190, 60);
-                AgregarImagen(img);
+                try
+                {
+                    Barcode barcode = new Barcode();
+                    barcode.IncludeLabel = true;
+                    Image img = barcode.Encode(TYPE.EAN13, producto.Codigo, Color.Black, Color.White, 190, 60);
+                    AgregarImagen(img);
+                }
+                catch
+                {
+                    throw new NegocioException("Error al generar el código de barras. Verifique que el código del producto este correcto.");
+                }
             }
         }
     }

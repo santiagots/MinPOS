@@ -21,6 +21,7 @@ namespace FormUI.Formularios.Usuario
             EjecutarAsync(async () =>
             {
                 usuarioListadoViewModelBindingSource.DataSource = usuarioListadoViewModel;
+                this.WindowState = FormWindowState.Maximized;
                 await usuarioListadoViewModel.BuscarAsync();
             });
         }

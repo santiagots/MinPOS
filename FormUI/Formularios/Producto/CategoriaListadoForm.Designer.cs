@@ -1,4 +1,6 @@
-﻿namespace FormUI.Formularios.Producto
+﻿using FormUI.Controles;
+
+namespace FormUI.Formularios.Producto
 {
     partial class CategoriaListadoForm
     {
@@ -44,7 +46,7 @@
             this.dgCategoria = new System.Windows.Forms.DataGridView();
             this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitadaDataGridViewCheckBoxColumn = new FormUI.Componentes.DataGridViewSiNoCellColumn();
+            this.habilitadaDataGridViewCheckBoxColumn = new FormUI.Controles.DataGridViewSiNoCellColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
@@ -170,7 +172,7 @@
             this.dgCategoria.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -222,7 +224,7 @@
             // 
             this.descripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -234,7 +236,7 @@
             this.habilitadaDataGridViewCheckBoxColumn.Name = "habilitadaDataGridViewCheckBoxColumn";
             this.habilitadaDataGridViewCheckBoxColumn.ReadOnly = true;
             this.habilitadaDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.habilitadaDataGridViewCheckBoxColumn.Width = 78;
+            this.habilitadaDataGridViewCheckBoxColumn.Width = 86;
             // 
             // Editar
             // 
@@ -287,7 +289,7 @@
         private System.Windows.Forms.BindingSource categoriaListadoViewModelBindingSource;
         private System.Windows.Forms.BindingSource categoriasBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private Componentes.DataGridViewSiNoCellColumn habilitadaDataGridViewCheckBoxColumn;
+        private DataGridViewSiNoCellColumn habilitadaDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }

@@ -1,6 +1,7 @@
 ﻿using Common.Core.Exception;
 using FormUI.Componentes;
 using FormUI.Formularios.Common;
+using FormUI.Formularios.Gasto;
 using FormUI.Properties;
 using Producto.Core.Enum;
 using Producto.Core.Model;
@@ -131,6 +132,9 @@ namespace FormUI.Formularios.Producto
 
         internal async Task IngresarAsync()
         {
+            GastoDetalleForm gastoDetalleForm = new GastoDetalleForm(Total, $"Pago ingreso de mercaderia de proveedor {ProveedorSeleccionado.Value}");
+            gastoDetalleForm.ShowDialog();
+
             Mercaderia mercaderia = new Modelo.Mercaderia(Id, FechaAlta, FechaRecepcion, ProveedorSeleccionado.Key, Mercaderias.Select(x => x.MercaderiaItem).ToList(), Usuario, MercaderiaEstado.Ingresada);
             await Task.WhenAll(MercaderiaService.Guardar(mercaderia),
                                MercaderiaService.Ingresar(mercaderia));

@@ -15,7 +15,6 @@ namespace FormUI.Formularios.Producto
 {
     class ProductoDetalleViewModel : CommonViewModel
     {
-
         private int StockMinimoAuxiliar = 0;
         private int StockOptimoAuxiliar = 0;
         private int StockActualAuxiliar = 0;
@@ -93,7 +92,7 @@ namespace FormUI.Formularios.Producto
 
         internal async Task CargarCategoriaAsync()
         {
-            IList<Modelo.Categoria> categorias = await CategoriaService.Buscar(null);
+            IList<Modelo.Categoria> categorias = await CategoriaService.Buscar(null, true);
             this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Modelo.Categoria, string>(x, x.Descripcion)));
             this.Categorias.Insert(0, new KeyValuePair<Modelo.Categoria, string>(null, Resources.comboSeleccionarOpcion));
 

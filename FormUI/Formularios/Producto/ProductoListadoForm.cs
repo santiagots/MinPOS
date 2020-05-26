@@ -23,6 +23,7 @@ namespace FormUI.Formularios.Producto
             {
                 productoListadoViewModel.ElementosPorPagina = paginado.ElementosPorPagina;
                 productoListadoViewModelBindingSource.DataSource = productoListadoViewModel;
+                this.WindowState = FormWindowState.Maximized;
                 await productoListadoViewModel.CargarAsync();
                 await productoListadoViewModel.BuscarAsync();
             });

@@ -8,7 +8,6 @@ namespace Producto.Core.Validadores
         public CategoriaValidador()
         {
             RuleFor(m => m.Descripcion)
-                .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty()
                 .MaximumLength(50);
         }

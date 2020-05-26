@@ -29,5 +29,15 @@ namespace Venta.Core.Model
         }
 
         public void DisminuirStock() => VentaItems.ToList().ForEach(x => x.DisminuirStock());
+
+        public void Anular(string motivo, string usuario)
+        {
+            VentaItems.ToList().ForEach(x => x.AumentarStock());
+
+            MotivoAnulada = motivo;
+            UsuarioAnulada = usuario;
+            FechaAnulada = DateTime.Now;
+            Anulada = true;
+        }
     }
 }

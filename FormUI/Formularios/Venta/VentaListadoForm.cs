@@ -2,7 +2,6 @@
 using FormUI.Formularios.Common;
 using System;
 using System.Windows.Forms;
-using Model = Venta.Core.Model;
 
 namespace FormUI.Formularios.Venta
 {
@@ -19,8 +18,10 @@ namespace FormUI.Formularios.Venta
             EjecutarAsync(async () =>
             {
                 ventaListadoViewModel.ElementosPorPagina = paginado.ElementosPorPagina;
+                this.WindowState = FormWindowState.Maximized;
                 ventaListadoViewModelBindingSource.DataSource = ventaListadoViewModel;
                 ventaListadoViewModel.CargarFormasDePago();
+                await ventaListadoViewModel.CargarUsuarios();
                 await ventaListadoViewModel.BuscarAsync();
             });
         }
@@ -37,7 +38,6 @@ namespace FormUI.Formularios.Venta
                 if (dgVentas.Columns[e.ColumnIndex].Name == "Editar")
                 {
                     await ventaListadoViewModel.ModificarAsync(ventaListadoItem);
-                    await ventaListadoViewModel.BuscarAsync();
                 }
             });
         }
@@ -51,7 +51,6 @@ namespace FormUI.Formularios.Venta
 
                 VentaListadoItem ventaListadoItem = (VentaListadoItem)dgVentas.CurrentRow.DataBoundItem;
                 await ventaListadoViewModel.ModificarAsync(ventaListadoItem);
-                await ventaListadoViewModel.BuscarAsync();
             });
         }
 
@@ -113,6 +112,8 @@ namespace FormUI.Formularios.Venta
                             ventaListadoViewModel.OrdenadoPor = "Pago.FormaPago"; break;
                         case "Total":
                             ventaListadoViewModel.OrdenadoPor = "Pago.Monto"; break;
+                        case "Usuario Alta":
+                            ventaListadoViewModel.OrdenadoPor = "UsuarioAlta"; break;
                         case "Anulada":
                             ventaListadoViewModel.OrdenadoPor = "Anulada"; break;
                         case "F. Anulación":

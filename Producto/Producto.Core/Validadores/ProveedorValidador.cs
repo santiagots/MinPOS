@@ -8,12 +8,10 @@ namespace Producto.Core.Validadores
         public ProveedorValidador()
         {
             RuleFor(m => m.RazonSocial)
-                .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty()
                 .MaximumLength(50);
 
             RuleFor(m => m.Email)
-                .Cascade(CascadeMode.StopOnFirstFailure)
                 .MaximumLength(50)
                 .EmailAddress();
 

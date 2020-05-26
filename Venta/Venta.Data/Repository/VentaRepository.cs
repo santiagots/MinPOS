@@ -17,16 +17,20 @@ namespace Venta.Data.Repository
         {
         }
 
-        internal Task<List<Model.Venta>> Buscar(DateTime fecha, FormaPago? formaPago, bool? anulado, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
+        internal Task<List<Model.Venta>> Buscar(DateTime fechaDesde, DateTime fechaHasta, FormaPago? formaPago, string usuarioAlta, bool? anulado, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             IQueryable<Model.Venta> venta = _context.Venta
                                                     .Include(x => x.Pago)
-                                                    .Where(x => DbFunctions.TruncateTime(x.FechaAlta).Value == fecha.Date);
+                                                    .Where(x => DbFunctions.TruncateTime(x.FechaAlta).Value >= fechaDesde.Date &&
+                                                                DbFunctions.TruncateTime(x.FechaAlta).Value <= fechaHasta.Date);
 
             if(formaPago.HasValue)
                 venta = venta.Where(x => x.Pago.FormaPago == formaPago.Value);
 
-            if(anulado.HasValue)
+            if (!string.IsNullOrEmpty(usuarioAlta))
+                venta = venta.Where(x => x.UsuarioAlta.Contains(usuarioAlta));
+
+            if (anulado.HasValue)
                 venta = venta.Where(x => x.Anulada == anulado.Value);
 
             return venta.Paginar(ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos).ToListAsync();
@@ -34,23 +38,18 @@ namespace Venta.Data.Repository
 
         internal async Task Guardar(Core.Model.Venta venta)
         {
-            if (venta.Id == 0)
-            {
-                venta.VentaItems.ToList()
-                                .ForEach(x => {
-                                    if (x.Producto.Suelto)
-                                        _context.Entry(x.Producto).State = EntityState.Unchanged;
-                                    else
-                                        _context.Entry(x.Producto).State = EntityState.Modified;
-                                });
+            venta.VentaItems.ToList()
+                .ForEach(x => {
+                    if (x.Producto.Suelto)
+                        _context.Entry(x.Producto).State = EntityState.Unchanged;
+                    else
+                        _context.Entry(x.Producto).State = EntityState.Modified;
+                });
 
+            if (venta.Id == 0)
                 _context.Venta.Add(venta);
-            }
             else
-            {
-                venta.VentaItems.ToList().ForEach(x => _context.Entry(x).State = EntityState.Unchanged);
                 _context.Entry(venta).State = EntityState.Modified;
-            }
 
             await _context.SaveChangesAsync();
         }
@@ -58,5 +57,20 @@ namespace Venta.Data.Repository
         internal Task<Model.Venta> Obtener(int id) => _context.Venta.Include(x => x.Pago)
                                                                     .Include(x => x.VentaItems.Select(y => y.Producto))
                                                                     .FirstOrDefaultAsync(x => x.Id == id);
+
+        internal List<KeyValuePair<string, decimal>> Saldo(DateTime fecha)
+        {
+            List<Model.Venta> venta = _context.Venta
+                                                    .Include(x => x.Pago)
+                                                    .Where(x => DbFunctions.TruncateTime(x.FechaAlta).Value == fecha.Date)
+                                                    .ToList();
+
+            List<KeyValuePair<string, decimal>> saldo = venta.GroupBy(x => x.Pago.FormaPago)
+                                                                    .Select(g => new KeyValuePair<string, decimal>(
+                                                                        g.Key.ToString(),
+                                                                        g.Sum(s => s.Pago.Monto))
+                                                                    ).ToList();
+            return saldo;
+        }
     }
 }

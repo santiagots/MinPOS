@@ -14,9 +14,11 @@ namespace FormUI.Formularios.Producto
 {
     class MercaderiaListadoViewModel : CommonViewModel
     {
-        public DateTime FechaAlta { get; set; }
-        public Boolean FechaAltaFiltroHabilitado { get; set; }
-        public DateTime FechaRecepcion { get; set; }
+        public DateTime FechaAltaDesde { get; set; } = DateTime.Now.AddDays(-7);
+        public DateTime FechaAltaHasta { get; set; } = DateTime.Now;
+        public Boolean FechaAltaFiltroHabilitado { get; set; } = true;
+        public DateTime FechaRecepcionDesde { get; set; } = DateTime.Now;
+        public DateTime FechaRecepcionHasta { get; set; } = DateTime.Now.AddDays(7);
         public Boolean FechaRecepcionFiltroHabilitado { get; set; }
         public KeyValuePair<Proveedor, string> ProveedorSeleccionado { get; set; }
         public List<KeyValuePair<Proveedor, string>> Proveedores { get; set; } = new List<KeyValuePair<Proveedor, string>>();
@@ -29,15 +31,29 @@ namespace FormUI.Formularios.Producto
         public int ElementosPorPagina { get; set; }
         public int TotalElementos { get; set; }
 
+        public MercaderiaListadoViewModel()
+        {
+        }
+
+        public MercaderiaListadoViewModel(DateTime fechaRecepcionHasta)
+        {
+            FechaRecepcionHasta = fechaRecepcionHasta;
+            FechaRecepcionFiltroHabilitado = true;
+            FechaAltaFiltroHabilitado = false;
+            MercaderiaEstadoSeleccionado = new KeyValuePair<MercaderiaEstado?, string>(MercaderiaEstado.Guardada, MercaderiaEstado.Guardada.ToString());
+        }
+
         internal async Task BuscarAsync()
         {
             this.MercaderiaListadoItem = new List<MercaderiaListadoItem>();
 
-            DateTime? fechaAlta = FechaAltaFiltroHabilitado ? FechaAlta : (DateTime?) null;
-            DateTime? fechaRecepcion = FechaRecepcionFiltroHabilitado ? FechaRecepcion : (DateTime?)null;
+            DateTime? fechaAltaDesde = FechaAltaFiltroHabilitado ? FechaAltaDesde : (DateTime?) null;
+            DateTime? fechaAltaHasta = FechaAltaFiltroHabilitado ? FechaAltaHasta : (DateTime?) null;
+            DateTime? fechaRecepcionDesde = FechaRecepcionFiltroHabilitado ? FechaRecepcionDesde : (DateTime?) null;
+            DateTime? fechaRecepcionHasta = FechaRecepcionFiltroHabilitado ? FechaRecepcionHasta : (DateTime?) null;
             int totalElementos = 0;
 
-            List<Mercaderia> mercaderias = await MercaderiaService.Buscar(fechaAlta, fechaRecepcion, ProveedorSeleccionado.Key, MercaderiaEstadoSeleccionado.Key, OrdenadoPor, DireccionOrdenamiento, PaginaActual, ElementosPorPagina, out totalElementos);
+            List<Mercaderia> mercaderias = await MercaderiaService.Buscar(fechaAltaDesde, fechaAltaHasta, fechaRecepcionDesde, fechaRecepcionHasta, ProveedorSeleccionado.Key, MercaderiaEstadoSeleccionado.Key, OrdenadoPor, DireccionOrdenamiento, PaginaActual, ElementosPorPagina, out totalElementos);
             mercaderias.ForEach(x => MercaderiaListadoItem.Add(new MercaderiaListadoItem(x)));
             TotalElementos = totalElementos;
 

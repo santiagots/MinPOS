@@ -78,22 +78,19 @@ namespace FormUI.Formularios.Venta
 
         private void VentaForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!txtCodigoDescirpcion.Focused &&
-                dgProductos.IsCurrentCellInEditMode &&
-                char.IsDigit(e.KeyChar))
+            if (!txtCodigoDescirpcion.Focused && dgProductos.IsCurrentCellInEditMode && char.IsDigit(e.KeyChar))
             {
                 e.Handled = false;
                 return;
             }
 
-            if (!txtCodigoDescirpcion.Focused &&
-                (char.IsLetterOrDigit(e.KeyChar) ||
-                char.IsSeparator(e.KeyChar)))
+            if (!txtCodigoDescirpcion.Focused && (char.IsLetterOrDigit(e.KeyChar) || char.IsSeparator(e.KeyChar)))
             {
                 txtCodigoDescirpcion.Text += e.KeyChar.ToString();
                 txtCodigoDescirpcion.SelectionStart = txtCodigoDescirpcion.Text.Length;
                 txtCodigoDescirpcion.Focus();
                 e.Handled = false;
+                return;
             }
         }
 
@@ -131,9 +128,14 @@ namespace FormUI.Formularios.Venta
 
         private void dgProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.CellStyle.BackColor = Color.Coral;
+            e.CellStyle.BackColor = Color.Red;
             e.CellStyle.ForeColor = Color.White;
             e.CellStyle.Font = new Font(e.CellStyle.Font.FontFamily, e.CellStyle.Font.Size, FontStyle.Bold);
+        }
+
+        private void btnCancelar_Click(object sender, System.EventArgs e)
+        {
+            Close();
         }
     }
 }

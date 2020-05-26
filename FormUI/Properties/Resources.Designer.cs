@@ -70,6 +70,15 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de que desea anular la venta?.
+        /// </summary>
+        internal static string anularVenta {
+            get {
+                return ResourceManager.GetString("anularVenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap bt_Caja_32 {
@@ -95,6 +104,16 @@ namespace FormUI.Properties {
         internal static System.Drawing.Bitmap bt_Gastos_32 {
             get {
                 object obj = ResourceManager.GetObject("bt_Gastos_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_Recibo_32 {
+            get {
+                object obj = ResourceManager.GetObject("bt_Recibo_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -172,9 +191,39 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_Limpiar_32 {
+            get {
+                object obj = ResourceManager.GetObject("btn_Limpiar_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_ojo {
+            get {
+                object obj = ResourceManager.GetObject("btn_ojo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_resumen_32 {
             get {
                 object obj = ResourceManager.GetObject("btn_resumen_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_Sistema_32 {
+            get {
+                object obj = ResourceManager.GetObject("btn_Sistema_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +245,15 @@ namespace FormUI.Properties {
             get {
                 object obj = ResourceManager.GetObject("cargando", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de que desea cerra la caja?.
+        /// </summary>
+        internal static string cerrarCaja {
+            get {
+                return ResourceManager.GetString("cerrarCaja", resourceCulture);
             }
         }
         
@@ -262,6 +320,16 @@ namespace FormUI.Properties {
         internal static System.Drawing.Bitmap error {
             get {
                 object obj = ResourceManager.GetObject("error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap factura {
+            get {
+                object obj = ResourceManager.GetObject("factura", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -395,6 +463,16 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Nota_Pedido_2r {
+            get {
+                object obj = ResourceManager.GetObject("Nota_Pedido_2r", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El producto no existe..
         /// </summary>
         internal static string productoNoExiste {
@@ -465,9 +543,29 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TicketPequeño {
+            get {
+                object obj = ResourceManager.GetObject("TicketPequeño", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap usuario {
             get {
                 object obj = ResourceManager.GetObject("usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Usuario_Cuenta {
+            get {
+                object obj = ResourceManager.GetObject("Usuario_Cuenta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

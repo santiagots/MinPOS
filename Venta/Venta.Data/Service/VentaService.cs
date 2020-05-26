@@ -14,10 +14,10 @@ namespace Venta.Data.Service
 {
     public class VentaService
     {
-        public static Task<List<Model.Venta>> Buscar(DateTime fecha, FormaPago? formaPago, bool? anulado, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
+        public static Task<List<Model.Venta>> Buscar(DateTime fechaDesde, DateTime fechaHasta, FormaPago? formaPago, string usuarioAlta, bool? anulado, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             VentaRepository ventaRepository = new VentaRepository(new Context());
-            return ventaRepository.Buscar(fecha, formaPago, anulado, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
+            return ventaRepository.Buscar(fechaDesde, fechaHasta, formaPago, usuarioAlta, anulado, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
         }
 
         public static Task Guardar(Model.Venta venta)
@@ -36,6 +36,12 @@ namespace Venta.Data.Service
         {
             VentaRepository ventaRepository = new VentaRepository(new Context());
             return ventaRepository.Obtener(id);
+        }
+
+        public static List<KeyValuePair<string, decimal>> Saldo(DateTime fecha)
+        {
+            VentaRepository categoriaRepository = new VentaRepository(new Context());
+            return categoriaRepository.Saldo(fecha);
         }
     }
 }

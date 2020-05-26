@@ -301,7 +301,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(134, 20);
             this.label11.TabIndex = 6;
-            this.label11.Text = "Monto Pago";
+            this.label11.Text = "Monto Recibido";
             // 
             // textBox7
             // 
@@ -353,7 +353,7 @@
             // textBox8
             // 
             this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaDetalleViewModelBindingSource, "FormaPago", true));
+            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaDetalleViewModelBindingSource, "FechaAnulacion", true));
             this.textBox8.Enabled = false;
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBox8.Location = new System.Drawing.Point(143, 79);
@@ -365,6 +365,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox3, 3);
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaDetalleViewModelBindingSource, "MotivoAnulacion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.ventaDetalleViewModelBindingSource, "HabilitarAnular", true));
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBox3.Location = new System.Drawing.Point(143, 3);
@@ -378,11 +379,12 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(3, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 20);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Motivo";
+            this.label2.Text = "Motivo (*)";
             // 
             // label4
             // 
@@ -420,10 +422,11 @@
             // btnAnular
             // 
             this.btnAnular.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAnular.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.ventaDetalleViewModelBindingSource, "HabilitarAnular", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.Image = global::FormUI.Properties.Resources.desconectado_32;
+            this.btnAnular.Image = global::FormUI.Properties.Resources.btn_eliminar;
             this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(677, 617);
+            this.btnAnular.Location = new System.Drawing.Point(782, 617);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(93, 39);
             this.btnAnular.TabIndex = 11;
@@ -437,13 +440,13 @@
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Image = global::FormUI.Properties.Resources.conectado_32;
+            this.btnSalir.Image = global::FormUI.Properties.Resources.desconectado_32;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(782, 617);
+            this.btnSalir.Location = new System.Drawing.Point(683, 617);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(93, 40);
             this.btnSalir.TabIndex = 12;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Text = "Cerrar";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -488,6 +491,7 @@
             this.Controls.Add(this.btnAnular);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VentaDetalleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Venta Detalle";
             this.Load += new System.EventHandler(this.VentaDetalleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVentas)).EndInit();

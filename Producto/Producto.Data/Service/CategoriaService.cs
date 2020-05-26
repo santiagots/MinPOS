@@ -12,10 +12,10 @@ namespace Producto.Data.Service
 {
     public class CategoriaService
     {
-        public static Task<IList<Categoria>> Buscar(string descripcion)
+        public static Task<IList<Categoria>> Buscar(string descripcion, bool? habilitado)
         {
             CategoriaRepository categoriaRepository = new CategoriaRepository(new Context());
-            return categoriaRepository.Buscar(descripcion);
+            return categoriaRepository.Buscar(descripcion, habilitado);
         }
 
         public static Task Borrar(Categoria categoria)

@@ -6,6 +6,7 @@ using Producto.Data.Service;
 using System.Linq;
 using FormUI.Properties;
 using Common.Core.Enum;
+using FormUI.Componentes;
 
 namespace FormUI.Formularios.Producto
 {
@@ -52,19 +53,19 @@ namespace FormUI.Formularios.Producto
 
         internal async Task BorrarAsync(Modelo.Producto producto)
         {
-            await ProductoService.Borrar(producto);
+            producto.Borrar(Sesion.Usuario.Alias);
+            await ProductoService.Guardar(producto);
             await BuscarAsync();
         }
 
         internal async Task CargarAsync()
         {
-            await CargarCategoriaAsync();
-            await CargarProveedorAsync();
+            await Task.WhenAll(CargarCategoriaAsync(), CargarProveedorAsync());
         }
 
         internal async Task CargarCategoriaAsync()
         {
-            IList<Modelo.Categoria> categorias = await CategoriaService.Buscar(null);
+            IList<Modelo.Categoria> categorias = await CategoriaService.Buscar(null, true);
             this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Modelo.Categoria, string>(x, x.Descripcion)));
             this.Categorias.Insert(0, new KeyValuePair<Modelo.Categoria, string>(null, Resources.comboTodos));
 

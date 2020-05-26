@@ -20,6 +20,7 @@ namespace FormUI.Formularios.Producto
             EjecutarAsync(async () =>
             {
                 proveedorListadoViewModelBindingSource.DataSource = proveedorListadoViewModel;
+                this.WindowState = FormWindowState.Maximized;
                 await proveedorListadoViewModel.BuscarAsync();
             });
         }

@@ -8,13 +8,13 @@ namespace Producto.Core.Model
 {
     public class Mercaderia : Entity<int>
     {
-        public DateTime Fecha { get; internal set; }
-        public DateTime FechaRecepcion { get; internal set; }
+        public DateTime Fecha { get; set; }
+        public DateTime FechaRecepcion { get; set; }
         public int? IdProveedor { get; internal set; }
         public Proveedor Proveedor { get; internal set; }
         public IList<MercaderiaItem> MercaderiaItems { get; internal set; }
-        public DateTime FechaActualizacion { get; protected set; }
-        public string UsuarioActualizacion { get; protected set; }
+        public DateTime FechaActualizacion { get; set; }
+        public string UsuarioActualizacion { get; set; }
         public MercaderiaEstado Estado { get; protected set; }
         public decimal TotalCosto => MercaderiaItems.Sum(x => x.TotalCosto);
 

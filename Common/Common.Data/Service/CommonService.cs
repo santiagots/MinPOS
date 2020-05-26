@@ -12,8 +12,8 @@ namespace Common.Data.Service
         {
             return Task.Run(() =>
             {
-                Context asas = new Context();
-                asas.Database.Initialize(false);
+                Context ctx = new Context();
+                ctx.Database.Initialize(false);
             });
         }
     }

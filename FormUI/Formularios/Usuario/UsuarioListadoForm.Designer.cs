@@ -1,4 +1,6 @@
-﻿namespace FormUI.Formularios.Usuario
+﻿using FormUI.Controles;
+
+namespace FormUI.Formularios.Usuario
 {
     partial class UsuarioListadoForm
     {
@@ -45,14 +47,14 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.habilitadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgUsuario = new System.Windows.Forms.DataGridView();
-            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aliasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitadoDataGridViewCheckBoxColumn = new FormUI.Componentes.DataGridViewSiNoCellColumn();
+            this.habilitadoDataGridViewCheckBoxColumn = new FormUI.Controles.DataGridViewSiNoCellColumn();
             this.fechaUltimoAccesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioListadoViewModelBindingSource)).BeginInit();
@@ -64,6 +66,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(11, 12);
@@ -203,7 +207,9 @@
             this.dgUsuario.AllowUserToDeleteRows = false;
             this.dgUsuario.AllowUserToResizeColumns = false;
             this.dgUsuario.AllowUserToResizeRows = false;
-            this.dgUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgUsuario.AutoGenerateColumns = false;
             this.dgUsuario.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -253,11 +259,6 @@
             this.dgUsuario.TabIndex = 6;
             this.dgUsuario.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgUsuario_CellMouseClick);
             this.dgUsuario.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgUsuario_CellMouseDoubleClick);
-            // 
-            // usuariosBindingSource
-            // 
-            this.usuariosBindingSource.DataMember = "Usuarios";
-            this.usuariosBindingSource.DataSource = this.usuarioListadoViewModelBindingSource;
             // 
             // aliasDataGridViewTextBoxColumn
             // 
@@ -319,6 +320,11 @@
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Width = 5;
             // 
+            // usuariosBindingSource
+            // 
+            this.usuariosBindingSource.DataMember = "Usuarios";
+            this.usuariosBindingSource.DataSource = this.usuarioListadoViewModelBindingSource;
+            // 
             // UsuarioListadoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,6 +335,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UsuarioListadoForm";
             this.Text = "Listado Usuario";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UsuarioListadoForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -360,7 +367,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aliasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private Componentes.DataGridViewSiNoCellColumn habilitadoDataGridViewCheckBoxColumn;
+        private DataGridViewSiNoCellColumn habilitadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaUltimoAccesoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;

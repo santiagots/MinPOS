@@ -23,12 +23,15 @@ namespace FormUI.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public int PaginadoCantidadElementosPorPagina {
             get {
                 return ((int)(this["PaginadoCantidadElementosPorPagina"]));
+            }
+            set {
+                this["PaginadoCantidadElementosPorPagina"] = value;
             }
         }
         
@@ -82,7 +85,7 @@ namespace FormUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Comprobante de Compra\\nNo valido como factura")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Comprobante de Compra\\r\\nNo valido como factura")]
         public string ComprobanteCompraCabecera {
             get {
                 return ((string)(this["ComprobanteCompraCabecera"]));
@@ -101,6 +104,18 @@ namespace FormUI.Properties {
             }
             set {
                 this["ComprobanteCompraPie"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int AnticipacionAvisoIngresoMercaderia {
+            get {
+                return ((int)(this["AnticipacionAvisoIngresoMercaderia"]));
+            }
+            set {
+                this["AnticipacionAvisoIngresoMercaderia"] = value;
             }
         }
     }

@@ -43,7 +43,7 @@ namespace Producto.Data
                 m.MapRightKey("ProductoId");
                 m.ToTable("ProveedorXProducto");
             });
-            modelBuilder.Entity<Model.Producto>().HasRequired(x => x.Categoria).WithMany().HasForeignKey(x => x.IdCategoria);
+            modelBuilder.Entity<Model.Producto>().HasOptional(x => x.Categoria).WithMany().HasForeignKey(x => x.IdCategoria);
 
             modelBuilder.Entity<Model.Proveedor>().ToTable("Proveedor");
         }

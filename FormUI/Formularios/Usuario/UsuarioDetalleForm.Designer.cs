@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuarioDetalleForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.siNo1 = new FormUI.Controles.SiNo();
             this.usuarioDetalleViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.siNo1 = new FormUI.Controles.SiNo();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDetalleViewModelBindingSource)).BeginInit();
@@ -107,6 +107,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(540, 258);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // siNo1
+            // 
+            this.siNo1.DataBindings.Add(new System.Windows.Forms.Binding("Valor", this.usuarioDetalleViewModelBindingSource, "Habilitado", true));
+            this.siNo1.Location = new System.Drawing.Point(179, 179);
+            this.siNo1.Margin = new System.Windows.Forms.Padding(4);
+            this.siNo1.Name = "siNo1";
+            this.siNo1.Size = new System.Drawing.Size(148, 32);
+            this.siNo1.TabIndex = 5;
+            this.siNo1.Valor = false;
+            // 
             // usuarioDetalleViewModelBindingSource
             // 
             this.usuarioDetalleViewModelBindingSource.DataSource = typeof(FormUI.Formularios.Usuario.UsuarioDetalleViewModel);
@@ -116,33 +126,36 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.ForeColor = System.Drawing.Color.Red;
             this.label9.Location = new System.Drawing.Point(3, 185);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(169, 20);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Habilitado";
+            this.label9.Text = "Habilitado (*)";
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(3, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(169, 20);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Usuario";
+            this.label3.Text = "Usuario (*)";
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(3, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(169, 20);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Repetir Contraseña";
+            this.label5.Text = "Repetir Contraseña (*)";
             // 
             // textBox2
             // 
@@ -201,11 +214,12 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(3, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 20);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Contraseña";
+            this.label4.Text = "Contraseña (*)";
             // 
             // textBox4
             // 
@@ -357,16 +371,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(537, 75);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // siNo1
-            // 
-            this.siNo1.DataBindings.Add(new System.Windows.Forms.Binding("Valor", this.usuarioDetalleViewModelBindingSource, "Habilitado", true));
-            this.siNo1.Location = new System.Drawing.Point(179, 179);
-            this.siNo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.siNo1.Name = "siNo1";
-            this.siNo1.Size = new System.Drawing.Size(148, 32);
-            this.siNo1.TabIndex = 5;
-            this.siNo1.Valor = false;
             // 
             // UsuarioDetalleForm
             // 

@@ -38,7 +38,11 @@ namespace FormUI.Imprimir.Documento
 
             foreach (Modelo.VentaItem VentaItem in Venta.VentaItems)
             {
-                Texto detalle = new Texto($"{VentaItem.Cantidad} Uni. X {VentaItem.Producto.Precio.ToString("c2")}", StringAlignment.Near);
+                Texto detalle;
+                if(VentaItem.Producto.Suelto)
+                    detalle = new Texto($"{VentaItem.Cantidad} Uni. X {VentaItem.Total.ToString("c2")}", StringAlignment.Near);
+                else
+                    detalle = new Texto($"{VentaItem.Cantidad} Uni. X {VentaItem.Producto.Precio.ToString("c2")}", StringAlignment.Near);
                 AgregarLinea(cuerpo1, detalle);
 
                 Texto descripcion = new Texto(VentaItem.Producto.Descripcion, StringAlignment.Near, 0.6f);

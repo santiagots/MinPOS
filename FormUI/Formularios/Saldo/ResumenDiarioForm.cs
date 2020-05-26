@@ -1,25 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FormUI.Formularios.Common;
+using System;
+using Saldo.Core.Model;
+using FormUI.Properties;
 using System.Windows.Forms;
+using FormUI.Enum;
 
 namespace FormUI.Formularios.Saldo
 {
-    public partial class ResumenDiarioForm : Form
+    public partial class ResumenDiarioForm : CommonForm
     {
+        private ResumenDiarioViewModel resumenDiarioViewModel = new ResumenDiarioViewModel();
+
         public ResumenDiarioForm()
         {
             InitializeComponent();
         }
 
+        public ResumenDiarioForm(CierreCaja cierreCaja) : this()
+        {
+            resumenDiarioViewModel = new ResumenDiarioViewModel(cierreCaja);
+        }
+
         private void ResumenDiarioForm_Load(object sender, EventArgs e)
         {
+            EjecutarAsync(async() => {
+                resumenDiarioViewModelBindingSource.DataSource = resumenDiarioViewModel;
+                await resumenDiarioViewModel.CargarAsync();
+                });
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ejecutar(() =>
+            {
+                if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.cerrarCaja, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
+                {
+                    resumenDiarioViewModel.CerraCaja();
+                }
+            });
         }
     }
 }

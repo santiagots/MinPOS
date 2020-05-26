@@ -15,10 +15,16 @@ namespace Producto.Data.Service
 {
     public class MercaderiaService
     {
-        public static Task<List<Mercaderia>> Buscar(DateTime? fechaAlta, DateTime? fechaRecepcion, Proveedor proveedor, MercaderiaEstado? estado, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
+        public static Task<List<Mercaderia>> Buscar(DateTime? fechaAltaDesde, DateTime? fechaAltaHasta, DateTime? fechaRecepcionDesde, DateTime? fechaRecepcionHasta, Proveedor proveedor, MercaderiaEstado? estado, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             MercaderiaRepository mercaderiaRepository = new MercaderiaRepository(new Context());
-            return mercaderiaRepository.Buscar(fechaAlta, fechaRecepcion, proveedor, estado, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
+            return mercaderiaRepository.Buscar(fechaAltaDesde, fechaAltaHasta, fechaRecepcionDesde, fechaRecepcionHasta, proveedor, estado, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
+        }
+
+        public static Task<List<Mercaderia>> DetallPendienteIngreso(DateTime fechaRecepcionDesde, DateTime fechaRecepcionHasta, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
+        {
+            MercaderiaRepository mercaderiaRepository = new MercaderiaRepository(new Context());
+            return mercaderiaRepository.DetallPendienteIngreso(fechaRecepcionDesde, fechaRecepcionHasta, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
         }
 
         public static Task Borrar(Mercaderia mercaderia)

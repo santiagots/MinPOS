@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MercaderiaListadoForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -36,9 +39,13 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.mercaderiaListadoViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.proveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -117,11 +124,15 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnCount = 4;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.dateTimePicker2, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.checkBox2, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.checkBox2, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.dateTimePicker3, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label6, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(541, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -134,11 +145,12 @@
             // 
             this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.dateTimePicker2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mercaderiaListadoViewModelBindingSource, "FechaRecepcion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "D"));
+            this.dateTimePicker2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mercaderiaListadoViewModelBindingSource, "FechaRecepcionDesde", true));
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(3, 4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(286, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(130, 26);
             this.dateTimePicker2.TabIndex = 0;
             // 
             // mercaderiaListadoViewModelBindingSource
@@ -156,13 +168,40 @@
             this.checkBox2.TabIndex = 1;
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker3.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.dateTimePicker3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mercaderiaListadoViewModelBindingSource, "FechaRecepcionHasta", true));
+            this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker3.Location = new System.Drawing.Point(159, 4);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(130, 26);
+            this.dateTimePicker3.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(139, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(14, 20);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "-";
+            // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.label7, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.dateTimePicker1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.checkBox1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.checkBox1, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dateTimePicker4, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(113, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -171,15 +210,27 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(312, 34);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(139, 7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 20);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "-";
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mercaderiaListadoViewModelBindingSource, "FechaAlta", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "D"));
+            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mercaderiaListadoViewModelBindingSource, "FechaAltaDesde", true));
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(286, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(130, 26);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // checkBox1
@@ -193,6 +244,18 @@
             this.checkBox1.TabIndex = 1;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker4.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.dateTimePicker4.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mercaderiaListadoViewModelBindingSource, "FechaAltaHasta", true));
+            this.dateTimePicker4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker4.Location = new System.Drawing.Point(159, 4);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(130, 26);
+            this.dateTimePicker4.TabIndex = 2;
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -202,7 +265,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 20);
             this.label2.TabIndex = 16;
-            this.label2.Text = "F. Recepción";
+            this.label2.Text = "F. Ingreso";
             // 
             // comboBox2
             // 
@@ -341,6 +404,14 @@
             this.dgMercaderia.AllowUserToDeleteRows = false;
             this.dgMercaderia.AutoGenerateColumns = false;
             this.dgMercaderia.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgMercaderia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgMercaderia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgMercaderia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FechaAlta,
@@ -350,11 +421,28 @@
             this.Editar,
             this.Eliminar});
             this.dgMercaderia.DataSource = this.mercaderiasBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgMercaderia.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgMercaderia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgMercaderia.Location = new System.Drawing.Point(3, 3);
             this.dgMercaderia.Name = "dgMercaderia";
             this.dgMercaderia.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgMercaderia.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgMercaderia.RowHeadersVisible = false;
+            this.dgMercaderia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgMercaderia.ShowCellErrors = false;
             this.dgMercaderia.ShowCellToolTips = false;
             this.dgMercaderia.ShowEditingIcon = false;
@@ -380,7 +468,7 @@
             // 
             this.fechaRecepcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.fechaRecepcionDataGridViewTextBoxColumn.DataPropertyName = "FechaRecepcion";
-            this.fechaRecepcionDataGridViewTextBoxColumn.HeaderText = "F. Recepción";
+            this.fechaRecepcionDataGridViewTextBoxColumn.HeaderText = "F. Ingreso";
             this.fechaRecepcionDataGridViewTextBoxColumn.MinimumWidth = 120;
             this.fechaRecepcionDataGridViewTextBoxColumn.Name = "fechaRecepcionDataGridViewTextBoxColumn";
             this.fechaRecepcionDataGridViewTextBoxColumn.ReadOnly = true;
@@ -404,7 +492,7 @@
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.estadoDataGridViewTextBoxColumn.Width = 80;
+            this.estadoDataGridViewTextBoxColumn.Width = 85;
             // 
             // Editar
             // 
@@ -468,6 +556,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MercaderiaListadoForm";
             this.Text = "Listado Mercaderia";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MercaderiaListadoForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -521,6 +610,10 @@
         private System.Windows.Forms.DataGridView dgMercaderia;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private Controles.Paginado paginado;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaAlta;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaRecepcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn proveedorDataGridViewTextBoxColumn;

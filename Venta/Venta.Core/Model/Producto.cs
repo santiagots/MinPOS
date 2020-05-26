@@ -1,4 +1,5 @@
 ﻿using Common.Core.Model;
+using System;
 
 namespace Venta.Core.Model
 {
@@ -14,6 +15,18 @@ namespace Venta.Core.Model
         internal Producto()
         { }
 
+        public Producto(string codigo, string descripcion, bool suelto, decimal precio, int stockActual, bool habilitado)
+        {
+            Codigo = codigo;
+            Descripcion = descripcion;
+            Suelto = suelto;
+            Precio = precio;
+            StockActual = stockActual;
+            Habilitado = habilitado;
+        }
+
         public void DisminuirStock(int cantidad) => StockActual -= cantidad;
+
+        internal void AumentarStock(int cantidad) => StockActual += cantidad;
     }
 }

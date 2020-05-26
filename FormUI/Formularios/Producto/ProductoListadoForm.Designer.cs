@@ -1,4 +1,6 @@
-﻿namespace FormUI.Formularios.Producto
+﻿using FormUI.Controles;
+
+namespace FormUI.Formularios.Producto
 {
     partial class ProductoListadoFrom
     {
@@ -57,9 +59,6 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnHacerPedido = new System.Windows.Forms.Button();
             this.dgProductos = new System.Windows.Forms.DataGridView();
-            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.paginado = new FormUI.Controles.Paginado();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,10 +66,13 @@
             this.stockMinimoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockOptimoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockActualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sueltoDataGridViewCheckBoxColumn = new FormUI.Componentes.DataGridViewSiNoCellColumn();
-            this.habilitadoDataGridViewCheckBoxColumn = new FormUI.Componentes.DataGridViewSiNoCellColumn();
+            this.sueltoDataGridViewCheckBoxColumn = new FormUI.Controles.DataGridViewSiNoCellColumn();
+            this.habilitadoDataGridViewCheckBoxColumn = new FormUI.Controles.DataGridViewSiNoCellColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.paginado = new FormUI.Controles.Paginado();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoListadoViewModelBindingSource)).BeginInit();
@@ -405,42 +407,6 @@
             this.dgProductos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgProductos_CellMouseDoubleClick);
             this.dgProductos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgProductos_ColumnHeaderMouseClick);
             // 
-            // productosBindingSource
-            // 
-            this.productosBindingSource.DataMember = "Productos";
-            this.productosBindingSource.DataSource = this.productoListadoViewModelBindingSource;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.dgProductos, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.paginado, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 172);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(860, 477);
-            this.tableLayoutPanel3.TabIndex = 2;
-            // 
-            // paginado
-            // 
-            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.productoListadoViewModelBindingSource, "TotalElementos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.paginado.Leyenda = "{0} de {1}";
-            this.paginado.Location = new System.Drawing.Point(3, 445);
-            this.paginado.Name = "paginado";
-            this.paginado.Size = new System.Drawing.Size(282, 27);
-            this.paginado.TabIndex = 2;
-            this.paginado.TotalElementos = 0;
-            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
-            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
-            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
-            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
-            // 
             // codigoDataGridViewTextBoxColumn
             // 
             this.codigoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -555,6 +521,42 @@
             this.Eliminar.ReadOnly = true;
             this.Eliminar.Width = 5;
             // 
+            // productosBindingSource
+            // 
+            this.productosBindingSource.DataMember = "Productos";
+            this.productosBindingSource.DataSource = this.productoListadoViewModelBindingSource;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.dgProductos, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.paginado, 0, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 172);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(860, 477);
+            this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // paginado
+            // 
+            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.productoListadoViewModelBindingSource, "TotalElementos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.paginado.Leyenda = "{0} de {1}";
+            this.paginado.Location = new System.Drawing.Point(3, 445);
+            this.paginado.Name = "paginado";
+            this.paginado.Size = new System.Drawing.Size(282, 27);
+            this.paginado.TabIndex = 2;
+            this.paginado.TotalElementos = 0;
+            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
+            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
+            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
+            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
+            // 
             // ProductoListadoFrom
             // 
             this.AcceptButton = this.btnBuscar;
@@ -567,6 +569,7 @@
             this.Name = "ProductoListadoFrom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado Productos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ProductosFrom_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -618,8 +621,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stockMinimoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockOptimoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockActualDataGridViewTextBoxColumn;
-        private Componentes.DataGridViewSiNoCellColumn sueltoDataGridViewCheckBoxColumn;
-        private Componentes.DataGridViewSiNoCellColumn habilitadoDataGridViewCheckBoxColumn;
+        private DataGridViewSiNoCellColumn sueltoDataGridViewCheckBoxColumn;
+        private DataGridViewSiNoCellColumn habilitadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }

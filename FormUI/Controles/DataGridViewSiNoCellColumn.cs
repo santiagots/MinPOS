@@ -1,8 +1,19 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace FormUI.Componentes
+namespace FormUI.Controles
 {
+    #region DataGridViewSiNoCellColumn
+    public class DataGridViewSiNoCellColumn : DataGridViewColumn
+    {
+        public DataGridViewSiNoCellColumn()
+        {
+            CellTemplate = new DataGridViewSiNoCell();
+        }
+    }
+    #endregion
+
+    #region DataGridViewSiNoCell
     public class DataGridViewSiNoCell : DataGridViewTextBoxCell
     {
         protected override void Paint(
@@ -17,7 +28,7 @@ namespace FormUI.Componentes
               DataGridViewAdvancedBorderStyle
               advancedBorderStyle,
               DataGridViewPaintParts paintParts)
-            {
+        {
             formattedValue = (bool)value ? "Si" : "No";
 
             base.Paint(graphics, clipBounds,
@@ -25,6 +36,7 @@ namespace FormUI.Componentes
                     value, formattedValue, errorText,
                     cellStyle, advancedBorderStyle,
                     paintParts);
-            }
+        }
     }
+    #endregion
 }

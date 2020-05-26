@@ -26,9 +26,19 @@ namespace FormUI.Formularios.Usuario
         {
             EjecutarAsync(async () =>
             {
-                await logInViewModel.IngresarAsync();
-                MostrarFormulario(typeof(MIDIContenedorForm));
-                Visible = false;               
+                btnIngresar.Enabled = false;
+
+                try
+                {
+                    await logInViewModel.IngresarAsync();
+                    MostrarFormulario(typeof(MIDIContenedorForm));
+                    Visible = false;
+                }
+                catch
+                {
+                    btnIngresar.Enabled = true;
+                    throw;
+                }
             });
         }
 

@@ -27,5 +27,7 @@ namespace Venta.Core.Model
 
         internal void DisminuirStock() => Producto.DisminuirStock(Cantidad);
 
+        internal void AumentarStock() => Producto.AumentarStock(Cantidad);
+
     }
 }

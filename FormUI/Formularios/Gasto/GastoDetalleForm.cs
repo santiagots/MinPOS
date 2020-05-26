@@ -1,35 +1,54 @@
 ﻿using FormUI.Componentes;
+using FormUI.Enum;
+using FormUI.Formularios.Common;
+using FormUI.Properties;
 using System;
 using System.Windows.Forms;
-using ModeloGasto = Gasto.Core.Model.GastoAgreggate;
+using ModeloGasto = Gasto.Core.Model;
 
 namespace FormUI.Formularios.Gasto
 {
-    public partial class GastoDetalleForm : Form
+    public partial class GastoDetalleForm : CommonForm
     {
+        private GastoDetalleViewModel gastoDetalleViewModel = new GastoDetalleViewModel();
+
         public GastoDetalleForm()
         {
             InitializeComponent();
         }
 
-        public GastoDetalleForm(ref ModeloGasto.Gasto gasto) : this()
+        public GastoDetalleForm(Decimal montoGasto, string comentario) : this()
         {
-            gasto = new ModeloGasto.Gasto(DateTime.Now, 1, null, 12, "Comentario", DateTime.Now, Sesion.Usuario.Alias);
+            gastoDetalleViewModel = new GastoDetalleViewModel(montoGasto, comentario);
+        }
+
+        public GastoDetalleForm(ModeloGasto.Gasto gasto) : this()
+        {
+            gastoDetalleViewModel = new GastoDetalleViewModel(gasto);
         }
 
         private void GastoDetalleForm_Load(object sender, EventArgs e)
         {
-
+            EjecutarAsync(async () =>
+            {
+                gastoDetalleViewModelBindingSource.DataSource = gastoDetalleViewModel;
+                await gastoDetalleViewModel.CargarTipoGastoAsync();
+            });
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            EjecutarAsync(async () =>
+            {
+                await gastoDetalleViewModel.GuardarAsync();
+                CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
+                Close();
+            });
         }
     }
 }

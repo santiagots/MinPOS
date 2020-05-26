@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Model = Venta.Core.Model;
 
 namespace Venta.Core.Validadores
 {
@@ -12,6 +11,11 @@ namespace Venta.Core.Validadores
 
             RuleFor(m => m.VentaItems)
                 .NotEmpty().WithMessage("Debe ingresar algun producto parar realizar la venta.");
+
+
+            RuleFor(m => m)
+                .Must(x => !(x.Anulada && string.IsNullOrWhiteSpace(x.MotivoAnulada)))
+                .WithMessage("Debe ingresar un motivo de anulación para anular la venta.");
         }
     }
 }

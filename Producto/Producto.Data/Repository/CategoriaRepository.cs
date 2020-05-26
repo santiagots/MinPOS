@@ -14,19 +14,22 @@ namespace Producto.Data.Repository
         {
         }
 
-        internal async Task<IList<Categoria>> Buscar(string descripcion)
+        internal async Task<IList<Categoria>> Buscar(string descripcion, bool? habilitado)
         {
-            if(!string.IsNullOrWhiteSpace(descripcion))
-                return await _context.Categoria.Where(x => x.Descripcion.Contains(descripcion)).ToListAsync();
-            else
-                return await _context.Categoria.ToListAsync();
+            IQueryable<Categoria> categoria = _context.Categoria;
+            if (!string.IsNullOrWhiteSpace(descripcion))
+                categoria = categoria.Where(x => x.Descripcion.Contains(descripcion));
+
+            if (habilitado.HasValue)
+                categoria = categoria.Where(x => x.Habilitada == habilitado);
+
+            return await categoria.ToListAsync();
         }
 
         internal async Task Borrar(Categoria categoria)
         {
-            _context.Entry(categoria).State = EntityState.Unchanged;
-            _context.Categoria.Remove(categoria);
-            await _context.SaveChangesAsync();
+            //TODO: BORRADO LOGICO
+            throw new NotImplementedException();
         }
 
         internal async Task Guardar(Categoria categoria)

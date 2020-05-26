@@ -20,6 +20,9 @@ namespace Producto.Core.Model
         public int StockActual { get; protected set; }
         public DateTime FechaActualizacion { get; protected set; }
         public string UsuarioActualizacion { get; protected set; }
+        public bool Borrado { get; protected set; }
+        public DateTime? FechaBorrado { get; protected set; }
+        public string UsuarioBorrado { get; protected set; }
 
         protected Producto() { }
 
@@ -40,6 +43,13 @@ namespace Producto.Core.Model
             StockActual = stockActual;
             FechaActualizacion = DateTime.Now;
             UsuarioActualizacion = usuarioActualizacion;
+        }
+
+        public void Borrar(string usuarioBorrado)
+        {
+            Borrado = true;
+            FechaBorrado = DateTime.Now;
+            UsuarioBorrado = usuarioBorrado;
         }
 
         public void AgregarStock(int cantidad) => StockActual += cantidad;

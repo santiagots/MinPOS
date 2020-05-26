@@ -13,7 +13,7 @@ namespace FormUI.Formularios.Producto
 
         internal async Task BuscarAsync()
         {
-            Categorias = new SortableBindingList<Categoria>(await CategoriaService.Buscar(Descripcion));
+            Categorias = new SortableBindingList<Categoria>(await CategoriaService.Buscar(Descripcion, null));
             NotifyPropertyChanged(nameof(Categorias));
         }
 

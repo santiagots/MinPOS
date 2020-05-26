@@ -16,12 +16,18 @@ namespace FormUI.Formularios.Producto
             InitializeComponent();
         }
 
+        public MercaderiaListadoForm(DateTime fechaRecepcion) : this()
+        {
+            mercaderiaListadoViewModel = new MercaderiaListadoViewModel(fechaRecepcion);
+        }
+
         private void MercaderiaListadoForm_Load(object sender, EventArgs e)
         {
             EjecutarAsync(async () =>
             {
                 mercaderiaListadoViewModel.ElementosPorPagina = paginado.ElementosPorPagina;
                 mercaderiaListadoViewModelBindingSource.DataSource = mercaderiaListadoViewModel;
+                this.WindowState = FormWindowState.Maximized;
                 await mercaderiaListadoViewModel.CargarAsync();
                 await mercaderiaListadoViewModel.BuscarAsync();
             });
@@ -120,8 +126,8 @@ namespace FormUI.Formularios.Producto
                     {
                         case "F. Alta":
                             mercaderiaListadoViewModel.OrdenadoPor = "Fecha"; break;
-                        case "F. Recepción":
-                            mercaderiaListadoViewModel.OrdenadoPor = "Fecha"; break;
+                        case "F. Ingreso":
+                            mercaderiaListadoViewModel.OrdenadoPor = "FechaRecepcion"; break;
                         case "Proveedor":
                             mercaderiaListadoViewModel.OrdenadoPor = "Proveedor.RazonSocial"; break;
                         case "Estado":

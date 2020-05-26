@@ -32,8 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProveedorDetalleForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.siNo1 = new FormUI.Controles.SiNo();
             this.proveedorDetalleViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.siNo1 = new FormUI.Controles.SiNo();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorDetalleViewModelBindingSource)).BeginInit();
@@ -67,7 +67,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.siNo1, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 3);
@@ -93,49 +93,60 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(540, 190);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // siNo1
+            // 
+            this.siNo1.DataBindings.Add(new System.Windows.Forms.Binding("Valor", this.proveedorDetalleViewModelBindingSource, "Habilitado", true));
+            this.siNo1.Location = new System.Drawing.Point(110, 149);
+            this.siNo1.Margin = new System.Windows.Forms.Padding(4);
+            this.siNo1.Name = "siNo1";
+            this.siNo1.Size = new System.Drawing.Size(148, 37);
+            this.siNo1.TabIndex = 3;
+            this.siNo1.Valor = false;
+            // 
+            // proveedorDetalleViewModelBindingSource
+            // 
+            this.proveedorDetalleViewModelBindingSource.DataSource = typeof(FormUI.Formularios.Producto.ProveedorDetalleViewModel);
+            // 
             // textBox4
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorDetalleViewModelBindingSource, "Email", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox4.Location = new System.Drawing.Point(103, 114);
+            this.textBox4.Location = new System.Drawing.Point(109, 114);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(434, 26);
+            this.textBox4.Size = new System.Drawing.Size(428, 26);
             this.textBox4.TabIndex = 3;
-            // 
-            // proveedorDetalleViewModelBindingSource
-            // 
-            this.proveedorDetalleViewModelBindingSource.DataSource = typeof(FormUI.Formularios.Producto.ProveedorDetalleViewModel);
             // 
             // textBox3
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorDetalleViewModelBindingSource, "Telefono", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox3.Location = new System.Drawing.Point(103, 79);
+            this.textBox3.Location = new System.Drawing.Point(109, 79);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(434, 26);
+            this.textBox3.Size = new System.Drawing.Size(428, 26);
             this.textBox3.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 36);
+            this.label1.Size = new System.Drawing.Size(100, 40);
             this.label1.TabIndex = 0;
-            this.label1.Text = "R. Social / Nombre";
+            this.label1.Text = "R. Social / Nombre (*)";
             // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorDetalleViewModelBindingSource, "RazonSocial", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(103, 7);
+            this.textBox1.Location = new System.Drawing.Point(109, 7);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(434, 26);
+            this.textBox1.Size = new System.Drawing.Size(428, 26);
             this.textBox1.TabIndex = 0;
             // 
             // label2
@@ -145,7 +156,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.Location = new System.Drawing.Point(3, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 20);
+            this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Dirección";
             // 
@@ -154,9 +165,9 @@
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorDetalleViewModelBindingSource, "Direccion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox2.Location = new System.Drawing.Point(103, 44);
+            this.textBox2.Location = new System.Drawing.Point(109, 44);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(434, 26);
+            this.textBox2.Size = new System.Drawing.Size(428, 26);
             this.textBox2.TabIndex = 1;
             // 
             // label3
@@ -166,7 +177,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label3.Location = new System.Drawing.Point(3, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 20);
+            this.label3.Size = new System.Drawing.Size(100, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Email";
             // 
@@ -177,7 +188,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.Location = new System.Drawing.Point(3, 82);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 20);
+            this.label4.Size = new System.Drawing.Size(100, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Teléfono";
             // 
@@ -186,11 +197,12 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.ForeColor = System.Drawing.Color.Red;
             this.label9.Location = new System.Drawing.Point(3, 157);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 20);
+            this.label9.Size = new System.Drawing.Size(100, 20);
             this.label9.TabIndex = 8;
-            this.label9.Text = "Habilitado";
+            this.label9.Text = "Habilitado (*)";
             // 
             // btnCancelar
             // 
@@ -222,16 +234,6 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // siNo1
-            // 
-            this.siNo1.DataBindings.Add(new System.Windows.Forms.Binding("Valor", this.proveedorDetalleViewModelBindingSource, "Habilitado", true));
-            this.siNo1.Location = new System.Drawing.Point(104, 149);
-            this.siNo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.siNo1.Name = "siNo1";
-            this.siNo1.Size = new System.Drawing.Size(148, 37);
-            this.siNo1.TabIndex = 3;
-            this.siNo1.Valor = false;
             // 
             // ProveedorDetalleForm
             // 

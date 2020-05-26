@@ -25,10 +25,15 @@ namespace FormUI.Formularios.Usuario
 
         public UsuarioDetalleViewModel()
         {
-            UsuarioActualizacion = Sesion.Usuario.Alias;
+            CargarDatos(Sesion.Usuario);
         }
 
         public UsuarioDetalleViewModel(Modelo.Usuario usuario)
+        {
+            CargarDatos(usuario);
+        }
+
+        private void CargarDatos(Modelo.Usuario usuario)
         {
             Id = usuario.Id;
             Usuario = usuario.Alias;

@@ -37,12 +37,6 @@ namespace Producto.Data.Service
             return productoRepository.ObtenerReducido(codigoDescripcion);
         }
 
-        public static Task Borrar(Modelo.Producto producto)
-        {
-            ProductoRepository productoRepository = new ProductoRepository(new Context());
-            return productoRepository.Borrar(producto);
-        }
-
         public static Task Guardar(Modelo.Producto producto)
         {
             ProductoValidador validador = new ProductoValidador();

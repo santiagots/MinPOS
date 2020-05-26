@@ -14,7 +14,7 @@ namespace FormUI
         /// </summary>
         [STAThread]
         static void Main()
-        {
+       {
             ConfigurarCultura();
 
             Application.EnableVisualStyles();

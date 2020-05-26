@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -70,19 +70,21 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tulpep.NotificationWindow, Version=1.1.25.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.25\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.31.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.31\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Componentes\BaseDatos.cs" />
-    <Compile Include="Componentes\DataGridViewRolloverCellColumn.cs" />
-    <Compile Include="Componentes\DataGridViewSiNoCell.cs" />
     <Compile Include="Controles\AutoCompleteTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Componentes\Sesion.cs" />
     <Compile Include="Componentes\SortableBindingList.cs" />
+    <Compile Include="Controles\DataGridViewSiNoCellColumn.cs" />
+    <Compile Include="Controles\NumeroTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controles\Paginado.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +97,9 @@
     <Compile Include="Controles\SiNo.Designer.cs">
       <DependentUpon>SiNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\NumeroDataGridViewEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enum\CustomMessageBoxIcon.cs" />
     <Compile Include="Formularios\Common\CommonForm.cs">
       <SubType>Form</SubType>
@@ -103,18 +108,31 @@
       <DependentUpon>CommonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Common\CommonViewModel.cs" />
+    <Compile Include="Formularios\Common\ConfiguracionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Common\ConfiguracionForm.Designer.cs">
+      <DependentUpon>ConfiguracionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Common\ConfiguracionViewModel.cs" />
     <Compile Include="Formularios\Common\CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Common\CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Common\MIDIContenedorViewModel.cs" />
     <Compile Include="Formularios\Common\SplashScreenForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Common\SplashScreenForm.Designer.cs">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Gasto\GastoDetalleViewModel.cs" />
+    <Compile Include="Formularios\Gasto\GastoListadoItem.cs" />
+    <Compile Include="Formularios\Gasto\GastoListadoViewModel.cs" />
+    <Compile Include="Formularios\Gasto\GastoTipoDetalleViewModel.cs" />
+    <Compile Include="Formularios\Gasto\GastoTipoListadoViewModel.cs" />
     <Compile Include="Formularios\Producto\CategoriaDetalleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +152,13 @@
     <Compile Include="Formularios\Producto\MercaderiaListadoItem.cs" />
     <Compile Include="Formularios\Producto\MercaderiaListadoViewModel.cs" />
     <Compile Include="Formularios\Producto\ProductoDetalleViewModel.cs" />
+    <Compile Include="Formularios\Producto\ProductoIngresoMasivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Producto\ProductoIngresoMasivo.Designer.cs">
+      <DependentUpon>ProductoIngresoMasivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Producto\ProductoIngresoMasivoViewModel.cs" />
     <Compile Include="Formularios\Producto\ProductoListadoViewModel.cs" />
     <Compile Include="Formularios\Producto\ProveedorBusquedaForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +175,10 @@
     <Compile Include="Formularios\Saldo\CierreCajaListado.Designer.cs">
       <DependentUpon>CierreCajaListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Saldo\CierreCajaListadoItem.cs" />
+    <Compile Include="Formularios\Saldo\CierreCajaListadoViewModel.cs" />
+    <Compile Include="Formularios\Saldo\ResumenDiarioItem.cs" />
+    <Compile Include="Formularios\Saldo\ResumenDiarioViewModel.cs" />
     <Compile Include="Formularios\Usuario\LogInViewModel.cs" />
     <Compile Include="Formularios\Usuario\UsuarioDetalleViewModel.cs" />
     <Compile Include="Formularios\Usuario\UsuarioListadoViewModel.cs" />
@@ -308,6 +337,9 @@
     <EmbeddedResource Include="Formularios\Common\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Common\ConfiguracionForm.resx">
+      <DependentUpon>ConfiguracionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Common\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Producto\CategoriaListadoForm.resx">
       <DependentUpon>CategoriaListadoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Producto\ProductoIngresoMasivo.resx">
+      <DependentUpon>ProductoIngresoMasivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Producto\ProveedorBusquedaForm.resx">
       <DependentUpon>ProveedorBusquedaForm.cs</DependentUpon>
@@ -404,12 +439,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Common.ConfiguracionViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Gasto.GastoDetalleViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Gasto.GastoListadoViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Gasto.GastoTipoDetalleViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Gasto.GastoTipoListadoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.MercaderiaDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.MercaderiaListadoViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProductoIngresoMasivoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProductoListadoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorBusquedaViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorListadoViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Saldo.CierreCajaListadoViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Saldo.ResumenDiarioForm.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Saldo.ResumenDiarioViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Usuario.LogInViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Usuario.UsuarioDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Usuario.UsuarioListadoViewModel.datasource" />
@@ -514,6 +558,10 @@
       <Project>{575a8e4d-fa64-436c-aa83-5da7078cfd27}</Project>
       <Name>Gasto.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Gasto\Gasto.Data\Gasto.Data.csproj">
+      <Project>{FB9B80FF-C746-4A85-8FF4-255EEA03C35C}</Project>
+      <Name>Gasto.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Producto\Producto.Core\Producto.Core.csproj">
       <Project>{0206A904-A95C-4468-8C80-E0C2140079F2}</Project>
       <Name>Producto.Core</Name>
@@ -521,6 +569,14 @@
     <ProjectReference Include="..\Producto\Producto.Data\Producto.Data.csproj">
       <Project>{C13998DE-4279-4F11-9D34-46AD310B0A53}</Project>
       <Name>Producto.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Saldo\Saldo.Core\Saldo.Core.csproj">
+      <Project>{6daedda0-83dc-4ebd-b223-9fb1d55281ca}</Project>
+      <Name>Saldo.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Saldo\Saldo.Data\Saldo.Data.csproj">
+      <Project>{2f508ba1-7672-4896-88f1-5ea82506871f}</Project>
+      <Name>Saldo.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Venta\Venta.Core\Venta.Core.csproj">
       <Project>{49dc6a8b-8d0a-4122-a39b-55eccbeaa211}</Project>
@@ -590,8 +646,15 @@
     <Content Include="DB\Scripts\V0.0.0.1.sql" />
     <None Include="Imagenes\Logo2.png" />
     <None Include="Imagenes\cargando.gif" />
+    <None Include="Imagenes\bt_Recibo_32.png" />
+    <None Include="Imagenes\btn_Limpiar_32.png" />
+    <None Include="Imagenes\btn_ojo.png" />
+    <None Include="Imagenes\btn_Sistema_32.png" />
+    <None Include="Imagenes\factura.png" />
+    <None Include="Imagenes\TicketPequeño.png" />
+    <None Include="Imagenes\Usuario_Cuenta.png" />
+    <None Include="Imagenes\Nota_Pedido_2r.png" />
     <Content Include="logo.ico" />
-    <None Include="Imagenes\MiniPos.png" />
     <None Include="Imagenes\icono_imprimir.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

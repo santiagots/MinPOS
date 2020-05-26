@@ -1,4 +1,5 @@
 ﻿using Common.Core.Enum;
+using Common.Core.Exception;
 using Common.Data.Repository;
 using Producto.Core.Model;
 using System.Collections.Generic;
@@ -40,20 +41,22 @@ namespace Producto.Data.Repository
             return productos.Select(x => x.Codigo).Union(productos.Select(x => x.Descripcion)).ToListAsync();
         }
 
-        internal async Task Borrar(Modelo.Producto producto)
-        {
-            _context.Entry(producto).State = EntityState.Unchanged;
-            _context.Producto.Remove(producto);
-            await _context.SaveChangesAsync();
-        }
-
         internal async Task Guardar(Modelo.Producto producto)
         {
-            _context.Entry(producto.Categoria).State = EntityState.Unchanged;
-            producto.Proveedores.ToList().ForEach(x => _context.Entry(x).State = EntityState.Modified);
+            if(producto.Categoria != null)
+                _context.Entry(producto.Categoria).State = EntityState.Unchanged;
+
+            if (producto.Proveedores != null)
+                producto.Proveedores.ToList().ForEach(x => _context.Entry(x).State = EntityState.Modified);
 
             if (producto.Id == 0)
+            {
+                var a = await Obtener(producto.Codigo);
+                if (await Obtener(producto.Codigo) != null)
+                    throw new NegocioException($"Ya existe un producto con código {producto.Codigo}.");
+
                 _context.Producto.Add(producto);
+            }
             else
             {
                 var ProductoDB = _context.Producto
@@ -63,19 +66,22 @@ namespace Producto.Data.Repository
 
                 _context.Entry(ProductoDB).CurrentValues.SetValues(producto);
 
-                ProductoDB.Proveedores.ToList().ForEach(ProveedoresDB =>
+                if (producto.Proveedores != null)
                 {
-                    Proveedor proveedorLocal = producto.Proveedores.FirstOrDefault(x => x.Id == ProveedoresDB.Id);
-                    if (proveedorLocal == null)
-                        ProductoDB.Proveedores.Remove(ProveedoresDB);
-                });
+                    ProductoDB.Proveedores.ToList().ForEach(ProveedoresDB =>
+                    {
+                        Proveedor proveedorLocal = producto.Proveedores.FirstOrDefault(x => x.Id == ProveedoresDB.Id);
+                        if (proveedorLocal == null)
+                            ProductoDB.Proveedores.Remove(ProveedoresDB);
+                    });
 
-                producto.Proveedores.ToList().ForEach(Proveedores =>
-                {
-                    Proveedor mercaderiaItemLocal = ProductoDB.Proveedores.FirstOrDefault(x => x.Id == Proveedores.Id);
-                    if (mercaderiaItemLocal == null)
-                        ProductoDB.Proveedores.Add(Proveedores);
-                });
+                    producto.Proveedores.ToList().ForEach(Proveedores =>
+                    {
+                        Proveedor mercaderiaItemLocal = ProductoDB.Proveedores.FirstOrDefault(x => x.Id == Proveedores.Id);
+                        if (mercaderiaItemLocal == null)
+                            ProductoDB.Proveedores.Add(Proveedores);
+                    });
+                }
             }
 
             await _context.SaveChangesAsync();
@@ -86,18 +92,18 @@ namespace Producto.Data.Repository
             return await _context.Producto
                                 .Include(x => x.Proveedores)
                                 .Include(x => x.Categoria)
-                                .FirstOrDefaultAsync(x => x.Codigo == codigo);
+                                .FirstOrDefaultAsync(x => !x.Borrado && x.Codigo == codigo);
         }
 
         internal async Task<Modelo.Producto> ObtenerReducido(string codigoDescripcion)
         {
             return await _context.Producto
-                                .FirstOrDefaultAsync(x => x.Codigo == codigoDescripcion || x.Descripcion.Contains(codigoDescripcion));
+                                .FirstOrDefaultAsync(x => !x.Borrado && (x.Codigo == codigoDescripcion || x.Descripcion.Contains(codigoDescripcion)));
         }
 
         private IQueryable<Modelo.Producto> Filtro(string codigo, Categoria categoria, Proveedor proveedor, bool? habilitado, bool? faltante)
         {
-            IQueryable<Modelo.Producto> productos = _context.Producto;
+            IQueryable<Modelo.Producto> productos = _context.Producto.Where(x => !x.Borrado);
 
             if (!string.IsNullOrWhiteSpace(codigo))
                 productos = productos.Where(x => x.Codigo.Contains(codigo) || x.Descripcion.Contains(codigo));

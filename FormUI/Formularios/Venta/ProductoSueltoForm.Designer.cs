@@ -34,7 +34,7 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new FormUI.Controles.NumeroTextBox();
             this.productoSueltoViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoSueltoViewModelBindingSource)).BeginInit();
@@ -90,19 +90,22 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(194, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Monto";
+            this.label1.Text = "Monto (*)";
             // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.CantidadDecimales = 2;
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoSueltoViewModelBindingSource, "Monto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.textBox1.Location = new System.Drawing.Point(203, 6);
             this.textBox1.Name = "textBox1";
+            this.textBox1.PermiteNegativos = false;
             this.textBox1.Size = new System.Drawing.Size(570, 44);
             this.textBox1.TabIndex = 1;
             // 
@@ -141,6 +144,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource productoSueltoViewModelBindingSource;
-        private System.Windows.Forms.TextBox textBox1;
+        private Controles.NumeroTextBox textBox1;
     }
 }

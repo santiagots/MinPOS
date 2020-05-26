@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FormUI.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="PaginadoCantidadElementosPorPagina" Type="System.Int32" Scope="Application">
+    <Setting Name="PaginadoCantidadElementosPorPagina" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="ImpresoraNombre" Type="System.String" Scope="User">
@@ -18,10 +18,13 @@
       <Value Profile="(Default)">-----------------------------------</Value>
     </Setting>
     <Setting Name="ComprobanteCompraCabecera" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Comprobante de Compra\nNo valido como factura</Value>
+      <Value Profile="(Default)">Comprobante de Compra\r\nNo valido como factura</Value>
     </Setting>
     <Setting Name="ComprobanteCompraPie" Type="System.String" Scope="User">
       <Value Profile="(Default)">Gracias por su compra</Value>
+    </Setting>
+    <Setting Name="AnticipacionAvisoIngresoMercaderia" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
     </Setting>
   </Settings>
 </SettingsFile>
