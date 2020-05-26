@@ -374,6 +374,15 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de que desea imprimir un documento?.
+        /// </summary>
+        internal static string imprimirDocumento {
+            get {
+                return ResourceManager.GetString("imprimirDocumento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap info {

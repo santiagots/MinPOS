@@ -309,12 +309,14 @@
     <Compile Include="Formularios\Venta\VueltoForm.Designer.cs">
       <DependentUpon>VueltoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Imprimir\Documento\CierreCaja.cs" />
     <Compile Include="Imprimir\Documento\DocumentoBase.cs" />
     <Compile Include="Imprimir\Documento\Elemento\Elemento.cs" />
     <Compile Include="Imprimir\Documento\Elemento\Imagen.cs" />
     <Compile Include="Imprimir\Documento\Elemento\Linea.cs" />
     <Compile Include="Imprimir\Documento\Elemento\Texto.cs" />
     <Compile Include="Imprimir\Documento\EtiquetaGondola.cs" />
+    <Compile Include="Imprimir\Documento\Mercaderia.cs" />
     <Compile Include="Imprimir\Documento\Ticket.cs" />
     <Compile Include="Imprimir\Impresora.cs" />
     <Compile Include="Program.cs" />

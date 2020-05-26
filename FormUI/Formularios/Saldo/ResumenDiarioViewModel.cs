@@ -1,5 +1,7 @@
-﻿using FormUI.Componentes;
+﻿using Dispositivos;
+using FormUI.Componentes;
 using FormUI.Formularios.Common;
+using FormUI.Properties;
 using Gasto.Data.Service;
 using Saldo.Core.Model;
 using Saldo.Data.Service;
@@ -55,7 +57,21 @@ namespace FormUI.Formularios.Saldo
             }
         }
 
+        internal void ImprimirCaja()
+        {
+            Imprimir.Documento.CierreCaja cierreCaja = new Imprimir.Documento.CierreCaja(Settings.Default.NombreFantasia, Settings.Default.Direccion, Settings.Default.ComprobanteCompraSeparador, obtenerCajaDesdeViewModel());
+
+            Impresora impresora = new Impresora(Settings.Default.ImpresoraNombre, cierreCaja);
+            impresora.Imprimir();
+        }
+
         internal void CerraCaja()
+        {
+            CierreCaja cierreCaja = obtenerCajaDesdeViewModel();
+            CierreCajaService.Cerrar(cierreCaja);
+        }
+
+        private CierreCaja obtenerCajaDesdeViewModel()
         {
             List<Ingresos> ingresos = new List<Ingresos>();
             ingresos.AddRange(Ingresos.Select(x => new Ingresos(x.Concepto, x.Monto)));
@@ -64,7 +80,7 @@ namespace FormUI.Formularios.Saldo
             egresos.AddRange(Egresos.Select(x => new Egresos(x.Concepto, x.Monto)));
 
             CierreCaja cierreCaja = new CierreCaja(Id, Fecha, Sesion.Usuario.Alias, ingresos, egresos, MontoCierreCaja, Diferencia);
-            CierreCajaService.Cerrar(cierreCaja);
+            return cierreCaja;
         }
 
         private void ActualizarDatos(CierreCaja cierreCaja)

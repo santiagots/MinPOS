@@ -39,5 +39,16 @@ namespace FormUI.Formularios.Saldo
                 }
             });
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Ejecutar(() =>
+            {
+                if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.imprimirDocumento, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
+                {
+                    resumenDiarioViewModel.ImprimirCaja();
+                }
+            });
+        }
     }
 }

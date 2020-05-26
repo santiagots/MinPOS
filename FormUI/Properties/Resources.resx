@@ -280,4 +280,7 @@
   <data name="Nota_Pedido_2r" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Nota_Pedido_2r.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imprimirDocumento" xml:space="preserve">
+    <value>¿Está seguro de que desea imprimir un documento?</value>
+  </data>
 </root>
