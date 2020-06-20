@@ -31,7 +31,7 @@ namespace Saldo.Data.Service
             return cierreCajaRepository.UltimaCajaCerrada();
         }
 
-        public static void Cerrar(CierreCaja cierreCaja)
+        public static void Guardar(CierreCaja cierreCaja)
         {
             CierreCajaValidador validador = new CierreCajaValidador();
             ValidationResult validadorResultado = validador.Validate(cierreCaja);

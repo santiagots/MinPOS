@@ -18,12 +18,6 @@ namespace Gasto.Data.Service
             return tipoGastoRepository.Buscar(descripcion, habilitado);
         }
 
-        public static Task Borrar(TipoGasto tipoGastos)
-        {
-            TipoGastoRepository tipoGastoRepository = new TipoGastoRepository(new Context());
-            return tipoGastoRepository.Borrar(tipoGastos);
-        }
-
         public static Task Guardar(TipoGasto tipoGasto)
         {
             TipoGastoValidador validador = new TipoGastoValidador();

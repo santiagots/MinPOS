@@ -2,6 +2,7 @@
 using Common.Core.Exception;
 using Common.Core.Extension;
 using Common.Data.Repository;
+using Saldo.Core.Enum;
 using Saldo.Core.Model;
 using System;
 using System.Collections.Generic;
@@ -38,18 +39,17 @@ namespace Saldo.Data.Repository
         }
 
         internal Task<CierreCaja> UltimaCajaCerrada() => ObtenerConsulta()
+                                    .Where(x => x.Estado == EstadoCaja.Cerrada)
                                     .OrderByDescending(o => o.FechaAlta)
                                     .FirstOrDefaultAsync();
 
         internal void Guardar(CierreCaja cierreCaja)
         {
-            if(cierreCaja.Id > 0)
-                throw new NegocioException("La caja ya se encuentra cerrada.");
-
-            if (_context.CierreCaja.Any(x => DbFunctions.TruncateTime(x.FechaAlta) == cierreCaja.FechaAlta.Date))
-                throw new NegocioException("La caja ya se encuentra cerrada.");
-
-            _context.CierreCaja.Add(cierreCaja);
+            if (cierreCaja.Id == 0)
+                _context.CierreCaja.Add(cierreCaja);
+            else
+                _context.Entry(cierreCaja).State = EntityState.Modified;
+            
             _context.SaveChanges();
         }
 

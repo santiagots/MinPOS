@@ -117,10 +117,12 @@
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cobroViewModelBindingSource, "Credito", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(184, 106);
+            this.textBox3.MostrarNullConValorCero = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.PermiteNegativos = false;
             this.textBox3.Size = new System.Drawing.Size(353, 44);
             this.textBox3.TabIndex = 5;
+            this.textBox3.Enter += new System.EventHandler(this.textBox3_Enter);
             // 
             // cobroViewModelBindingSource
             // 
@@ -133,10 +135,12 @@
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cobroViewModelBindingSource, "Debito", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(184, 53);
+            this.textBox2.MostrarNullConValorCero = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.PermiteNegativos = false;
             this.textBox2.Size = new System.Drawing.Size(353, 44);
             this.textBox2.TabIndex = 3;
+            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
             // 
             // label2
             // 
@@ -157,10 +161,12 @@
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cobroViewModelBindingSource, "Efectivo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(184, 3);
+            this.textBox1.MostrarNullConValorCero = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.PermiteNegativos = false;
             this.textBox1.Size = new System.Drawing.Size(353, 44);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
             // label1
             // 

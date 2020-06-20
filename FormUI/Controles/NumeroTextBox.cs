@@ -1,5 +1,4 @@
-﻿using Common.Core.Helper;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
@@ -97,11 +96,14 @@ namespace FormUI.Controles
         //    }
         //}
 
-        protected override void OnGotFocus(EventArgs e)
+        protected override void OnEnter(EventArgs e)
         {
+            base.OnEnter(e);
             Text = Value().ToString();
-            SelectAll();
-            base.OnGotFocus(e);
+
+            this.BeginInvoke((MethodInvoker)delegate () {
+                this.SelectAll();
+            });
         }
 
         protected override void OnKeyDown(KeyEventArgs e)

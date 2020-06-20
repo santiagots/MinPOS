@@ -67,12 +67,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new FormUI.Controles.NumeroTextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mercaderiasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mercaderiaDetalleViewModelBindingSource)).BeginInit();
@@ -416,6 +417,7 @@
             this.cbProveedores.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.mercaderiaDetalleViewModelBindingSource, "ProveedorSeleccionado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cbProveedores.DataSource = this.proveedoresBindingSource;
             this.cbProveedores.DisplayMember = "Value";
+            this.cbProveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbProveedores.FormattingEnabled = true;
             this.cbProveedores.Location = new System.Drawing.Point(113, 3);
@@ -481,11 +483,14 @@
             // textBox4
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.CantidadDecimales = 0;
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mercaderiaDetalleViewModelBindingSource, "Cantidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.mercaderiaDetalleViewModelBindingSource, "HabilitarProducto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBox4.Location = new System.Drawing.Point(540, 42);
+            this.textBox4.MostrarNullConValorCero = true;
             this.textBox4.Name = "textBox4";
+            this.textBox4.PermiteNegativos = false;
             this.textBox4.Size = new System.Drawing.Size(311, 26);
             this.textBox4.TabIndex = 2;
             // 
@@ -561,11 +566,27 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::FormUI.Properties.Resources.icono_imprimir;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(547, 609);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 40);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Imprimir";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MercaderiaDetalleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 661);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.groupBox2);
@@ -609,7 +630,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private FormUI.Controles.NumeroTextBox textBox4;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
@@ -631,5 +652,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -24,15 +24,10 @@ namespace Gasto.Data.Repository
             await _context.SaveChangesAsync();
         }
 
-        internal Task Borrar(TipoGasto tipoGastos)
-        {
-            //TODO: BORRADO LOGICO
-            throw new NotImplementedException();
-        }
-
         internal async Task<IList<TipoGasto>> Buscar(string descripcion, bool? habilitado)
         {
-            IQueryable<TipoGasto> tipoGasto = _context.TipoGasto;
+            IQueryable<TipoGasto> tipoGasto = _context.TipoGasto.Where(x => !x.Borrado);
+
             if (!string.IsNullOrWhiteSpace(descripcion))
                 tipoGasto = tipoGasto.Where(x => x.Descripcion.Contains(descripcion));
 

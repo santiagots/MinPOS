@@ -16,7 +16,7 @@ namespace FormUI.Formularios.Saldo
         public decimal Ingresos => CierreCaja.Ingresos.Sum(x => x.Monto);
         public decimal Egresos => CierreCaja.Egresos.Sum(x => x.Monto);
         public decimal Saldo => Ingresos - Egresos;
-        public decimal MontoRegistrado => CierreCaja.MontoRegistrado;
+        public decimal MontoRegistrado => CierreCaja.MontoEnCaja;
         public decimal Diferencia => CierreCaja.Diferencia;
 
         public CierreCajaListadoItem(CierreCaja cierreCaja)

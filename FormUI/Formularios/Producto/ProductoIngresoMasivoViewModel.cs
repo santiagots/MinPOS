@@ -36,32 +36,37 @@ namespace FormUI.Formularios.Producto
         public int StockOptimo { get; set; }
         public int StockActual { get; set; }
         public bool Empaquetado => !Suelto;
-        public BindingList<Modelo.Producto> ProductosModelo { get; set; } = new BindingList<Modelo.Producto>();
+        public BindingList<ProductoIngresoMasivoItem> ProductosModelo { get; set; } = new BindingList<ProductoIngresoMasivoItem>();
 
         internal async Task CargarAsync()
         {
             await Task.WhenAll(CargarCategoriaAsync(), CargarProveedorAsync());
         }
 
-        internal void CargarProducto(Modelo.Producto producto)
+        internal void CargarProducto(Modelo.Producto ProductoModel)
         {
-            Id = producto.Id;
-            Codigo = producto.Codigo;
-            Descripcion = producto.Descripcion;
-            CategoriaSeleccionada = new KeyValuePair<Modelo.Categoria, string>(null, string.Empty);
-            ProveedorSeleccionada = new KeyValuePair<Modelo.Proveedor, string>(null, string.Empty);
-            _Suelto = producto.Suelto;
-            Costo = producto.Costo;
-            Precio = producto.Precio;
-            StockMinimo = producto.StockMinimo;
-            StockOptimo = producto.StockOptimo;
-            StockActual = producto.StockActual;
+            Id = ProductoModel.Id;
+            Codigo = ProductoModel.Codigo;
+            Descripcion = ProductoModel.Descripcion;
+            CategoriaSeleccionada = new KeyValuePair<Modelo.Categoria, string>(ProductoModel.Categoria, ProductoModel.Categoria.Descripcion);
+
+            Modelo.Proveedor proveedor = ProductoModel.Proveedores.FirstOrDefault();
+            if(proveedor != null)
+                ProveedorSeleccionada = new KeyValuePair<Modelo.Proveedor, string>(proveedor, proveedor.RazonSocial);
+
+            _Suelto = ProductoModel.Suelto;
+            Costo = ProductoModel.Costo;
+            Precio = ProductoModel.Precio;
+            StockMinimo = ProductoModel.StockMinimo;
+            StockOptimo = ProductoModel.StockOptimo;
+            StockActual = ProductoModel.StockActual;
 
             NotifyPropertyChanged(nameof(Codigo));
         }
 
         internal async Task CargarProveedorAsync()
         {
+            this.Proveedores.Clear();
             IList<Modelo.Proveedor> proveedor = await ProveedorService.Buscar(null, true);
             this.Proveedores.AddRange(proveedor.Select(x => new KeyValuePair<Modelo.Proveedor, string>(x, x.RazonSocial)));
             this.Proveedores.Insert(0, new KeyValuePair<Modelo.Proveedor, string>(null, Resources.comboSeleccionarOpcion));
@@ -71,6 +76,7 @@ namespace FormUI.Formularios.Producto
 
         internal async Task CargarCategoriaAsync()
         {
+            this.Categorias.Clear();
             IList<Modelo.Categoria> categorias = await CategoriaService.Buscar(null, true);
             this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Modelo.Categoria, string>(x, x.Descripcion)));
             this.Categorias.Insert(0, new KeyValuePair<Modelo.Categoria, string>(null, Resources.comboSeleccionarOpcion));
@@ -85,18 +91,23 @@ namespace FormUI.Formularios.Producto
             Modelo.Producto productoModel = new Modelo.Producto(Id, Codigo, Descripcion, CategoriaSeleccionada.Key, proveedores, Suelto, Costo, Precio, true, StockMinimo, StockOptimo, StockActual, Sesion.Usuario.Alias);
             await ProductoService.Guardar(productoModel);
 
-            ActualizarGrillaProdcutos(productoModel);
+            ActualizarGrillaProdcutos(new ProductoIngresoMasivoItem(productoModel));
         }
 
-        private void ActualizarGrillaProdcutos(Modelo.Producto producto)
+        private void ActualizarGrillaProdcutos(ProductoIngresoMasivoItem productoIngresoMasivoItem)
         {
-            Modelo.Producto productoEnGrilla = ProductosModelo.FirstOrDefault(x => x.Id == producto.Id);
+            ProductoIngresoMasivoItem productoEnGrilla = ProductosModelo.FirstOrDefault(x => x.Id == productoIngresoMasivoItem.Id);
 
             if (productoEnGrilla != null)
-                ProductosModelo.Remove(productoEnGrilla);
-            
-            ProductosModelo.Add(producto);
+            {
+                int index = ProductosModelo.IndexOf(productoEnGrilla);
+                ProductosModelo[index] = productoIngresoMasivoItem;
+            }
+            else            
+                ProductosModelo.Add(productoIngresoMasivoItem);
+
             NotifyPropertyChanged(nameof(ProductosModelo));
+            Limpiar();
         }
 
         internal void Limpiar()
@@ -113,6 +124,8 @@ namespace FormUI.Formularios.Producto
             StockActual = 0;
 
             NotifyPropertyChanged(nameof(Codigo));
+            NotifyPropertyChanged(nameof(CategoriaSeleccionada));
+            NotifyPropertyChanged(nameof(ProveedorSeleccionada));
         }
     }
 }

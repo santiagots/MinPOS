@@ -55,8 +55,6 @@ namespace FormUI.Formularios.Venta
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgVentas = new System.Windows.Forms.DataGridView();
-            this.ventaListadoItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paginado = new FormUI.Controles.Paginado();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalVentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +62,8 @@ namespace FormUI.Formularios.Venta
             this.anuladaDataGridViewCheckBoxColumn = new FormUI.Controles.DataGridViewSiNoCellColumn();
             this.fechaAnuladaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ventaListadoItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.paginado = new FormUI.Controles.Paginado();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventaListadoViewModelBindingSource)).BeginInit();
@@ -133,6 +133,7 @@ namespace FormUI.Formularios.Venta
             this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.ventaListadoViewModelBindingSource, "FormaDePagoSeleccionada", true));
             this.comboBox1.DataSource = this.mercaderiaEstadosBindingSource;
             this.comboBox1.DisplayMember = "Value";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(551, 6);
@@ -193,6 +194,7 @@ namespace FormUI.Formularios.Venta
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.ventaListadoViewModelBindingSource, "AnuladaSeleccionado", true));
             this.comboBox2.DataSource = this.anuladaBindingSource;
             this.comboBox2.DisplayMember = "Value";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(551, 46);
@@ -223,6 +225,7 @@ namespace FormUI.Formularios.Venta
             this.comboBox3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.ventaListadoViewModelBindingSource, "UsuarioSeleccionado", true));
             this.comboBox3.DataSource = this.usuariosBindingSource;
             this.comboBox3.DisplayMember = "Value";
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(123, 46);
@@ -352,25 +355,6 @@ namespace FormUI.Formularios.Venta
             this.dgVentas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgVentas_CellMouseDoubleClick);
             this.dgVentas.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgVentas_ColumnHeaderMouseClick);
             // 
-            // ventaListadoItemsBindingSource
-            // 
-            this.ventaListadoItemsBindingSource.DataMember = "VentaListadoItems";
-            this.ventaListadoItemsBindingSource.DataSource = this.ventaListadoViewModelBindingSource;
-            // 
-            // paginado
-            // 
-            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.ventaListadoViewModelBindingSource, "TotalElementos", true));
-            this.paginado.Leyenda = "{0} de {1}";
-            this.paginado.Location = new System.Drawing.Point(3, 448);
-            this.paginado.Name = "paginado";
-            this.paginado.Size = new System.Drawing.Size(282, 27);
-            this.paginado.TabIndex = 2;
-            this.paginado.TotalElementos = 0;
-            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
-            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
-            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
-            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
-            // 
             // fechaDataGridViewTextBoxColumn
             // 
             this.fechaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -432,7 +416,7 @@ namespace FormUI.Formularios.Venta
             this.fechaAnuladaDataGridViewTextBoxColumn.Name = "fechaAnuladaDataGridViewTextBoxColumn";
             this.fechaAnuladaDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaAnuladaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.fechaAnuladaDataGridViewTextBoxColumn.Width = 122;
+            this.fechaAnuladaDataGridViewTextBoxColumn.Width = 120;
             // 
             // Editar
             // 
@@ -442,6 +426,25 @@ namespace FormUI.Formularios.Venta
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
             this.Editar.Width = 5;
+            // 
+            // ventaListadoItemsBindingSource
+            // 
+            this.ventaListadoItemsBindingSource.DataMember = "VentaListadoItems";
+            this.ventaListadoItemsBindingSource.DataSource = this.ventaListadoViewModelBindingSource;
+            // 
+            // paginado
+            // 
+            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.ventaListadoViewModelBindingSource, "TotalElementos", true));
+            this.paginado.Leyenda = "{0} de {1}";
+            this.paginado.Location = new System.Drawing.Point(3, 448);
+            this.paginado.Name = "paginado";
+            this.paginado.Size = new System.Drawing.Size(282, 27);
+            this.paginado.TabIndex = 2;
+            this.paginado.TotalElementos = 0;
+            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
+            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
+            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
+            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
             // 
             // VentaListadoForm
             // 

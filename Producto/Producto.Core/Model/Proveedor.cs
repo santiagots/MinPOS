@@ -1,5 +1,6 @@
 ﻿
 using Common.Core.Model;
+using System;
 
 namespace Producto.Core.Model
 {
@@ -10,6 +11,7 @@ namespace Producto.Core.Model
         public string Telefono { get; protected set; }
         public string Email { get; protected set; }
         public bool Habilitado { get; protected set; }
+        public bool Borrado { get; protected set; }
 
         protected Proveedor() { }
 
@@ -21,6 +23,11 @@ namespace Producto.Core.Model
             Telefono = telefono;
             Email = email;
             Habilitado = habilitado;
+        }
+
+        public void Borrar()
+        {
+            Borrado = true;
         }
     }
 }

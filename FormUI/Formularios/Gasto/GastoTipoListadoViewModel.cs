@@ -19,7 +19,8 @@ namespace FormUI.Formularios.Gasto
 
         internal async Task BorrarAsync(TipoGasto tipoGastos)
         {
-            await TipoGastoService.Borrar(tipoGastos);
+            tipoGastos.Borrar();
+            await TipoGastoService.Guardar(tipoGastos);
             await BuscarAsync();
         }
 

@@ -15,7 +15,7 @@ namespace FormUI.Formularios.Common
             InitializeComponent();
         }
 
-        internal void MostrarFormularioEnContenedor(Type formulario, Form contenedor)
+        internal void MostrarFormularioEnContenedor(Type formulario, Form contenedor, bool dialog = false)
         {
             Form formularioAbierto = ObtenerFormularioAbierto(formulario);
             if (formularioAbierto != null) 
@@ -23,8 +23,13 @@ namespace FormUI.Formularios.Common
             else
             {
                 Form instancia = (Form)Activator.CreateInstance(formulario);
-                instancia.MdiParent = contenedor;
-                instancia.Show();
+                if (dialog)
+                    instancia.ShowDialog();
+                else
+                {
+                    instancia.MdiParent = contenedor;
+                    instancia.Show();
+                }
             }
         }
 

@@ -136,6 +136,7 @@ namespace FormUI.Formularios.Producto
             this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoListadoViewModelBindingSource, "FaltanteSeleccionado", true));
             this.comboBox4.DataSource = this.faltanteBindingSource;
             this.comboBox4.DisplayMember = "Value";
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(103, 92);
@@ -159,6 +160,7 @@ namespace FormUI.Formularios.Producto
             this.comboBox3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoListadoViewModelBindingSource, "HabilitadoSeleccionado", true));
             this.comboBox3.DataSource = this.habilitadoBindingSource;
             this.comboBox3.DisplayMember = "Value";
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(531, 46);
@@ -211,6 +213,7 @@ namespace FormUI.Formularios.Producto
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoListadoViewModelBindingSource, "ProveedorSeleccionado", true));
             this.comboBox2.DataSource = this.proveedoresBindingSource;
             this.comboBox2.DisplayMember = "Value";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(103, 46);
@@ -263,6 +266,7 @@ namespace FormUI.Formularios.Producto
             this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoListadoViewModelBindingSource, "CategoriaSeleccionada", true));
             this.comboBox1.DataSource = this.categoriasBindingSource;
             this.comboBox1.DisplayMember = "Value";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(531, 6);

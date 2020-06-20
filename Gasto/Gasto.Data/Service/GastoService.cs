@@ -8,6 +8,8 @@ using Common.Core.Exception;
 using Gasto.Data.Repository;
 using System.Collections.Generic;
 using Gasto.Core.Model;
+using Common.Core.Enum;
+using Common.Core.Model;
 
 namespace Gasto.Data.Service
 {
@@ -30,13 +32,13 @@ namespace Gasto.Data.Service
             throw new NotImplementedException();
         }
 
-        public static Task<List<Model.Gasto>> Buscar(DateTime fechaDesde, DateTime fechaHasta, TipoGasto tipoGasto, string usuario, bool? anulada)
+        public static Task<List<Model.Gasto>> Buscar(DateTime fechaDesde, DateTime fechaHasta, TipoGasto tipoGasto, string usuario, bool? anulada, bool? saleDeCaja, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             GastoRepository categoriaRepository = new GastoRepository(new Context());
-            return categoriaRepository.Buscar(fechaDesde, fechaHasta, tipoGasto, usuario, anulada);
+            return categoriaRepository.Buscar(fechaDesde, fechaHasta, tipoGasto, usuario, anulada, saleDeCaja, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
         }
 
-        public static List<KeyValuePair<string, decimal>> Saldo(DateTime fecha)
+        public static List<MovimientoMonto> Saldo(DateTime fecha)
         {
             GastoRepository categoriaRepository = new GastoRepository(new Context());
             return categoriaRepository.Saldo(fecha);

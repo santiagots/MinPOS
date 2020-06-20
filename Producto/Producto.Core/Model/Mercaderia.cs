@@ -12,7 +12,7 @@ namespace Producto.Core.Model
         public DateTime FechaRecepcion { get; set; }
         public int? IdProveedor { get; internal set; }
         public Proveedor Proveedor { get; internal set; }
-        public IList<MercaderiaItem> MercaderiaItems { get; internal set; }
+        public virtual IList<MercaderiaItem> MercaderiaItems { get; internal set; }
         public DateTime FechaActualizacion { get; set; }
         public string UsuarioActualizacion { get; set; }
         public MercaderiaEstado Estado { get; protected set; }

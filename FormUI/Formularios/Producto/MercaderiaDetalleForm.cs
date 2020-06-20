@@ -89,6 +89,17 @@ namespace FormUI.Formularios.Producto
             });
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Ejecutar(() =>
+            {
+                if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.imprimirDocumento, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
+                {
+                    mercaderiaDetalleViewModel.ImprimirCaja();
+                }
+            });
+        }
+
         private void dgProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             EjecutarAsync(async () =>

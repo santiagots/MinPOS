@@ -26,13 +26,6 @@ namespace Producto.Data.Repository
             return await proveedor.ToListAsync();
         }
 
-        internal async Task Borrar(Proveedor proveedor)
-        {
-            _context.Entry(proveedor).State = EntityState.Unchanged;
-            _context.Proveedor.Remove(proveedor);
-            await _context.SaveChangesAsync();
-        }
-
         internal async Task Guardar(Proveedor proveedor)
         {
             if (proveedor.Id == 0)

@@ -19,7 +19,8 @@ namespace FormUI.Formularios.Producto
 
         internal async Task BorrarAsync(Categoria categoria)
         {
-            await CategoriaService.Borrar(categoria);
+            categoria.Borrar();
+            await CategoriaService.Guardar(categoria);
             await BuscarAsync();
         }
 

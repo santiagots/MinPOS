@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Common.Core.Enum;
 using Common.Core.Exception;
+using Common.Core.Model;
 using FluentValidation.Results;
 using Venta.Core.Enum;
 using Venta.Core.Validadores;
@@ -38,7 +39,7 @@ namespace Venta.Data.Service
             return ventaRepository.Obtener(id);
         }
 
-        public static List<KeyValuePair<string, decimal>> Saldo(DateTime fecha)
+        public static List<MovimientoMonto> Saldo(DateTime fecha)
         {
             VentaRepository categoriaRepository = new VentaRepository(new Context());
             return categoriaRepository.Saldo(fecha);

@@ -11,6 +11,7 @@ namespace Venta.Core.Model
         public decimal Precio { get; protected set; }
         public int StockActual { get; protected set; }
         public bool Habilitado { get; protected set; }
+        public bool Borrado { get; protected set; }
 
         internal Producto()
         { }

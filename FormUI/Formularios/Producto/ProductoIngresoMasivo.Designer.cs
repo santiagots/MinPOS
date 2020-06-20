@@ -36,13 +36,13 @@
             this.dgProductos = new System.Windows.Forms.DataGridView();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proveedoresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sueltoDataGridViewCheckBoxColumn = new FormUI.Controles.DataGridViewSiNoCellColumn();
             this.costoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockMinimoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockOptimoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockMinimoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockActualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productosModeloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productoIngresoMasivoViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -59,8 +59,7 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.proveedoresBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.numeroTextBox4 = new FormUI.Controles.NumeroTextBox();
             this.numeroTextBox2 = new FormUI.Controles.NumeroTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -73,8 +72,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.siNo1 = new FormUI.Controles.SiNo();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.proveedoresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbProveedor = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.numeroTextBox1 = new FormUI.Controles.NumeroTextBox();
             this.numeroTextBox5 = new FormUI.Controles.NumeroTextBox();
@@ -91,8 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -121,13 +117,13 @@
             this.dgProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoDataGridViewTextBoxColumn,
             this.descripcionDataGridViewTextBoxColumn,
-            this.categoriaDataGridViewTextBoxColumn,
             this.proveedoresDataGridViewTextBoxColumn,
+            this.categoriaDataGridViewTextBoxColumn,
             this.sueltoDataGridViewCheckBoxColumn,
             this.costoDataGridViewTextBoxColumn,
             this.precioDataGridViewTextBoxColumn,
-            this.stockMinimoDataGridViewTextBoxColumn,
             this.stockOptimoDataGridViewTextBoxColumn,
+            this.stockMinimoDataGridViewTextBoxColumn,
             this.stockActualDataGridViewTextBoxColumn});
             this.dgProductos.DataSource = this.productosModeloBindingSource;
             this.dgProductos.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -159,15 +155,6 @@
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // categoriaDataGridViewTextBoxColumn
-            // 
-            this.categoriaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
-            this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoriaDataGridViewTextBoxColumn.Width = 103;
-            // 
             // proveedoresDataGridViewTextBoxColumn
             // 
             this.proveedoresDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -176,6 +163,15 @@
             this.proveedoresDataGridViewTextBoxColumn.Name = "proveedoresDataGridViewTextBoxColumn";
             this.proveedoresDataGridViewTextBoxColumn.ReadOnly = true;
             this.proveedoresDataGridViewTextBoxColumn.Width = 123;
+            // 
+            // categoriaDataGridViewTextBoxColumn
+            // 
+            this.categoriaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoriaDataGridViewTextBoxColumn.Width = 103;
             // 
             // sueltoDataGridViewCheckBoxColumn
             // 
@@ -205,15 +201,6 @@
             this.precioDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioDataGridViewTextBoxColumn.Width = 78;
             // 
-            // stockMinimoDataGridViewTextBoxColumn
-            // 
-            this.stockMinimoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.stockMinimoDataGridViewTextBoxColumn.DataPropertyName = "StockMinimo";
-            this.stockMinimoDataGridViewTextBoxColumn.HeaderText = "S. Min";
-            this.stockMinimoDataGridViewTextBoxColumn.Name = "stockMinimoDataGridViewTextBoxColumn";
-            this.stockMinimoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stockMinimoDataGridViewTextBoxColumn.Width = 78;
-            // 
             // stockOptimoDataGridViewTextBoxColumn
             // 
             this.stockOptimoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -222,6 +209,15 @@
             this.stockOptimoDataGridViewTextBoxColumn.Name = "stockOptimoDataGridViewTextBoxColumn";
             this.stockOptimoDataGridViewTextBoxColumn.ReadOnly = true;
             this.stockOptimoDataGridViewTextBoxColumn.Width = 79;
+            // 
+            // stockMinimoDataGridViewTextBoxColumn
+            // 
+            this.stockMinimoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.stockMinimoDataGridViewTextBoxColumn.DataPropertyName = "StockMinimo";
+            this.stockMinimoDataGridViewTextBoxColumn.HeaderText = "S. Min";
+            this.stockMinimoDataGridViewTextBoxColumn.Name = "stockMinimoDataGridViewTextBoxColumn";
+            this.stockMinimoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stockMinimoDataGridViewTextBoxColumn.Width = 78;
             // 
             // stockActualDataGridViewTextBoxColumn
             // 
@@ -361,7 +357,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.comboBox2, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cmbCategoria, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.numeroTextBox4, 4, 3);
             this.tableLayoutPanel2.Controls.Add(this.numeroTextBox2, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label7, 1, 2);
@@ -374,7 +370,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label4, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label5, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.siNo1, 4, 1);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cmbProveedor, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.numeroTextBox1, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.numeroTextBox5, 2, 3);
@@ -392,22 +388,19 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(851, 139);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // comboBox2
+            // cmbCategoria
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.DataSource = this.proveedoresBindingSource2;
-            this.comboBox2.DisplayMember = "Value";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(513, 36);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(164, 28);
-            this.comboBox2.TabIndex = 3;
-            this.comboBox2.ValueMember = "Key";
-            // 
-            // proveedoresBindingSource2
-            // 
-            this.proveedoresBindingSource2.DataMember = "Proveedores";
-            this.proveedoresBindingSource2.DataSource = this.productoIngresoMasivoViewModelBindingSource;
+            this.cmbCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbCategoria.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoIngresoMasivoViewModelBindingSource, "CategoriaSeleccionada", true));
+            this.cmbCategoria.DataSource = this.categoriasBindingSource;
+            this.cmbCategoria.DisplayMember = "Value";
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(513, 36);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(164, 28);
+            this.cmbCategoria.TabIndex = 3;
+            this.cmbCategoria.ValueMember = "Key";
             // 
             // numeroTextBox4
             // 
@@ -537,22 +530,19 @@
             this.siNo1.TabIndex = 4;
             this.siNo1.Valor = false;
             // 
-            // comboBox1
+            // cmbProveedor
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DataSource = this.proveedoresBindingSource1;
-            this.comboBox1.DisplayMember = "Value";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(343, 36);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(164, 28);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.ValueMember = "Key";
-            // 
-            // proveedoresBindingSource1
-            // 
-            this.proveedoresBindingSource1.DataMember = "Proveedores";
-            this.proveedoresBindingSource1.DataSource = this.productoIngresoMasivoViewModelBindingSource;
+            this.cmbProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbProveedor.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoIngresoMasivoViewModelBindingSource, "ProveedorSeleccionada", true));
+            this.cmbProveedor.DataSource = this.proveedoresBindingSource;
+            this.cmbProveedor.DisplayMember = "Value";
+            this.cmbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProveedor.FormattingEnabled = true;
+            this.cmbProveedor.Location = new System.Drawing.Point(343, 36);
+            this.cmbProveedor.Name = "cmbProveedor";
+            this.cmbProveedor.Size = new System.Drawing.Size(164, 28);
+            this.cmbProveedor.TabIndex = 2;
+            this.cmbProveedor.ValueMember = "Key";
             // 
             // label6
             // 
@@ -629,7 +619,7 @@
             this.btnAgregarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarProveedor.Image = global::FormUI.Properties.Resources.Proveedores_2;
             this.btnAgregarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(469, 182);
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(295, 182);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
             this.btnAgregarProveedor.Size = new System.Drawing.Size(181, 40);
             this.btnAgregarProveedor.TabIndex = 2;
@@ -644,7 +634,7 @@
             this.btnAgregarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarCategoria.Image = global::FormUI.Properties.Resources.Detalle_Pequeno;
             this.btnAgregarCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(295, 182);
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(482, 182);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(168, 40);
             this.btnAgregarCategoria.TabIndex = 3;
@@ -678,8 +668,6 @@
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -710,7 +698,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private Controles.SiNo siNo1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbProveedor;
         private Controles.NumeroTextBox numeroTextBox5;
         private Controles.NumeroTextBox numeroTextBox4;
         private Controles.NumeroTextBox numeroTextBox3;
@@ -721,21 +709,19 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private Controles.NumeroTextBox numeroTextBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.Button btnAgregarCategoria;
-        private System.Windows.Forms.BindingSource proveedoresBindingSource2;
-        private System.Windows.Forms.BindingSource proveedoresBindingSource1;
         private System.Windows.Forms.BindingSource productosModeloBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn proveedoresDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
         private Controles.DataGridViewSiNoCellColumn sueltoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockMinimoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockOptimoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockMinimoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockActualDataGridViewTextBoxColumn;
     }
 }

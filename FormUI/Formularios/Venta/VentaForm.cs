@@ -124,6 +124,11 @@ namespace FormUI.Formularios.Venta
                     ventaViewModel.Quitar(ventaItems);
                 }
             }
+
+            if (e.KeyCode == Keys.F12)
+            {
+                btnCobrar.PerformClick();
+            }
         }
 
         private void dgProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)

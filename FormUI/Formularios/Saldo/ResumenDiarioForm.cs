@@ -36,6 +36,18 @@ namespace FormUI.Formularios.Saldo
                 if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.cerrarCaja, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
                 {
                     resumenDiarioViewModel.CerraCaja();
+                    CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
+                }
+            });
+        }
+
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            Ejecutar(() =>
+            {
+                if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.abrirCaja, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
+                {
+                    resumenDiarioViewModel.AbrirCaja();
                 }
             });
         }

@@ -101,6 +101,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enum\CustomMessageBoxIcon.cs" />
+    <Compile Include="Formularios\Common\BarraProgresoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Common\BarraProgresoForm.Designer.cs">
+      <DependentUpon>BarraProgresoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Common\CommonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,7 @@
     <Compile Include="Formularios\Producto\ProductoIngresoMasivo.Designer.cs">
       <DependentUpon>ProductoIngresoMasivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Producto\ProductoIngresoMasivoItem.cs" />
     <Compile Include="Formularios\Producto\ProductoIngresoMasivoViewModel.cs" />
     <Compile Include="Formularios\Producto\ProductoListadoViewModel.cs" />
     <Compile Include="Formularios\Producto\ProveedorBusquedaForm.cs">
@@ -336,6 +343,9 @@
     <EmbeddedResource Include="Controles\SiNo.resx">
       <DependentUpon>SiNo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Common\BarraProgresoForm.resx">
+      <DependentUpon>BarraProgresoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Common\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -437,6 +447,7 @@
     <None Include="App.Release.config">
       <DependentUpon>App.config</DependentUpon>
     </None>
+    <None Include="Drivers\Impresora\Lexa.zip" />
     <None Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -656,6 +667,11 @@
     <None Include="Imagenes\TicketPequeño.png" />
     <None Include="Imagenes\Usuario_Cuenta.png" />
     <None Include="Imagenes\Nota_Pedido_2r.png" />
+    <None Include="Imagenes\btn_AbrirCaja_32.png" />
+    <None Include="Imagenes\btn_Cascada_32.png" />
+    <None Include="Imagenes\btn_MosHorizontal_32.png" />
+    <None Include="Imagenes\btn_MosVertical_32.png" />
+    <None Include="Imagenes\btn_Ventana_32.png" />
     <Content Include="logo.ico" />
     <None Include="Imagenes\icono_imprimir.gif" />
   </ItemGroup>

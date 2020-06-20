@@ -9,7 +9,7 @@ namespace FormUI.Formularios.Producto
         public Mercaderia Mercaderia { get; internal set; }
         public DateTime FechaAlta => Mercaderia.Fecha;
         public DateTime FechaRecepcion => Mercaderia.FechaRecepcion;
-        public string Proveedor => Mercaderia.Proveedor.RazonSocial;
+        public string Proveedor => Mercaderia.Proveedor?.RazonSocial;
         public MercaderiaEstado Estado => Mercaderia.Estado;
 
         public MercaderiaListadoItem(Mercaderia mercaderia)

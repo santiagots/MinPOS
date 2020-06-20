@@ -1,4 +1,5 @@
 ﻿using Common.Core.Exception;
+using Dispositivos;
 using FormUI.Componentes;
 using FormUI.Formularios.Common;
 using FormUI.Formularios.Gasto;
@@ -82,6 +83,15 @@ namespace FormUI.Formularios.Producto
             this.Proveedores.Insert(0, new KeyValuePair<Modelo.Proveedor, string>(null, Resources.comboSeleccionarOpcion));
 
             NotifyPropertyChanged(nameof(Proveedores));
+        }
+
+        internal void ImprimirCaja()
+        {
+            Mercaderia mercaderiaModel = new Modelo.Mercaderia(Id, FechaAlta, FechaRecepcion, ProveedorSeleccionado.Key, Mercaderias.Select(x => x.MercaderiaItem).ToList(), Usuario, MercaderiaEstado.Guardada);
+            Imprimir.Documento.Mercaderia mercaderia = new Imprimir.Documento.Mercaderia(Settings.Default.NombreFantasia, Settings.Default.Direccion, Settings.Default.ComprobanteCompraSeparador, mercaderiaModel);
+
+            Impresora impresora = new Impresora(Settings.Default.ImpresoraNombre, mercaderia);
+            impresora.Imprimir();
         }
 
         internal async Task AgregarAsync()

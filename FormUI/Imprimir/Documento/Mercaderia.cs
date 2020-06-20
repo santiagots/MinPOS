@@ -26,7 +26,7 @@ namespace FormUI.Imprimir.Documento
 
             Texto titulo = new Texto("Mercadería", StringAlignment.Center);
             AgregarLinea(Cabecera2, titulo);
-            Texto proveedor = new Texto($"Prov.: {mercaderia.Proveedor.RazonSocial}", StringAlignment.Center);
+            Texto proveedor = new Texto($"Prov: {mercaderia.Proveedor.RazonSocial}", StringAlignment.Center);
             AgregarLinea(Cabecera2, proveedor);
 
             Texto fecha = new Texto($"Fecha:{mercaderia.Fecha.ToString("dd/MM/yyyy")}", StringAlignment.Near, 0.5f);
@@ -46,11 +46,11 @@ namespace FormUI.Imprimir.Documento
 
             foreach ((string, string, int) movimiento in movimientos)
             {
-                Texto codigo = new Texto(movimiento.Item1, StringAlignment.Near, 0.7f);
-                Texto cantidad = new Texto(movimiento.Item3.ToString(), StringAlignment.Near, 0.3f);
+                Texto codigo = new Texto($"Cod:{movimiento.Item1}", StringAlignment.Near, 0.7f);
+                Texto cantidad = new Texto($"Cant:{movimiento.Item3.ToString()}", StringAlignment.Near, 0.3f);
                 AgregarLinea(cuerpo1, codigo, cantidad);
 
-                Texto descripcion = new Texto(movimiento.Item2, StringAlignment.Far);
+                Texto descripcion = new Texto(movimiento.Item2, StringAlignment.Near);
                 AgregarLinea(cuerpo1Negrita, descripcion);
             }
         }

@@ -1,5 +1,6 @@
 ﻿using Common.Core.Enum;
 using Common.Core.Extension;
+using Common.Core.Model;
 using Common.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -58,19 +59,18 @@ namespace Venta.Data.Repository
                                                                     .Include(x => x.VentaItems.Select(y => y.Producto))
                                                                     .FirstOrDefaultAsync(x => x.Id == id);
 
-        internal List<KeyValuePair<string, decimal>> Saldo(DateTime fecha)
+        internal List<MovimientoMonto> Saldo(DateTime fecha)
         {
-            List<Model.Venta> venta = _context.Venta
-                                                    .Include(x => x.Pago)
+            List<Model.Venta> venta = _context.Venta.Include(x => x.Pago)
                                                     .Where(x => DbFunctions.TruncateTime(x.FechaAlta).Value == fecha.Date)
                                                     .ToList();
 
-            List<KeyValuePair<string, decimal>> saldo = venta.GroupBy(x => x.Pago.FormaPago)
-                                                                    .Select(g => new KeyValuePair<string, decimal>(
-                                                                        g.Key.ToString(),
-                                                                        g.Sum(s => s.Pago.Monto))
-                                                                    ).ToList();
-            return saldo;
+            return venta.GroupBy(x => x.Pago.FormaPago)
+                            .Select(g => new MovimientoMonto(
+                                true,
+                                g.Key.ToString(),
+                                g.Sum(s => s.Pago.Monto))
+                            ).ToList();
         }
     }
 }

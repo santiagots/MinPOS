@@ -1,13 +1,11 @@
-﻿using FormUI.Formularios.Common;
-using FormUI.Formularios.Gasto;
+﻿using FormUI.Formularios.Gasto;
 using FormUI.Formularios.Producto;
 using FormUI.Formularios.Saldo;
 using FormUI.Formularios.Usuario;
 using FormUI.Formularios.Venta;
-using FormUI.Properties;
 using System;
+using System.Linq;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 
 namespace FormUI.Formularios.Common
 {
@@ -71,9 +69,9 @@ namespace FormUI.Formularios.Common
 
         private void tsbNuevaVenta_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(VentaForm), this);
 
-        private void tsbNuevaGasto_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(GastoDetalleForm), this);
+        private void tsbNuevaGasto_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(GastoDetalleForm), this, true);
 
-        private void tsbCierreCaja_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(ResumenDiarioForm), this);
+        private void tsbCierreCaja_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(ResumenDiarioForm), this, true);
 
         private void toolStripStatusPedido_Click(object sender, EventArgs e)
         {
@@ -86,5 +84,13 @@ namespace FormUI.Formularios.Common
         }
 
         private void toolStripStatusUsuario_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(UsuarioDetalleForm), this);
+        
+        private void cascadaToolStripMenuItem_Click(object sender, EventArgs e) => LayoutMdi(MdiLayout.Cascade);
+        
+        private void horizontalToolStripMenuItem_Click(object sender, EventArgs e) => LayoutMdi(MdiLayout.TileHorizontal);
+        
+        private void verticalToolStripMenuItem_Click(object sender, EventArgs e) => LayoutMdi(MdiLayout.TileVertical);
+        
+        private void cerraToolStripMenuItem_Click(object sender, EventArgs e) => MdiChildren.ToList().ForEach(x => x.Close());
     }
 }

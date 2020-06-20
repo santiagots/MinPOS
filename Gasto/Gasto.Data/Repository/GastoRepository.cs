@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using Gasto.Core.Model;
 using System;
 using System.Linq;
+using Common.Core.Enum;
+using Common.Core.Extension;
+using Common.Core.Model;
 
 namespace Gasto.Data.Repository
 {
@@ -27,14 +30,12 @@ namespace Gasto.Data.Repository
             await _context.SaveChangesAsync();
         }
 
-        internal Task<List<Modelo.Gasto>> Buscar(DateTime fechaDesde, DateTime fechaHasta, TipoGasto tipoGasto, string usuario, bool? anulada)
+        internal Task<List<Modelo.Gasto>> Buscar(DateTime fechaDesde, DateTime fechaHasta, TipoGasto tipoGasto, string usuario, bool? anulada, bool? saleDeCaja, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             IQueryable<Modelo.Gasto> gastos = _context.Gasto
                                                       .Include(x => x.TipoGasto)
                                                       .Where(x => DbFunctions.TruncateTime(x.Fecha).Value >= fechaDesde.Date &&
-                                                                  DbFunctions.TruncateTime(x.Fecha).Value <= fechaDesde.Date);
-
-            gastos = gastos;
+                                                                  DbFunctions.TruncateTime(x.Fecha).Value <= fechaHasta.Date);
 
             if(tipoGasto != null)
                 gastos = gastos.Where(x => x.TipoGasto.Id == tipoGasto.Id);
@@ -45,23 +46,26 @@ namespace Gasto.Data.Repository
             if(anulada.HasValue)
                 gastos = gastos.Where(x => x.Anulada == anulada.Value);
 
-            return gastos.ToListAsync();
+            if (saleDeCaja.HasValue)
+                gastos = gastos.Where(x => x.SaleDeCaja == saleDeCaja.Value);
+
+            return gastos.Paginar(ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos).ToListAsync();
         }
 
-        internal List<KeyValuePair<string, decimal>> Saldo(DateTime fecha)
+        internal List<MovimientoMonto> Saldo(DateTime fecha)
         {
             IQueryable<Modelo.Gasto> gastos = _context.Gasto
                                                     .Where(x => !x.Anulada &&
                                                                 x.SaleDeCaja &&
                                                                 DbFunctions.TruncateTime(x.Fecha).Value == fecha.Date);
 
-            List<KeyValuePair<string, decimal>> saldo = gastos.GroupBy(x => x.TipoGasto)
-                                                                    .AsEnumerable()
-                                                                    .Select(g => new KeyValuePair<string, decimal>(
-                                                                        g.Key.Descripcion,
-                                                                        g.Sum(s => s.Monto))
-                                                                    ).ToList();
-            return saldo;
+            return gastos.GroupBy(x => new { x.TipoGasto, x.SaleDeCaja })
+                            .AsEnumerable()
+                            .Select(g => new MovimientoMonto(
+                                g.Key.SaleDeCaja,
+                                g.Key.TipoGasto.Descripcion,
+                                g.Sum(s => s.Monto))
+                            ).ToList();
         }
     }
 }

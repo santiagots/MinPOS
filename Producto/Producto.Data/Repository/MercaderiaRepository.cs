@@ -21,8 +21,9 @@ namespace Producto.Data.Repository
 
         internal async Task Borrar(Mercaderia mercaderia)
         {
-            _context.Entry(mercaderia).State = EntityState.Unchanged;
-            _context.Mercaderia.Remove(mercaderia);
+            Mercaderia mercaderiaModel = await Obtener(mercaderia.Id);  
+            _context.Mercaderia.Remove(mercaderiaModel);
+            
             await _context.SaveChangesAsync();
         }
 

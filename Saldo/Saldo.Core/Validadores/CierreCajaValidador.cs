@@ -7,7 +7,7 @@ namespace Saldo.Core.Validadores
     {
         public CierreCajaValidador()
         {
-            RuleFor(m => m.MontoRegistrado)
+            RuleFor(m => m.MontoEnCaja)
                 .GreaterThan(0);
         }
     }

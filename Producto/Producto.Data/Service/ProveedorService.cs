@@ -18,12 +18,6 @@ namespace Producto.Data.Service
             return proveedorRepository.Buscar(rasonSocial, habilitado);
         }
 
-        public static Task Borrar(Proveedor proveedor)
-        {
-            ProveedorRepository proveedorRepository = new ProveedorRepository(new Context());
-            return proveedorRepository.Borrar(proveedor);
-        }
-
         public static Task Guardar(Proveedor proveedor)
         {
             ProveedorValidador validador = new ProveedorValidador();

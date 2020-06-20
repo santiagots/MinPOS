@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Modelo = Gasto.Core.Model;
 using ModeloCommon = Common.Core.Model;
 using System.Windows.Forms;
+using Common.Core.Enum;
 
 namespace FormUI.Formularios.Gasto
 {
@@ -23,13 +24,24 @@ namespace FormUI.Formularios.Gasto
         public List<KeyValuePair<ModeloCommon.Usuario, string>> Usuarios { get; set; } = new List<KeyValuePair<ModeloCommon.Usuario, string>>();
         public KeyValuePair<bool?, string> AnuladaSeleccionado { get; set; }
         public List<KeyValuePair<bool?, string>> Anulada { get; set; } = new List<KeyValuePair<bool?, string>>();
+        public KeyValuePair<bool?, string> SaleDeCajaSeleccionado { get; set; }
+        public List<KeyValuePair<bool?, string>> SaleDeCaja { get; set; } = new List<KeyValuePair<bool?, string>>();
         public BindingList<GastoListadoItem> Gastos { get; set; } = new BindingList<GastoListadoItem>();
+        public string OrdenadoPor { get; set; } = "Fecha";
+        public DireccionOrdenamiento DireccionOrdenamiento { get; set; }
+        public int PaginaActual { get; set; } = 1;
+        public int ElementosPorPagina { get; set; }
+        public int TotalElementos { get; set; }
 
         public GastoListadoViewModel() 
         {
             Anulada.Add(new KeyValuePair<bool?, string>(null, "Todos"));
             Anulada.Add(new KeyValuePair<bool?, string>(true, "Si"));
             Anulada.Add(new KeyValuePair<bool?, string>(false, "No"));
+
+            SaleDeCaja.Add(new KeyValuePair<bool?, string>(null, "Todos"));
+            SaleDeCaja.Add(new KeyValuePair<bool?, string>(true, "Si"));
+            SaleDeCaja.Add(new KeyValuePair<bool?, string>(false, "No"));
         }
 
         internal async Task Cargar()
@@ -56,27 +68,29 @@ namespace FormUI.Formularios.Gasto
             NotifyPropertyChanged(nameof(TiposGastos));
         }
 
-        internal async Task NuevoAsync(Form contenedor)
+        internal async Task NuevoAsync()
         {
             GastoDetalleForm gastoDetalleForm = new GastoDetalleForm();
-            gastoDetalleForm.MdiParent = contenedor;
-            gastoDetalleForm.Show();
+            gastoDetalleForm.ShowDialog();
             await BuscarAsync();
         }
 
-        internal async Task ModificarAsync(GastoListadoItem gastoListadoItem, Form contenedor)
+        internal async Task ModificarAsync(GastoListadoItem gastoListadoItem)
         {
             GastoDetalleForm gastoDetalleForm = new GastoDetalleForm(gastoListadoItem.Gasto);
-            gastoDetalleForm.MdiParent = contenedor;
-            gastoDetalleForm.Show();
+            gastoDetalleForm.ShowDialog();
             await BuscarAsync();
         }
 
         internal async Task BuscarAsync()
         {
+            int totalElementos = 0;
             Gastos.Clear();
-            List<Modelo.Gasto> gastoModel = await GastoService.Buscar(FechaDesde, FechaHasta, TipoGastoSeleccionada.Key, UsuarioSeleccionado.Key?.Alias, AnuladaSeleccionado.Key);
+
+            List<Modelo.Gasto> gastoModel = await GastoService.Buscar(FechaDesde, FechaHasta, TipoGastoSeleccionada.Key, UsuarioSeleccionado.Key?.Alias, AnuladaSeleccionado.Key, SaleDeCajaSeleccionado.Key, OrdenadoPor, DireccionOrdenamiento, PaginaActual, ElementosPorPagina, out totalElementos);
             gastoModel.ForEach(x => Gastos.Add(new GastoListadoItem(x)));
+
+            TotalElementos = totalElementos;
             NotifyPropertyChanged(nameof(gastoModel));
         }
     }

@@ -165,6 +165,7 @@
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.gastoDetalleViewModelBindingSource, "TipoGastoSeleccionada", true));
             this.comboBox2.DataSource = this.tiposGastosBindingSource;
             this.comboBox2.DisplayMember = "Value";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(128, 38);

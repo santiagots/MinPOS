@@ -18,12 +18,6 @@ namespace Producto.Data.Service
             return categoriaRepository.Buscar(descripcion, habilitado);
         }
 
-        public static Task Borrar(Categoria categoria)
-        {
-            CategoriaRepository categoriaRepository = new CategoriaRepository(new Context());
-            return categoriaRepository.Borrar(categoria);
-        }
-
         public static Task Guardar(Categoria categoria)
         {
             CategoriaValidador validador = new CategoriaValidador();

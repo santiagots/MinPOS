@@ -61,6 +61,15 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de que desea abrir la caja?.
+        /// </summary>
+        internal static string abrirCaja {
+            get {
+                return ResourceManager.GetString("abrirCaja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error al realizar la accion. Por favor, intente mas tarde o consulte con el administrador..
         /// </summary>
         internal static string accionError {
@@ -121,6 +130,16 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_AbrirCaja_32 {
+            get {
+                object obj = ResourceManager.GetObject("btn_AbrirCaja_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_agregar_24 {
             get {
                 object obj = ResourceManager.GetObject("btn_agregar_24", resourceCulture);
@@ -134,6 +153,16 @@ namespace FormUI.Properties {
         internal static System.Drawing.Bitmap btn_agregar_241 {
             get {
                 object obj = ResourceManager.GetObject("btn_agregar_241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_Cascada_32 {
+            get {
+                object obj = ResourceManager.GetObject("btn_Cascada_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -201,6 +230,26 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_MosHorizontal_32 {
+            get {
+                object obj = ResourceManager.GetObject("btn_MosHorizontal_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_MosVertical_32 {
+            get {
+                object obj = ResourceManager.GetObject("btn_MosVertical_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_ojo {
             get {
                 object obj = ResourceManager.GetObject("btn_ojo", resourceCulture);
@@ -231,10 +280,29 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_Ventana_32 {
+            get {
+                object obj = ResourceManager.GetObject("btn_Ventana_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_ventas_32 {
             get {
                 object obj = ResourceManager.GetObject("btn_ventas_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se han encontrado {0} cajas pendientes de cierre. Se van a estar cerrando de forma automática..
+        /// </summary>
+        internal static string cajasPendientesDeCierre {
+            get {
+                return ResourceManager.GetString("cajasPendientesDeCierre", resourceCulture);
             }
         }
         

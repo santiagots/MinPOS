@@ -9,6 +9,7 @@ namespace FormUI.Formularios.Gasto
 
         public DateTime Fecha => Gasto.Fecha;
         public string TipoGasto => Gasto.TipoGasto.Descripcion;
+        public bool SaleDeCaja => Gasto.SaleDeCaja;
         public decimal Monto => Gasto.Monto;
         public bool Anulada => Gasto.Anulada;
         public DateTime FechaActualizacion => Gasto.FechaActualizacion;

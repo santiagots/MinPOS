@@ -28,7 +28,7 @@ namespace Producto.Data
 
             modelBuilder.Entity<Model.Mercaderia>().ToTable("Mercaderia");
             modelBuilder.Entity<Model.Mercaderia>().Property(x => x.IdProveedor).HasColumnName("IdProveedor");
-            modelBuilder.Entity<Model.Mercaderia>().HasRequired(x => x.Proveedor).WithMany().HasForeignKey(x => x.IdProveedor);
+            modelBuilder.Entity<Model.Mercaderia>().HasOptional(x => x.Proveedor).WithMany().HasForeignKey(x => x.IdProveedor);
 
             modelBuilder.Entity<Model.MercaderiaItem>().ToTable("MercaderiaItem");
             modelBuilder.Entity<Model.MercaderiaItem>().Property(x => x.IdProducto).HasColumnName("IdProducto");

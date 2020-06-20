@@ -16,7 +16,8 @@ namespace Producto.Data.Repository
 
         internal async Task<IList<Categoria>> Buscar(string descripcion, bool? habilitado)
         {
-            IQueryable<Categoria> categoria = _context.Categoria;
+            IQueryable<Categoria> categoria = _context.Categoria.Where(x => !x.Borrado);
+
             if (!string.IsNullOrWhiteSpace(descripcion))
                 categoria = categoria.Where(x => x.Descripcion.Contains(descripcion));
 
@@ -24,12 +25,6 @@ namespace Producto.Data.Repository
                 categoria = categoria.Where(x => x.Habilitada == habilitado);
 
             return await categoria.ToListAsync();
-        }
-
-        internal async Task Borrar(Categoria categoria)
-        {
-            //TODO: BORRADO LOGICO
-            throw new NotImplementedException();
         }
 
         internal async Task Guardar(Categoria categoria)

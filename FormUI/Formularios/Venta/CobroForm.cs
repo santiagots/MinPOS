@@ -1,4 +1,5 @@
-﻿using FormUI.Formularios.Common;
+﻿using FormUI.Enum;
+using FormUI.Formularios.Common;
 using System;
 using System.Windows.Forms;
 using Venta.Core.Enum;
@@ -35,6 +36,21 @@ namespace FormUI.Formularios.Venta
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            Ejecutar(() => cobroViewModel.CargarEfectivo());
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            Ejecutar(() => cobroViewModel.CargarDebito());
+        }
+
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            Ejecutar(() => cobroViewModel.CargarCredito());
         }
     }
 }

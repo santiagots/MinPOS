@@ -47,9 +47,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new FormUI.Controles.NumeroTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new FormUI.Controles.NumeroTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.chkSuelto = new FormUI.Controles.SiNo();
@@ -57,11 +57,11 @@
             this.proveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new FormUI.Controles.NumeroTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new FormUI.Controles.NumeroTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new FormUI.Controles.NumeroTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -255,6 +255,7 @@
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.productoDetalleViewModelBindingSource, "CategoriaSeleccionada", true));
             this.comboBox2.DataSource = this.categoriasBindingSource;
             this.comboBox2.DisplayMember = "Value";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(122, 73);
@@ -306,11 +307,14 @@
             // textBox6
             // 
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox6.CantidadDecimales = 2;
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "Precio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.productoDetalleViewModelBindingSource, "Empaquetado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBox6.Location = new System.Drawing.Point(122, 370);
+            this.textBox6.MostrarNullConValorCero = true;
             this.textBox6.Name = "textBox6";
+            this.textBox6.PermiteNegativos = false;
             this.textBox6.Size = new System.Drawing.Size(305, 26);
             this.textBox6.TabIndex = 6;
             // 
@@ -328,10 +332,13 @@
             // textBox5
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.CantidadDecimales = 2;
             this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "Costo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBox5.Location = new System.Drawing.Point(122, 335);
+            this.textBox5.MostrarNullConValorCero = true;
             this.textBox5.Name = "textBox5";
+            this.textBox5.PermiteNegativos = false;
             this.textBox5.Size = new System.Drawing.Size(305, 26);
             this.textBox5.TabIndex = 5;
             // 
@@ -424,11 +431,14 @@
             // textBox7
             // 
             this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox7.CantidadDecimales = 0;
             this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "StockActual", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.productoDetalleViewModelBindingSource, "Empaquetado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBox7.Location = new System.Drawing.Point(103, 76);
+            this.textBox7.MostrarNullConValorCero = true;
             this.textBox7.Name = "textBox7";
+            this.textBox7.PermiteNegativos = false;
             this.textBox7.Size = new System.Drawing.Size(312, 26);
             this.textBox7.TabIndex = 2;
             // 
@@ -446,11 +456,14 @@
             // textBox3
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.CantidadDecimales = 0;
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "StockMinimo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.productoDetalleViewModelBindingSource, "Empaquetado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBox3.Location = new System.Drawing.Point(103, 4);
+            this.textBox3.MostrarNullConValorCero = true;
             this.textBox3.Name = "textBox3";
+            this.textBox3.PermiteNegativos = false;
             this.textBox3.Size = new System.Drawing.Size(312, 26);
             this.textBox3.TabIndex = 0;
             // 
@@ -468,11 +481,14 @@
             // textBox4
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.CantidadDecimales = 0;
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoDetalleViewModelBindingSource, "StockOptimo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.productoDetalleViewModelBindingSource, "Empaquetado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBox4.Location = new System.Drawing.Point(103, 39);
+            this.textBox4.MostrarNullConValorCero = true;
             this.textBox4.Name = "textBox4";
+            this.textBox4.PermiteNegativos = false;
             this.textBox4.Size = new System.Drawing.Size(312, 26);
             this.textBox4.TabIndex = 1;
             // 
@@ -701,16 +717,16 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private FormUI.Controles.NumeroTextBox textBox5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private FormUI.Controles.NumeroTextBox textBox6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private FormUI.Controles.NumeroTextBox textBox3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
+        private FormUI.Controles.NumeroTextBox textBox4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnCancelar;
@@ -718,7 +734,7 @@
         private System.Windows.Forms.BindingSource productoDetalleViewModelBindingSource;
         private System.Windows.Forms.BindingSource proveedoresBindingSource;
         private System.Windows.Forms.BindingSource categoriasBindingSource;
-        private System.Windows.Forms.TextBox textBox7;
+        private FormUI.Controles.NumeroTextBox textBox7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.GroupBox groupBox3;

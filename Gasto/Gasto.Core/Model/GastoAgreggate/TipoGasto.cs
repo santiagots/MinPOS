@@ -1,4 +1,5 @@
 ﻿using Common.Core.Model;
+using System;
 
 namespace Gasto.Core.Model
 {
@@ -16,5 +17,7 @@ namespace Gasto.Core.Model
             Descripcion = descripcion;
             Habilitada = habilitada;
         }
+
+        public void Borrar() => Borrado = true;
     }
 }

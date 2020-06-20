@@ -33,7 +33,14 @@ namespace FormUI.Formularios.Producto
             });
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e) => MostrarFormularioModal(typeof(MercaderiaDetalleForm));
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            EjecutarAsync(async () =>
+            {
+                MostrarFormularioModal(typeof(MercaderiaDetalleForm));
+                await mercaderiaListadoViewModel.BuscarAsync();
+            });
+        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {

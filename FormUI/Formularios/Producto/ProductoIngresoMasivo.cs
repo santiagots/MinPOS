@@ -32,6 +32,8 @@ namespace FormUI.Formularios.Producto
             EjecutarAsync(async () =>
             {
                 await productoIngresoMasivoViewModel.GuardarAsync();
+                cmbCategoria.SelectedIndex = 0;
+                cmbProveedor.SelectedIndex = 0;
             });
         }
 
@@ -60,7 +62,8 @@ namespace FormUI.Formularios.Producto
             Ejecutar(() =>
             {
                 productoIngresoMasivoViewModel.Limpiar();
-                dgProductos.ClearSelection();
+                cmbCategoria.SelectedIndex = 0;
+                cmbProveedor.SelectedIndex = 0;
             });
         }
 
@@ -68,8 +71,8 @@ namespace FormUI.Formularios.Producto
         {
             Ejecutar(() =>
             {
-                Modelo.Producto producto = (Modelo.Producto)dgProductos.Rows[e.RowIndex].DataBoundItem;
-                productoIngresoMasivoViewModel.CargarProducto(producto);
+                ProductoIngresoMasivoItem productoIngresoMasivoItem = (ProductoIngresoMasivoItem)dgProductos.Rows[e.RowIndex].DataBoundItem;
+                productoIngresoMasivoViewModel.CargarProducto(productoIngresoMasivoItem.ProductoItem);
             });
         }
     }

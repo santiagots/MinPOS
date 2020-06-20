@@ -13,8 +13,10 @@ namespace Saldo.Core.Model
         {
         }
 
-        public Ingresos(string concepto, decimal monto)
+        public Ingresos(int id, int idCierreCaja, string concepto, decimal monto)
         {
+            Id = id;
+            IdCierreCaja = idCierreCaja;
             Concepto = concepto;
             Monto = monto;
         }

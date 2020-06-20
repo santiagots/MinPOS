@@ -60,13 +60,18 @@
             this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vnetanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRapido = new System.Windows.Forms.ToolStrip();
             this.tsbNuevaVenta = new System.Windows.Forms.ToolStripButton();
             this.tsbNuevaGasto = new System.Windows.Forms.ToolStripButton();
             this.tsbCierreCaja = new System.Windows.Forms.ToolStripButton();
             this.tsbProductos = new System.Windows.Forms.ToolStripButton();
-            this.popupNotifier = new Tulpep.NotificationWindow.PopupNotifier();
             this.tsbIngresos = new System.Windows.Forms.ToolStripButton();
+            this.popupNotifier = new Tulpep.NotificationWindow.PopupNotifier();
+            this.cascadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.MenuRapido.SuspendLayout();
@@ -114,7 +119,8 @@
             this.cuentaToolStripMenuItem,
             this.adminiToolStripMenuItem,
             this.seguridadToolStripMenuItem,
-            this.configuracionStripMenuItem});
+            this.configuracionStripMenuItem,
+            this.vnetanaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(884, 29);
@@ -179,8 +185,7 @@
             // 
             this.buscarToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_resumen_32;
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
             this.buscarToolStripMenuItem.Text = "Administrar";
             this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
@@ -188,20 +193,20 @@
             // 
             this.cargarVariosToolStripMenuItem.Image = global::FormUI.Properties.Resources.bt_Recibo_32;
             this.cargarVariosToolStripMenuItem.Name = "cargarVariosToolStripMenuItem";
-            this.cargarVariosToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.cargarVariosToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
             this.cargarVariosToolStripMenuItem.Text = "Cargar Varios";
             this.cargarVariosToolStripMenuItem.Click += new System.EventHandler(this.cargarVariosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
             // 
             // categoriaToolStripMenuItem
             // 
             this.categoriaToolStripMenuItem.Image = global::FormUI.Properties.Resources.Detalle_Pequeno;
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
             this.categoriaToolStripMenuItem.Text = "Categoria";
             this.categoriaToolStripMenuItem.Click += new System.EventHandler(this.categoriaToolStripMenuItem_Click);
             // 
@@ -219,8 +224,7 @@
             // 
             this.administrarToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_resumen_32;
             this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            this.administrarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
             this.administrarToolStripMenuItem.Text = "Administrar";
             this.administrarToolStripMenuItem.Click += new System.EventHandler(this.administrarToolStripMenuItem_Click);
             // 
@@ -229,7 +233,7 @@
             this.nuevaToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_ventas_32;
             this.nuevaToolStripMenuItem.Name = "nuevaToolStripMenuItem";
             this.nuevaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
             this.nuevaToolStripMenuItem.Text = "Nueva";
             this.nuevaToolStripMenuItem.Click += new System.EventHandler(this.nuevaToolStripMenuItem_Click);
             // 
@@ -246,8 +250,7 @@
             // 
             this.administrarToolStripMenuItem2.Image = global::FormUI.Properties.Resources.btn_resumen_32;
             this.administrarToolStripMenuItem2.Name = "administrarToolStripMenuItem2";
-            this.administrarToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.administrarToolStripMenuItem2.Size = new System.Drawing.Size(206, 24);
+            this.administrarToolStripMenuItem2.Size = new System.Drawing.Size(155, 24);
             this.administrarToolStripMenuItem2.Text = "Administrar";
             this.administrarToolStripMenuItem2.Click += new System.EventHandler(this.administrarToolStripMenuItem2_Click);
             // 
@@ -266,21 +269,21 @@
             // 
             this.administrarToolStripMenuItem1.Image = global::FormUI.Properties.Resources.btn_resumen_32;
             this.administrarToolStripMenuItem1.Name = "administrarToolStripMenuItem1";
-            this.administrarToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.administrarToolStripMenuItem1.Size = new System.Drawing.Size(207, 24);
+            this.administrarToolStripMenuItem1.Size = new System.Drawing.Size(186, 24);
             this.administrarToolStripMenuItem1.Text = "Administrar";
             this.administrarToolStripMenuItem1.Click += new System.EventHandler(this.administrarToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(183, 6);
             // 
             // tiposGastosToolStripMenuItem
             // 
             this.tiposGastosToolStripMenuItem.Image = global::FormUI.Properties.Resources.Detalle_Pequeno;
             this.tiposGastosToolStripMenuItem.Name = "tiposGastosToolStripMenuItem";
-            this.tiposGastosToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
+            this.tiposGastosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.tiposGastosToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
             this.tiposGastosToolStripMenuItem.Text = "Tipos Gastos";
             this.tiposGastosToolStripMenuItem.Click += new System.EventHandler(this.tiposGastosToolStripMenuItem_Click);
             // 
@@ -298,8 +301,7 @@
             // 
             this.administrarToolStripMenuItem3.Image = global::FormUI.Properties.Resources.btn_resumen_32;
             this.administrarToolStripMenuItem3.Name = "administrarToolStripMenuItem3";
-            this.administrarToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.administrarToolStripMenuItem3.Size = new System.Drawing.Size(206, 24);
+            this.administrarToolStripMenuItem3.Size = new System.Drawing.Size(207, 24);
             this.administrarToolStripMenuItem3.Text = "Administrar";
             this.administrarToolStripMenuItem3.Click += new System.EventHandler(this.administrarToolStripMenuItem3_Click);
             // 
@@ -307,7 +309,8 @@
             // 
             this.resumenDiarioToolStripMenuItem.Image = global::FormUI.Properties.Resources.Detalle_Pequeno;
             this.resumenDiarioToolStripMenuItem.Name = "resumenDiarioToolStripMenuItem";
-            this.resumenDiarioToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.resumenDiarioToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.resumenDiarioToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
             this.resumenDiarioToolStripMenuItem.Text = "Resumen Diario";
             this.resumenDiarioToolStripMenuItem.Click += new System.EventHandler(this.resumenDiarioToolStripMenuItem_Click);
             // 
@@ -324,8 +327,7 @@
             // 
             this.administrarToolStripMenuItem4.Image = global::FormUI.Properties.Resources.btn_resumen_32;
             this.administrarToolStripMenuItem4.Name = "administrarToolStripMenuItem4";
-            this.administrarToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.administrarToolStripMenuItem4.Size = new System.Drawing.Size(201, 24);
+            this.administrarToolStripMenuItem4.Size = new System.Drawing.Size(155, 24);
             this.administrarToolStripMenuItem4.Text = "Administrar";
             this.administrarToolStripMenuItem4.Click += new System.EventHandler(this.administrarToolStripMenuItem4_Click);
             // 
@@ -355,6 +357,19 @@
             this.configuracionStripMenuItem.Size = new System.Drawing.Size(136, 25);
             this.configuracionStripMenuItem.Text = "Configuración";
             this.configuracionStripMenuItem.Click += new System.EventHandler(this.configuracionStripMenuItem_Click);
+            // 
+            // vnetanaToolStripMenuItem
+            // 
+            this.vnetanaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cascadaToolStripMenuItem,
+            this.horizontalToolStripMenuItem,
+            this.verticalToolStripMenuItem,
+            this.cerraToolStripMenuItem});
+            this.vnetanaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.vnetanaToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_Ventana_32;
+            this.vnetanaToolStripMenuItem.Name = "vnetanaToolStripMenuItem";
+            this.vnetanaToolStripMenuItem.Size = new System.Drawing.Size(101, 25);
+            this.vnetanaToolStripMenuItem.Text = "Ventanas";
             // 
             // MenuRapido
             // 
@@ -423,6 +438,17 @@
             this.tsbProductos.ToolTipText = "Acceso a Productos";
             this.tsbProductos.Click += new System.EventHandler(this.tsbProductos_Click);
             // 
+            // tsbIngresos
+            // 
+            this.tsbIngresos.Image = global::FormUI.Properties.Resources.Proveedores_2;
+            this.tsbIngresos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbIngresos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbIngresos.Name = "tsbIngresos";
+            this.tsbIngresos.Size = new System.Drawing.Size(63, 51);
+            this.tsbIngresos.Text = "Ingresos";
+            this.tsbIngresos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbIngresos.Click += new System.EventHandler(this.tsbIngresos_Click);
+            // 
             // popupNotifier
             // 
             this.popupNotifier.ContentFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -435,16 +461,37 @@
             this.popupNotifier.TitleText = "Ingreso Mercaderia";
             this.popupNotifier.Click += new System.EventHandler(this.toolStripStatusPedido_Click);
             // 
-            // tsbIngresos
+            // cascadaToolStripMenuItem
             // 
-            this.tsbIngresos.Image = global::FormUI.Properties.Resources.Proveedores_2;
-            this.tsbIngresos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbIngresos.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbIngresos.Name = "tsbIngresos";
-            this.tsbIngresos.Size = new System.Drawing.Size(63, 51);
-            this.tsbIngresos.Text = "Ingresos";
-            this.tsbIngresos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbIngresos.Click += new System.EventHandler(this.tsbIngresos_Click);
+            this.cascadaToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_Cascada_32;
+            this.cascadaToolStripMenuItem.Name = "cascadaToolStripMenuItem";
+            this.cascadaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.cascadaToolStripMenuItem.Text = "Cascada";
+            this.cascadaToolStripMenuItem.Click += new System.EventHandler(this.cascadaToolStripMenuItem_Click);
+            // 
+            // horizontalToolStripMenuItem
+            // 
+            this.horizontalToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_MosHorizontal_32;
+            this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
+            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.horizontalToolStripMenuItem.Text = "Horizontal";
+            this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.horizontalToolStripMenuItem_Click);
+            // 
+            // verticalToolStripMenuItem
+            // 
+            this.verticalToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_MosVertical_32;
+            this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.verticalToolStripMenuItem.Text = "Vertical";
+            this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
+            // 
+            // cerraToolStripMenuItem
+            // 
+            this.cerraToolStripMenuItem.Image = global::FormUI.Properties.Resources.desconectado_32;
+            this.cerraToolStripMenuItem.Name = "cerraToolStripMenuItem";
+            this.cerraToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.cerraToolStripMenuItem.Text = "Cerra Todas";
+            this.cerraToolStripMenuItem.Click += new System.EventHandler(this.cerraToolStripMenuItem_Click);
             // 
             // MIDIContenedorForm
             // 
@@ -459,7 +506,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MIDIContenedorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "MiniPOST";
+            this.Text = "MiniPOS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MIDIContenedorForm_FormClosed);
             this.Load += new System.EventHandler(this.MIDIContenedorForm_Load);
@@ -514,6 +561,11 @@
         private Tulpep.NotificationWindow.PopupNotifier popupNotifier;
         private System.Windows.Forms.ToolStripButton tsbProductos;
         private System.Windows.Forms.ToolStripButton tsbIngresos;
+        private System.Windows.Forms.ToolStripMenuItem vnetanaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cascadaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem horizontalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verticalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerraToolStripMenuItem;
     }
 }
 

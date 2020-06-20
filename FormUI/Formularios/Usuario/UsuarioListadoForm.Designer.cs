@@ -188,6 +188,7 @@ namespace FormUI.Formularios.Usuario
             this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.usuarioListadoViewModelBindingSource, "HabilitadoSeleccionado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.comboBox1.DataSource = this.habilitadoBindingSource;
             this.comboBox1.DisplayMember = "Value";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(531, 6);

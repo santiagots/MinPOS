@@ -34,7 +34,8 @@ namespace FormUI.Formularios.Producto
 
         internal async Task BorrarAsync(Proveedor proveedor)
         {
-            await ProveedorService.Borrar(proveedor);
+            proveedor.Borrar();
+            await ProveedorService.Guardar(proveedor);
             await BuscarAsync();
         }
     }

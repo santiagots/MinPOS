@@ -1,10 +1,11 @@
 ﻿using Common.Core.Exception;
+using FormUI.Formularios.Common;
 using System;
 using Venta.Core.Enum;
 
 namespace FormUI.Formularios.Venta
 {
-    class CobroViewModel
+    class CobroViewModel : CommonViewModel
     {
         public readonly decimal TotalACobrar;
         public decimal Efectivo { get; set; }
@@ -39,6 +40,33 @@ namespace FormUI.Formularios.Venta
                 return true;
             else
                 throw new NegocioException($"El monto ingresado es menor al total de la venta. Por favor ingrese un monto igual o mayor a {TotalACobrar.ToString("c2")}");
+        }
+
+        internal void CargarDebito()
+        {
+            Efectivo = 0;
+            Debito = TotalACobrar;
+            Credito = 0;
+
+            NotifyPropertyChanged(nameof(Debito));
+        }
+
+        internal void CargarEfectivo()
+        {
+            Efectivo = TotalACobrar;
+            Debito = 0;
+            Credito = 0;
+
+            NotifyPropertyChanged(nameof(Efectivo));
+        }
+
+        internal void CargarCredito()
+        {
+            Efectivo = 0;
+            Debito = 0;
+            Credito = TotalACobrar;
+
+            NotifyPropertyChanged(nameof(Credito));
         }
 
         public decimal ObtenerMontoPago()

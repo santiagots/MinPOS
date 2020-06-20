@@ -66,6 +66,7 @@
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Exception\NegocioException.cs" />
     <Compile Include="Extension\Enum.cs" />
+    <Compile Include="Model\MovimientoMonto.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validadores\UsuarioValidador.cs" />

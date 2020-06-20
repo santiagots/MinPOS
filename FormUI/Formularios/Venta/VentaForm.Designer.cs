@@ -41,7 +41,7 @@
             this.txtCodigoDescirpcion = new FormUI.Controles.AutoCompleteTextBox();
             this.ventaViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new FormUI.Controles.NumeroTextBox();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgProductos = new System.Windows.Forms.DataGridView();
@@ -133,10 +133,13 @@
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaViewModelBindingSource, "Cantidad", true));
+            this.textBox1.CantidadDecimales = 0;
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaViewModelBindingSource, "Cantidad", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(707, 7);
+            this.textBox1.MostrarNullConValorCero = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.PermiteNegativos = false;
             this.textBox1.Size = new System.Drawing.Size(90, 44);
             this.textBox1.TabIndex = 1;
             // 
@@ -300,7 +303,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::FormUI.Properties.Resources.desconectado_32;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(541, 545);
+            this.btnCancelar.Location = new System.Drawing.Point(468, 545);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(175, 54);
             this.btnCancelar.TabIndex = 2;
@@ -321,11 +324,11 @@
             this.btnCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.Image = global::FormUI.Properties.Resources.bt_Egresos_32;
             this.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCobrar.Location = new System.Drawing.Point(722, 545);
+            this.btnCobrar.Location = new System.Drawing.Point(649, 545);
             this.btnCobrar.Name = "btnCobrar";
-            this.btnCobrar.Size = new System.Drawing.Size(150, 54);
+            this.btnCobrar.Size = new System.Drawing.Size(223, 54);
             this.btnCobrar.TabIndex = 1;
-            this.btnCobrar.Text = "Cobrar";
+            this.btnCobrar.Text = "Cobrar F12";
             this.btnCobrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCobrar.UseVisualStyleBackColor = true;
             this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
@@ -389,7 +392,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private FormUI.Controles.NumeroTextBox textBox1;
         private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.DataGridView dgProductos;
         private System.Windows.Forms.Button btnCobrar;

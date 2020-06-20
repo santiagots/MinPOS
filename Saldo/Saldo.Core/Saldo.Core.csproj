@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\EstadoCaja.cs" />
     <Compile Include="Model\CierreCaja.cs" />
     <Compile Include="Model\Ingresos.cs" />
     <Compile Include="Model\Egresos.cs" />
