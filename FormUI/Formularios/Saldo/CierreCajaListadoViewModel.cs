@@ -51,7 +51,7 @@ namespace FormUI.Formularios.Saldo
 
         internal void Ver(CierreCajaListadoItem cierreCajaListadoItem)
         {
-            ResumenDiarioForm resumenDiarioForm = new ResumenDiarioForm(cierreCajaListadoItem.CierreCaja);
+            ResumenDiarioForm resumenDiarioForm = new ResumenDiarioForm(cierreCajaListadoItem.CierreCaja, null);
             resumenDiarioForm.ShowDialog();
         }
     }

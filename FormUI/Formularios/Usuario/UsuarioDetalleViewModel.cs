@@ -25,7 +25,6 @@ namespace FormUI.Formularios.Usuario
 
         public UsuarioDetalleViewModel()
         {
-            CargarDatos(Sesion.Usuario);
         }
 
         public UsuarioDetalleViewModel(Modelo.Usuario usuario)

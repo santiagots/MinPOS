@@ -30,6 +30,12 @@ namespace FormUI.Formularios.Usuario
         {
             EjecutarAsync(async () =>
             {
+                if (usuarioDetalleViewModel.Clave != usuarioDetalleViewModel.RepetirClave)
+                {
+                    CustomMessageBox.ShowDialog("La contraseña y su repetición no coinciden. Por favor, ingrese el mismo valor en ambos campos.", this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Error);
+                    return;
+                }
+
                 await usuarioDetalleViewModel.GuardarAsync();
                 CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
                 Close();

@@ -1,4 +1,5 @@
-﻿using FormUI.Formularios.Gasto;
+﻿using FormUI.Componentes;
+using FormUI.Formularios.Gasto;
 using FormUI.Formularios.Producto;
 using FormUI.Formularios.Saldo;
 using FormUI.Formularios.Usuario;
@@ -56,7 +57,11 @@ namespace FormUI.Formularios.Common
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(UsuarioListadoForm), this);
 
-        private void informaciónPersonalToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(UsuarioDetalleForm), this);
+        private void informaciónPersonalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsuarioDetalleForm usuarioDetalleForm = new UsuarioDetalleForm(Sesion.Usuario);
+            usuarioDetalleForm.ShowDialog();
+        }
 
         private void configuracionStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(ConfiguracionForm), this);
         
@@ -71,7 +76,12 @@ namespace FormUI.Formularios.Common
 
         private void tsbNuevaGasto_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(GastoDetalleForm), this, true);
 
-        private void tsbCierreCaja_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(ResumenDiarioForm), this, true);
+        private void tsbCierreCaja_Click(object sender, EventArgs e)
+        {
+            ResumenDiarioForm resumenDiarioForm = new ResumenDiarioForm(ModificacionHabilitacionFunciones);
+            resumenDiarioForm.ShowDialog();
+        }
+        
 
         private void toolStripStatusPedido_Click(object sender, EventArgs e)
         {
@@ -92,5 +102,25 @@ namespace FormUI.Formularios.Common
         private void verticalToolStripMenuItem_Click(object sender, EventArgs e) => LayoutMdi(MdiLayout.TileVertical);
         
         private void cerraToolStripMenuItem_Click(object sender, EventArgs e) => MdiChildren.ToList().ForEach(x => x.Close());
+
+        public void ModificacionHabilitacionFunciones(bool habilitar)
+        {
+            ModificarHabilitacionToolStripMenuItem(adminiToolStripMenuItem, habilitar);
+            tsbNuevaVenta.Enabled = habilitar;
+            tsbNuevaGasto.Enabled = habilitar;
+            tsbProductos.Enabled = habilitar;
+            tsbIngresos.Enabled = habilitar;
+        }
+
+        private void ModificarHabilitacionToolStripMenuItem(ToolStripMenuItem toolStripMenuItem, bool habilitar)
+        {
+            toolStripMenuItem.Enabled = habilitar;
+
+            foreach (ToolStripItem item in toolStripMenuItem.DropDownItems)
+            {
+                if (item is ToolStripMenuItem)
+                    ModificarHabilitacionToolStripMenuItem((ToolStripMenuItem)item, habilitar);
+            }
+        }
     }
 }

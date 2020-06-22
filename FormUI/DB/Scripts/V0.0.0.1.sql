@@ -329,3 +329,10 @@ REFERENCES [dbo].[Producto] ([Id])
 GO
 ALTER TABLE [dbo].[VentaItem] CHECK CONSTRAINT [FK_VentaItem_VentaItem]
 GO
+
+/****** alta usuario admin/admin123 ******/
+SET IDENTITY_INSERT [dbo].[Usuario] ON 
+
+INSERT [dbo].[Usuario] ([Id], [Alias], [Nombre], [Apellido], [Clave], [Habilitado], [FechaUltimoAcceso], [FechaActualizacion], [UsuarioActualizacion]) VALUES (1004, N'admin', N'admin', N'admin', N'2LMLzeHiZ6kp2M+hwTVUow==', 1, NULL, CAST(N'2020-06-20T14:15:26.447' AS DateTime), N'admin')
+SET IDENTITY_INSERT [dbo].[Usuario] OFF
+GO

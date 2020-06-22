@@ -10,8 +10,8 @@ namespace FormUI.Formularios.Producto
         public int Id => ProductoItem.Id;
         public string Codigo => ProductoItem.Codigo;
         public string Descripcion => ProductoItem.Descripcion;
-        public string Categoria => ProductoItem.Categoria.Descripcion;
-        public string Proveedores => ProductoItem.Proveedores.FirstOrDefault()?.RazonSocial;
+        public string Categoria => ProductoItem.Categoria?.Descripcion;
+        public string Proveedores => ProductoItem.Proveedores?.FirstOrDefault()?.RazonSocial;
         public bool Suelto => ProductoItem.Suelto;
         public decimal Costo => ProductoItem.Costo;
         public decimal Precio => ProductoItem.Precio;

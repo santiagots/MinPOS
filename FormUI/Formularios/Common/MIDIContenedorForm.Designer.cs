@@ -61,6 +61,10 @@
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vnetanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cascadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRapido = new System.Windows.Forms.ToolStrip();
             this.tsbNuevaVenta = new System.Windows.Forms.ToolStripButton();
             this.tsbNuevaGasto = new System.Windows.Forms.ToolStripButton();
@@ -68,10 +72,6 @@
             this.tsbProductos = new System.Windows.Forms.ToolStripButton();
             this.tsbIngresos = new System.Windows.Forms.ToolStripButton();
             this.popupNotifier = new Tulpep.NotificationWindow.PopupNotifier();
-            this.cascadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.MenuRapido.SuspendLayout();
@@ -371,6 +371,38 @@
             this.vnetanaToolStripMenuItem.Size = new System.Drawing.Size(101, 25);
             this.vnetanaToolStripMenuItem.Text = "Ventanas";
             // 
+            // cascadaToolStripMenuItem
+            // 
+            this.cascadaToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_Cascada_32;
+            this.cascadaToolStripMenuItem.Name = "cascadaToolStripMenuItem";
+            this.cascadaToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.cascadaToolStripMenuItem.Text = "Cascada";
+            this.cascadaToolStripMenuItem.Click += new System.EventHandler(this.cascadaToolStripMenuItem_Click);
+            // 
+            // horizontalToolStripMenuItem
+            // 
+            this.horizontalToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_MosHorizontal_32;
+            this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
+            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.horizontalToolStripMenuItem.Text = "Horizontal";
+            this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.horizontalToolStripMenuItem_Click);
+            // 
+            // verticalToolStripMenuItem
+            // 
+            this.verticalToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_MosVertical_32;
+            this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.verticalToolStripMenuItem.Text = "Vertical";
+            this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
+            // 
+            // cerraToolStripMenuItem
+            // 
+            this.cerraToolStripMenuItem.Image = global::FormUI.Properties.Resources.desconectado_32;
+            this.cerraToolStripMenuItem.Name = "cerraToolStripMenuItem";
+            this.cerraToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.cerraToolStripMenuItem.Text = "Cerra Todas";
+            this.cerraToolStripMenuItem.Click += new System.EventHandler(this.cerraToolStripMenuItem_Click);
+            // 
             // MenuRapido
             // 
             this.MenuRapido.Dock = System.Windows.Forms.DockStyle.Right;
@@ -460,38 +492,6 @@
             this.popupNotifier.TitleFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.popupNotifier.TitleText = "Ingreso Mercaderia";
             this.popupNotifier.Click += new System.EventHandler(this.toolStripStatusPedido_Click);
-            // 
-            // cascadaToolStripMenuItem
-            // 
-            this.cascadaToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_Cascada_32;
-            this.cascadaToolStripMenuItem.Name = "cascadaToolStripMenuItem";
-            this.cascadaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.cascadaToolStripMenuItem.Text = "Cascada";
-            this.cascadaToolStripMenuItem.Click += new System.EventHandler(this.cascadaToolStripMenuItem_Click);
-            // 
-            // horizontalToolStripMenuItem
-            // 
-            this.horizontalToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_MosHorizontal_32;
-            this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
-            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.horizontalToolStripMenuItem.Text = "Horizontal";
-            this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.horizontalToolStripMenuItem_Click);
-            // 
-            // verticalToolStripMenuItem
-            // 
-            this.verticalToolStripMenuItem.Image = global::FormUI.Properties.Resources.btn_MosVertical_32;
-            this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
-            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.verticalToolStripMenuItem.Text = "Vertical";
-            this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
-            // 
-            // cerraToolStripMenuItem
-            // 
-            this.cerraToolStripMenuItem.Image = global::FormUI.Properties.Resources.desconectado_32;
-            this.cerraToolStripMenuItem.Name = "cerraToolStripMenuItem";
-            this.cerraToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.cerraToolStripMenuItem.Text = "Cerra Todas";
-            this.cerraToolStripMenuItem.Click += new System.EventHandler(this.cerraToolStripMenuItem_Click);
             // 
             // MIDIContenedorForm
             // 

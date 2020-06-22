@@ -23,7 +23,7 @@ namespace Common.Core.Model
             Alias = alias;
             Nombre = nombre;
             Apellido = apellido;
-            Clave = clave;
+            Clave = Encriptado.Encriptar(clave);
             Habilitado = habilitado;
             FechaUltimoAcceso = fechaUltimoAcceso;
             FechaActualizacion = fechaActualizacion;

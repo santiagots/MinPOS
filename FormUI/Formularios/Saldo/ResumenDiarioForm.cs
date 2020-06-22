@@ -9,14 +9,19 @@ namespace FormUI.Formularios.Saldo
 {
     public partial class ResumenDiarioForm : CommonForm
     {
+        public delegate void HabilitacionDeshabilitarSitema(bool habilitar);
+
+        public HabilitacionDeshabilitarSitema ModificarHabilitacionSisitema;
+
         private ResumenDiarioViewModel resumenDiarioViewModel = new ResumenDiarioViewModel();
 
-        public ResumenDiarioForm()
+        public ResumenDiarioForm(HabilitacionDeshabilitarSitema modificarHabilitacionSisitema)
         {
             InitializeComponent();
+            ModificarHabilitacionSisitema = modificarHabilitacionSisitema;
         }
 
-        public ResumenDiarioForm(CierreCaja cierreCaja) : this()
+        public ResumenDiarioForm(CierreCaja cierreCaja, HabilitacionDeshabilitarSitema modificarHabilitacionSisitema) : this(modificarHabilitacionSisitema)
         {
             resumenDiarioViewModel = new ResumenDiarioViewModel(cierreCaja);
         }
@@ -36,6 +41,7 @@ namespace FormUI.Formularios.Saldo
                 if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.cerrarCaja, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
                 {
                     resumenDiarioViewModel.CerraCaja();
+                    ModificarHabilitacionSisitema?.Invoke(false);
                     CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
                 }
             });
@@ -48,6 +54,8 @@ namespace FormUI.Formularios.Saldo
                 if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.abrirCaja, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
                 {
                     resumenDiarioViewModel.AbrirCaja();
+                    ModificarHabilitacionSisitema?.Invoke(true);
+                    CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
                 }
             });
         }

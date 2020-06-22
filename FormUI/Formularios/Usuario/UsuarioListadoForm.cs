@@ -31,6 +31,7 @@ namespace FormUI.Formularios.Usuario
             EjecutarAsync(async () =>
             {
                 await usuarioListadoViewModel.NuevoAsync();
+                await usuarioListadoViewModel.BuscarAsync();
             });
         }
 
@@ -47,7 +48,10 @@ namespace FormUI.Formularios.Usuario
                 if (dgUsuario.Columns[e.ColumnIndex].Name == "Eliminar")
                 {
                     if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.eliminarElemento, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
+                    {
                         await usuarioListadoViewModel.BorrarAsync(usuario);
+                        await usuarioListadoViewModel.BuscarAsync();
+                    }
                 }
             });
         }
