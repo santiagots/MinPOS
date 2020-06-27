@@ -1,16 +1,13 @@
 ﻿using FormUI.Formularios.Common;
 using System;
-using System.Linq;
-using System.Drawing;
 using System.Windows.Forms;
-using System.Threading.Tasks;
-using Common.Core.Exception;
-using Modelo = Producto.Core.Model;
 
 namespace FormUI.Formularios.Producto
 {
     public partial class ProductoIngresoMasivo : CommonForm
     {
+        private bool editandoProducto = false;
+
         ProductoIngresoMasivoViewModel productoIngresoMasivoViewModel = new ProductoIngresoMasivoViewModel();
         public ProductoIngresoMasivo()
         {
@@ -31,6 +28,7 @@ namespace FormUI.Formularios.Producto
         {
             EjecutarAsync(async () =>
             {
+                editandoProducto = false;
                 await productoIngresoMasivoViewModel.GuardarAsync();
                 cmbCategoria.SelectedIndex = 0;
                 cmbProveedor.SelectedIndex = 0;
@@ -61,6 +59,7 @@ namespace FormUI.Formularios.Producto
         {
             Ejecutar(() =>
             {
+                editandoProducto = false;
                 productoIngresoMasivoViewModel.Limpiar();
                 cmbCategoria.SelectedIndex = 0;
                 cmbProveedor.SelectedIndex = 0;
@@ -71,9 +70,19 @@ namespace FormUI.Formularios.Producto
         {
             Ejecutar(() =>
             {
+                if (e.RowIndex < 0) return;
+
+                editandoProducto = true;
+                dgProductos.Rows[e.RowIndex].Selected = true;
                 ProductoIngresoMasivoItem productoIngresoMasivoItem = (ProductoIngresoMasivoItem)dgProductos.Rows[e.RowIndex].DataBoundItem;
                 productoIngresoMasivoViewModel.CargarProducto(productoIngresoMasivoItem.ProductoItem);
             });
+        }
+
+        private void dgProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (!editandoProducto)
+                dgProductos.ClearSelection();
         }
     }
 }

@@ -48,11 +48,16 @@ namespace FormUI.Formularios.Producto
             Id = ProductoModel.Id;
             Codigo = ProductoModel.Codigo;
             Descripcion = ProductoModel.Descripcion;
+
+            if(ProductoModel.Categoria != null)
             CategoriaSeleccionada = new KeyValuePair<Modelo.Categoria, string>(ProductoModel.Categoria, ProductoModel.Categoria.Descripcion);
 
-            Modelo.Proveedor proveedor = ProductoModel.Proveedores.FirstOrDefault();
-            if(proveedor != null)
-                ProveedorSeleccionada = new KeyValuePair<Modelo.Proveedor, string>(proveedor, proveedor.RazonSocial);
+            if (ProductoModel.Proveedores != null)
+            {
+                Modelo.Proveedor proveedor = ProductoModel.Proveedores.FirstOrDefault();
+                if (proveedor != null)
+                    ProveedorSeleccionada = new KeyValuePair<Modelo.Proveedor, string>(proveedor, proveedor.RazonSocial);
+            }
 
             _Suelto = ProductoModel.Suelto;
             Costo = ProductoModel.Costo;
@@ -112,6 +117,7 @@ namespace FormUI.Formularios.Producto
 
         internal void Limpiar()
         {
+            Id = 0;
             Codigo = string.Empty;
             Descripcion = string.Empty;
             CategoriaSeleccionada = new KeyValuePair<Modelo.Categoria, string>(null, string.Empty);

@@ -127,7 +127,6 @@
             this.stockActualDataGridViewTextBoxColumn});
             this.dgProductos.DataSource = this.productosModeloBindingSource;
             this.dgProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgProductos.Location = new System.Drawing.Point(3, 22);
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.ReadOnly = true;
@@ -136,6 +135,7 @@
             this.dgProductos.Size = new System.Drawing.Size(854, 205);
             this.dgProductos.TabIndex = 0;
             this.dgProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductos_CellClick);
+            this.dgProductos.SelectionChanged += new System.EventHandler(this.dgProductos_SelectionChanged);
             // 
             // codigoDataGridViewTextBoxColumn
             // 

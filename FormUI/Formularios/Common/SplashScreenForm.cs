@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,13 @@ namespace FormUI.Formularios.Common
 
         private async void SplashScreenForm_LoadAsync(object sender, EventArgs e)
         {
-            lblVersion.Text = $"Ver. {Application.ProductVersion}";
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                ApplicationDeployment cd = ApplicationDeployment.CurrentDeployment;
+                lblVersion.Text = $"Ver. {cd.CurrentVersion}";
+            }
+            else
+                lblVersion.Text = $"Ver. {Application.ProductVersion}";
 
             await InicializarAplicacion();
 
