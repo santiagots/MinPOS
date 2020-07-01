@@ -298,11 +298,11 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Se han encontrado {0} cajas pendientes de cierre. Se van a estar cerrando de forma automática..
+        ///   Looks up a localized string similar to Se encontraron {0} cajas pendientes de cierre y se han cerrado de forma automática..
         /// </summary>
-        internal static string cajasPendientesDeCierre {
+        internal static string cajasCierreAutomaticas {
             get {
-                return ResourceManager.GetString("cajasPendientesDeCierre", resourceCulture);
+                return ResourceManager.GetString("cajasCierreAutomaticas", resourceCulture);
             }
         }
         

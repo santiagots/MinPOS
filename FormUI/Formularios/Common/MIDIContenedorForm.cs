@@ -51,7 +51,11 @@ namespace FormUI.Formularios.Common
 
         private void administrarToolStripMenuItem3_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(CierreCajaListado), this);
 
-        private void resumenDiarioToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(ResumenDiarioForm), this);
+        private void resumenDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ResumenDiarioForm resumenDiarioForm = new ResumenDiarioForm(ModificacionHabilitacionFunciones);
+            resumenDiarioForm.ShowDialog();   
+        }
 
         private void administrarToolStripMenuItem4_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(MercaderiaListadoForm), this);
 

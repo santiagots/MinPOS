@@ -38,10 +38,16 @@ namespace Saldo.Data.Repository
             return cierreCaja.Paginar(ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos).ToListAsync();
         }
 
-        internal Task<CierreCaja> UltimaCajaCerrada() => ObtenerConsulta()
-                                    .Where(x => x.Estado == EstadoCaja.Cerrada)
-                                    .OrderByDescending(o => o.FechaAlta)
-                                    .FirstOrDefaultAsync();
+        internal Task<int> CajaCerradaAbiertas()
+        {
+            List<CierreCaja> cierreCaja = ObtenerConsulta()
+                                            .Where(x => x.Estado == EstadoCaja.Abierta)
+                                            .ToList();
+
+            cierreCaja.ForEach(x => x.Cerrar());
+
+            return _context.SaveChangesAsync();
+        }
 
         internal void Guardar(CierreCaja cierreCaja)
         {

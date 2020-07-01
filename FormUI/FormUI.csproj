@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\stambour\OneDrive - DXC Production\Desktop\Minipos\</PublishUrl>
+    <PublishUrl>D:\miniPos\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <ProductName>miniPOS</ProductName>
     <PublisherName>miniPOS</PublisherName>
     <SuiteName>miniPOS</SuiteName>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -488,6 +488,8 @@
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorBusquedaViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Producto.ProveedorListadoViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Saldo.CajaInicio.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.Saldo.CajaInicioViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Saldo.CierreCajaListadoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Saldo.ResumenDiarioForm.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Saldo.ResumenDiarioViewModel.datasource" />

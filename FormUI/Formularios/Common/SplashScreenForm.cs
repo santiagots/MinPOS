@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace FormUI.Formularios.Common
 {
-    public partial class SplashScreenForm : Form
+    public partial class SplashScreenForm : CommonForm
     {
         public SplashScreenForm()
         {
@@ -21,19 +21,22 @@ namespace FormUI.Formularios.Common
             this.TransparencyKey = this.BackColor;
         }
 
-        private async void SplashScreenForm_LoadAsync(object sender, EventArgs e)
+        private void SplashScreenForm_Load(object sender, EventArgs e)
         {
-            if (ApplicationDeployment.IsNetworkDeployed)
+            EjecutarAsync(async () =>
             {
-                ApplicationDeployment cd = ApplicationDeployment.CurrentDeployment;
-                lblVersion.Text = $"Ver. {cd.CurrentVersion}";
-            }
-            else
-                lblVersion.Text = $"Ver. {Application.ProductVersion}";
+                if (ApplicationDeployment.IsNetworkDeployed)
+                {
+                    ApplicationDeployment cd = ApplicationDeployment.CurrentDeployment;
+                    lblVersion.Text = $"Ver. {cd.CurrentVersion}";
+                }
+                else
+                    lblVersion.Text = $"Ver. {Application.ProductVersion}";
 
-            await InicializarAplicacion();
+                await InicializarAplicacion();
 
-            Close();
+                Close();
+            });
         }
 
         private async Task InicializarAplicacion()

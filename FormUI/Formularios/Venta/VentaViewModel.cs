@@ -79,7 +79,7 @@ namespace FormUI.Formularios.Venta
             if (string.IsNullOrWhiteSpace(CodigoDescripcion))
                 throw new NegocioException(Resources.productoNoExiste);
 
-            VentaItem ventaItem = VentaItems.Where(x => x.Codigo.Contains(CodigoDescripcion) || x.Descripcion.Contains(CodigoDescripcion)).FirstOrDefault();
+            VentaItem ventaItem = VentaItems.Where(x => x.Codigo == CodigoDescripcion || x.Descripcion == CodigoDescripcion).FirstOrDefault();
             if (ventaItem != null) return ventaItem.Producto;
 
             ModeloVenta.Producto producto = await ProductoService.Obtener(CodigoDescripcion);

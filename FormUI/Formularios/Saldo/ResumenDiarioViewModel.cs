@@ -25,7 +25,7 @@ namespace FormUI.Formularios.Saldo
         public decimal TotalEgresos => Egresos.Sum(x => x.Monto);
         public BindingList<ResumenDiarioItem> Ingresos { get; set; } = new BindingList<ResumenDiarioItem>();
         public decimal TotalIngresos => Ingresos.Sum(x => x.Monto);
-        public decimal Saldo => TotalIngresos - TotalEgresos;
+        public decimal Saldo => Ingresos.Sum(x => x.Monto) - TotalEgresos;
         public decimal MontoCierreCaja { get; set; }
         public decimal Diferencia => Estado == EstadoCaja.Abierta ? 0 : MontoCierreCaja - Saldo;
         public EstadoCaja Estado { get; set; }
