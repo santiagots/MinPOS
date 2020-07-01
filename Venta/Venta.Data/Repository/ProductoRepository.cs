@@ -15,7 +15,7 @@ namespace Venta.Data.Repository
 
         internal Task<List<string>> ObtenerCodigos()
         {
-            return _context.Producto.Where(x => !x.Borrado).Select(x => x.Codigo).Union(_context.Producto.Where(x => !x.Borrado).Select(x => x.Descripcion)).ToListAsync();
+            return _context.Producto.Where(x => !x.Borrado).Select(x => x.Descripcion).ToListAsync();
         }
 
         internal async Task<Producto> Obtener(string codigoDescripcion)
