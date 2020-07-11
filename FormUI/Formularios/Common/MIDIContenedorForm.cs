@@ -24,6 +24,7 @@ namespace FormUI.Formularios.Common
             {
                 MidiContenedorViewModel.CargarUsuario(toolStripStatusUsuario);
                 await MidiContenedorViewModel.CargarMercaderiaARecibir(toolStripStatusPedido, popupNotifier);
+                await MidiContenedorViewModel.AbrirCajasDelDia();
                 await MidiContenedorViewModel.CerrarCajasPendientes();
             });
         }
@@ -53,8 +54,10 @@ namespace FormUI.Formularios.Common
 
         private void resumenDiarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ResumenDiarioForm resumenDiarioForm = new ResumenDiarioForm(ModificacionHabilitacionFunciones);
-            resumenDiarioForm.ShowDialog();   
+            EjecutarAsync(async () =>
+            {
+                await MidiContenedorViewModel.MostrarResumenDiarioAsync(ModificacionHabilitacionFunciones);
+            });
         }
 
         private void administrarToolStripMenuItem4_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(MercaderiaListadoForm), this);
@@ -82,10 +85,12 @@ namespace FormUI.Formularios.Common
 
         private void tsbCierreCaja_Click(object sender, EventArgs e)
         {
-            ResumenDiarioForm resumenDiarioForm = new ResumenDiarioForm(ModificacionHabilitacionFunciones);
-            resumenDiarioForm.ShowDialog();
+            EjecutarAsync(async () =>
+            {
+                await MidiContenedorViewModel.MostrarResumenDiarioAsync(ModificacionHabilitacionFunciones);
+            });
         }
-        
+
 
         private void toolStripStatusPedido_Click(object sender, EventArgs e)
         {

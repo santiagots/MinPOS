@@ -9,20 +9,15 @@ namespace FormUI.Formularios.Saldo
 {
     public partial class ResumenDiarioForm : CommonForm
     {
-        public delegate void HabilitacionDeshabilitarSitema(bool habilitar);
+        public Action<bool> ModificarHabilitacionSisitema;
 
-        public HabilitacionDeshabilitarSitema ModificarHabilitacionSisitema;
+        private ResumenDiarioViewModel resumenDiarioViewModel;
 
-        private ResumenDiarioViewModel resumenDiarioViewModel = new ResumenDiarioViewModel();
-
-        public ResumenDiarioForm(HabilitacionDeshabilitarSitema modificarHabilitacionSisitema)
+        public ResumenDiarioForm(CierreCaja cierreCaja, Action<bool> modificarHabilitacionSisitema)
         {
             InitializeComponent();
-            ModificarHabilitacionSisitema = modificarHabilitacionSisitema;
-        }
 
-        public ResumenDiarioForm(CierreCaja cierreCaja, HabilitacionDeshabilitarSitema modificarHabilitacionSisitema) : this(modificarHabilitacionSisitema)
-        {
+            ModificarHabilitacionSisitema = modificarHabilitacionSisitema;
             resumenDiarioViewModel = new ResumenDiarioViewModel(cierreCaja);
         }
 

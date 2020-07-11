@@ -18,104 +18,73 @@ namespace FormUI.Formularios.Saldo
 {
     class ResumenDiarioViewModel : CommonViewModel
     {
-        public int Id { get; set; }
-        public DateTime Fecha { get; set; } = DateTime.Now;
-        public BindingList<ResumenDiarioItem> Egresos { get; set; } = new BindingList<ResumenDiarioItem>();
-        public decimal TotalEgresos => Egresos.Sum(x => x.Monto);
-        public BindingList<ResumenDiarioItem> Ingresos { get; set; } = new BindingList<ResumenDiarioItem>();
-        public decimal TotalIngresos => Ingresos.Sum(x => x.Monto);
-        public decimal Saldo => Ingresos.Where(x => x.ModificaCaja).Sum(x => x.Monto) - TotalEgresos;
+        private CierreCaja cierreCajaModel;
+        public DateTime Fecha => cierreCajaModel.FechaApertura;
+        public BindingList<ResumenDiarioItem> Egresos => new BindingList<ResumenDiarioItem>(cierreCajaModel.Egresos.Select(x => new ResumenDiarioItem(x.Id, true, x.Concepto, x.Monto)).ToList());
+        public decimal TotalEgresos => cierreCajaModel.EgresosTotal;
+        public BindingList<ResumenDiarioItem> Ingresos => new BindingList<ResumenDiarioItem>(cierreCajaModel.Ingresos.Select(x => new ResumenDiarioItem(x.Id, x.ModificaCaja, x.Concepto, x.Monto)).ToList());
+        public decimal TotalIngresos => cierreCajaModel.IngresosTotal;
+        public decimal Saldo => cierreCajaModel.SaldoTotal;
         public decimal MontoCierreCaja { get; set; }
         public decimal Diferencia => Estado == EstadoCaja.Abierta ? 0 : MontoCierreCaja - Saldo;
-        public EstadoCaja Estado { get; set; }
+        public EstadoCaja Estado => cierreCajaModel.Estado;
         public bool AbiertaCaja => Estado == EstadoCaja.Cerrada && Fecha.Date == DateTime.Now.Date;
         public bool CerradaCaja => Estado == EstadoCaja.Abierta;
 
-        public ResumenDiarioViewModel()
-        {
-        }
-
         public ResumenDiarioViewModel(CierreCaja cierreCaja)
         {
-            ActualizarDatos(cierreCaja);
+            cierreCajaModel = cierreCaja;
         }
 
         public async Task CargarAsync()
         {
-            if (Id == 0) //Si hay Id es porque accedio al detalle de una caja cerrada
+            if (cierreCajaModel.FechaApertura.Date == DateTime.Now.Date)
             {
-                CierreCaja CierreCaja = await CierreCajaService.Obtener(Fecha);
-                if (CierreCaja != null)
-                    ActualizarDatos(CierreCaja);
-                else
-                    await CargarDatosCajaAbiertaAsync();
+                await CargarDatosCajaAbiertaAsync();
+
+                NotifyPropertyChanged(nameof(Egresos));
+                NotifyPropertyChanged(nameof(Ingresos));
             }
         }
 
         internal void ImprimirCaja()
         {
-            Imprimir.Documento.CierreCaja cierreCaja = new Imprimir.Documento.CierreCaja(Settings.Default.NombreFantasia, Settings.Default.Direccion, Settings.Default.ComprobanteCompraSeparador, obtenerCajaDesdeViewModel());
+            Imprimir.Documento.CierreCaja cierreCaja = new Imprimir.Documento.CierreCaja(Settings.Default.NombreFantasia, Settings.Default.Direccion, Settings.Default.ComprobanteCompraSeparador, cierreCajaModel);
 
             Impresora impresora = new Impresora(Settings.Default.ImpresoraNombre, cierreCaja);
             impresora.Imprimir();
         }
 
-        internal void AbrirCaja() => ModificarCaja(EstadoCaja.Abierta);
-
-        internal void CerraCaja() => ModificarCaja(EstadoCaja.Cerrada);
-
-        private void ModificarCaja(EstadoCaja estadoCaja)
+        internal void AbrirCaja()
         {
-            Estado = estadoCaja;
-            CierreCaja cierreCaja = obtenerCajaDesdeViewModel();
-            CierreCajaService.Guardar(cierreCaja);
+            cierreCajaModel.Abrir(Sesion.Usuario.Alias);
+            CierreCajaService.Guardar(cierreCajaModel);
 
             NotifyPropertyChanged(nameof(Estado));
         }
 
-        private CierreCaja obtenerCajaDesdeViewModel()
+        internal void CerraCaja()
         {
-            List<Ingresos> ingresos = new List<Ingresos>();
-            ingresos.AddRange(Ingresos.Select(x => new Ingresos(x.Id, Id, x.ModificaCaja, x.Concepto, x.Monto)));
+            cierreCajaModel.Cerrar(Sesion.Usuario.Alias, MontoCierreCaja);
+            CierreCajaService.Guardar(cierreCajaModel);
 
-            List<Egresos> egresos = new List<Egresos>();
-            egresos.AddRange(Egresos.Select(x => new Egresos(x.Id, Id, x.ModificaCaja, x.Concepto, x.Monto)));
-
-            CierreCaja cierreCaja = new CierreCaja(Id, Estado, Fecha, Sesion.Usuario.Alias, ingresos, egresos, MontoCierreCaja, Diferencia);
-            return cierreCaja;
-        }
-
-        private void ActualizarDatos(CierreCaja cierreCaja)
-        {
-            Id = cierreCaja.Id;
-            Fecha = cierreCaja.FechaAlta;
-            Egresos = new BindingList<ResumenDiarioItem>(cierreCaja.Egresos.Select(x => new ResumenDiarioItem(x.Id, true, x.Concepto, x.Monto)).ToList());
-            Ingresos = new BindingList<ResumenDiarioItem>(cierreCaja.Ingresos.Select(x => new ResumenDiarioItem(x.Id, x.ModificaCaja, x.Concepto, x.Monto)).ToList());
-            MontoCierreCaja = cierreCaja.MontoEnCaja;
-            Estado = cierreCaja.Estado;
-
-
-            NotifyPropertyChanged(nameof(Egresos));
-            NotifyPropertyChanged(nameof(Ingresos));
+            NotifyPropertyChanged(nameof(Estado));
         }
 
         private async Task CargarDatosCajaAbiertaAsync()
         {
-            Task<List<MovimientoMonto>> gastoSaldo = Task.Run(() => GastoService.Saldo(Fecha));
-            Task<List<MovimientoMonto>> ventaSaldo = Task.Run(() => VentaService.Saldo(Fecha));
-            Task<CierreCaja> cajaDiaAnterior = CierreCajaService.Obtener(Fecha.Date.AddDays(-1));
+            Task<List<MovimientoMonto>> egresos = Task.Run(() => GastoService.Saldo(Fecha));
+            Task<List<MovimientoMonto>> ingresos = Task.Run(() => VentaService.Saldo(Fecha));
 
-            await Task.WhenAll(gastoSaldo, ventaSaldo, cajaDiaAnterior);
+            await Task.WhenAll(egresos, ingresos);
 
-            Egresos = new BindingList<ResumenDiarioItem>(gastoSaldo.Result
-                                       .Where(x => x.ModificaCaja)
-                                       .Select(x => new ResumenDiarioItem(0, x.ModificaCaja, x.Concepto, x.Monto)).ToList());
+            List<Ingresos> ingresosModel = new List<Ingresos>();
+            ingresosModel.AddRange(ingresos.Result.Select(x => new Ingresos(x.Id, cierreCajaModel.Id, x.ModificaCaja, x.Concepto, x.Monto)));
+            cierreCajaModel.AgregarIngresos(ingresosModel);
 
-            Ingresos = new BindingList<ResumenDiarioItem>(ventaSaldo.Result
-                                       .Select(x => new ResumenDiarioItem(0, x.ModificaCaja, x.Concepto, x.Monto)).ToList());
-
-            NotifyPropertyChanged(nameof(Egresos));
-            NotifyPropertyChanged(nameof(Ingresos));
+            List<Egresos> egresosModel = new List<Egresos>();
+            egresosModel.AddRange(egresos.Result.Select(x => new Egresos(x.Id, cierreCajaModel.Id, x.ModificaCaja, x.Concepto, x.Monto)));
+            cierreCajaModel.AgregarEgresos(egresosModel);
         }
     }
 }

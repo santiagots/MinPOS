@@ -206,7 +206,7 @@
     <value>..\Imagenes\success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cajasCierreAutomaticas" xml:space="preserve">
-    <value>Se encontraron {0} cajas pendientes de cierre y se han cerrado de forma automática.</value>
+    <value>Se encontraron {0} cajas pendientes de cierre y se cerraran de forma automática.</value>
   </data>
   <data name="guardadoOk" xml:space="preserve">
     <value>Los datos se han guardado de forma correcta.</value>
@@ -303,5 +303,8 @@
   </data>
   <data name="btn_Ventana_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\btn_Ventana_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aperturaCaja" xml:space="preserve">
+    <value>Se ha realizado la apertura de la caja con el usuario {0}.</value>
   </data>
 </root>

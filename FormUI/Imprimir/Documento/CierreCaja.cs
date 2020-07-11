@@ -27,10 +27,16 @@ namespace FormUI.Imprimir.Documento
             Texto titulo = new Texto("Cierre Caja", StringAlignment.Center);
             AgregarLinea(Cabecera2, titulo);
 
-            Texto fecha = new Texto($"Fecha:{cierreCaja.FechaAlta.ToString("dd/MM/yyyy")}", StringAlignment.Near, 0.5f);
-            Texto hora = new Texto($"Hora:{cierreCaja.FechaAlta.ToString("HH:mm:ss")}", StringAlignment.Far, 0.5f);
+            Texto fecha = new Texto($"F. Aper:{cierreCaja.FechaApertura.ToString("dd/MM/yyyy")}", StringAlignment.Near, 0.5f);
+            Texto hora = new Texto($"H. Aper:{cierreCaja.FechaApertura.ToString("HH:mm:ss")}", StringAlignment.Far, 0.5f);
             AgregarLinea(cuerpo1, fecha, hora);
 
+            if (cierreCaja.FechaCierre.HasValue)
+            {
+                fecha = new Texto($"F. Cier.:{cierreCaja.FechaCierre.Value.ToString("dd/MM/yyyy")}", StringAlignment.Near, 0.5f);
+                hora = new Texto($"H. Cier.:{cierreCaja.FechaCierre.Value.ToString("HH:mm:ss")}", StringAlignment.Far, 0.5f);
+                AgregarLinea(cuerpo1, fecha, hora);
+            }
             AgregarLineaSeparador(cuerpo1, Separador);
 
             IList<(string, decimal)> ingresos = cierreCaja.Ingresos.Select(x => (x.Concepto, x.Monto)).ToList();

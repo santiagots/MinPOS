@@ -8,8 +8,10 @@ namespace Saldo.Core.Model
 {
     public class CierreCaja : Entity<int>
     {
-        public DateTime FechaAlta { get; protected set; }
-        public string UsuarioAlta { get; protected set; }
+        public DateTime FechaApertura { get; protected set; }
+        public DateTime? FechaCierre { get; protected set; }
+        public string UsuarioApertura { get; protected set; }
+        public string UsuarioCierre { get; protected set; }
         public EstadoCaja Estado { get; protected set; }
         public IList<Ingresos> Ingresos { get; protected set; }
         public decimal IngresosTotal => Ingresos.Sum(x => x.Monto);
@@ -19,26 +21,33 @@ namespace Saldo.Core.Model
         public decimal MontoEnCaja { get; protected set; }
         public decimal Diferencia { get; protected set; }
 
-        internal CierreCaja()
+        public CierreCaja()
         {
         }
 
-        public CierreCaja(int id, EstadoCaja estado, DateTime fechaAlta, string usuarioAlta, IList<Ingresos> ingresos, IList<Egresos> egresos, decimal montoEnCaja, decimal diferencia)
-        {
-            Id = id;
-            Estado = estado;
-            FechaAlta = fechaAlta;
-            UsuarioAlta = usuarioAlta;
-            Ingresos = ingresos;
-            Egresos = egresos;
-            MontoEnCaja = montoEnCaja;
-            Diferencia = diferencia;
-        }
-
-        public void Cerrar()
+        public void Cerrar(string usuarioCierre, decimal montoEnCaja)
         {
             Estado = EstadoCaja.Cerrada;
+            UsuarioCierre = usuarioCierre;
+            FechaCierre = DateTime.Now;
+            MontoEnCaja = montoEnCaja;
+            Diferencia = SaldoTotal - montoEnCaja;
         }
+
+        public void Abrir(string usuarioApertura)
+        {
+            Estado = EstadoCaja.Abierta;
+            UsuarioCierre = "";
+            UsuarioApertura = usuarioApertura;
+            FechaApertura = DateTime.Now;
+            FechaCierre = null;
+            MontoEnCaja = 0;
+            Diferencia = 0;
+        }
+
+        public void AgregarIngresos(IList<Ingresos> ingresos) => Ingresos = ingresos;
+
+        public void AgregarEgresos(IList<Egresos> egresos) => Egresos = egresos;
     }
 }
 

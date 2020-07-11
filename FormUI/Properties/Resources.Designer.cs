@@ -88,6 +88,15 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Se ha realizado la apertura de la caja con el usuario {0}..
+        /// </summary>
+        internal static string aperturaCaja {
+            get {
+                return ResourceManager.GetString("aperturaCaja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap bt_Caja_32 {
@@ -298,7 +307,7 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Se encontraron {0} cajas pendientes de cierre y se han cerrado de forma automática..
+        ///   Looks up a localized string similar to Se encontraron {0} cajas pendientes de cierre y se cerraran de forma automática..
         /// </summary>
         internal static string cajasCierreAutomaticas {
             get {

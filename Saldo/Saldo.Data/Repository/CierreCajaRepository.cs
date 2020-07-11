@@ -21,7 +21,7 @@ namespace Saldo.Data.Repository
         internal Task<CierreCaja> Obtener(DateTime fecha)
         {
             IQueryable<CierreCaja> cierreCaja = ObtenerConsulta();
-            cierreCaja = cierreCaja.Where(x => DbFunctions.TruncateTime(x.FechaAlta).Value == DbFunctions.TruncateTime(fecha));
+            cierreCaja = cierreCaja.Where(x => DbFunctions.TruncateTime(x.FechaApertura).Value == DbFunctions.TruncateTime(fecha));
 
             return cierreCaja.FirstOrDefaultAsync();
         }
@@ -29,24 +29,18 @@ namespace Saldo.Data.Repository
         internal Task<List<CierreCaja>> Buscar(DateTime fechaDesde, DateTime fechaHasta, string usuario, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             IQueryable<CierreCaja> cierreCaja = ObtenerConsulta()
-                                                    .Where(x => DbFunctions.TruncateTime(x.FechaAlta) >= DbFunctions.TruncateTime(fechaDesde) &&
-                                                                DbFunctions.TruncateTime(x.FechaAlta).Value <= DbFunctions.TruncateTime(fechaHasta));
+                                                    .Where(x => DbFunctions.TruncateTime(x.FechaApertura) >= DbFunctions.TruncateTime(fechaDesde) &&
+                                                                DbFunctions.TruncateTime(x.FechaApertura).Value <= DbFunctions.TruncateTime(fechaHasta));
             
             if (!string.IsNullOrEmpty(usuario))
-                cierreCaja = cierreCaja.Where(x => x.UsuarioAlta == usuario);
+                cierreCaja = cierreCaja.Where(x => x.UsuarioApertura == usuario || x.UsuarioCierre == usuario);
 
             return cierreCaja.Paginar(ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos).ToListAsync();
         }
 
-        internal Task<int> CajaCerradaAbiertas()
+        internal Task<List<CierreCaja>> ObtenerCajaCerradaAbiertas()
         {
-            List<CierreCaja> cierreCaja = ObtenerConsulta()
-                                            .Where(x => x.Estado == EstadoCaja.Abierta)
-                                            .ToList();
-
-            cierreCaja.ForEach(x => x.Cerrar());
-
-            return _context.SaveChangesAsync();
+           return ObtenerConsulta().Where(x => x.Estado == EstadoCaja.Abierta).ToListAsync();
         }
 
         internal void Guardar(CierreCaja cierreCaja)

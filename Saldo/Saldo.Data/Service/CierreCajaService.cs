@@ -25,10 +25,10 @@ namespace Saldo.Data.Service
             return cierreCajaRepository.Buscar(fechaDesdes, fechaHasta, usuario, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
         }
 
-        public static Task<int> UltimaCajaCerrada()
+        public static Task<List<CierreCaja>> ObtenerCajaCerradaAbiertas()
         {
             CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(new Context());
-            return cierreCajaRepository.CajaCerradaAbiertas();
+            return cierreCajaRepository.ObtenerCajaCerradaAbiertas();
         }
 
         public static void Guardar(CierreCaja cierreCaja)
