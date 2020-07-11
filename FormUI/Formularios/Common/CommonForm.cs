@@ -65,7 +65,6 @@ namespace FormUI.Formularios.Common
             }
             catch (NegocioException ex)
             {
-                Log.Error(ex);
                 CustomMessageBox.ShowDialog(ex.Message, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Error);
             }
             catch (Exception ex)
@@ -88,7 +87,6 @@ namespace FormUI.Formularios.Common
             }
             catch (NegocioException ex)
             {
-                Log.Error(ex);
                 CustomMessageBox.ShowDialog(ex.Message, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Error);
             }
             catch (Exception ex)

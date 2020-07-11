@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Venta.Core.Enum;
 
 namespace Common.Core.Model
 {
@@ -16,6 +13,13 @@ namespace Common.Core.Model
         {
             ModificaCaja = modificaCaja;
             Concepto = concepto;
+            Monto = monto;
+        }
+
+        public MovimientoMonto(FormaPago formaPago, decimal monto)
+        {
+            ModificaCaja = formaPago == FormaPago.Efectivo? true : false;
+            Concepto = formaPago.ToString();
             Monto = monto;
         }
     }

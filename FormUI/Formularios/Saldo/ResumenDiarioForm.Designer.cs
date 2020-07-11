@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResumenDiarioForm));
             this.resumenDiarioViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -36,8 +38,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.conceptoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.egresosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,8 +45,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingresosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -65,6 +63,10 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnAbrir = new System.Windows.Forms.Button();
+            this.conceptoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.resumenDiarioViewModelBindingSource)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -167,23 +169,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(412, 185);
             this.dataGridView1.TabIndex = 0;
             // 
-            // conceptoDataGridViewTextBoxColumn1
-            // 
-            this.conceptoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.conceptoDataGridViewTextBoxColumn1.DataPropertyName = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn1.HeaderText = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn1.Name = "conceptoDataGridViewTextBoxColumn1";
-            this.conceptoDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // montoDataGridViewTextBoxColumn1
-            // 
-            this.montoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.montoDataGridViewTextBoxColumn1.DataPropertyName = "Monto";
-            this.montoDataGridViewTextBoxColumn1.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn1.Name = "montoDataGridViewTextBoxColumn1";
-            this.montoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.montoDataGridViewTextBoxColumn1.Width = 79;
-            // 
             // egresosBindingSource
             // 
             this.egresosBindingSource.DataMember = "Egresos";
@@ -280,23 +265,6 @@
             this.dataGridView2.ShowRowErrors = false;
             this.dataGridView2.Size = new System.Drawing.Size(412, 185);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // conceptoDataGridViewTextBoxColumn
-            // 
-            this.conceptoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn.HeaderText = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn.Name = "conceptoDataGridViewTextBoxColumn";
-            this.conceptoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // montoDataGridViewTextBoxColumn
-            // 
-            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
-            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.montoDataGridViewTextBoxColumn.Width = 79;
             // 
             // ingresosBindingSource
             // 
@@ -541,6 +509,44 @@
             this.btnAbrir.UseVisualStyleBackColor = true;
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
+            // conceptoDataGridViewTextBoxColumn1
+            // 
+            this.conceptoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.conceptoDataGridViewTextBoxColumn1.DataPropertyName = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn1.HeaderText = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn1.Name = "conceptoDataGridViewTextBoxColumn1";
+            this.conceptoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // montoDataGridViewTextBoxColumn1
+            // 
+            this.montoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.montoDataGridViewTextBoxColumn1.DataPropertyName = "Monto";
+            dataGridViewCellStyle1.Format = "C2";
+            this.montoDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.montoDataGridViewTextBoxColumn1.HeaderText = "Monto";
+            this.montoDataGridViewTextBoxColumn1.Name = "montoDataGridViewTextBoxColumn1";
+            this.montoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.montoDataGridViewTextBoxColumn1.Width = 79;
+            // 
+            // conceptoDataGridViewTextBoxColumn
+            // 
+            this.conceptoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn.HeaderText = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn.Name = "conceptoDataGridViewTextBoxColumn";
+            this.conceptoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // montoDataGridViewTextBoxColumn
+            // 
+            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
+            dataGridViewCellStyle2.Format = "C2";
+            this.montoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
+            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.montoDataGridViewTextBoxColumn.Width = 79;
+            // 
             // ResumenDiarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,11 +607,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.BindingSource resumenDiarioViewModelBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource egresosBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource ingresosBindingSource;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
@@ -617,5 +619,9 @@
         private Controles.NumeroTextBox numeroTextBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAbrir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
     }
 }

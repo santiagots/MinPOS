@@ -67,8 +67,7 @@ namespace Venta.Data.Repository
 
             return venta.GroupBy(x => x.Pago.FormaPago)
                             .Select(g => new MovimientoMonto(
-                                true,
-                                g.Key.ToString(),
+                                g.Key,
                                 g.Sum(s => s.Pago.Monto))
                             ).ToList();
         }

@@ -13,9 +13,9 @@ namespace FormUI.Formularios.Saldo
 
         public DateTime FechaAlta => CierreCaja.FechaAlta;
         public string UsuarioAlta => CierreCaja.UsuarioAlta;
-        public decimal Ingresos => CierreCaja.Ingresos.Sum(x => x.Monto);
-        public decimal Egresos => CierreCaja.Egresos.Sum(x => x.Monto);
-        public decimal Saldo => Ingresos - Egresos;
+        public decimal Ingresos => CierreCaja.IngresosTotal;
+        public decimal Egresos => CierreCaja.EgresosTotal;
+        public decimal Saldo => CierreCaja.SaldoTotal;
         public decimal MontoRegistrado => CierreCaja.MontoEnCaja;
         public decimal Diferencia => CierreCaja.Diferencia;
 

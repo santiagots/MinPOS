@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\FormaPago.cs" />
     <Compile Include="Model\Pago.cs" />
     <Compile Include="Model\Producto.cs" />
     <Compile Include="Model\Venta.cs" />
@@ -57,7 +56,9 @@
     <Compile Include="Validadores\PagoValidador.cs" />
     <Compile Include="Validadores\VentaValidador.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Enum\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.Core\Common.Core.csproj">
       <Project>{F3385D32-8FFC-434B-8311-04313CCFDE33}</Project>

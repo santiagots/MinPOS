@@ -6,6 +6,7 @@ namespace Saldo.Core.Model
     {
         public int IdCierreCaja { get; protected set; }
         public CierreCaja CierreCaja { get; protected set; }
+        public bool ModificaCaja { get; protected set; }
         public string Concepto { get; protected set; }
         public decimal Monto { get; protected set; }
 
@@ -13,10 +14,11 @@ namespace Saldo.Core.Model
         {
         }
 
-        public Egresos(int id, int idCierreCaja, string concepto, decimal monto)
+        public Egresos(int id, int idCierreCaja, bool modificaCaja, string concepto, decimal monto)
         {
             Id = id;
             IdCierreCaja = idCierreCaja;
+            ModificaCaja = modificaCaja;
             Concepto = concepto;
             Monto = monto;
         }

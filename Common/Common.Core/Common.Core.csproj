@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\DireccionOrdenamiento.cs" />
+    <Compile Include="Enum\FormaPago.cs" />
     <Compile Include="Extension\Paginado.cs" />
     <Compile Include="Helper\Encriptado.cs" />
     <Compile Include="Helper\Log.cs" />

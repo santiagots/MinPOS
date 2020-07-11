@@ -11,7 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Venta.Data.Service;
 
@@ -25,7 +24,7 @@ namespace FormUI.Formularios.Saldo
         public decimal TotalEgresos => Egresos.Sum(x => x.Monto);
         public BindingList<ResumenDiarioItem> Ingresos { get; set; } = new BindingList<ResumenDiarioItem>();
         public decimal TotalIngresos => Ingresos.Sum(x => x.Monto);
-        public decimal Saldo => Ingresos.Sum(x => x.Monto) - TotalEgresos;
+        public decimal Saldo => Ingresos.Where(x => x.ModificaCaja).Sum(x => x.Monto) - TotalEgresos;
         public decimal MontoCierreCaja { get; set; }
         public decimal Diferencia => Estado == EstadoCaja.Abierta ? 0 : MontoCierreCaja - Saldo;
         public EstadoCaja Estado { get; set; }
@@ -77,10 +76,10 @@ namespace FormUI.Formularios.Saldo
         private CierreCaja obtenerCajaDesdeViewModel()
         {
             List<Ingresos> ingresos = new List<Ingresos>();
-            ingresos.AddRange(Ingresos.Select(x => new Ingresos(x.Id, Id, x.Concepto, x.Monto)));
+            ingresos.AddRange(Ingresos.Select(x => new Ingresos(x.Id, Id, x.ModificaCaja, x.Concepto, x.Monto)));
 
             List<Egresos> egresos = new List<Egresos>();
-            egresos.AddRange(Egresos.Select(x => new Egresos(x.Id, Id, x.Concepto, x.Monto)));
+            egresos.AddRange(Egresos.Select(x => new Egresos(x.Id, Id, x.ModificaCaja, x.Concepto, x.Monto)));
 
             CierreCaja cierreCaja = new CierreCaja(Id, Estado, Fecha, Sesion.Usuario.Alias, ingresos, egresos, MontoCierreCaja, Diferencia);
             return cierreCaja;
@@ -90,8 +89,8 @@ namespace FormUI.Formularios.Saldo
         {
             Id = cierreCaja.Id;
             Fecha = cierreCaja.FechaAlta;
-            Egresos = new BindingList<ResumenDiarioItem>(cierreCaja.Egresos.Select(x => new ResumenDiarioItem(x.Id, x.Concepto, x.Monto)).ToList());
-            Ingresos = new BindingList<ResumenDiarioItem>(cierreCaja.Ingresos.Select(x => new ResumenDiarioItem(x.Id, x.Concepto, x.Monto)).ToList());
+            Egresos = new BindingList<ResumenDiarioItem>(cierreCaja.Egresos.Select(x => new ResumenDiarioItem(x.Id, true, x.Concepto, x.Monto)).ToList());
+            Ingresos = new BindingList<ResumenDiarioItem>(cierreCaja.Ingresos.Select(x => new ResumenDiarioItem(x.Id, x.ModificaCaja, x.Concepto, x.Monto)).ToList());
             MontoCierreCaja = cierreCaja.MontoEnCaja;
             Estado = cierreCaja.Estado;
 
@@ -110,14 +109,10 @@ namespace FormUI.Formularios.Saldo
 
             Egresos = new BindingList<ResumenDiarioItem>(gastoSaldo.Result
                                        .Where(x => x.ModificaCaja)
-                                       .Select(x => new ResumenDiarioItem(0, x.Concepto, x.Monto)).ToList());
+                                       .Select(x => new ResumenDiarioItem(0, x.ModificaCaja, x.Concepto, x.Monto)).ToList());
 
             Ingresos = new BindingList<ResumenDiarioItem>(ventaSaldo.Result
-                                       .Where(x => x.ModificaCaja)
-                                       .Select(x => new ResumenDiarioItem(0, x.Concepto, x.Monto)).ToList());
-
-            if(cajaDiaAnterior.Result != null)
-                Ingresos.Insert(0, new ResumenDiarioItem(0, "Inicio de caja", cajaDiaAnterior.Result.MontoEnCaja));
+                                       .Select(x => new ResumenDiarioItem(0, x.ModificaCaja, x.Concepto, x.Monto)).ToList());
 
             NotifyPropertyChanged(nameof(Egresos));
             NotifyPropertyChanged(nameof(Ingresos));

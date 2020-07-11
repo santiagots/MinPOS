@@ -2,6 +2,7 @@
 using Saldo.Core.Enum;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Saldo.Core.Model
 {
@@ -11,7 +12,10 @@ namespace Saldo.Core.Model
         public string UsuarioAlta { get; protected set; }
         public EstadoCaja Estado { get; protected set; }
         public IList<Ingresos> Ingresos { get; protected set; }
+        public decimal IngresosTotal => Ingresos.Sum(x => x.Monto);
         public IList<Egresos> Egresos { get; protected set; }
+        public decimal EgresosTotal => Egresos.Sum(x => x.Monto);
+        public decimal SaldoTotal => Ingresos.Where(x => x.ModificaCaja).Sum(x => x.Monto) - EgresosTotal;
         public decimal MontoEnCaja { get; protected set; }
         public decimal Diferencia { get; protected set; }
 
