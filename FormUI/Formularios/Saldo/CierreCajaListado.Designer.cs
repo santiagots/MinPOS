@@ -52,17 +52,19 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgCierreCaja = new System.Windows.Forms.DataGridView();
-            this.fechaAltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioAltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cierreCajaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.paginado = new FormUI.Controles.Paginado();
+            this.FechaApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingresosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.egresosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montoRegistradoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diferenciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ver = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cierreCajaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.paginado = new FormUI.Controles.Paginado();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -252,8 +254,10 @@
             this.dgCierreCaja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgCierreCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCierreCaja.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fechaAltaDataGridViewTextBoxColumn,
-            this.usuarioAltaDataGridViewTextBoxColumn,
+            this.FechaApertura,
+            this.UsuarioApertura,
+            this.FechaCierre,
+            this.UsuarioCierre,
             this.ingresosDataGridViewTextBoxColumn,
             this.egresosDataGridViewTextBoxColumn,
             this.Saldo,
@@ -288,22 +292,76 @@
             this.dgCierreCaja.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgCierreCaja_CellMouseClick);
             this.dgCierreCaja.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgCierreCaja_ColumnHeaderMouseClick);
             // 
-            // fechaAltaDataGridViewTextBoxColumn
+            // cierreCajaBindingSource
             // 
-            this.fechaAltaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.fechaAltaDataGridViewTextBoxColumn.DataPropertyName = "FechaAlta";
-            this.fechaAltaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.fechaAltaDataGridViewTextBoxColumn.Name = "fechaAltaDataGridViewTextBoxColumn";
-            this.fechaAltaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaAltaDataGridViewTextBoxColumn.Width = 79;
+            this.cierreCajaBindingSource.DataMember = "CierreCajaItems";
+            this.cierreCajaBindingSource.DataSource = this.cierreCajaListadoViewModelBindingSource;
             // 
-            // usuarioAltaDataGridViewTextBoxColumn
+            // tableLayoutPanel3
             // 
-            this.usuarioAltaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.usuarioAltaDataGridViewTextBoxColumn.DataPropertyName = "UsuarioAlta";
-            this.usuarioAltaDataGridViewTextBoxColumn.HeaderText = "Usuario";
-            this.usuarioAltaDataGridViewTextBoxColumn.Name = "usuarioAltaDataGridViewTextBoxColumn";
-            this.usuarioAltaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.dgCierreCaja, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.paginado, 0, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 136);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(859, 513);
+            this.tableLayoutPanel3.TabIndex = 6;
+            // 
+            // paginado
+            // 
+            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.cierreCajaListadoViewModelBindingSource, "TotalElementos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.paginado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.paginado.Leyenda = "{0} de {1}";
+            this.paginado.Location = new System.Drawing.Point(3, 481);
+            this.paginado.Name = "paginado";
+            this.paginado.Size = new System.Drawing.Size(853, 29);
+            this.paginado.TabIndex = 5;
+            this.paginado.TotalElementos = 0;
+            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
+            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
+            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
+            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
+            // 
+            // FechaApertura
+            // 
+            this.FechaApertura.DataPropertyName = "FechaApertura";
+            this.FechaApertura.HeaderText = "Fecha Apertura";
+            this.FechaApertura.MinimumWidth = 200;
+            this.FechaApertura.Name = "FechaApertura";
+            this.FechaApertura.ReadOnly = true;
+            this.FechaApertura.Width = 200;
+            // 
+            // UsuarioApertura
+            // 
+            this.UsuarioApertura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UsuarioApertura.DataPropertyName = "UsuarioApertura";
+            this.UsuarioApertura.HeaderText = "Usuario Abre";
+            this.UsuarioApertura.Name = "UsuarioApertura";
+            this.UsuarioApertura.ReadOnly = true;
+            // 
+            // FechaCierre
+            // 
+            this.FechaCierre.DataPropertyName = "FechaCierre";
+            this.FechaCierre.HeaderText = "Fecha Cierre";
+            this.FechaCierre.MinimumWidth = 200;
+            this.FechaCierre.Name = "FechaCierre";
+            this.FechaCierre.ReadOnly = true;
+            this.FechaCierre.Width = 200;
+            // 
+            // UsuarioCierre
+            // 
+            this.UsuarioCierre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UsuarioCierre.DataPropertyName = "UsuarioCierre";
+            this.UsuarioCierre.HeaderText = "Usuario Cierre";
+            this.UsuarioCierre.Name = "UsuarioCierre";
+            this.UsuarioCierre.ReadOnly = true;
             // 
             // ingresosDataGridViewTextBoxColumn
             // 
@@ -373,43 +431,6 @@
             this.Ver.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Ver.Width = 5;
             // 
-            // cierreCajaBindingSource
-            // 
-            this.cierreCajaBindingSource.DataMember = "CierreCajaItems";
-            this.cierreCajaBindingSource.DataSource = this.cierreCajaListadoViewModelBindingSource;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.dgCierreCaja, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.paginado, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 136);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(859, 513);
-            this.tableLayoutPanel3.TabIndex = 6;
-            // 
-            // paginado
-            // 
-            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.cierreCajaListadoViewModelBindingSource, "TotalElementos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.paginado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paginado.Leyenda = "{0} de {1}";
-            this.paginado.Location = new System.Drawing.Point(3, 481);
-            this.paginado.Name = "paginado";
-            this.paginado.Size = new System.Drawing.Size(853, 29);
-            this.paginado.TabIndex = 5;
-            this.paginado.TotalElementos = 0;
-            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
-            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
-            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
-            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
-            // 
             // CierreCajaListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,13 +476,17 @@
         private Controles.Paginado paginado;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaAltaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarioAltaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaApertura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioApertura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCierre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioCierre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingresosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn egresosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoRegistradoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn diferenciaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Ver;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

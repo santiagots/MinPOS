@@ -31,11 +31,11 @@ namespace FormUI.Formularios.Saldo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ejecutar(() =>
+            EjecutarAsync(async () =>
             {
                 if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.cerrarCaja, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
                 {
-                    resumenDiarioViewModel.CerraCaja();
+                    await resumenDiarioViewModel.CerraCajaAsync();
                     ModificarHabilitacionSisitema?.Invoke(false);
                     CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
                 }
@@ -44,11 +44,11 @@ namespace FormUI.Formularios.Saldo
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            Ejecutar(() =>
+            EjecutarAsync(async () =>
             {
                 if (DialogResult.Yes == CustomMessageBox.ShowDialog(Resources.abrirCaja, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
                 {
-                    resumenDiarioViewModel.AbrirCaja();
+                    await resumenDiarioViewModel.AbrirCajaAsync();
                     ModificarHabilitacionSisitema?.Invoke(true);
                     CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
                 }

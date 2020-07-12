@@ -19,7 +19,7 @@ namespace FormUI.Formularios.Saldo
         public KeyValuePair<ModeloCommon.Usuario, string> UsuarioSeleccionado { get; set; }
         public List<KeyValuePair<ModeloCommon.Usuario, string>> Usuarios { get; set; } = new List<KeyValuePair<ModeloCommon.Usuario, string>>();
         public List<CierreCajaListadoItem> CierreCajaItems { get; set; } = new List<CierreCajaListadoItem>();
-        public string OrdenadoPor { get; set; } = "FechaAlta";
+        public string OrdenadoPor { get; set; } = "FechaApertura";
         public DireccionOrdenamiento DireccionOrdenamiento { get; set; } = DireccionOrdenamiento.Asc;
         public int PaginaActual { get; set; } = 1;
         public int ElementosPorPagina { get; set; }

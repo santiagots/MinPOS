@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
+using Venta.Data.Migrations;
 using Model = Venta.Core.Model;
 
 namespace Venta.Data
@@ -10,7 +11,7 @@ namespace Venta.Data
         public Context() : base("Conexion")
         {
             Database.Log = sql => Debug.Write(sql);
-            Database.SetInitializer<Context>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>()); //Ejecuta la actualizacion de la DB
             var intancia = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 

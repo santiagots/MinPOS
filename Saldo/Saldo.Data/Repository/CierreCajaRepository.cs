@@ -40,16 +40,27 @@ namespace Saldo.Data.Repository
 
         internal Task<List<CierreCaja>> ObtenerCajaCerradaAbiertas()
         {
-           return ObtenerConsulta().Where(x => x.Estado == EstadoCaja.Abierta).ToListAsync();
+           return ObtenerConsulta().Where(x => x.Estado == EstadoCaja.Abierta && DbFunctions.TruncateTime(x.FechaApertura) != DbFunctions.TruncateTime(DateTime.Now)).ToListAsync();
         }
 
-        internal void Guardar(CierreCaja cierreCaja)
+        internal async Task GuardarAsync(CierreCaja cierreCaja)
         {
             if (cierreCaja.Id == 0)
                 _context.CierreCaja.Add(cierreCaja);
             else
+            {
                 _context.Entry(cierreCaja).State = EntityState.Modified;
-            
+                if (cierreCaja.Estado == EstadoCaja.Abierta)
+                {
+                    _context.Egresos.RemoveRange(await _context.Egresos.Where(x => x.IdCierreCaja == cierreCaja.Id).ToListAsync());
+                    _context.Ingresos.RemoveRange(await _context.Ingresos.Where(x => x.IdCierreCaja == cierreCaja.Id).ToListAsync());
+                }
+                else
+                {
+                    cierreCaja.Ingresos.ToList().ForEach(x => _context.Entry(x).State = EntityState.Added);
+                    cierreCaja.Ingresos.ToList().ForEach(x => _context.Entry(x).State = EntityState.Added);
+                }
+            }
             _context.SaveChanges();
         }
 

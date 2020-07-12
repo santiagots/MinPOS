@@ -31,7 +31,7 @@ namespace Saldo.Data.Service
             return cierreCajaRepository.ObtenerCajaCerradaAbiertas();
         }
 
-        public static void Guardar(CierreCaja cierreCaja)
+        public static async Task GuardarAsync(CierreCaja cierreCaja)
         {
             CierreCajaValidador validador = new CierreCajaValidador();
             ValidationResult validadorResultado = validador.Validate(cierreCaja);
@@ -40,7 +40,7 @@ namespace Saldo.Data.Service
                 throw new NegocioException(string.Join(Environment.NewLine, validadorResultado.Errors.Select(x => x.ErrorMessage)));
 
             CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(new Context());
-            cierreCajaRepository.Guardar(cierreCaja);
+            await cierreCajaRepository.GuardarAsync(cierreCaja);
         }
     }
 }

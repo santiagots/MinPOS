@@ -11,9 +11,9 @@ namespace FormUI.Formularios.Saldo
     {
         public CierreCaja CierreCaja { get; private set; }
 
-        public DateTime FechaAlta => CierreCaja.FechaApertura;
+        public DateTime FechaApertura => CierreCaja.FechaApertura;
         public DateTime? FechaCierre => CierreCaja.FechaCierre;
-        public string UsuarioAlta => CierreCaja.UsuarioApertura;
+        public string UsuarioApertura => CierreCaja.UsuarioApertura;
         public string UsuarioCierre => CierreCaja.UsuarioCierre;
         public decimal Ingresos => CierreCaja.IngresosTotal;
         public decimal Egresos => CierreCaja.EgresosTotal;

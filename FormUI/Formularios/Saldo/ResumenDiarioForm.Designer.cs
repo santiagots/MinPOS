@@ -38,6 +38,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.conceptoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.egresosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,6 +47,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingresosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -59,14 +63,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnAbrir = new System.Windows.Forms.Button();
-            this.conceptoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.resumenDiarioViewModelBindingSource)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,6 +89,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // resumenDiarioViewModelBindingSource
@@ -93,11 +101,11 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(430, 10);
+            this.label1.Location = new System.Drawing.Point(480, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.Size = new System.Drawing.Size(104, 20);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Fecha";
+            this.label1.Text = "Fecha Cierra";
             // 
             // tableLayoutPanel2
             // 
@@ -168,6 +176,25 @@
             this.dataGridView1.ShowRowErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(412, 185);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // conceptoDataGridViewTextBoxColumn1
+            // 
+            this.conceptoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.conceptoDataGridViewTextBoxColumn1.DataPropertyName = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn1.HeaderText = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn1.Name = "conceptoDataGridViewTextBoxColumn1";
+            this.conceptoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // montoDataGridViewTextBoxColumn1
+            // 
+            this.montoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.montoDataGridViewTextBoxColumn1.DataPropertyName = "Monto";
+            dataGridViewCellStyle1.Format = "C2";
+            this.montoDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.montoDataGridViewTextBoxColumn1.HeaderText = "Monto";
+            this.montoDataGridViewTextBoxColumn1.Name = "montoDataGridViewTextBoxColumn1";
+            this.montoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.montoDataGridViewTextBoxColumn1.Width = 79;
             // 
             // egresosBindingSource
             // 
@@ -265,6 +292,25 @@
             this.dataGridView2.ShowRowErrors = false;
             this.dataGridView2.Size = new System.Drawing.Size(412, 185);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // conceptoDataGridViewTextBoxColumn
+            // 
+            this.conceptoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn.HeaderText = "Concepto";
+            this.conceptoDataGridViewTextBoxColumn.Name = "conceptoDataGridViewTextBoxColumn";
+            this.conceptoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // montoDataGridViewTextBoxColumn
+            // 
+            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
+            dataGridViewCellStyle2.Format = "C2";
+            this.montoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
+            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.montoDataGridViewTextBoxColumn.Width = 79;
             // 
             // ingresosBindingSource
             // 
@@ -436,14 +482,17 @@
             // 
             // tableLayoutPanel10
             // 
-            this.tableLayoutPanel10.ColumnCount = 4;
+            this.tableLayoutPanel10.ColumnCount = 5;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.textBox5, 3, 0);
-            this.tableLayoutPanel10.Controls.Add(this.label1, 2, 0);
+            this.tableLayoutPanel10.Controls.Add(this.textBox5, 2, 0);
+            this.tableLayoutPanel10.Controls.Add(this.label1, 3, 0);
+            this.tableLayoutPanel10.Controls.Add(this.textBox6, 4, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 22);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -451,6 +500,17 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(854, 40);
             this.tableLayoutPanel10.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(103, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 20);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Fecha Abre";
             // 
             // label6
             // 
@@ -470,12 +530,12 @@
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.resumenDiarioViewModelBindingSource, "Fecha", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "f"));
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.resumenDiarioViewModelBindingSource, "FechaApertura", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "G"));
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(530, 7);
+            this.textBox5.Location = new System.Drawing.Point(213, 7);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(321, 26);
+            this.textBox5.Size = new System.Drawing.Size(261, 26);
             this.textBox5.TabIndex = 16;
             // 
             // button2
@@ -509,49 +569,89 @@
             this.btnAbrir.UseVisualStyleBackColor = true;
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
-            // conceptoDataGridViewTextBoxColumn1
+            // textBox6
             // 
-            this.conceptoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.conceptoDataGridViewTextBoxColumn1.DataPropertyName = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn1.HeaderText = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn1.Name = "conceptoDataGridViewTextBoxColumn1";
-            this.conceptoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox6.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.resumenDiarioViewModelBindingSource, "FechaCierre", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "G"));
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(590, 7);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(261, 26);
+            this.textBox6.TabIndex = 18;
             // 
-            // montoDataGridViewTextBoxColumn1
+            // tableLayoutPanel1
             // 
-            this.montoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.montoDataGridViewTextBoxColumn1.DataPropertyName = "Monto";
-            dataGridViewCellStyle1.Format = "C2";
-            this.montoDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.montoDataGridViewTextBoxColumn1.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn1.Name = "montoDataGridViewTextBoxColumn1";
-            this.montoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.montoDataGridViewTextBoxColumn1.Width = 79;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox7, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox8, 3, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 396);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(563, 40);
+            this.tableLayoutPanel1.TabIndex = 16;
             // 
-            // conceptoDataGridViewTextBoxColumn
+            // label9
             // 
-            this.conceptoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn.HeaderText = "Concepto";
-            this.conceptoDataGridViewTextBoxColumn.Name = "conceptoDataGridViewTextBoxColumn";
-            this.conceptoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(3, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 20);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Usu. Abre";
             // 
-            // montoDataGridViewTextBoxColumn
+            // textBox7
             // 
-            this.montoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
-            dataGridViewCellStyle2.Format = "C2";
-            this.montoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
-            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.montoDataGridViewTextBoxColumn.Width = 79;
+            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox7.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.resumenDiarioViewModelBindingSource, "UsuarioApertura", true));
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(103, 7);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(175, 26);
+            this.textBox7.TabIndex = 16;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.Location = new System.Drawing.Point(284, 10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 20);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Usu. Cierra";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox8.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.resumenDiarioViewModelBindingSource, "UsuarioCierre", true));
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(384, 7);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(176, 26);
+            this.textBox8.TabIndex = 18;
             // 
             // ResumenDiarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 448);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnAbrir);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -583,6 +683,8 @@
             this.groupBox6.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -623,5 +725,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }

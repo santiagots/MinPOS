@@ -24,8 +24,8 @@ namespace FormUI.Formularios.Common
             {
                 MidiContenedorViewModel.CargarUsuario(toolStripStatusUsuario);
                 await MidiContenedorViewModel.CargarMercaderiaARecibir(toolStripStatusPedido, popupNotifier);
-                await MidiContenedorViewModel.AbrirCajasDelDia();
-                await MidiContenedorViewModel.CerrarCajasPendientes();
+                await MidiContenedorViewModel.AbrirCajasDelDia(ModificacionHabilitacionFunciones);
+                await MidiContenedorViewModel.CerrarCajasPendientes(this);
             });
         }
 

@@ -1,4 +1,5 @@
 ﻿using Common.Core.Model;
+using Common.Data.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -15,7 +16,7 @@ namespace Common.Data
         public Context() : base("Conexion")
         {
             Database.Log = sql => Debug.Write(sql);
-            Database.SetInitializer<Context>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>()); //Ejecuta la actualizacion de la DB
             var intancia = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 

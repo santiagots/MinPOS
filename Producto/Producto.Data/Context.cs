@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
+using Producto.Data.Migrations;
 
 namespace Producto.Data
 {
@@ -10,7 +11,7 @@ namespace Producto.Data
         public Context(): base("Conexion")
         {
             Database.Log = sql => Debug.Write(sql);
-            Database.SetInitializer<Context>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>()); //Ejecuta la actualizacion de la DB
             var intancia = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 

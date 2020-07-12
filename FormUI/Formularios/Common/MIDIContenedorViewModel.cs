@@ -14,6 +14,7 @@ using Saldo.Data.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
@@ -50,14 +51,19 @@ namespace FormUI.Formularios.Common
             resumenDiarioForm.ShowDialog();
         }
 
-        internal async Task AbrirCajasDelDia()
+        internal async Task AbrirCajasDelDia(Action<bool> modificacionHabilitacionFunciones)
         {
-            if (!await ExisteCajaParaDiaEnCursoAsync())
+            CierreCaja cajasCajaDelDia = await CierreCajaService.Obtener(DateTime.Now);
+            if (cajasCajaDelDia == null)
             {
                 CierreCaja cierrarCaja = new CierreCaja();
                 cierrarCaja.Abrir(Sesion.Usuario.Alias);
-                CierreCajaService.Guardar(cierrarCaja);
+                await CierreCajaService.GuardarAsync(cierrarCaja);
                 CustomMessageBox.ShowDialog(string.Format(Resources.aperturaCaja, Sesion.Usuario.Alias), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
+            }
+            else 
+            {
+                modificacionHabilitacionFunciones(cajasCajaDelDia.Estado != EstadoCaja.Cerrada);
             }
         }
 
@@ -66,17 +72,31 @@ namespace FormUI.Formularios.Common
             return await CierreCajaService.Obtener(DateTime.Now) != null;
         }
 
-        internal async Task CerrarCajasPendientes()
+        internal async Task CerrarCajasPendientes(Form mdiParent)
         {
             List<CierreCaja> cajasPendientesDeCierre = await CierreCajaService.ObtenerCajaCerradaAbiertas();
             if (cajasPendientesDeCierre.Count > 0)
             {
-                CustomMessageBox.ShowDialog(string.Format(Resources.cajasCierreAutomaticas, cajasPendientesDeCierre), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
+                CustomMessageBox.ShowDialog(string.Format(Resources.cajasCierreAutomaticas, cajasPendientesDeCierre.Count), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
 
-                foreach(CierreCaja cajaPendiente in cajasPendientesDeCierre)
-                    await CerrarCaja(cajaPendiente);
+                using(BarraProgresoForm barraProgresoForm = new BarraProgresoForm("Cerrando Cajas Abiertas", 100))
+                {
+                    barraProgresoForm.MdiParent = mdiParent;
+                    barraProgresoForm.Show();
+
+                    await Task.Run(async () => {
+                        for (int i = 0; i < cajasPendientesDeCierre.Count; i++)
+                        {
+                            CierreCaja cajaPendiente = cajasPendientesDeCierre[i];
+                            await CerrarCaja(cajaPendiente);
+                            await CierreCajaService.GuardarAsync(cajaPendiente);
+                            barraProgresoForm.Progress.Report(i);
+                        }
+                    });
+                }
             }
         }
+
 
         private static async Task CerrarCaja(CierreCaja cierreCaja)
         {

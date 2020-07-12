@@ -31,7 +31,7 @@ namespace Saldo.Core.Model
             UsuarioCierre = usuarioCierre;
             FechaCierre = DateTime.Now;
             MontoEnCaja = montoEnCaja;
-            Diferencia = SaldoTotal - montoEnCaja;
+            Diferencia = montoEnCaja - SaldoTotal;
         }
 
         public void Abrir(string usuarioApertura)
