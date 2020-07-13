@@ -472,7 +472,7 @@
     <None Include="Drivers\Impresora\Lexa.zip" />
     <None Include="FormUI_TemporaryKey.pfx" />
     <None Include="NLog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

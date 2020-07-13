@@ -49,19 +49,21 @@ namespace Saldo.Data.Repository
                 _context.CierreCaja.Add(cierreCaja);
             else
             {
-                _context.Entry(cierreCaja).State = EntityState.Modified;
+                CierreCaja cierreCajaBD = await ObtenerConsulta().Where(x => x.Id == cierreCaja.Id).FirstOrDefaultAsync();
                 if (cierreCaja.Estado == EstadoCaja.Abierta)
                 {
-                    _context.Egresos.RemoveRange(await _context.Egresos.Where(x => x.IdCierreCaja == cierreCaja.Id).ToListAsync());
-                    _context.Ingresos.RemoveRange(await _context.Ingresos.Where(x => x.IdCierreCaja == cierreCaja.Id).ToListAsync());
+                    cierreCajaBD.Abrir(cierreCaja.UsuarioApertura);
+                    _context.Ingresos.RemoveRange(cierreCajaBD.Ingresos);
+                    _context.Egresos.RemoveRange(cierreCajaBD.Egresos);
                 }
                 else
                 {
-                    cierreCaja.Ingresos.ToList().ForEach(x => _context.Entry(x).State = EntityState.Added);
-                    cierreCaja.Ingresos.ToList().ForEach(x => _context.Entry(x).State = EntityState.Added);
+                    cierreCajaBD.AgregarEgresos(cierreCaja.Egresos);
+                    cierreCajaBD.AgregarIngresos(cierreCaja.Ingresos);
+                    cierreCajaBD.Cerrar(cierreCaja.UsuarioCierre, cierreCaja.MontoEnCaja);
                 }
             }
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         private IQueryable<CierreCaja> ObtenerConsulta()
