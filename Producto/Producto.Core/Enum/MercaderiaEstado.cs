@@ -2,7 +2,9 @@
 {
     public enum MercaderiaEstado
     {
+        Nuevo,
         Guardada,
-        Ingresada
+        Ingresada,
+        Paga
     }
 }

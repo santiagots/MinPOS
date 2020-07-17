@@ -47,7 +47,7 @@ namespace FormUI.Formularios.Gasto
             {
                 await gastoDetalleViewModel.GuardarAsync();
                 CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
-                Close();
+                DialogResult = DialogResult.OK;
             });
         }
     }

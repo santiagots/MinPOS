@@ -66,8 +66,6 @@ namespace Producto.Data.Repository
             Modelo.Mercaderia mercaderaDB = _context.Mercaderia
                                         .FirstOrDefault(x => x.Id == mercaderia.Id);
 
-            mercaderaDB.ModificarEstado(mercaderia.Estado);
-
             mercaderia.MercaderiaItems.ToList().ForEach(x =>
             {
                 Modelo.Producto producto = _context.Producto.FirstOrDefault(y => y.Id == x.Producto.Id);
@@ -96,6 +94,7 @@ namespace Producto.Data.Repository
                 mercaderaDB.FechaActualizacion = mercaderia.FechaActualizacion;
                 mercaderaDB.UsuarioActualizacion = mercaderia.UsuarioActualizacion;
                 mercaderaDB.FechaRecepcion = mercaderia.FechaRecepcion;
+                mercaderaDB.Estado = mercaderia.Estado;
 
                 mercaderaDB.MercaderiaItems.ToList().ForEach(mercaderiaItemDB =>
                 {

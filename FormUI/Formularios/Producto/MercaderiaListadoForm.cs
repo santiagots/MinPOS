@@ -4,6 +4,7 @@ using FormUI.Formularios.Common;
 using FormUI.Properties;
 using Producto.Core.Model;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormUI.Formularios.Producto
@@ -11,6 +12,8 @@ namespace FormUI.Formularios.Producto
     public partial class MercaderiaListadoForm : CommonForm
     {
         MercaderiaListadoViewModel mercaderiaListadoViewModel = new MercaderiaListadoViewModel();
+        public static Func<Task> actualizarMercaderiaARecibirAsync { get; set; }
+
         public MercaderiaListadoForm()
         {
             InitializeComponent();
@@ -69,6 +72,7 @@ namespace FormUI.Formularios.Producto
                     {
                         await mercaderiaListadoViewModel.BorrarAsync(mercaderiaListadoItem);
                         await mercaderiaListadoViewModel.BuscarAsync();
+                        await actualizarMercaderiaARecibirAsync();
                     }
                 }
             });

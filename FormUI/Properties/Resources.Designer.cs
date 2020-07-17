@@ -479,6 +479,15 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¿Desea registrar el gasto del ingreso de mercadería?.
+        /// </summary>
+        internal static string ingresoMercaderiaPago {
+            get {
+                return ResourceManager.GetString("ingresoMercaderiaPago", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Login {

@@ -6,6 +6,7 @@ using FormUI.Formularios.Usuario;
 using FormUI.Formularios.Venta;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormUI.Formularios.Common
@@ -22,8 +23,11 @@ namespace FormUI.Formularios.Common
         {
             EjecutarAsync(async () =>
             {
+                MercaderiaDetalleForm.actualizarMercaderiaARecibirAsync = ActualizarMercaderiaARecibirAsync;
+                MercaderiaListadoForm.actualizarMercaderiaARecibirAsync = ActualizarMercaderiaARecibirAsync;
+
                 MidiContenedorViewModel.CargarUsuario(toolStripStatusUsuario);
-                await MidiContenedorViewModel.CargarMercaderiaARecibir(toolStripStatusPedido, popupNotifier);
+                await ActualizarMercaderiaARecibirAsync();
                 await MidiContenedorViewModel.AbrirCajasDelDia(ModificacionHabilitacionFunciones);
                 await MidiContenedorViewModel.CerrarCajasPendientes(this);
             });
@@ -35,9 +39,7 @@ namespace FormUI.Formularios.Common
         private void cargarVariosToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(ProductoIngresoMasivo), this);
 
         private void tsbIngresos_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(MercaderiaListadoForm), this);
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(MercaderiaDetalleForm), this);
-
+       
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(CategoriaListadoForm), this);
 
         private void administrarToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(VentaListadoForm), this);
@@ -119,6 +121,11 @@ namespace FormUI.Formularios.Common
             tsbNuevaGasto.Enabled = habilitar;
             tsbProductos.Enabled = habilitar;
             tsbIngresos.Enabled = habilitar;
+        }
+
+        public async Task ActualizarMercaderiaARecibirAsync()
+        {
+            await MidiContenedorViewModel.ActualizarMercaderiaARecibir(toolStripStatusPedido, popupNotifier);
         }
 
         private void ModificarHabilitacionToolStripMenuItem(ToolStripMenuItem toolStripMenuItem, bool habilitar)

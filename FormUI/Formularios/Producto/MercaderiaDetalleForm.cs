@@ -7,12 +7,14 @@ using FormUI.Properties;
 using System.Drawing;
 using Producto.Core.Model;
 using FormUI.Enum;
+using System.Threading.Tasks;
 
 namespace FormUI.Formularios.Producto
 {
     public partial class MercaderiaDetalleForm : CommonForm
     {
         MercaderiaDetalleViewModel mercaderiaDetalleViewModel = new MercaderiaDetalleViewModel();
+        public static Func<Task> actualizarMercaderiaARecibirAsync { get; set; }
 
         public MercaderiaDetalleForm()
         {
@@ -44,6 +46,11 @@ namespace FormUI.Formularios.Producto
             {
                 await mercaderiaDetalleViewModel.IngresarAsync();
                 CustomMessageBox.ShowDialog(Resources.ingresoMercaderiaOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
+
+                if (CustomMessageBox.ShowDialog(Resources.ingresoMercaderiaPago, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info) == DialogResult.Yes)
+                    await mercaderiaDetalleViewModel.PagarAsync();
+
+                await actualizarMercaderiaARecibirAsync();
                 Close();
             });
         }
@@ -54,6 +61,7 @@ namespace FormUI.Formularios.Producto
             {
                 await mercaderiaDetalleViewModel.GuardarAsync();
                 CustomMessageBox.ShowDialog(Resources.guardadoOk, this.Text, MessageBoxButtons.OK, CustomMessageBoxIcon.Success);
+                await actualizarMercaderiaARecibirAsync();
                 Close();
             });
         }
@@ -66,6 +74,7 @@ namespace FormUI.Formularios.Producto
                 if (mercaderiaDetalleViewModel.ProveedorSeleccionado.Key != valorSeleccionado.Key)
                 {
                     mercaderiaDetalleViewModel.ProveedorSeleccionado = valorSeleccionado;
+                    mercaderiaDetalleViewModel.AgregarProveedor(valorSeleccionado.Key);
                     await mercaderiaDetalleViewModel.CargarAutocompletadoAsync();
                     mercaderiaDetalleViewModel.LimpiarGrilla();
                 }
@@ -76,7 +85,7 @@ namespace FormUI.Formularios.Producto
         {
             EjecutarAsync(async () =>
             {
-                await mercaderiaDetalleViewModel.AgregarAsync();
+                await mercaderiaDetalleViewModel.AgregarProductoAsync();
             });
         }
 
@@ -85,7 +94,7 @@ namespace FormUI.Formularios.Producto
             EjecutarAsync(async () =>
             {
                 if (e.KeyCode == Keys.Enter)
-                    await mercaderiaDetalleViewModel.AgregarAsync();
+                    await mercaderiaDetalleViewModel.AgregarProductoAsync();
             });
         }
 
@@ -153,6 +162,18 @@ namespace FormUI.Formularios.Producto
         private void dgProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             mercaderiaDetalleViewModel.Actualizar();
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            EjecutarAsync(async () =>
+            {
+                if (await mercaderiaDetalleViewModel.PagarAsync())
+                {
+                    await actualizarMercaderiaARecibirAsync();
+                    Close();
+                }
+            });
         }
     }
 }

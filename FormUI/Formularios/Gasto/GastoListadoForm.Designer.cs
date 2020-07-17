@@ -64,6 +64,7 @@
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoGastoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Anulada = new FormUI.Controles.DataGridViewSiNoCellColumn();
             this.SaleDeCaja = new FormUI.Controles.DataGridViewSiNoCellColumn();
             this.fechaActualizacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioActualizacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,6 +104,7 @@
             this.fechaDataGridViewTextBoxColumn,
             this.tipoGastoDataGridViewTextBoxColumn,
             this.montoDataGridViewTextBoxColumn,
+            this.Anulada,
             this.SaleDeCaja,
             this.fechaActualizacionDataGridViewTextBoxColumn,
             this.usuarioActualizacionDataGridViewTextBoxColumn,
@@ -484,17 +486,26 @@
             this.montoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.montoDataGridViewTextBoxColumn.Width = 79;
             // 
+            // Anulada
+            // 
+            this.Anulada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Anulada.DataPropertyName = "Anulada";
+            this.Anulada.HeaderText = "Anulada";
+            this.Anulada.MinimumWidth = 100;
+            this.Anulada.Name = "Anulada";
+            this.Anulada.ReadOnly = true;
+            this.Anulada.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // SaleDeCaja
             // 
-            this.SaleDeCaja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SaleDeCaja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.SaleDeCaja.DataPropertyName = "SaleDeCaja";
             this.SaleDeCaja.HeaderText = "De Caja";
-            this.SaleDeCaja.MinimumWidth = 70;
+            this.SaleDeCaja.MinimumWidth = 100;
             this.SaleDeCaja.Name = "SaleDeCaja";
             this.SaleDeCaja.ReadOnly = true;
             this.SaleDeCaja.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.SaleDeCaja.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.SaleDeCaja.Width = 91;
             // 
             // fechaActualizacionDataGridViewTextBoxColumn
             // 
@@ -588,6 +599,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoGastoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
+        private Controles.DataGridViewSiNoCellColumn Anulada;
         private Controles.DataGridViewSiNoCellColumn SaleDeCaja;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaActualizacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarioActualizacionDataGridViewTextBoxColumn;

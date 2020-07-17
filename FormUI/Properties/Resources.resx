@@ -307,4 +307,7 @@
   <data name="aperturaCaja" xml:space="preserve">
     <value>Se ha realizado la apertura de la caja con el usuario {0}.</value>
   </data>
+  <data name="ingresoMercaderiaPago" xml:space="preserve">
+    <value>¿Desea registrar el gasto del ingreso de mercadería?</value>
+  </data>
 </root>

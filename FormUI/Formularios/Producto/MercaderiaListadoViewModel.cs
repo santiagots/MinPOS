@@ -82,7 +82,7 @@ namespace FormUI.Formularios.Producto
 
         internal void CargarEstado()
         {
-            MercaderiaEstados = Enum<MercaderiaEstado>.ToKeyValuePairList().ToList();
+            MercaderiaEstados = Enum<MercaderiaEstado>.ToKeyValuePairList().Where(x => x.Key != MercaderiaEstado.Nuevo).ToList();
             MercaderiaEstados.Insert(0, new KeyValuePair<MercaderiaEstado?, string>(null, Resources.comboSeleccionarOpcion));
 
             NotifyPropertyChanged(nameof(MercaderiaEstadoSeleccionado));

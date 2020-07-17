@@ -1,4 +1,5 @@
-﻿using Common.Core.Model;
+﻿using Common.Core.Exception;
+using Common.Core.Model;
 using Producto.Core.Enum;
 using System;
 using System.Collections.Generic;
@@ -12,31 +13,70 @@ namespace Producto.Core.Model
         public DateTime FechaRecepcion { get; set; }
         public int? IdProveedor { get; internal set; }
         public Proveedor Proveedor { get; internal set; }
-        public virtual IList<MercaderiaItem> MercaderiaItems { get; internal set; }
+        public virtual IList<MercaderiaItem> MercaderiaItems { get; internal set; } = new List<MercaderiaItem>();
         public DateTime FechaActualizacion { get; set; }
         public string UsuarioActualizacion { get; set; }
-        public MercaderiaEstado Estado { get; protected set; }
-        public decimal TotalCosto => MercaderiaItems.Sum(x => x.TotalCosto);
+        public MercaderiaEstado Estado { get; set; }
 
-        public Mercaderia() 
-        { }
-
-        public Mercaderia(int id, DateTime fecha, DateTime fechaRecepcion, Proveedor proveedor, IList<MercaderiaItem> mercaderiaItems, string usuarioActualizacion, MercaderiaEstado estado)
-        {
-            Id = id;
-            Fecha = fecha;
-            FechaRecepcion = fechaRecepcion;
-            IdProveedor = proveedor.Id;
-            Proveedor = proveedor;
-            FechaActualizacion = DateTime.Now;
-            MercaderiaItems = mercaderiaItems;
-            UsuarioActualizacion = usuarioActualizacion;
-            Estado = estado;
+        internal Mercaderia()
+        { 
         }
 
-        public void ModificarEstado(MercaderiaEstado estado)
+        public Mercaderia(string usuarioActualizacion)
+        {
+            Fecha = DateTime.Now;
+            FechaActualizacion = Fecha;
+            Estado = MercaderiaEstado.Nuevo;
+            UsuarioActualizacion = usuarioActualizacion;
+        }
+
+        public void ModificarEstado(MercaderiaEstado estado, string usuarioActualizacion)
         {
             Estado = estado;
+            FechaActualizacion = DateTime.Now;
+            UsuarioActualizacion = usuarioActualizacion;
+        }
+
+        public void ModificarFechaRecepcion(DateTime fechaRecepcion)
+        {
+            if (Estado != MercaderiaEstado.Nuevo && Estado != MercaderiaEstado.Guardada) throw new NegocioException($"La mercaderia se encuentra en estado {Estado} no se puede modificar el proveedor.");
+            FechaRecepcion = fechaRecepcion;
+        }
+
+        public void AgregarProveedor(Proveedor proveedor)
+        {
+            if (Estado != MercaderiaEstado.Nuevo && Estado != MercaderiaEstado.Guardada) throw new NegocioException($"La mercaderia se encuentra en estado {Estado} no se puede modificar el proveedor.");
+            Proveedor = proveedor;
+        }
+
+        public void AgregarProductos(List<Producto> productos)
+        {
+            if (Estado != MercaderiaEstado.Nuevo && Estado != MercaderiaEstado.Guardada) throw new NegocioException($"La mercadería se encuentra en estado {Estado} no se puede modificar los productos.");
+            productos.ForEach(x => AgregarProducto(x, x.ObtenerFaltente()));
+        }
+
+        public void AgregarProducto(Producto producto, int cantidad)
+        {
+            if (Estado != MercaderiaEstado.Nuevo && Estado != MercaderiaEstado.Guardada) throw new NegocioException($"La mercadería se encuentra en estado {Estado} no se puede modificar los productos.");
+
+            MercaderiaItem mercaderia = MercaderiaItems.FirstOrDefault(x => x.Producto.Codigo == producto.Codigo);
+            if (mercaderia == null)
+                MercaderiaItems.Add(new MercaderiaItem(producto, cantidad));
+            else
+                mercaderia.ModificarCantidad(mercaderia.Cantidad + cantidad);
+        }
+
+        public void QuitarProducto(string codigo)
+        {
+            if (Estado != MercaderiaEstado.Nuevo && Estado != MercaderiaEstado.Guardada) throw new NegocioException($"La mercadería se encuentra en estado {Estado} no se puede modificar los productos.");
+
+            MercaderiaItems.Remove(MercaderiaItems.FirstOrDefault(x => x.Producto.Codigo == codigo));
+        }
+
+        public void LimpiarProducto()
+        {
+            if (Estado != MercaderiaEstado.Nuevo && Estado != MercaderiaEstado.Guardada) throw new NegocioException($"La mercadería se encuentra en estado {Estado} no se puede modificar los productos.");
+            MercaderiaItems.Clear();
         }
     }
 }

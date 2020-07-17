@@ -27,14 +27,14 @@ namespace FormUI.Imprimir.Documento
             Texto titulo = new Texto("Cierre Caja", StringAlignment.Center);
             AgregarLinea(Cabecera2, titulo);
 
-            Texto fecha = new Texto($"F. Aper:{cierreCaja.FechaApertura.ToString("dd/MM/yyyy")}", StringAlignment.Near, 0.5f);
-            Texto hora = new Texto($"H. Aper:{cierreCaja.FechaApertura.ToString("HH:mm:ss")}", StringAlignment.Far, 0.5f);
+            Texto fecha = new Texto($"F.Aper:{cierreCaja.FechaApertura.ToString("dd/MM/yyyy")}", StringAlignment.Near, 0.5f);
+            Texto hora = new Texto($"H.Aper:{cierreCaja.FechaApertura.ToString("HH:mm:ss")}", StringAlignment.Far, 0.5f);
             AgregarLinea(cuerpo1, fecha, hora);
 
             if (cierreCaja.FechaCierre.HasValue)
             {
-                fecha = new Texto($"F. Cier.:{cierreCaja.FechaCierre.Value.ToString("dd/MM/yyyy")}", StringAlignment.Near, 0.5f);
-                hora = new Texto($"H. Cier.:{cierreCaja.FechaCierre.Value.ToString("HH:mm:ss")}", StringAlignment.Far, 0.5f);
+                fecha = new Texto($"F.Cier:{cierreCaja.FechaCierre.Value.ToString("dd/MM/yyyy")}", StringAlignment.Near, 0.5f);
+                hora = new Texto($"H.Cier:{cierreCaja.FechaCierre.Value.ToString("HH:mm:ss")}", StringAlignment.Far, 0.5f);
                 AgregarLinea(cuerpo1, fecha, hora);
             }
             AgregarLineaSeparador(cuerpo1, Separador);
@@ -49,10 +49,17 @@ namespace FormUI.Imprimir.Documento
 
             AgregarLineaBlanco(cuerpo1);
 
-            decimal MontoTotal = ingresos.Sum(x => x.Item2) - egresos.Sum(x => x.Item2);
-            Texto total = new Texto("Total", StringAlignment.Near, 0.5f);
-            Texto montoTotal = new Texto(MontoTotal.ToString("c2"), StringAlignment.Far, 0.5f); 
-            AgregarLinea(Cabecera2Negrita, total, montoTotal);
+            Texto montoTotalDescripcion = new Texto("Monto Total", StringAlignment.Near, 0.5f);
+            Texto montoTotal = new Texto(cierreCaja.SaldoTotal.ToString("c2"), StringAlignment.Far, 0.5f); 
+            AgregarLinea(Cabecera2Negrita, montoTotalDescripcion, montoTotal);
+
+            Texto montoEnCajaDescripcion = new Texto("Monto En Caja", StringAlignment.Near, 0.5f);
+            Texto montoEnCaja = new Texto(cierreCaja.MontoEnCaja.ToString("c2"), StringAlignment.Far, 0.5f);
+            AgregarLinea(Cabecera2Negrita, montoEnCajaDescripcion, montoEnCaja);
+
+            Texto montoDiferenciaDescripcion = new Texto("Diferencia", StringAlignment.Near, 0.5f);
+            Texto montoDiferencia = new Texto(cierreCaja.Diferencia.ToString("c2"), StringAlignment.Far, 0.5f);
+            AgregarLinea(Cabecera2Negrita, montoDiferenciaDescripcion, montoDiferencia);
         }
 
         private void AgregarMovimientos(IList<(string, decimal)> movimientos, string leyendaGrupo, string leyendaTotalizado)
