@@ -19,6 +19,7 @@ namespace FormUI.Formularios.Venta
     {
         public string CodigoDescripcion { get; set; }
         public int Cantidad { get; set; } = 1;
+        public decimal TotalCantidad => VentaItems.Sum(x => x.Cantidad);
         public decimal Total => VentaItems.Sum(x => x.Total);
         public List<VentaItem> VentaItems { get; set; } = new List<VentaItem>();
         public string[] CodigosDescripcionesProductos { get; set; }

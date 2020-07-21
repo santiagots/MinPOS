@@ -396,7 +396,7 @@
             this.cmbCategoria.DisplayMember = "Value";
             this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(513, 36);
+            this.cmbCategoria.Location = new System.Drawing.Point(513, 33);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(164, 28);
             this.cmbCategoria.TabIndex = 3;
@@ -538,7 +538,7 @@
             this.cmbProveedor.DisplayMember = "Value";
             this.cmbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProveedor.FormattingEnabled = true;
-            this.cmbProveedor.Location = new System.Drawing.Point(343, 36);
+            this.cmbProveedor.Location = new System.Drawing.Point(343, 33);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(164, 28);
             this.cmbProveedor.TabIndex = 2;

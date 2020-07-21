@@ -40,6 +40,7 @@ namespace FormUI.Formularios.Venta
                 if (e.KeyCode == Keys.Enter)
                 {
                     await ventaViewModel.AgregarAsync();
+                    dgProductos.FirstDisplayedScrollingRowIndex = dgProductos.RowCount - 1;
                 }
             });
         }
@@ -49,6 +50,7 @@ namespace FormUI.Formularios.Venta
             EjecutarAsync(async () =>
             {
                 await ventaViewModel.AgregarAsync();
+                dgProductos.FirstDisplayedScrollingRowIndex = dgProductos.RowCount - 1;
             });
         }
 
@@ -78,20 +80,20 @@ namespace FormUI.Formularios.Venta
 
         private void VentaForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!txtCodigoDescirpcion.Focused && dgProductos.IsCurrentCellInEditMode && char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-                return;
-            }
+            //if (!txtCodigoDescirpcion.Focused && dgProductos.IsCurrentCellInEditMode && char.IsDigit(e.KeyChar))
+            //{
+            //    e.Handled = false;
+            //    return;
+            //}
 
-            if (!txtCodigoDescirpcion.Focused && (char.IsLetterOrDigit(e.KeyChar) || char.IsSeparator(e.KeyChar)))
-            {
-                txtCodigoDescirpcion.Text += e.KeyChar.ToString();
-                txtCodigoDescirpcion.SelectionStart = txtCodigoDescirpcion.Text.Length;
-                txtCodigoDescirpcion.Focus();
-                e.Handled = false;
-                return;
-            }
+            //if (!txtCodigoDescirpcion.Focused && (char.IsLetterOrDigit(e.KeyChar) || char.IsSeparator(e.KeyChar)))
+            //{
+            //    txtCodigoDescirpcion.Text += e.KeyChar.ToString();
+            //    txtCodigoDescirpcion.SelectionStart = txtCodigoDescirpcion.Text.Length;
+            //    txtCodigoDescirpcion.Focus();
+            //    e.Handled = false;
+            //    return;
+            //}
         }
 
         private void VentaForm_KeyDown(object sender, KeyEventArgs e)

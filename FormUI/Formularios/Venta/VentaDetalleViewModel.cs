@@ -14,6 +14,7 @@ namespace FormUI.Formularios.Venta
         public string UsuarioAlta { get; set; }
         public string FormaPago { get; set; }
         public decimal MontoPago { get; set; }
+        public decimal CantidadTotal => VentaItems.Sum(x => x.Cantidad);
         public decimal Total => VentaItems.Sum(x => x.Total);
         public List<VentaItem> VentaItems { get; set; } = new List<VentaItem>();
         public string MotivoAnulacion { get; set; }

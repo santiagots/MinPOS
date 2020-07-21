@@ -536,7 +536,7 @@ namespace FormUI.Controles
             }
 
             Decimal unformattedDecimal = System.Convert.ToDecimal(value); // 123.1 to "123.1"
-            Decimal formattedDecimal = System.Convert.ToDecimal(formattedText); // 123.1 to "123.12" if DecimalLength is 2
+            //Decimal formattedDecimal = System.Convert.ToDecimal(formattedText); // 123.1 to "123.12" if DecimalLength is 2
 
             if (unformattedDecimal == 0.0m && m_showNullWhenZero)
             {
