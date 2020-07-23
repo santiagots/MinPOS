@@ -1,6 +1,7 @@
 ﻿using FormUI.Componentes;
 using FormUI.Formularios.Common;
 using FormUI.Formularios.Usuario;
+using FormUI.Formularios.VentaBotonera;
 using System;
 using System.Globalization;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace FormUI
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInFrom());
+            Application.Run(new VentaBotoneraForm());
         }
 
         private static void ConfigurarCultura()

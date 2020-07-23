@@ -103,6 +103,12 @@
     </Compile>
     <Compile Include="Componentes\Sesion.cs" />
     <Compile Include="Componentes\SortableBindingList.cs" />
+    <Compile Include="Controles\Botonera.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\Botonera.Designer.cs">
+      <DependentUpon>Botonera.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\DataGridViewSiNoCellColumn.cs" />
     <Compile Include="Controles\NumeroTextBox.cs">
       <SubType>Component</SubType>
@@ -112,6 +118,9 @@
     </Compile>
     <Compile Include="Controles\Paginado.Designer.cs">
       <DependentUpon>Paginado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\RoundButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controles\SiNo.cs">
       <SubType>UserControl</SubType>
@@ -211,6 +220,13 @@
     <Compile Include="Formularios\Usuario\LogInViewModel.cs" />
     <Compile Include="Formularios\Usuario\UsuarioDetalleViewModel.cs" />
     <Compile Include="Formularios\Usuario\UsuarioListadoViewModel.cs" />
+    <Compile Include="Formularios\VentaBotonera\VentaBotoneraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\VentaBotonera\VentaBotoneraForm.Designer.cs">
+      <DependentUpon>VentaBotoneraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\VentaBotonera\VentaBotoneraViewModel.cs" />
     <Compile Include="Formularios\Venta\CobroForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +375,9 @@
     <EmbeddedResource Include="Controles\AutoCompleteTextBox.resx">
       <DependentUpon>AutoCompleteTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controles\Botonera.resx">
+      <DependentUpon>Botonera.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controles\Paginado.resx">
       <DependentUpon>Paginado.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Saldo\CierreCajaListado.resx">
       <DependentUpon>CierreCajaListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\VentaBotonera\VentaBotoneraForm.resx">
+      <DependentUpon>VentaBotoneraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Venta\CobroForm.resx">
       <DependentUpon>CobroForm.cs</DependentUpon>
@@ -501,6 +523,7 @@
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.VentaDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.VentaListadoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.VentaViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.VentaBotonera.VentaBotoneraViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Producto.CategoriaDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Producto.CategoriaListadoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Producto.ProductoDetalleViewModel1.datasource" />
@@ -705,6 +728,127 @@
     <None Include="Imagenes\btn_MosHorizontal_32.png" />
     <None Include="Imagenes\btn_MosVertical_32.png" />
     <None Include="Imagenes\btn_Ventana_32.png" />
+    <None Include="Imagenes\arrows_left48.png" />
+    <None Include="Imagenes\arrows_right48.png" />
+    <None Include="Imagenes\chevron_circle_arrow_left48.png" />
+    <None Include="Imagenes\chevron_circle_arrow_right48.png" />
+    <None Include="Imagenes\chevron_circle_arrow_up48.png" />
+    <None Include="Imagenes\circle_arrow_down48.png" />
+    <None Include="Imagenes\circle_arrow_left48.png" />
+    <None Include="Imagenes\circle_arrow_right48.png" />
+    <None Include="Imagenes\circle_arrow_up48.png" />
+    <None Include="Imagenes\double_arrow_down48.png" />
+    <None Include="Imagenes\double_arrow_right48.png" />
+    <None Include="Imagenes\double_arrow_up48.png" />
+    <None Include="Imagenes\double_arrows_left48.png" />
+    <Content Include="Imagenes\adelantos.png" />
+    <Content Include="Imagenes\Administracion.png" />
+    <Content Include="Imagenes\Ayuda.png" />
+    <Content Include="Imagenes\banco.png" />
+    <Content Include="Imagenes\Boton_Ventas.png" />
+    <Content Include="Imagenes\box_login.jpg" />
+    <Content Include="Imagenes\Btn_Agregar.png" />
+    <Content Include="Imagenes\btn_agregar2_32.png" />
+    <Content Include="Imagenes\btn_Agregar_32.png" />
+    <Content Include="Imagenes\btn_Ayuda_16.png" />
+    <Content Include="Imagenes\btn_CajaChica_32.png" />
+    <Content Include="Imagenes\btn_Comentario_16.png" />
+    <Content Include="Imagenes\btn_Comentario_32.png" />
+    <Content Include="Imagenes\btn_Comentario_add_16.png" />
+    <Content Include="Imagenes\btn_Comentario_delete_16.png" />
+    <Content Include="Imagenes\btn_Comentario_edit_16.png" />
+    <Content Include="Imagenes\btn_editar_24.png" />
+    <Content Include="Imagenes\Btn_Excel.png" />
+    <Content Include="Imagenes\btn_Exclamacion.png" />
+    <Content Include="Imagenes\btn_filtrar_32.png" />
+    <Content Include="Imagenes\btn_Ingreso_32.png" />
+    <Content Include="Imagenes\btn_Internet_32.png" />
+    <Content Include="Imagenes\btn_Internet_64.png" />
+    <Content Include="Imagenes\Btn_login.png" />
+    <Content Include="Imagenes\Btn_Lupa.png" />
+    <Content Include="Imagenes\btn_NoInternet_32.png" />
+    <Content Include="Imagenes\btn_NoInternet_64.png" />
+    <Content Include="Imagenes\btn_pagar.png" />
+    <Content Include="Imagenes\btn_precio.png" />
+    <Content Include="Imagenes\btn_quitar_32.png" />
+    <Content Include="Imagenes\btn_standby_16.png" />
+    <Content Include="Imagenes\btn_Update.png" />
+    <Content Include="Imagenes\btn_Update_24.png" />
+    <Content Include="Imagenes\btn_Update_32.png" />
+    <Content Include="Imagenes\btn_ventas.png" />
+    <Content Include="Imagenes\bt_Egresos2_32.png" />
+    <Content Include="Imagenes\bt_Impuestos2_32.png" />
+    <Content Include="Imagenes\bt_Impuestos_32.png" />
+    <Content Include="Imagenes\bt_MovimientosList_32.png" />
+    <Content Include="Imagenes\bt_Movimientos_32.png" />
+    <Content Include="Imagenes\bt_Socios_32.png" />
+    <Content Include="Imagenes\cable_red.png" />
+    <Content Include="Imagenes\Calendario.png" />
+    <Content Include="Imagenes\Cambios.png" />
+    <Content Include="Imagenes\Cambios_32.png" />
+    <Content Include="Imagenes\Cancelar_32.png" />
+    <Content Include="Imagenes\cehque_32.png" />
+    <Content Include="Imagenes\clientes.png" />
+    <Content Include="Imagenes\clientes_32.png" />
+    <Content Include="Imagenes\codigobarras.jpg" />
+    <Content Include="Imagenes\codigobarras.png" />
+    <Content Include="Imagenes\colores.png" />
+    <Content Include="Imagenes\conectado.png" />
+    <Content Include="Imagenes\desconectado.png" />
+    <Content Include="Imagenes\empleado.png" />
+    <Content Include="Imagenes\enproceso.png" />
+    <Content Include="Imagenes\Etiqueta_Imprimir.jpg" />
+    <Content Include="Imagenes\Etiqueta_Vacia.jpg" />
+    <Content Include="Imagenes\export_excel.png" />
+    <Content Include="Imagenes\flecha_der.png" />
+    <Content Include="Imagenes\flecha_izq.png" />
+    <Content Include="Imagenes\fondo_central.jpg" />
+    <Content Include="Imagenes\fondo_login.jpg" />
+    <Content Include="Imagenes\Grafico.png" />
+    <Content Include="Imagenes\icon3.jpg" />
+    <Content Include="Imagenes\icono_buscar_32.png" />
+    <Content Include="Imagenes\icono_buscar_48.png" />
+    <Content Include="Imagenes\icono_detalle.png" />
+    <Content Include="Imagenes\Import-Excel.png" />
+    <Content Include="Imagenes\Informe.png" />
+    <Content Include="Imagenes\lapiz.png" />
+    <Content Include="Imagenes\logo.ico" />
+    <Content Include="Imagenes\logo.png" />
+    <Content Include="Imagenes\Mail.png" />
+    <Content Include="Imagenes\Mail_Eliminar.png" />
+    <Content Include="Imagenes\Mail_Importante.png" />
+    <Content Include="Imagenes\Mail_Inbox.png" />
+    <Content Include="Imagenes\Mail_Nuevo.png" />
+    <Content Include="Imagenes\materiales.png" />
+    <Content Include="Imagenes\mensaje.png" />
+    <Content Include="Imagenes\movimientos.png" />
+    <Content Include="Imagenes\nota_credito.png" />
+    <Content Include="Imagenes\nota_creditoPequeño.png" />
+    <Content Include="Imagenes\not_pedido_32.png" />
+    <Content Include="Imagenes\no_foto.png" />
+    <Content Include="Imagenes\OrdenCompra.png" />
+    <Content Include="Imagenes\OrdenCompra2.png" />
+    <Content Include="Imagenes\pcs.png" />
+    <Content Include="Imagenes\perfil.png" />
+    <Content Include="Imagenes\Planilla.png" />
+    <Content Include="Imagenes\Productos.png" />
+    <Content Include="Imagenes\ProductosMasivos.png" />
+    <Content Include="Imagenes\Proveedor.png" />
+    <Content Include="Imagenes\registracion.gif" />
+    <Content Include="Imagenes\reloj.png" />
+    <Content Include="Imagenes\saldos.png" />
+    <Content Include="Imagenes\Seguridad.png" />
+    <Content Include="Imagenes\Seguridad_amarillo.png" />
+    <Content Include="Imagenes\Sucursal.png" />
+    <Content Include="Imagenes\Sueldos.png" />
+    <Content Include="Imagenes\Sync.png" />
+    <Content Include="Imagenes\tarjeta.png" />
+    <Content Include="Imagenes\top_reporte.jpg" />
+    <Content Include="Imagenes\update.png" />
+    <Content Include="Imagenes\usuario_cerrar_sesion.png" />
+    <Content Include="Imagenes\usuario_salir.png" />
+    <Content Include="Imagenes\ventas_admin.png" />
+    <Content Include="Imagenes\warning-24.png" />
     <Content Include="logo.ico" />
     <None Include="Imagenes\icono_imprimir.gif" />
   </ItemGroup>

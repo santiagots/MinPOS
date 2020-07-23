@@ -99,6 +99,26 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrows_left48 {
+            get {
+                object obj = ResourceManager.GetObject("arrows_left48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrows_right48 {
+            get {
+                object obj = ResourceManager.GetObject("arrows_right48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_Caja_32 {
             get {
                 object obj = ResourceManager.GetObject("bt_Caja_32", resourceCulture);
@@ -335,6 +355,76 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chevron_circle_arrow_left48 {
+            get {
+                object obj = ResourceManager.GetObject("chevron_circle_arrow_left48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chevron_circle_arrow_right48 {
+            get {
+                object obj = ResourceManager.GetObject("chevron_circle_arrow_right48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chevron_circle_arrow_up48 {
+            get {
+                object obj = ResourceManager.GetObject("chevron_circle_arrow_up48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_arrow_down48 {
+            get {
+                object obj = ResourceManager.GetObject("circle_arrow_down48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_arrow_left48 {
+            get {
+                object obj = ResourceManager.GetObject("circle_arrow_left48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_arrow_right48 {
+            get {
+                object obj = ResourceManager.GetObject("circle_arrow_right48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_arrow_up48 {
+            get {
+                object obj = ResourceManager.GetObject("circle_arrow_up48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Seleccione una opción.
         /// </summary>
         internal static string comboSeleccionarOpcion {
@@ -378,6 +468,46 @@ namespace FormUI.Properties {
         internal static System.Drawing.Bitmap Detalle_Pequeno {
             get {
                 object obj = ResourceManager.GetObject("Detalle_Pequeno", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap double_arrow_down48 {
+            get {
+                object obj = ResourceManager.GetObject("double_arrow_down48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap double_arrow_right48 {
+            get {
+                object obj = ResourceManager.GetObject("double_arrow_right48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap double_arrow_up48 {
+            get {
+                object obj = ResourceManager.GetObject("double_arrow_up48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap double_arrows_left48 {
+            get {
+                object obj = ResourceManager.GetObject("double_arrows_left48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

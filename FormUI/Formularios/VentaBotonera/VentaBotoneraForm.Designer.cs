@@ -28,12 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.botoneraCategoria = new FormUI.Controles.Botonera();
+            this.botoneraProducto = new FormUI.Controles.Botonera();
+            this.SuspendLayout();
+            // 
+            // botoneraCategoria
+            // 
+            this.botoneraCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.botoneraCategoria.BotonSize = new System.Drawing.Size(90, 90);
+            this.botoneraCategoria.FuenteBoton = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.botoneraCategoria.Location = new System.Drawing.Point(12, 12);
+            this.botoneraCategoria.Name = "botoneraCategoria";
+            this.botoneraCategoria.Size = new System.Drawing.Size(236, 431);
+            this.botoneraCategoria.TabIndex = 6;
+            this.botoneraCategoria.ClickEventHandler += new System.Action<string>(this.botoneraCategoria_ClickEventHandler);
+            // 
+            // botoneraProducto
+            // 
+            this.botoneraProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.botoneraProducto.BotonSize = new System.Drawing.Size(90, 90);
+            this.botoneraProducto.FuenteBoton = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.botoneraProducto.Location = new System.Drawing.Point(254, 12);
+            this.botoneraProducto.Name = "botoneraProducto";
+            this.botoneraProducto.Size = new System.Drawing.Size(236, 431);
+            this.botoneraProducto.TabIndex = 7;
+            // 
+            // VentaBotoneraForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 455);
+            this.Controls.Add(this.botoneraProducto);
+            this.Controls.Add(this.botoneraCategoria);
+            this.Name = "VentaBotoneraForm";
             this.Text = "VentaBotoneraForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.VentaBotoneraForm_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+        private Controles.Botonera botoneraCategoria;
+        private Controles.Botonera botoneraProducto;
     }
 }
