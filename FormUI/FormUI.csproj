@@ -227,6 +227,7 @@
       <DependentUpon>VentaBotoneraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\VentaBotonera\VentaBotoneraViewModel.cs" />
+    <Compile Include="Formularios\VentaBotonera\VentaBotoneraItem.cs" />
     <Compile Include="Formularios\Venta\CobroForm.cs">
       <SubType>Form</SubType>
     </Compile>

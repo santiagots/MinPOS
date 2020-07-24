@@ -1,16 +1,5 @@
-﻿using Common.Core.Model;
-using FormUI.Enum;
-using FormUI.Formularios.Common;
-using Producto.Core.Model;
+﻿using FormUI.Formularios.Common;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FormUI.Formularios.VentaBotonera
 {
@@ -27,17 +16,36 @@ namespace FormUI.Formularios.VentaBotonera
         {
             EjecutarAsync(async () =>
             {
-                botoneraCategoria.Cargar(ventaBotoneraViewModel.Categorias);
+                ventaBotoneraViewModelBindingSource.DataSource = ventaBotoneraViewModel;
+                botoneraCategorias.Cargar(ventaBotoneraViewModel.Categorias);
             });
         }
 
-        private void botoneraCategoria_ClickEventHandler(string categoria)
+        private void botoneraCategorias_ClickEventHandler(string categoria)
         {
             EjecutarAsync(async () =>
             {
                 await ventaBotoneraViewModel.CargarProductosAsync(categoria);
-                botoneraProducto.Cargar(ventaBotoneraViewModel.Productos);
+                botoneraProductos.Cargar(ventaBotoneraViewModel.Productos);
             });
+        }
+
+        private void botoneraProductos_ClickEventHandler(string producto)
+        {
+            EjecutarAsync(async () =>
+            {
+                await ventaBotoneraViewModel.CargarProductoAsync(producto);
+            });
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Ejecutar(() => ventaBotoneraViewModel.AgregarProducto());
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
