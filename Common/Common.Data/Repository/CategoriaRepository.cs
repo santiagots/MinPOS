@@ -1,12 +1,10 @@
-﻿using Common.Data.Repository;
-using Producto.Core.Model;
-using System;
+﻿using Common.Core.Model;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Producto.Data.Repository
+namespace Common.Data.Repository
 {
     internal class CategoriaRepository: BaseRepository<Context>
     {

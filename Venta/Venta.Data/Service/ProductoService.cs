@@ -13,10 +13,16 @@ namespace Venta.Data.Service
             return productoRepository.Obtener(codigoDescripcion);
         }
 
-        public static Task<List<string>> ObtenerCodigos()
+        public static Task<List<string>> ObtenerDescripciones(string categoria)
         {
             ProductoRepository productoRepository = new ProductoRepository(new Context());
-            return productoRepository.ObtenerCodigos();
+            return productoRepository.ObtenerDescripciones(categoria);
+        }
+
+        public static Task<List<string>> ObtenerDescripciones()
+        {
+            ProductoRepository productoRepository = new ProductoRepository(new Context());
+            return productoRepository.ObtenerDescripciones();
         }
     }
 }

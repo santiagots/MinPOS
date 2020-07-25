@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
-using System.Runtime.InteropServices.WindowsRuntime;
+using Common.Core.Model;
+using Common.Data.Service;
+using Venta.Data.Service;
 
 namespace FormUI.Formularios.VentaBotonera
 {
@@ -23,62 +24,78 @@ namespace FormUI.Formularios.VentaBotonera
 
         public VentaBotoneraViewModel()
         {
-            for (int i = 0; i < 15; i++)
-            {
-                Categorias.Add($"Categoria {i}");
-            }
         }
+
+        internal async Task CargarCategoriasAsync()
+        {
+            IList<Categoria> categorias = await CategoriaService.Buscar(null, true);
+            Categorias.AddRange(categorias.Select(x => x.Descripcion));
+            NotifyPropertyChanged(nameof(Categorias));
+        }
+        
 
         internal async Task CargarProductosAsync(string categoria)
         {
             Productos.Clear();
-            await Task.Run(() =>
-            {
-                for (int i = 0; i < 15; i++)
-                {
-                    Productos.Add($"Prodcuto {i} [{categoria}]");
-                }
-            });
-
-            NotifyPropertyChanged(nameof(Productos));
+            IList<string> productosDescripciones = await ProductoService.ObtenerDescripciones(categoria);
+            Productos.AddRange(productosDescripciones);
+            NotifyPropertyChanged(nameof(Categorias));
         }
 
         internal void AgregarProducto()
         {
             if (ProductoSeleccionado == null) return;
-            VentaBotoneraItem.Add(new VentaBotoneraItem(ProductoSeleccionado, Cantidad, PrecioUnitario));
+
+            VentaBotoneraItem ventaBotoneraItemExistente = VentaBotoneraItem.FirstOrDefault(x => x.Producto == ProductoSeleccionado);
+            
+            if (ventaBotoneraItemExistente != null)
+                ventaBotoneraItemExistente.Cantidad += Cantidad;
+            else
+                VentaBotoneraItem.Add(new VentaBotoneraItem(ProductoSeleccionado, Cantidad, PrecioUnitario));
 
             NotifyPropertyChanged(nameof(Total));
+            Limpiar();
         }
 
-        internal async Task CargarProductoAsync(string producto)
+        internal void Cancelar()
         {
-            await Task.Run(() =>
-            {
-                Modelo.Producto productoCargado = BuscarProducto(producto);
+            VentaBotoneraItem.Clear();
+            Limpiar();
 
-                if (ProductoSeleccionado != null && ProductoSeleccionado.Codigo == productoCargado.Codigo)
-                {
-                    Cantidad++;
-                }
-                else
-                {
-                    ProductoSeleccionado = productoCargado;
-                    Cantidad = 1;
-                    PrecioUnitario = productoCargado.Precio;
-                }
-            });
+            NotifyPropertyChanged(nameof(VentaBotoneraItem));
+        }
+
+        internal async Task CargarProductoAsync(string productoDescripcion)
+        {
+            Modelo.Producto productoModel = await ProductoService.Obtener(productoDescripcion);
+
+            if (ProductoSeleccionado != null && ProductoSeleccionado == productoModel)
+            {
+                Cantidad++;
+            }
+            else
+            {
+                ProductoSeleccionado = productoModel;
+                Cantidad = 1;
+                PrecioUnitario = productoModel.Precio;
+            }
 
             NotifyPropertyChanged(nameof(Subtotal));
         }
 
-        private Modelo.Producto BuscarProducto(string nombreProducto)
+        internal void Quitar(VentaBotoneraItem ventaBotoneraItem)
         {
-            Modelo.Producto producto;
+            VentaBotoneraItem.Remove(ventaBotoneraItem);
+            NotifyPropertyChanged(nameof(VentaBotoneraItem));
+        }
 
-            producto = new Modelo.Producto(nombreProducto, nombreProducto, false, 10, 1, true);
+        internal void Limpiar()
+        {
+            Cantidad = 0;
+            PrecioUnitario = 0;
+            ProductoSeleccionado = null;
 
-            return producto;
+            NotifyPropertyChanged(nameof(ProductoSeleccionado));
         }
     }
 }

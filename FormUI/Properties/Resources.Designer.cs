@@ -189,6 +189,16 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_agregar2_32 {
+            get {
+                object obj = ResourceManager.GetObject("btn_agregar2_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_Cascada_32 {
             get {
                 object obj = ResourceManager.GetObject("btn_Cascada_32", resourceCulture);
@@ -556,6 +566,16 @@ namespace FormUI.Properties {
         internal static System.Drawing.Bitmap icono_add {
             get {
                 object obj = ResourceManager.GetObject("icono_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_add2 {
+            get {
+                object obj = ResourceManager.GetObject("icono_add2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

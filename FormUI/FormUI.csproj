@@ -807,6 +807,7 @@
     <Content Include="Imagenes\fondo_login.jpg" />
     <Content Include="Imagenes\Grafico.png" />
     <Content Include="Imagenes\icon3.jpg" />
+    <None Include="Imagenes\icono_add2.png" />
     <Content Include="Imagenes\icono_buscar_32.png" />
     <Content Include="Imagenes\icono_buscar_48.png" />
     <Content Include="Imagenes\icono_detalle.png" />

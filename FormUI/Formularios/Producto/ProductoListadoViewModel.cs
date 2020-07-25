@@ -7,14 +7,16 @@ using System.Linq;
 using FormUI.Properties;
 using Common.Core.Enum;
 using FormUI.Componentes;
+using Common.Core.Model;
+using Common.Data.Service;
 
 namespace FormUI.Formularios.Producto
 {
     class ProductoListadoViewModel : CommonViewModel
     {
         public string Codigo { get; set; }
-        public KeyValuePair<Modelo.Categoria, string> CategoriaSeleccionada { get; set; }
-        public List<KeyValuePair<Modelo.Categoria, string>> Categorias { get; set; } = new List<KeyValuePair<Modelo.Categoria, string>>();
+        public KeyValuePair<Categoria, string> CategoriaSeleccionada { get; set; }
+        public List<KeyValuePair<Categoria, string>> Categorias { get; set; } = new List<KeyValuePair<Categoria, string>>();
         public KeyValuePair<Modelo.Proveedor, string> ProveedorSeleccionado { get; set; }
         public List<KeyValuePair<Modelo.Proveedor, string>> Proveedores { get; set; } = new List<KeyValuePair<Modelo.Proveedor, string>>();
         public KeyValuePair<bool?, string> HabilitadoSeleccionado { get; set; }
@@ -65,9 +67,9 @@ namespace FormUI.Formularios.Producto
 
         internal async Task CargarCategoriaAsync()
         {
-            IList<Modelo.Categoria> categorias = await CategoriaService.Buscar(null, true);
-            this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Modelo.Categoria, string>(x, x.Descripcion)));
-            this.Categorias.Insert(0, new KeyValuePair<Modelo.Categoria, string>(null, Resources.comboTodos));
+            IList<Categoria> categorias = await CategoriaService.Buscar(null, true);
+            this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Categoria, string>(x, x.Descripcion)));
+            this.Categorias.Insert(0, new KeyValuePair<Categoria, string>(null, Resources.comboTodos));
 
             NotifyPropertyChanged(nameof(Categorias));
         }

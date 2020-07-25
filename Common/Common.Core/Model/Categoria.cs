@@ -1,9 +1,8 @@
-﻿using Common.Core.Model;
-using System;
+﻿using System;
 
-namespace Producto.Core.Model
+namespace Common.Core.Model
 {
-    public class Categoria: Entity<int>
+    public class Categoria : Entity<int>
     {
         public string Descripcion { get; protected set; }
         public bool Habilitada { get; protected set; }
@@ -11,7 +10,7 @@ namespace Producto.Core.Model
 
         protected Categoria() { }
 
-        public Categoria(int id, string descripcion, bool habilitada) 
+        public Categoria(int id, string descripcion, bool habilitada)
         {
             Id = id;
             Descripcion = descripcion;

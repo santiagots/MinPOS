@@ -26,7 +26,7 @@ namespace FormUI.Formularios.Venta
 
         internal async Task CargarAutocompletadoAsync()
         {
-            CodigosDescripcionesProductos = (await ProductoService.ObtenerCodigos()).ToArray();
+            CodigosDescripcionesProductos = (await ProductoService.ObtenerDescripciones()).ToArray();
 
             NotifyPropertyChanged(nameof(CodigosDescripcionesProductos));
         }

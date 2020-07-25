@@ -1,8 +1,8 @@
-﻿using Producto.Core.Model;
-using Producto.Data.Service;
-using System.Threading.Tasks;
+﻿using Common.Core.Model;
+using Common.Data.Service;
 using FormUI.Componentes;
 using FormUI.Formularios.Common;
+using System.Threading.Tasks;
 
 namespace FormUI.Formularios.Producto
 {

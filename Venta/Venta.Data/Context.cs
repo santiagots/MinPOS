@@ -26,7 +26,8 @@ namespace Venta.Data
 
             modelBuilder.Entity<Model.Pago>().ToTable("Pago");
 
-            modelBuilder.Entity<Model.Venta>().ToTable("Producto");
+            modelBuilder.Entity<Model.Producto>().ToTable("Producto");
+            modelBuilder.Entity<Model.Producto>().HasOptional(x => x.Categoria).WithMany().HasForeignKey(x => x.IdCategoria);
 
             modelBuilder.Entity<Model.Venta>().ToTable("Venta");
             modelBuilder.Entity<Model.Venta>().HasRequired(x => x.Pago).WithMany().HasForeignKey(x => x.IdPago);

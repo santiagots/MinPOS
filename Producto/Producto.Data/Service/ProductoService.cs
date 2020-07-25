@@ -1,5 +1,6 @@
 ﻿using Common.Core.Enum;
 using Common.Core.Exception;
+using Common.Core.Model;
 using FluentValidation.Results;
 using Producto.Core.Validadores;
 using Producto.Data.Repository;
@@ -13,13 +14,13 @@ namespace Producto.Data.Service
 {
     public class ProductoService
     {
-        public static Task<List<Modelo.Producto>> Buscar(string codigo, Modelo.Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
+        public static Task<List<Modelo.Producto>> Buscar(string codigo, Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             ProductoRepository productoRepository = new ProductoRepository(new Context());
             return productoRepository.Buscar(codigo, categoria, proveedor, habilitado, faltante, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
         }
 
-        public static Task<List<string>> ObtenerCodigos(Modelo.Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante)
+        public static Task<List<string>> ObtenerCodigos(Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante)
         {
             ProductoRepository productoRepository = new ProductoRepository(new Context());
             return productoRepository.ObtenerCodigos(categoria, proveedor, habilitado, faltante);

@@ -1,4 +1,6 @@
-﻿using FormUI.Componentes;
+﻿using Common.Core.Model;
+using Common.Data.Service;
+using FormUI.Componentes;
 using FormUI.Formularios.Common;
 using FormUI.Properties;
 using Producto.Data.Service;
@@ -16,8 +18,8 @@ namespace FormUI.Formularios.Producto
         public int Id { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
-        public KeyValuePair<Modelo.Categoria, string> CategoriaSeleccionada { get; set; } = new KeyValuePair<Modelo.Categoria, string>(null, string.Empty);
-        public List<KeyValuePair<Modelo.Categoria, string>> Categorias { get; set; } = new List<KeyValuePair<Modelo.Categoria, string>>();
+        public KeyValuePair<Categoria, string> CategoriaSeleccionada { get; set; } = new KeyValuePair<Categoria, string>(null, string.Empty);
+        public List<KeyValuePair<Categoria, string>> Categorias { get; set; } = new List<KeyValuePair<Categoria, string>>();
         public KeyValuePair<Modelo.Proveedor, string> ProveedorSeleccionada { get; set; } = new KeyValuePair<Modelo.Proveedor, string>(null, string.Empty);
         public List<KeyValuePair<Modelo.Proveedor, string>> Proveedores { get; set; } = new List<KeyValuePair<Modelo.Proveedor, string>>();
         private bool _Suelto;
@@ -50,7 +52,7 @@ namespace FormUI.Formularios.Producto
             Descripcion = ProductoModel.Descripcion;
 
             if(ProductoModel.Categoria != null)
-            CategoriaSeleccionada = new KeyValuePair<Modelo.Categoria, string>(ProductoModel.Categoria, ProductoModel.Categoria.Descripcion);
+            CategoriaSeleccionada = new KeyValuePair<Categoria, string>(ProductoModel.Categoria, ProductoModel.Categoria.Descripcion);
 
             if (ProductoModel.Proveedores != null)
             {
@@ -82,9 +84,9 @@ namespace FormUI.Formularios.Producto
         internal async Task CargarCategoriaAsync()
         {
             this.Categorias.Clear();
-            IList<Modelo.Categoria> categorias = await CategoriaService.Buscar(null, true);
-            this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Modelo.Categoria, string>(x, x.Descripcion)));
-            this.Categorias.Insert(0, new KeyValuePair<Modelo.Categoria, string>(null, Resources.comboSeleccionarOpcion));
+            IList<Categoria> categorias = await CategoriaService.Buscar(null, true);
+            this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Categoria, string>(x, x.Descripcion)));
+            this.Categorias.Insert(0, new KeyValuePair<Categoria, string>(null, Resources.comboSeleccionarOpcion));
 
             NotifyPropertyChanged(nameof(Categorias));
         }
@@ -120,7 +122,7 @@ namespace FormUI.Formularios.Producto
             Id = 0;
             Codigo = string.Empty;
             Descripcion = string.Empty;
-            CategoriaSeleccionada = new KeyValuePair<Modelo.Categoria, string>(null, string.Empty);
+            CategoriaSeleccionada = new KeyValuePair<Categoria, string>(null, string.Empty);
             ProveedorSeleccionada = new KeyValuePair<Modelo.Proveedor, string>(null, string.Empty);
             _Suelto = false;
             Costo = 0;

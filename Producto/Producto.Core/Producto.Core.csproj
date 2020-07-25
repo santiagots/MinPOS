@@ -49,14 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\MercaderiaEstado.cs" />
-    <Compile Include="Model\Categoria.cs" />
     <Compile Include="Model\Mercaderia.cs" />
     <Compile Include="Model\MercaderiaItem.cs" />
     <Compile Include="Model\Producto.cs" />
     <Compile Include="Model\ProductoProveedor.cs" />
     <Compile Include="Model\Proveedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validadores\CategoriaValidador.cs" />
     <Compile Include="Validadores\MercaderiaValidador.cs" />
     <Compile Include="Validadores\ProductoValidador.cs" />
     <Compile Include="Validadores\ProveedorValidador.cs" />

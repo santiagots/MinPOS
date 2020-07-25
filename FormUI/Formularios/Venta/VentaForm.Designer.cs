@@ -414,7 +414,6 @@
             this.Text = "Registro de Ventas";
             this.Load += new System.EventHandler(this.VentaForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VentaForm_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VentaForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventaViewModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventaItemBindingSource)).EndInit();

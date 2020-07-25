@@ -1,4 +1,5 @@
-﻿using FormUI.Enum;
+﻿using Common.Core.Model;
+using FormUI.Enum;
 using FormUI.Formularios.Common;
 using FormUI.Properties;
 using Producto.Core.Model;

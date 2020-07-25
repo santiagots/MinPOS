@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
 using Producto.Data.Migrations;
+using Common.Core.Model;
 
 namespace Producto.Data
 {
@@ -15,7 +16,6 @@ namespace Producto.Data
             var intancia = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
-        public DbSet<Model.Categoria> Categoria { get; set; }
         public DbSet<Model.Producto> Producto { get; set; }
         public DbSet<Model.Proveedor> Proveedor { get; set; }
         public DbSet<Model.Mercaderia> Mercaderia { get; set; }
@@ -24,8 +24,6 @@ namespace Producto.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-            modelBuilder.Entity<Model.Categoria>().ToTable("Categoria");
 
             modelBuilder.Entity<Model.Mercaderia>().ToTable("Mercaderia");
             modelBuilder.Entity<Model.Mercaderia>().Property(x => x.IdProveedor).HasColumnName("IdProveedor");

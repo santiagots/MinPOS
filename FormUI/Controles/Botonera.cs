@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace FormUI.Controles
 {
     public partial class Botonera : UserControl
     {
+        [Category("Label"), Browsable(true)]
+        public Font FuenteLabel { get; set; } = new Font("Microsoft Sans Serif", 12);
+        [Category("Label"), Browsable(true)]
+        public string TextoLabel { get; set; }
         [Category("Botones"), Browsable(true)]
         public int columnas { get; set; } = 2;
         [Category("Botones"), Browsable(true)]
@@ -46,6 +47,9 @@ namespace FormUI.Controles
 
         private void Botonera_Load(object sender, EventArgs e)
         {
+            label1.Text = TextoLabel;
+            label1.Font = FuenteLabel;
+
             tableLayoutPanel.Controls.Clear();
             tableLayoutPanel.ColumnStyles.Clear();
             tableLayoutPanel.RowStyles.Clear();
@@ -76,6 +80,7 @@ namespace FormUI.Controles
         public void Cargar(List<string> elementos)
         {
             Elementos = elementos;
+            PaginaActual = 1;
             CargarBotones();
             ActualizarBotones();
         }
@@ -106,8 +111,7 @@ namespace FormUI.Controles
         {
             if (!Elementos.Any()) return;
 
-            Control[] tempControles = Elementos.Select(x => ObtenerBoton(x))
-                                              .OrderBy(x => x.Text)
+            string[] tempElementos = Elementos.OrderBy(x => x)
                                               .Skip(ElementosPorPagina * (PaginaActual - 1))
                                               .Take(ElementosPorPagina)
                                               .ToArray();
@@ -119,9 +123,11 @@ namespace FormUI.Controles
             {
                 for (int j = 0; j < columnas; j++)
                 {
-                    if (tempControles.Length <= posicionControl)
+                    if (tempElementos.Length <= posicionControl)
                         return;
-                    tableLayoutPanel.Controls.Add(tempControles[posicionControl]);
+
+                    Button btn = ObtenerBoton(tempElementos[posicionControl]);
+                    tableLayoutPanel.Controls.Add(btn);
                     posicionControl++;
                 }
             }

@@ -20,11 +20,14 @@ namespace Common.Data
             var intancia = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
+        public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Categoria>().ToTable("Categoria");
 
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
         }

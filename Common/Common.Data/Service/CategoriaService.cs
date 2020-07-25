@@ -1,14 +1,14 @@
 ﻿using Common.Core.Exception;
+using Common.Core.Model;
 using FluentValidation.Results;
-using Producto.Core.Model;
-using Producto.Core.Validadores;
-using Producto.Data.Repository;
+using Common.Core.Validadores;
+using Common.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Producto.Data.Service
+namespace Common.Data.Service
 {
     public class CategoriaService
     {

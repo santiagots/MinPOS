@@ -12,6 +12,8 @@ namespace Venta.Core.Model
         public int StockActual { get; protected set; }
         public bool Habilitado { get; protected set; }
         public bool Borrado { get; protected set; }
+        public int? IdCategoria { get; protected set; }
+        public Categoria Categoria { get; protected set; }
 
         internal Producto()
         { }

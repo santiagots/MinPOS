@@ -117,144 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="productoNoExiste" xml:space="preserve">
-    <value>El producto no existe.</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btn_Cascada_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_Cascada_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ingresoMercaderiaPago" xml:space="preserve">
-    <value>¿Desea registrar el gasto del ingreso de mercadería?</value>
-  </data>
-  <data name="imprimirDocumento" xml:space="preserve">
-    <value>¿Está seguro de que desea imprimir un documento?</value>
-  </data>
-  <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="anularVenta" xml:space="preserve">
-    <value>¿Está seguro de que desea anular la venta?</value>
-  </data>
-  <data name="desconectado_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\desconectado_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="comboTodos" xml:space="preserve">
-    <value>Todos</value>
-  </data>
-  <data name="btn_eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NavigatorNextItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\NavigatorNextItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nota_Pedido_2r" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Nota_Pedido_2r.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="factura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\factura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_ventas_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_ventas_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NavigatorLastItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\NavigatorLastItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TicketPequeño" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\TicketPequeño.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icono_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\icono_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\usuarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_Ventana_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_Ventana_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Usuario_Cuenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Usuario_Cuenta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="comboSeleccionarOpcion" xml:space="preserve">
-    <value>Seleccione una opción</value>
-  </data>
-  <data name="bt_Egresos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\bt_Egresos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_AbrirCaja_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_AbrirCaja_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ProductosMasivos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\ProductosMasivos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Proveedores_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Proveedores_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="quitarElemento" xml:space="preserve">
-    <value>¿Está seguro de que desea quitar el elemento?</value>
-  </data>
-  <data name="btn_editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NavigatorPreviousItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\NavigatorPreviousItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Detalle_Pequeno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Detalle_Pequeno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_agregar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_agregar_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_MosVertical_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_MosVertical_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="success" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="conectado_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\conectado_32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guardadoOk" xml:space="preserve">
-    <value>Los datos se han guardado de forma correcta.</value>
-  </data>
-  <data name="accionError" xml:space="preserve">
-    <value>Error al realizar la accion. Por favor, intente mas tarde o consulte con el administrador.</value>
-  </data>
-  <data name="Productos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Productos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NavigatorFirstItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\NavigatorFirstItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bt_Recibo_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\bt_Recibo_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_Cascada_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_Cascada_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_MosHorizontal_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_MosHorizontal_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circle_arrow_up48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\circle_arrow_up48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_ojo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_ojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cajasCierreAutomaticas" xml:space="preserve">
+    <value>Se encontraron {0} cajas pendientes de cierre y se cerraran de forma automática.</value>
   </data>
-  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="double_arrow_up48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\double_arrow_up48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ingresoMercaderiaOk" xml:space="preserve">
-    <value>Se ha registrado el ingreso de mercadería de forma correcta.</value>
-  </data>
-  <data name="Logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_eliminar32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\btn_eliminar32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,14 +151,47 @@
   <data name="icono_buscar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\icono_buscar_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cerrarCaja" xml:space="preserve">
-    <value>¿Está seguro de que desea cerra la caja?</value>
+  <data name="btn_ventas_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_ventas_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eliminarElemento" xml:space="preserve">
-    <value>¿Está seguro de que desea eliminar el elemento?</value>
+  <data name="NavigatorPreviousItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\NavigatorPreviousItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bt_Gastos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\bt_Gastos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_MosHorizontal_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_MosHorizontal_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="success" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_Limpiar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_Limpiar_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cargando" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\cargando.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conectado_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\conectado_32.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aperturaCaja" xml:space="preserve">
+    <value>Se ha realizado la apertura de la caja con el usuario {0}.</value>
+  </data>
+  <data name="usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\usuarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imprimirDocumento" xml:space="preserve">
+    <value>¿Está seguro de que desea imprimir un documento?</value>
+  </data>
+  <data name="anularVenta" xml:space="preserve">
+    <value>¿Está seguro de que desea anular la venta?</value>
+  </data>
+  <data name="quitarElemento" xml:space="preserve">
+    <value>¿Está seguro de que desea quitar el elemento?</value>
+  </data>
+  <data name="btn_AbrirCaja_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_AbrirCaja_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_Egresos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\bt_Egresos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_CerrarCaja_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\btn_CerrarCaja_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,76 +199,160 @@
   <data name="abrirCaja" xml:space="preserve">
     <value>¿Está seguro de que desea abrir la caja?</value>
   </data>
-  <data name="aperturaCaja" xml:space="preserve">
-    <value>Se ha realizado la apertura de la caja con el usuario {0}.</value>
-  </data>
-  <data name="btn_resumen_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_resumen_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_Sistema_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_Sistema_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icono_imprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\icono_imprimir.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bt_Caja_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\bt_Caja_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cajasCierreAutomaticas" xml:space="preserve">
-    <value>Se encontraron {0} cajas pendientes de cierre y se cerraran de forma automática.</value>
-  </data>
-  <data name="btn_Limpiar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_Limpiar_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_Egreso_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_Egreso_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_agregar_241" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\btn_agregar_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cargando" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\cargando.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrows_left48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\arrows_left48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrows_right48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\arrows_right48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chevron_circle_arrow_left48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\chevron_circle_arrow_left48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chevron_circle_arrow_right48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\chevron_circle_arrow_right48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chevron_circle_arrow_up48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\chevron_circle_arrow_up48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle_arrow_down48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\circle_arrow_down48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle_arrow_left48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\circle_arrow_left48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle_arrow_right48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\circle_arrow_right48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle_arrow_up48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\circle_arrow_up48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="productoNoExiste" xml:space="preserve">
+    <value>El producto no existe.</value>
   </data>
   <data name="double_arrow_down48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\double_arrow_down48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="double_arrow_right48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\double_arrow_right48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icono_add2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\icono_add2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="double_arrow_up48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\double_arrow_up48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cerrarCaja" xml:space="preserve">
+    <value>¿Está seguro de que desea cerra la caja?</value>
+  </data>
+  <data name="NavigatorLastItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\NavigatorLastItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ingresoMercaderiaPago" xml:space="preserve">
+    <value>¿Desea registrar el gasto del ingreso de mercadería?</value>
+  </data>
+  <data name="circle_arrow_down48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\circle_arrow_down48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="desconectado_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\desconectado_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="double_arrows_left48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\double_arrows_left48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_resumen_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_resumen_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_Ventana_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_Ventana_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProductosMasivos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\ProductosMasivos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_Gastos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\bt_Gastos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="accionError" xml:space="preserve">
+    <value>Error al realizar la accion. Por favor, intente mas tarde o consulte con el administrador.</value>
+  </data>
+  <data name="arrows_right48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\arrows_right48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Detalle_Pequeno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Detalle_Pequeno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevron_circle_arrow_right48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\chevron_circle_arrow_right48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrows_left48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\arrows_left48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevron_circle_arrow_up48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\chevron_circle_arrow_up48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TicketPequeño" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\TicketPequeño.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_Egreso_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_Egreso_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_ojo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_ojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nota_Pedido_2r" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Nota_Pedido_2r.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_Recibo_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\bt_Recibo_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="factura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\factura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guardadoOk" xml:space="preserve">
+    <value>Los datos se han guardado de forma correcta.</value>
+  </data>
+  <data name="Stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_imprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\icono_imprimir.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_MosVertical_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_MosVertical_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_agregar_241" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_agregar_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NavigatorNextItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\NavigatorNextItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="double_arrow_right48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\double_arrow_right48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Proveedores_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Proveedores_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_Sistema_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_Sistema_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\icono_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="comboSeleccionarOpcion" xml:space="preserve">
+    <value>Seleccione una opción</value>
+  </data>
+  <data name="btn_eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevron_circle_arrow_left48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\chevron_circle_arrow_left48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle_arrow_left48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\circle_arrow_left48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Productos_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Productos_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ingresoMercaderiaOk" xml:space="preserve">
+    <value>Se ha registrado el ingreso de mercadería de forma correcta.</value>
+  </data>
+  <data name="bt_Caja_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\bt_Caja_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle_arrow_right48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\circle_arrow_right48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eliminarElemento" xml:space="preserve">
+    <value>¿Está seguro de que desea eliminar el elemento?</value>
+  </data>
+  <data name="comboTodos" xml:space="preserve">
+    <value>Todos</value>
+  </data>
+  <data name="btn_agregar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_agregar_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_agregar2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\btn_agregar2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

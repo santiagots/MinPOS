@@ -1,4 +1,5 @@
 ﻿using Common.Data.Repository;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,15 +14,19 @@ namespace Venta.Data.Repository
         {
         }
 
-        internal Task<List<string>> ObtenerCodigos()
+        internal Task<List<string>> ObtenerDescripciones()
         {
             return _context.Producto.Where(x => !x.Borrado).Select(x => x.Descripcion).ToListAsync();
         }
 
-        internal async Task<Producto> Obtener(string codigoDescripcion)
+        internal Task<List<string>> ObtenerDescripciones(string categoria)
         {
-            return await _context.Producto
-                                .FirstOrDefaultAsync(x => !x.Borrado && (x.Codigo == codigoDescripcion || x.Descripcion.Contains(codigoDescripcion)));
+            return _context.Producto.Where(x => !x.Borrado && x.Categoria.Descripcion == categoria).Select(x => x.Descripcion).ToListAsync();
+        }
+
+        internal Task<Producto> Obtener(string codigoDescripcion)
+        {
+            return _context.Producto.FirstOrDefaultAsync(x => !x.Borrado && (x.Codigo == codigoDescripcion || x.Descripcion.Contains(codigoDescripcion)));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Common.Core.Enum;
 using Common.Core.Exception;
+using Common.Core.Model;
 using Common.Data.Repository;
 using Producto.Core.Model;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Producto.Data.Repository
         {
         }
 
-        internal Task<List<Modelo.Producto>> Buscar(string codigo, Modelo.Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante)
+        internal Task<List<Modelo.Producto>> Buscar(string codigo, Common.Core.Model.Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante)
         {
             IQueryable<Modelo.Producto> productos = Filtro(codigo, categoria, proveedor, habilitado, faltante);
 
@@ -35,7 +36,7 @@ namespace Producto.Data.Repository
                         .ToListAsync();
         }
 
-        internal Task<List<string>> ObtenerCodigos(Modelo.Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante)
+        internal Task<List<string>> ObtenerCodigos(Common.Core.Model.Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante)
         {
             IQueryable<Modelo.Producto> productos = Filtro(null, categoria, proveedor, habilitado, faltante);
             return productos.Select(x => x.Codigo).Union(productos.Select(x => x.Descripcion)).ToListAsync();

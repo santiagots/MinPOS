@@ -10,6 +10,8 @@ using FormUI.Properties;
 using System.Windows.Forms;
 using Dispositivos;
 using FormUI.Imprimir.Documento;
+using Common.Core.Model;
+using Common.Data.Service;
 
 namespace FormUI.Formularios.Producto
 {
@@ -23,8 +25,8 @@ namespace FormUI.Formularios.Producto
         public int Id { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
-        public KeyValuePair<Modelo.Categoria, string> CategoriaSeleccionada { get; set; }
-        public List<KeyValuePair<Modelo.Categoria, string>> Categorias { get; set; } = new List<KeyValuePair<Modelo.Categoria, string>>();
+        public KeyValuePair<Categoria, string> CategoriaSeleccionada { get; set; }
+        public List<KeyValuePair<Categoria, string>> Categorias { get; set; } = new List<KeyValuePair<Categoria, string>>();
         public List<Modelo.Proveedor> Proveedores { get; set; } = new List<Modelo.Proveedor>();
         private bool _Suelto;
         public bool Suelto
@@ -72,7 +74,7 @@ namespace FormUI.Formularios.Producto
             PrecioAuxiliar = Precio;
 
             if (producto.Categoria != null)
-                CategoriaSeleccionada = new KeyValuePair<Modelo.Categoria, string>(producto.Categoria, producto.Categoria.Descripcion);
+                CategoriaSeleccionada = new KeyValuePair<Categoria, string>(producto.Categoria, producto.Categoria.Descripcion);
         }
 
         internal void AgregarProveedor()
@@ -92,9 +94,9 @@ namespace FormUI.Formularios.Producto
 
         internal async Task CargarCategoriaAsync()
         {
-            IList<Modelo.Categoria> categorias = await CategoriaService.Buscar(null, true);
-            this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Modelo.Categoria, string>(x, x.Descripcion)));
-            this.Categorias.Insert(0, new KeyValuePair<Modelo.Categoria, string>(null, Resources.comboSeleccionarOpcion));
+            IList<Categoria> categorias = await CategoriaService.Buscar(null, true);
+            this.Categorias.AddRange(categorias.Select(x => new KeyValuePair<Categoria, string>(x, x.Descripcion)));
+            this.Categorias.Insert(0, new KeyValuePair<Categoria, string>(null, Resources.comboSeleccionarOpcion));
 
             NotifyPropertyChanged(nameof(Categorias));
         }

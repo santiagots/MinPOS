@@ -1,5 +1,5 @@
-﻿using Producto.Core.Model;
-using Producto.Data.Service;
+﻿using Common.Core.Model;
+using Common.Data.Service;
 using System.Threading.Tasks;
 
 namespace FormUI.Formularios.Producto

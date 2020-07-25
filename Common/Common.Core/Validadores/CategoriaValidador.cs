@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Producto.Core.Model;
+using Common.Core.Model;
 
-namespace Producto.Core.Validadores
+namespace Common.Core.Validadores
 {
     public class CategoriaValidador: AbstractValidator<Categoria>
     {

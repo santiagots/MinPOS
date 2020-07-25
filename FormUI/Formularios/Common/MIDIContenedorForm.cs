@@ -4,6 +4,7 @@ using FormUI.Formularios.Producto;
 using FormUI.Formularios.Saldo;
 using FormUI.Formularios.Usuario;
 using FormUI.Formularios.Venta;
+using FormUI.Formularios.VentaBotonera;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace FormUI.Formularios.Common
 
         private void administrarToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(VentaListadoForm), this);
 
-        private void nuevaToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(VentaForm), this);
+        private void nuevaToolStripMenuItem_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(VentaBotoneraForm), this);
 
         private void administrarToolStripMenuItem1_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(GastoListadoForm), this);
 
