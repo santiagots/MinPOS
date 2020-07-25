@@ -15,6 +15,11 @@ namespace FormUI.Controles
         /// </summary>
         public int CantidadDecimales { get; set; } = 2;
 
+        /// <summary>
+        /// Indica los lugares totales para valores entero.
+        /// </summary>
+        public int CantidadEnteros { get; set; } = 9;
+
 
         /// <summary>
         /// Indica si se permiten numero negativos.
@@ -35,6 +40,29 @@ namespace FormUI.Controles
             return value;
         }
 
+        private bool AceptaEnteros(char caracter)
+        {
+            decimal valor;
+
+            if (!Decimal.TryParse(Text + caracter, NumberStyles.Currency, Thread.CurrentThread.CurrentCulture, out valor))
+                Decimal.TryParse(Text, out valor);
+
+            int totalDecimalesTextoSeleccionado = ObtenerCantidadEnteros(SelectedText);
+
+            int totalDecimalesTexto = ObtenerCantidadEnteros(valor.ToString());
+
+            return (totalDecimalesTexto - totalDecimalesTextoSeleccionado) <= CantidadEnteros;
+        }
+
+        private int ObtenerCantidadEnteros(string texto)
+        {
+            int indiceInicianDecimales = texto.IndexOf(SeparadorDecimales);
+            if (indiceInicianDecimales == -1)
+                return texto.Length;
+            else
+                return texto.Substring(0, indiceInicianDecimales).Length;
+        }
+
         private bool AceptaDecimales(char caracter)
         {
             if (caracter == SeparadorDecimales && CantidadDecimales == 0)
@@ -47,7 +75,7 @@ namespace FormUI.Controles
 
             int totalDecimalesTexto = ObtenerCantidadDecimales(textoSinFormato);
 
-            return totalDecimalesTexto - totalDecimalesTextoSeleccionado <= CantidadDecimales;
+            return (totalDecimalesTexto - totalDecimalesTextoSeleccionado) <= CantidadDecimales;
         }
 
         private int ObtenerCantidadDecimales(string texto)
@@ -129,7 +157,7 @@ namespace FormUI.Controles
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
 
-            if (EsDigitoValido(e.KeyChar) && AceptaDecimales(e.KeyChar))
+            if (EsDigitoValido(e.KeyChar) && AceptaEnteros(e.KeyChar) && AceptaDecimales(e.KeyChar))
             {
                 //Lo hago asi porque es mas facil de leer el if
             }
@@ -137,7 +165,6 @@ namespace FormUI.Controles
             {
                 if (!TeclaBorrado)
                     e.Handled = true;
-
             }
 
             base.OnKeyPress(e);
