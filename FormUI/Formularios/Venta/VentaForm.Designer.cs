@@ -197,7 +197,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgProductos.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dgProductos.Location = new System.Drawing.Point(15, 109);
             this.dgProductos.Name = "dgProductos";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -365,7 +365,7 @@
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Cantidad";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "f0";
+            dataGridViewCellStyle3.Format = "d0";
             this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn2.HeaderText = "Cant.";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";

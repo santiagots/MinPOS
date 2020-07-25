@@ -1,6 +1,8 @@
-﻿using FormUI.Enum;
+﻿using FormUI.Controles;
+using FormUI.Enum;
 using FormUI.Formularios.Common;
 using FormUI.Properties;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -69,6 +71,11 @@ namespace FormUI.Formularios.Venta
                         ventaViewModel.Quitar(ventaItems);
                     }
                 }
+                else
+                {
+                    //inicio la edicion de la current celda 
+                    dgProductos.BeginEdit(true);
+                }
             });
         }
 
@@ -112,7 +119,7 @@ namespace FormUI.Formularios.Venta
             if (e.KeyCode == Keys.F12)
             {
                 btnCobrar.PerformClick();
-            }
+            }            
         }
 
         private void dgProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)

@@ -112,6 +112,8 @@ namespace FormUI.Controles
             {
                 TeclaBorrado = true;
             }
+
+            base.OnKeyDown(e);
         }
 
         protected override void OnKeyUp(KeyEventArgs e)
@@ -120,6 +122,8 @@ namespace FormUI.Controles
             {
                 TeclaBorrado = false;
             }
+
+            base.OnKeyUp(e);
         }
 
         protected override void OnKeyPress(KeyPressEventArgs e)
