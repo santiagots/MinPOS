@@ -47,6 +47,12 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCobrar = new System.Windows.Forms.Button();
             this.dgProductos = new System.Windows.Forms.DataGridView();
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new FormUI.Controles.NumeroDataGridViewColumn();
+            this.dataGridViewTextBoxColumn2 = new FormUI.Controles.NumeroDataGridViewColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtCodigoDescirpcion = new FormUI.Controles.AutoCompleteTextBox();
@@ -55,12 +61,6 @@
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.productoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new FormUI.Controles.NumeroDataGridViewColumn();
-            this.dataGridViewTextBoxColumn2 = new FormUI.Controles.NumeroDataGridViewColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventaViewModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ventaItemBindingSource)).BeginInit();
@@ -94,7 +94,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(90, 44);
-            this.textBox2.TabIndex = 8;
+            this.textBox2.TabIndex = 3;
             // 
             // label4
             // 
@@ -117,7 +117,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(250, 44);
-            this.textBox3.TabIndex = 6;
+            this.textBox3.TabIndex = 2;
             // 
             // label3
             // 
@@ -140,7 +140,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(468, 545);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(175, 54);
-            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@
             this.btnCobrar.Location = new System.Drawing.Point(649, 545);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(223, 54);
-            this.btnCobrar.TabIndex = 1;
+            this.btnCobrar.TabIndex = 4;
             this.btnCobrar.Text = "Cobrar F12";
             this.btnCobrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCobrar.UseVisualStyleBackColor = true;
@@ -216,114 +216,10 @@
             this.dgProductos.ShowEditingIcon = false;
             this.dgProductos.ShowRowErrors = false;
             this.dgProductos.Size = new System.Drawing.Size(857, 373);
-            this.dgProductos.TabIndex = 0;
+            this.dgProductos.TabIndex = 1;
             this.dgProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductos_CellEndEdit);
             this.dgProductos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgProductos_CellMouseClick);
             this.dgProductos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgProductos_EditingControlShowing);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(860, 102);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Productos";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.Controls.Add(this.txtCodigoDescirpcion, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnAgregarProducto, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 40);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(854, 59);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // txtCodigoDescirpcion
-            // 
-            this.txtCodigoDescirpcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCodigoDescirpcion.AutoCompleteFont = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoDescirpcion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaViewModelBindingSource, "CodigoDescripcion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCodigoDescirpcion.DataBindings.Add(new System.Windows.Forms.Binding("Values", this.ventaViewModelBindingSource, "CodigosDescripcionesProductos", true));
-            this.txtCodigoDescirpcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoDescirpcion.Location = new System.Drawing.Point(223, 7);
-            this.txtCodigoDescirpcion.Name = "txtCodigoDescirpcion";
-            this.txtCodigoDescirpcion.Size = new System.Drawing.Size(378, 44);
-            this.txtCodigoDescirpcion.TabIndex = 7;
-            this.txtCodigoDescirpcion.Values = null;
-            this.txtCodigoDescirpcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoDescirpcion_KeyDown);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Código/Desc.";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.CantidadDecimales = 0;
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaViewModelBindingSource, "Cantidad", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(707, 7);
-            this.textBox1.MostrarNullConValorCero = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PermiteNegativos = false;
-            this.textBox1.Size = new System.Drawing.Size(90, 44);
-            this.textBox1.TabIndex = 1;
-            // 
-            // btnAgregarProducto
-            // 
-            this.btnAgregarProducto.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAgregarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarProducto.Image = global::FormUI.Properties.Resources.icono_add;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(806, 7);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(45, 45);
-            this.btnAgregarProducto.TabIndex = 2;
-            this.btnAgregarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(607, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 37);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Cant.";
-            // 
-            // productoDataGridViewTextBoxColumn
-            // 
-            this.productoDataGridViewTextBoxColumn.DataPropertyName = "Producto";
-            this.productoDataGridViewTextBoxColumn.HeaderText = "Producto";
-            this.productoDataGridViewTextBoxColumn.Name = "productoDataGridViewTextBoxColumn";
-            this.productoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // codigoDataGridViewTextBoxColumn
             // 
@@ -393,6 +289,111 @@
             this.Eliminar.Image = global::FormUI.Properties.Resources.btn_eliminar32;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Width = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(860, 102);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Productos";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel1.Controls.Add(this.txtCodigoDescirpcion, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox1, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnAgregarProducto, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 40);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(854, 59);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // txtCodigoDescirpcion
+            // 
+            this.txtCodigoDescirpcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodigoDescirpcion.AutoCompleteFont = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoDescirpcion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaViewModelBindingSource, "CodigoDescripcion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtCodigoDescirpcion.DataBindings.Add(new System.Windows.Forms.Binding("Values", this.ventaViewModelBindingSource, "CodigosDescripcionesProductos", true));
+            this.txtCodigoDescirpcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoDescirpcion.Location = new System.Drawing.Point(223, 7);
+            this.txtCodigoDescirpcion.Name = "txtCodigoDescirpcion";
+            this.txtCodigoDescirpcion.Size = new System.Drawing.Size(378, 44);
+            this.txtCodigoDescirpcion.TabIndex = 0;
+            this.txtCodigoDescirpcion.Values = null;
+            this.txtCodigoDescirpcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoDescirpcion_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(214, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Código/Desc.";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.CantidadDecimales = 0;
+            this.textBox1.CantidadEnteros = 9;
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaViewModelBindingSource, "Cantidad", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(707, 7);
+            this.textBox1.MostrarNullConValorCero = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PermiteNegativos = false;
+            this.textBox1.Size = new System.Drawing.Size(90, 44);
+            this.textBox1.TabIndex = 1;
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAgregarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProducto.Image = global::FormUI.Properties.Resources.icono_add;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(806, 7);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(45, 45);
+            this.btnAgregarProducto.TabIndex = 2;
+            this.btnAgregarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(607, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 37);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Cant.";
+            // 
+            // productoDataGridViewTextBoxColumn
+            // 
+            this.productoDataGridViewTextBoxColumn.DataPropertyName = "Producto";
+            this.productoDataGridViewTextBoxColumn.HeaderText = "Producto";
+            this.productoDataGridViewTextBoxColumn.Name = "productoDataGridViewTextBoxColumn";
+            this.productoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // VentaForm
             // 

@@ -32,6 +32,7 @@ namespace FormUI.Formularios.Venta
             {
                 ventaViewModelBindingSource.DataSource = ventaViewModel;
                 await ventaViewModel.GuardarAsyn();
+                txtCodigoDescirpcion.Focus();
             });
         }
 
