@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 using Common.Core.Model;
 using Common.Data.Service;
 using Venta.Data.Service;
+using System;
+using System.Windows.Forms;
+using FormUI.Componentes;
+using FormUI.Formularios.Venta;
+using FormUI.Properties;
+using FormUI.Imprimir.Documento;
+using Dispositivos;
 
 namespace FormUI.Formularios.VentaBotonera
 {
@@ -81,6 +88,39 @@ namespace FormUI.Formularios.VentaBotonera
             }
 
             NotifyPropertyChanged(nameof(Subtotal));
+        }
+
+        internal async Task GuardarAsync()
+        {
+            CobroForm cobroForm = new CobroForm(Total);
+            if (cobroForm.ShowDialog() == DialogResult.OK)
+            {
+                Modelo.Pago pago = new Modelo.Pago(cobroForm.FormaPago, Total, cobroForm.MontoPago, 0, 0);
+
+                IList<Modelo.VentaItem> ventaItems = VentaBotoneraItem.Select(x => new Modelo.VentaItem(x.Producto, x.Cantidad, x.Precio)).ToList();
+
+                Modelo.Venta venta = new Modelo.Venta(Sesion.Usuario.Alias, ventaItems, pago, cobroForm.MontoDescuento);
+                venta.DisminuirStock();
+                await VentaService.Guardar(venta);
+
+                Imprimir(venta);
+
+                VueltoForm vueltoForm = new VueltoForm(pago.Vuelto);
+                vueltoForm.ShowDialog();
+
+                VentaBotoneraItem.Clear();
+                NotifyPropertyChanged(nameof(VentaBotoneraItem));
+            }
+        }
+
+        private void Imprimir(Modelo.Venta venta)
+        {
+            string[] cabeceras = Settings.Default.ComprobanteCompraCabecera.Split(new string[] { "\\n" }, StringSplitOptions.None);
+            string[] pie = Settings.Default.ComprobanteCompraPie.Split(new string[] { "\\n" }, StringSplitOptions.None);
+            Ticket ticket = new Ticket(Settings.Default.NombreFantasia, Settings.Default.Direccion, Settings.Default.ComprobanteCompraSeparador, cabeceras, pie, venta);
+
+            Impresora impresora = new Impresora(Settings.Default.ImpresoraNombre, ticket);
+            impresora.Imprimir();
         }
 
         internal void Quitar(VentaBotoneraItem ventaBotoneraItem)

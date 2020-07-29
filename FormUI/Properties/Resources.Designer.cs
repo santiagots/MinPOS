@@ -718,6 +718,15 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Descuento.
+        /// </summary>
+        internal static string productoDescuento {
+            get {
+                return ResourceManager.GetString("productoDescuento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El producto no existe..
         /// </summary>
         internal static string productoNoExiste {

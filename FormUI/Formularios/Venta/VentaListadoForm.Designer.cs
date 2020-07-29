@@ -55,15 +55,15 @@ namespace FormUI.Formularios.Venta
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgVentas = new System.Windows.Forms.DataGridView();
+            this.ventaListadoItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.paginado = new FormUI.Controles.Paginado();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioAltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalVentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UsuarioAltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anuladaDataGridViewCheckBoxColumn = new FormUI.Controles.DataGridViewSiNoCellColumn();
             this.fechaAnuladaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ventaListadoItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paginado = new FormUI.Controles.Paginado();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventaListadoViewModelBindingSource)).BeginInit();
@@ -315,9 +315,9 @@ namespace FormUI.Formularios.Venta
             this.dgVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.fechaDataGridViewTextBoxColumn,
+            this.UsuarioAltaDataGridViewTextBoxColumn,
             this.formaPagoDataGridViewTextBoxColumn,
             this.totalVentaDataGridViewTextBoxColumn,
-            this.UsuarioAltaDataGridViewTextBoxColumn,
             this.anuladaDataGridViewCheckBoxColumn,
             this.fechaAnuladaDataGridViewTextBoxColumn,
             this.Editar});
@@ -355,6 +355,25 @@ namespace FormUI.Formularios.Venta
             this.dgVentas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgVentas_CellMouseDoubleClick);
             this.dgVentas.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgVentas_ColumnHeaderMouseClick);
             // 
+            // ventaListadoItemsBindingSource
+            // 
+            this.ventaListadoItemsBindingSource.DataMember = "VentaListadoItems";
+            this.ventaListadoItemsBindingSource.DataSource = this.ventaListadoViewModelBindingSource;
+            // 
+            // paginado
+            // 
+            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.ventaListadoViewModelBindingSource, "TotalElementos", true));
+            this.paginado.Leyenda = "{0} de {1}";
+            this.paginado.Location = new System.Drawing.Point(3, 448);
+            this.paginado.Name = "paginado";
+            this.paginado.Size = new System.Drawing.Size(282, 27);
+            this.paginado.TabIndex = 2;
+            this.paginado.TotalElementos = 0;
+            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
+            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
+            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
+            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
+            // 
             // fechaDataGridViewTextBoxColumn
             // 
             this.fechaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -364,6 +383,16 @@ namespace FormUI.Formularios.Venta
             this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.fechaDataGridViewTextBoxColumn.Width = 79;
+            // 
+            // UsuarioAltaDataGridViewTextBoxColumn
+            // 
+            this.UsuarioAltaDataGridViewTextBoxColumn.DataPropertyName = "UsuarioAlta";
+            this.UsuarioAltaDataGridViewTextBoxColumn.HeaderText = "Usuario Alta";
+            this.UsuarioAltaDataGridViewTextBoxColumn.MinimumWidth = 120;
+            this.UsuarioAltaDataGridViewTextBoxColumn.Name = "UsuarioAltaDataGridViewTextBoxColumn";
+            this.UsuarioAltaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.UsuarioAltaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.UsuarioAltaDataGridViewTextBoxColumn.Width = 120;
             // 
             // formaPagoDataGridViewTextBoxColumn
             // 
@@ -386,16 +415,6 @@ namespace FormUI.Formularios.Venta
             this.totalVentaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.totalVentaDataGridViewTextBoxColumn.Width = 69;
             // 
-            // UsuarioAltaDataGridViewTextBoxColumn
-            // 
-            this.UsuarioAltaDataGridViewTextBoxColumn.DataPropertyName = "UsuarioAlta";
-            this.UsuarioAltaDataGridViewTextBoxColumn.HeaderText = "Usuario Alta";
-            this.UsuarioAltaDataGridViewTextBoxColumn.MinimumWidth = 120;
-            this.UsuarioAltaDataGridViewTextBoxColumn.Name = "UsuarioAltaDataGridViewTextBoxColumn";
-            this.UsuarioAltaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.UsuarioAltaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.UsuarioAltaDataGridViewTextBoxColumn.Width = 120;
-            // 
             // anuladaDataGridViewCheckBoxColumn
             // 
             this.anuladaDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -416,7 +435,7 @@ namespace FormUI.Formularios.Venta
             this.fechaAnuladaDataGridViewTextBoxColumn.Name = "fechaAnuladaDataGridViewTextBoxColumn";
             this.fechaAnuladaDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaAnuladaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.fechaAnuladaDataGridViewTextBoxColumn.Width = 120;
+            this.fechaAnuladaDataGridViewTextBoxColumn.Width = 122;
             // 
             // Editar
             // 
@@ -426,25 +445,6 @@ namespace FormUI.Formularios.Venta
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
             this.Editar.Width = 5;
-            // 
-            // ventaListadoItemsBindingSource
-            // 
-            this.ventaListadoItemsBindingSource.DataMember = "VentaListadoItems";
-            this.ventaListadoItemsBindingSource.DataSource = this.ventaListadoViewModelBindingSource;
-            // 
-            // paginado
-            // 
-            this.paginado.DataBindings.Add(new System.Windows.Forms.Binding("TotalElementos", this.ventaListadoViewModelBindingSource, "TotalElementos", true));
-            this.paginado.Leyenda = "{0} de {1}";
-            this.paginado.Location = new System.Drawing.Point(3, 448);
-            this.paginado.Name = "paginado";
-            this.paginado.Size = new System.Drawing.Size(282, 27);
-            this.paginado.TabIndex = 2;
-            this.paginado.TotalElementos = 0;
-            this.paginado.PaginaInicalClick += new System.EventHandler(this.paginado_PaginaInicalClick);
-            this.paginado.PaginaAnteriorClick += new System.EventHandler(this.paginado_PaginaAnteriorClick);
-            this.paginado.PaginaSiguienteClick += new System.EventHandler(this.paginado_PaginaSiguienteClick);
-            this.paginado.PaginaFinalClick += new System.EventHandler(this.paginado_PaginaFinalClick);
             // 
             // VentaListadoForm
             // 
@@ -497,9 +497,9 @@ namespace FormUI.Formularios.Venta
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioAltaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn formaPagoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalVentaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioAltaDataGridViewTextBoxColumn;
         private DataGridViewSiNoCellColumn anuladaDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaAnuladaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Editar;

@@ -67,5 +67,10 @@ namespace FormUI.Formularios.VentaBotonera
                 }
             });
         }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            Ejecutar(() => ventaBotoneraViewModel.GuardarAsync());
+        }
     }
 }

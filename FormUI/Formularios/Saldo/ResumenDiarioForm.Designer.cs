@@ -422,6 +422,7 @@
             // 
             this.numeroTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numeroTextBox1.CantidadDecimales = 2;
+            this.numeroTextBox1.CantidadEnteros = 9;
             this.numeroTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.resumenDiarioViewModelBindingSource, "MontoCierreCaja", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.numeroTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.resumenDiarioViewModelBindingSource, "CerradaCaja", true));
             this.numeroTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

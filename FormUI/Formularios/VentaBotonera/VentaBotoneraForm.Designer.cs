@@ -73,19 +73,19 @@
             this.botoneraCategorias.columnas = 1;
             this.botoneraCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.botoneraCategorias.filas = 12;
-            this.botoneraCategorias.FlatBorderColor = System.Drawing.Color.Empty;
+            this.botoneraCategorias.FlatBorderColor = System.Drawing.SystemColors.Highlight;
             this.botoneraCategorias.FlatBorderSize = 1;
-            this.botoneraCategorias.FlatMouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.botoneraCategorias.FlatMouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.botoneraCategorias.FlatMouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.botoneraCategorias.FlatMouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.botoneraCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botoneraCategorias.FuenteBoton = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botoneraCategorias.FuenteLabel = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botoneraCategorias.FuenteLabel = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botoneraCategorias.Location = new System.Drawing.Point(3, 3);
             this.botoneraCategorias.Name = "botoneraCategorias";
             this.tableLayoutPanel2.SetRowSpan(this.botoneraCategorias, 2);
             this.botoneraCategorias.Size = new System.Drawing.Size(174, 755);
             this.botoneraCategorias.TabIndex = 0;
-            this.botoneraCategorias.TextoLabel = "Categoria";
+            this.botoneraCategorias.TextoLabel = "Categoría";
             this.botoneraCategorias.ClickEventHandler += new System.Action<string>(this.botoneraCategorias_ClickEventHandler);
             // 
             // botoneraProductos
@@ -95,13 +95,13 @@
             this.botoneraProductos.columnas = 5;
             this.botoneraProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.botoneraProductos.filas = 4;
-            this.botoneraProductos.FlatBorderColor = System.Drawing.Color.Empty;
+            this.botoneraProductos.FlatBorderColor = System.Drawing.SystemColors.Highlight;
             this.botoneraProductos.FlatBorderSize = 1;
-            this.botoneraProductos.FlatMouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.botoneraProductos.FlatMouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.botoneraProductos.FlatMouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.botoneraProductos.FlatMouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.botoneraProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botoneraProductos.FuenteBoton = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botoneraProductos.FuenteLabel = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botoneraProductos.FuenteLabel = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botoneraProductos.Location = new System.Drawing.Point(183, 3);
             this.botoneraProductos.Name = "botoneraProductos";
             this.botoneraProductos.Size = new System.Drawing.Size(446, 624);
@@ -225,6 +225,7 @@
             // 
             this.dgProductos.AutoGenerateColumns = false;
             this.dgProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgProductos.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -344,6 +345,7 @@
             this.btnCobrar.Text = "Cobrar";
             this.btnCobrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCobrar.UseVisualStyleBackColor = true;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
             // 
             // textBox4
             // 

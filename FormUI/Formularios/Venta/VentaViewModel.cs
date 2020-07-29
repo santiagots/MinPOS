@@ -40,7 +40,7 @@ namespace FormUI.Formularios.Venta
 
                 IList<ModeloVenta.VentaItem> ventaItems = VentaItems.Select(x => new ModeloVenta.VentaItem(x.Producto, x.Cantidad, x.Precio)).ToList();
 
-                ModeloVenta.Venta venta = new ModeloVenta.Venta(Sesion.Usuario.Alias, ventaItems, pago);
+                ModeloVenta.Venta venta = new ModeloVenta.Venta(Sesion.Usuario.Alias, ventaItems, pago, 0);
                 venta.DisminuirStock();
                 await VentaService.Guardar(venta);
 

@@ -27,7 +27,7 @@
     <PublisherName>miniPOS</PublisherName>
     <SuiteName>miniPOS</SuiteName>
     <ApplicationRevision>9</ApplicationRevision>
-    <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -118,6 +118,9 @@
     </Compile>
     <Compile Include="Controles\Paginado.Designer.cs">
       <DependentUpon>Paginado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\PorcentajeUpDown.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controles\RoundButton.cs">
       <SubType>Component</SubType>
@@ -220,6 +223,13 @@
     <Compile Include="Formularios\Usuario\LogInViewModel.cs" />
     <Compile Include="Formularios\Usuario\UsuarioDetalleViewModel.cs" />
     <Compile Include="Formularios\Usuario\UsuarioListadoViewModel.cs" />
+    <Compile Include="Formularios\VentaBotonera\CobroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\VentaBotonera\CobroForm.Designer.cs">
+      <DependentUpon>CobroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\VentaBotonera\CobroViewModel.cs" />
     <Compile Include="Formularios\VentaBotonera\VentaBotoneraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,6 +425,9 @@
     <EmbeddedResource Include="Formularios\Saldo\CierreCajaListado.resx">
       <DependentUpon>CierreCajaListado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\VentaBotonera\CobroForm.resx">
+      <DependentUpon>CobroForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\VentaBotonera\VentaBotoneraForm.resx">
       <DependentUpon>VentaBotoneraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -524,6 +537,7 @@
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.VentaDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.VentaListadoViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.Venta.VentaViewModel.datasource" />
+    <None Include="Properties\DataSources\FormUI.Formularios.VentaBotonera.CobroViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Formularios.VentaBotonera.VentaBotoneraViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Producto.CategoriaDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\FormUI.Producto.CategoriaListadoViewModel.datasource" />

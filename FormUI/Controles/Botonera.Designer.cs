@@ -40,14 +40,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel.AutoSize = true;
-            this.tableLayoutPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tableLayoutPanel.BackColor = System.Drawing.SystemColors.Window;
             this.tableLayoutPanel.ColumnCount = 1;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel.Location = new System.Drawing.Point(3, 28);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(3, 32);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(226, 451);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(226, 447);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // btnSiguente
@@ -78,10 +78,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 25);
+            this.label1.Size = new System.Drawing.Size(74, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "Titulo";
             // 
