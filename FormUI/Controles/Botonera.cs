@@ -36,12 +36,11 @@ namespace FormUI.Controles
         public Color FlatMouseDownBackColor { get; set; } = Color.Empty;
         [Category("Botones"), Browsable(true)]
         public int FlatBorderSize { get; set; } = 1;
-        [Category("Botones"), Browsable(true)]
-        private List<Tuple<string, Image>> Elementos = new List<Tuple<string, Image>>();
         public int ElementosPorPagina => columnas * filas;
         private int TotalPaginas => TotalElementos % ElementosPorPagina > 0 ? (TotalElementos / ElementosPorPagina) + 1 : TotalElementos / ElementosPorPagina;
         public int TotalElementos { get; set; }
         public int PaginaActual { get; set; } = 1;
+        public List<Tuple<string, Image>> Elementos { get; set; } = new List<Tuple<string, Image>>();
 
         public Botonera()
         {
@@ -70,22 +69,18 @@ namespace FormUI.Controles
         {
             PaginaActual++;
             PaginaSiguienteClick?.Invoke(sender, e);
-            CargarBotones();
-            ActualizarBotones();
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             PaginaActual--;
             PaginaAnteriorClick?.Invoke(sender, e);
-            CargarBotones();
-            ActualizarBotones();
         }
 
-        public void Cargar(List<Tuple<string, Image>> elementos)
+        public void Cargar(List<Tuple<string, Image>> elementos, int totalElementos)
         {
             Elementos = elementos;
-            PaginaActual = 1;
+            TotalElementos = totalElementos;
             CargarBotones();
             ActualizarBotones();
         }
@@ -131,11 +126,6 @@ namespace FormUI.Controles
         {
             if (!Elementos.Any()) return;
 
-            Tuple<string, Image>[] tempElementos = Elementos
-                                              .Skip(ElementosPorPagina * (PaginaActual - 1))
-                                              .Take(ElementosPorPagina)
-                                              .ToArray();
-
             tableLayoutPanel.Controls.Clear();
             int posicionControl = 0;
 
@@ -143,10 +133,10 @@ namespace FormUI.Controles
             {
                 for (int j = 0; j < columnas; j++)
                 {
-                    if (tempElementos.Length <= posicionControl)
+                    if (Elementos.Count <= posicionControl)
                         return;
 
-                    Button btn = ObtenerBoton(tempElementos[posicionControl].Item1, tempElementos[posicionControl].Item2);
+                    Button btn = ObtenerBoton(Elementos[posicionControl].Item1, Elementos[posicionControl].Item2);
                     tableLayoutPanel.Controls.Add(btn);
                     posicionControl++;
                 }

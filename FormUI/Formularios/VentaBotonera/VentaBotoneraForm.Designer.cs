@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentaBotoneraForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentaBotoneraForm));
             this.botoneraCategorias = new FormUI.Controles.Botonera();
             this.botoneraProductos = new FormUI.Controles.Botonera();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -72,6 +72,7 @@
             this.botoneraCategorias.ButtonBackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.botoneraCategorias.columnas = 1;
             this.botoneraCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.botoneraCategorias.Elementos = ((System.Collections.Generic.List<System.Tuple<string, System.Drawing.Image>>)(resources.GetObject("botoneraCategorias.Elementos")));
             this.botoneraCategorias.filas = 12;
             this.botoneraCategorias.FlatBorderColor = System.Drawing.SystemColors.Highlight;
             this.botoneraCategorias.FlatBorderSize = 1;
@@ -96,6 +97,7 @@
             this.botoneraProductos.ButtonBackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.botoneraProductos.columnas = 5;
             this.botoneraProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.botoneraProductos.Elementos = ((System.Collections.Generic.List<System.Tuple<string, System.Drawing.Image>>)(resources.GetObject("botoneraProductos.Elementos")));
             this.botoneraProductos.filas = 4;
             this.botoneraProductos.FlatBorderColor = System.Drawing.SystemColors.Highlight;
             this.botoneraProductos.FlatBorderSize = 1;

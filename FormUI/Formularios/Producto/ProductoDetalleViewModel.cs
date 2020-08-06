@@ -109,7 +109,7 @@ namespace FormUI.Formularios.Producto
 
         internal void AgregarImagen(Image imagen)
         {
-            Imagen = imagen;
+            Imagen = Helper.Imagen.Compress(imagen);
             NotifyPropertyChanged(nameof(Imagen));
         }
 

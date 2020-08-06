@@ -23,7 +23,7 @@ namespace FormUI.Formularios.VentaBotonera
         private const string FAVORITOS = "Favoritos";
 
         public string nombre { get; set; }
-        public string CategoriaSeleccionada { get; set; }
+        public string CategoriaSeleccionada { get; set; } = FAVORITOS;
         public List<string> Categorias { get; set; } = new List<string>();
         public List<Modelo.Producto> Productos { get; set; } = new List<Modelo.Producto>();
         public decimal Total => VentaBotoneraItem.Sum(x => x.Total);
@@ -32,7 +32,6 @@ namespace FormUI.Formularios.VentaBotonera
         public decimal Subtotal => Cantidad * PrecioUnitario;
         private Modelo.Producto ProductoSeleccionado { get; set; }
         public BindingList<VentaBotoneraItem> VentaBotoneraItem { get; set; } = new BindingList<VentaBotoneraItem>();
-        public int PaginaActual { get; set; } = 1;
         public int TotalElementos { get; set; }
 
         public VentaBotoneraViewModel()

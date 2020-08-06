@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace impresoraText
@@ -8,6 +9,15 @@ namespace impresoraText
     [TestClass]
     public class UnitTest1
     {
+        [TestMethod]
+        public void TestCompressImage()
+        {
+            Bitmap original = new Bitmap(@"C:\Users\stambour\OneDrive - DXC Production\Pictures\Sitios\HabiaUnaVez\prendas\IMG_20200411_192528.jpg");
+            Image comprimida = Common.Core.Helper.Imagen.Compress(original);
+            Bitmap bm = new Bitmap(comprimida);
+            bm.Save("holaa.jpg", ImageFormat.Jpeg);
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
