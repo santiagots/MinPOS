@@ -95,7 +95,7 @@ namespace FormUI.Formularios.Producto
         {
             List<Modelo.Proveedor> proveedores = ProveedorSeleccionada.Key != null ? new List<Modelo.Proveedor> { ProveedorSeleccionada.Key } : null;
 
-            Modelo.Producto productoModel = new Modelo.Producto(Id, Codigo, Descripcion, CategoriaSeleccionada.Key, proveedores, Suelto, Costo, Precio, true, StockMinimo, StockOptimo, StockActual, Sesion.Usuario.Alias);
+            Modelo.Producto productoModel = new Modelo.Producto(Id, Codigo, Descripcion, null, CategoriaSeleccionada.Key, proveedores, Suelto, Costo, Precio, true, StockMinimo, StockOptimo, StockActual, false, Sesion.Usuario.Alias);
             await ProductoService.Guardar(productoModel);
 
             ActualizarGrillaProdcutos(new ProductoIngresoMasivoItem(productoModel));

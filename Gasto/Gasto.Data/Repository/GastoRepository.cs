@@ -51,21 +51,5 @@ namespace Gasto.Data.Repository
 
             return gastos.Paginar(ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos).ToListAsync();
         }
-
-        internal List<MovimientoMonto> Saldo(DateTime fecha)
-        {
-            IQueryable<Modelo.Gasto> gastos = _context.Gasto
-                                                    .Where(x => !x.Anulada &&
-                                                                x.SaleDeCaja &&
-                                                                DbFunctions.TruncateTime(x.Fecha).Value == fecha.Date);
-
-            return gastos.GroupBy(x => new { x.TipoGasto, x.SaleDeCaja })
-                            .AsEnumerable()
-                            .Select(g => new MovimientoMonto(
-                                g.Key.SaleDeCaja,
-                                g.Key.TipoGasto.Descripcion,
-                                g.Sum(s => s.Monto))
-                            ).ToList();
-        }
     }
 }

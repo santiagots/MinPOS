@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using FormUI.Properties;
 using FormUI.Enum;
 using FormUI.Imprimir.Documento;
+using System.Drawing;
+using Common.Core.Helper;
 
 namespace FormUI.Formularios.Producto
 {
@@ -78,13 +80,25 @@ namespace FormUI.Formularios.Producto
             Ejecutar(() => productoDetalleViewModel.CambiarTipoEmpaque());
         }
 
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        private void PBoxEtiqueta_Paint(object sender, PaintEventArgs e)
         {
             Ejecutar(() =>
             {
-                Modelo.Producto producto = new Modelo.Producto(productoDetalleViewModel.Id, productoDetalleViewModel.Codigo, productoDetalleViewModel.Descripcion, productoDetalleViewModel.CategoriaSeleccionada.Key, productoDetalleViewModel.Proveedores, productoDetalleViewModel.Suelto, productoDetalleViewModel.Costo, productoDetalleViewModel.Precio, productoDetalleViewModel.Habilitado, productoDetalleViewModel.StockMinimo, productoDetalleViewModel.StockOptimo, productoDetalleViewModel.StockActual, null);
+                Modelo.Producto producto = new Modelo.Producto(productoDetalleViewModel.Id, productoDetalleViewModel.Codigo, productoDetalleViewModel.Descripcion, productoDetalleViewModel.Imagen, productoDetalleViewModel.CategoriaSeleccionada.Key, productoDetalleViewModel.Proveedores, productoDetalleViewModel.Suelto, productoDetalleViewModel.Costo, productoDetalleViewModel.Precio, productoDetalleViewModel.Habilitado, productoDetalleViewModel.StockMinimo, productoDetalleViewModel.StockOptimo, productoDetalleViewModel.StockActual, false ,null);
                 EtiquetaGondola etiquetaGondola = new EtiquetaGondola(producto);
                 etiquetaGondola.Imprimir(e.ClipRectangle, e.Graphics);
+            });
+        }
+
+        private void btnCargarImagen_Click(object sender, EventArgs e)
+        {
+            Ejecutar(() =>
+            {
+                if (imagenFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    Image imagen = new Bitmap(imagenFileDialog.FileName);
+                    productoDetalleViewModel.AgregarImagen(imagen);
+                }
             });
         }
     }

@@ -9,10 +9,10 @@
       <Value Profile="(Default)">80mm Series Printer</Value>
     </Setting>
     <Setting Name="NombreFantasia" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Azulgrana</Value>
+      <Value Profile="(Default)">Nombre Comercio</Value>
     </Setting>
     <Setting Name="Direccion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Av. Saavedra 299 – Chacabuco</Value>
+      <Value Profile="(Default)">Dirección XXXX – Localidad</Value>
     </Setting>
     <Setting Name="ComprobanteCompraSeparador" Type="System.String" Scope="User">
       <Value Profile="(Default)">-----------------------------------</Value>
@@ -25,6 +25,18 @@
     </Setting>
     <Setting Name="AnticipacionAvisoIngresoMercaderia" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="VentaCategoriaNumeroFilas" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="VentaCategoriaNumeroColumnas" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="VentaCategoriaProductosFilas" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="VentaCategoriaProductosColumnas" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
     </Setting>
   </Settings>
 </SettingsFile>

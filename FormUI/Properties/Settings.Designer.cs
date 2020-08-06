@@ -12,7 +12,7 @@ namespace FormUI.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -49,7 +49,7 @@ namespace FormUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Azulgrana")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Nombre Comercio")]
         public string NombreFantasia {
             get {
                 return ((string)(this["NombreFantasia"]));
@@ -61,7 +61,7 @@ namespace FormUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Av. Saavedra 299 – Chacabuco")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dirección XXXX – Localidad")]
         public string Direccion {
             get {
                 return ((string)(this["Direccion"]));
@@ -116,6 +116,54 @@ namespace FormUI.Properties {
             }
             set {
                 this["AnticipacionAvisoIngresoMercaderia"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        public int VentaCategoriaNumeroFilas {
+            get {
+                return ((int)(this["VentaCategoriaNumeroFilas"]));
+            }
+            set {
+                this["VentaCategoriaNumeroFilas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VentaCategoriaNumeroColumnas {
+            get {
+                return ((int)(this["VentaCategoriaNumeroColumnas"]));
+            }
+            set {
+                this["VentaCategoriaNumeroColumnas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int VentaCategoriaProductosFilas {
+            get {
+                return ((int)(this["VentaCategoriaProductosFilas"]));
+            }
+            set {
+                this["VentaCategoriaProductosFilas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int VentaCategoriaProductosColumnas {
+            get {
+                return ((int)(this["VentaCategoriaProductosColumnas"]));
+            }
+            set {
+                this["VentaCategoriaProductosColumnas"] = value;
             }
         }
     }

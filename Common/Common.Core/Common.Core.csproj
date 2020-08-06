@@ -44,6 +44,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
@@ -63,6 +64,7 @@
     <Compile Include="Enum\FormaPago.cs" />
     <Compile Include="Extension\Paginado.cs" />
     <Compile Include="Helper\Encriptado.cs" />
+    <Compile Include="Helper\Imagen.cs" />
     <Compile Include="Helper\Log.cs" />
     <Compile Include="Model\Categoria.cs" />
     <Compile Include="Model\Entity.cs" />

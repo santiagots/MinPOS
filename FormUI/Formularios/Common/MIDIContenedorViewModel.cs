@@ -46,35 +46,35 @@ namespace FormUI.Formularios.Common
 
         internal async Task MostrarResumenDiarioAsync(Action<bool> modificacionHabilitacionFunciones)
         {
-            CierreCaja cajasCajaDelDia = await CierreCajaService.Obtener(DateTime.Now);
+            Caja cajasCajaDelDia = await CajaService.Obtener(DateTime.Now);
             ResumenDiarioForm resumenDiarioForm = new ResumenDiarioForm(cajasCajaDelDia, modificacionHabilitacionFunciones);
             resumenDiarioForm.ShowDialog();
         }
 
         internal async Task AbrirCajasDelDia(Action<bool> modificacionHabilitacionFunciones)
         {
-            CierreCaja cajasCajaDelDia = await CierreCajaService.Obtener(DateTime.Now);
-            if (cajasCajaDelDia == null)
-            {
-                CierreCaja cierrarCaja = new CierreCaja();
-                cierrarCaja.Abrir(Sesion.Usuario.Alias);
-                await CierreCajaService.GuardarAsync(cierrarCaja);
-                CustomMessageBox.ShowDialog(string.Format(Resources.aperturaCaja, Sesion.Usuario.Alias), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
-            }
-            else 
-            {
-                modificacionHabilitacionFunciones(cajasCajaDelDia.Estado != EstadoCaja.Cerrada);
-            }
+            //Caja cajasCajaDelDia = await CajaService.Obtener(DateTime.Now);
+            //if (cajasCajaDelDia == null)
+            //{
+            //    Caja cierrarCaja = new Caja();
+            //    cierrarCaja.Abrir(Sesion.Usuario.Alias);
+            //    await CajaService.GuardarAsync(cierrarCaja);
+            //    CustomMessageBox.ShowDialog(string.Format(Resources.aperturaCaja, Sesion.Usuario.Alias), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
+            //}
+            //else 
+            //{
+            //    modificacionHabilitacionFunciones(cajasCajaDelDia.Estado != EstadoCaja.Cerrada);
+            //}
         }
 
         private static async Task<bool> ExisteCajaParaDiaEnCursoAsync()
         {
-            return await CierreCajaService.Obtener(DateTime.Now) != null;
+            return await CajaService.Obtener(DateTime.Now) != null;
         }
 
         internal async Task CerrarCajasPendientes(Form mdiParent)
         {
-            List<CierreCaja> cajasPendientesDeCierre = await CierreCajaService.ObtenerCajaCerradaAbiertas();
+            List<Caja> cajasPendientesDeCierre = await CajaService.ObtenerCajaCerradaAbiertas();
             if (cajasPendientesDeCierre.Count > 0)
             {
                 CustomMessageBox.ShowDialog(string.Format(Resources.cajasCierreAutomaticas, cajasPendientesDeCierre.Count), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
@@ -87,35 +87,14 @@ namespace FormUI.Formularios.Common
                     await Task.Run(async () => {
                         for (int i = 0; i < cajasPendientesDeCierre.Count; i++)
                         {
-                            CierreCaja cajaPendiente = cajasPendientesDeCierre[i];
-                            await CerrarCaja(cajaPendiente);
-                            await CierreCajaService.GuardarAsync(cajaPendiente);
+                            Caja cajaPendiente = cajasPendientesDeCierre[i];
+                            cajaPendiente.CerrarAutomatico();
+                            await CajaService.GuardarAsync(cajaPendiente);
                             barraProgresoForm.Progress.Report(i);
                         }
                     });
                 }
             }
-        }
-
-
-        private static async Task CerrarCaja(CierreCaja cierreCaja)
-        {
-            Task<List<MovimientoMonto>> gastoSaldo = Task.Run(() => GastoService.Saldo(DateTime.Now));
-            Task<List<MovimientoMonto>> ventaSaldo = Task.Run(() => VentaService.Saldo(DateTime.Now));
-
-            await Task.WhenAll(gastoSaldo, ventaSaldo);
-
-            List<Ingresos> ingresos = new List<Ingresos>();
-            ingresos.AddRange(ventaSaldo.Result.Select(x => new Ingresos(x.Id, cierreCaja.Id, x.ModificaCaja, x.Concepto, x.Monto)));
-            cierreCaja.AgregarIngresos(ingresos);
-
-            List<Egresos> egresos = new List<Egresos>();
-            egresos.AddRange(gastoSaldo.Result.Select(x => new Egresos(x.Id, cierreCaja.Id, x.ModificaCaja, x.Concepto, x.Monto)));
-            cierreCaja.AgregarEgresos(egresos);
-
-            decimal montoEnCaja = ingresos.Where(x => x.ModificaCaja).Sum(x => x.Monto);
-
-            cierreCaja.Cerrar("Automático", montoEnCaja);
         }
     }
 }

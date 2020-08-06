@@ -12,6 +12,8 @@ using Dispositivos;
 using FormUI.Imprimir.Documento;
 using Common.Core.Model;
 using Common.Data.Service;
+using System.Drawing;
+using Helper = Common.Core.Helper;
 
 namespace FormUI.Formularios.Producto
 {
@@ -25,6 +27,7 @@ namespace FormUI.Formularios.Producto
         public int Id { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
+        public Image Imagen { get; set; } = Resources.no_foto;
         public KeyValuePair<Categoria, string> CategoriaSeleccionada { get; set; }
         public List<KeyValuePair<Categoria, string>> Categorias { get; set; } = new List<KeyValuePair<Categoria, string>>();
         public List<Modelo.Proveedor> Proveedores { get; set; } = new List<Modelo.Proveedor>();
@@ -44,6 +47,7 @@ namespace FormUI.Formularios.Producto
         public int StockMinimo { get; set; }
         public int StockOptimo { get; set; }
         public int StockActual { get; set; }
+        public bool Favorito { get; set; }
         public bool Empaquetado => !Suelto;
         public string UsuarioActualizacion { get; set; } = Sesion.Usuario.Alias;
         public DateTime FechaActualizacion { get; set; } = DateTime.Now;
@@ -57,6 +61,7 @@ namespace FormUI.Formularios.Producto
             Id = producto.Id;
             Codigo = producto.Codigo;
             Descripcion = producto.Descripcion;
+            Imagen = producto.ObtenerImagen() ?? Resources.no_foto;
             Proveedores = producto.Proveedores?.ToList();
             Suelto = producto.Suelto;
             Costo = producto.Costo;
@@ -65,6 +70,7 @@ namespace FormUI.Formularios.Producto
             StockMinimo = producto.StockMinimo;
             StockOptimo = producto.StockOptimo;
             StockActual = producto.StockActual;
+            Favorito = producto.Favorito;
             UsuarioActualizacion = producto.UsuarioActualizacion;
             FechaActualizacion = producto.FechaActualizacion;
 
@@ -101,6 +107,12 @@ namespace FormUI.Formularios.Producto
             NotifyPropertyChanged(nameof(Categorias));
         }
 
+        internal void AgregarImagen(Image imagen)
+        {
+            Imagen = imagen;
+            NotifyPropertyChanged(nameof(Imagen));
+        }
+
         internal void CambiarTipoEmpaque()
         {
             if (Suelto)
@@ -130,13 +142,13 @@ namespace FormUI.Formularios.Producto
 
         internal async Task GuardarAsync()
         {
-            Modelo.Producto producto = new Modelo.Producto(Id, Codigo, Descripcion, CategoriaSeleccionada.Key, Proveedores, Suelto, Costo, Precio, Habilitado, StockMinimo, StockOptimo, StockActual, Sesion.Usuario.Alias);
+            Modelo.Producto producto = new Modelo.Producto(Id, Codigo, Descripcion, Imagen, CategoriaSeleccionada.Key, Proveedores, Suelto, Costo, Precio, Habilitado, StockMinimo, StockOptimo, StockActual, Favorito, Sesion.Usuario.Alias);
             await ProductoService.Guardar(producto);
         }
 
         internal void ImprimirEtiqueta()
         {
-            Modelo.Producto producto = new Modelo.Producto(Id, Codigo, Descripcion, CategoriaSeleccionada.Key, Proveedores, Suelto, Costo, Precio, Habilitado, StockMinimo, StockOptimo, StockActual, Sesion.Usuario.Alias);
+            Modelo.Producto producto = new Modelo.Producto(Id, Codigo, Descripcion, Imagen, CategoriaSeleccionada.Key, Proveedores, Suelto, Costo, Precio, Habilitado, StockMinimo, StockOptimo, StockActual, Favorito, Sesion.Usuario.Alias);
             EtiquetaGondola etiquetaGondola = new EtiquetaGondola(producto);
 
             Impresora impresora = new Impresora(Settings.Default.ImpresoraNombre, etiquetaGondola);

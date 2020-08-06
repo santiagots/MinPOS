@@ -10,6 +10,7 @@ namespace Gasto.Core.Model
         public TipoGasto TipoGasto { get; set; }
         public decimal Monto { get; set; }
         public bool SaleDeCaja { get; protected set; }
+        public int? IdCaja { get; protected set; }
         public string Comentario { get; set; }
         public bool Anulada { get; protected set; }
         public string MotivoAnulada { get; protected set; }
@@ -18,7 +19,7 @@ namespace Gasto.Core.Model
 
         protected Gasto() { }
 
-        public Gasto(int id, DateTime fecha, TipoGasto tipoGasto, decimal monto, bool saleDeCaja, string comentario, bool anulada, string motivoAnulada, DateTime fechaActualizacion, string usuarioActualizacion)
+        public Gasto(int id, DateTime fecha, TipoGasto tipoGasto, decimal monto, bool saleDeCaja, int? idCaja, string comentario, bool anulada, string motivoAnulada, DateTime fechaActualizacion, string usuarioActualizacion)
         {
             Id = id;
             Fecha = fecha;
@@ -26,6 +27,7 @@ namespace Gasto.Core.Model
             TipoGasto = tipoGasto;
             Monto = monto;
             SaleDeCaja = saleDeCaja;
+            IdCaja = idCaja;
             Comentario = comentario;
             FechaActualizacion = fechaActualizacion;
             UsuarioActualizacion = usuarioActualizacion;

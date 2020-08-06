@@ -2,6 +2,11 @@
 using FormUI.Formularios.Common;
 using FormUI.Properties;
 using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormUI.Formularios.VentaBotonera
@@ -13,6 +18,11 @@ namespace FormUI.Formularios.VentaBotonera
         public VentaBotoneraForm()
         {
             InitializeComponent();
+
+            botoneraCategorias.filas = Settings.Default.VentaCategoriaNumeroFilas;
+            botoneraCategorias.columnas = Settings.Default.VentaCategoriaNumeroColumnas;
+            botoneraProductos.filas = Settings.Default.VentaCategoriaProductosFilas;
+            botoneraProductos.columnas = Settings.Default.VentaCategoriaProductosColumnas;
         }
 
         private void VentaBotoneraForm_Load(object sender, EventArgs e)
@@ -22,7 +32,7 @@ namespace FormUI.Formularios.VentaBotonera
                 ventaBotoneraViewModelBindingSource.DataSource = ventaBotoneraViewModel;
                 this.WindowState = FormWindowState.Maximized;
                 await ventaBotoneraViewModel.CargarCategoriasAsync();
-                botoneraCategorias.Cargar(ventaBotoneraViewModel.Categorias);
+                await CargarCategoriasEnBotoneraAsync();
             });
         }
 
@@ -30,8 +40,8 @@ namespace FormUI.Formularios.VentaBotonera
         {
             EjecutarAsync(async () =>
             {
-                await ventaBotoneraViewModel.CargarProductosAsync(categoria);
-                botoneraProductos.Cargar(ventaBotoneraViewModel.Productos);
+                ventaBotoneraViewModel.CategoriaSeleccionada = categoria;
+                await CargarProductosEnBotoneraAsync();
             });
         }
 
@@ -70,7 +80,47 @@ namespace FormUI.Formularios.VentaBotonera
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            Ejecutar(() => ventaBotoneraViewModel.GuardarAsync());
+            EjecutarAsync(async () => await ventaBotoneraViewModel.GuardarAsync());
         }
+
+        private void botoneraProductos_PaginaAnteriorClick(object sender, EventArgs e)
+        {
+            EjecutarAsync(async () =>
+            {
+                ventaBotoneraViewModel.PaginaActual--;
+                await CargarProductosEnBotoneraAsync();
+            });
+        }
+
+        private void botoneraProductos_PaginaSiguienteClick(object sender, EventArgs e)
+        {
+            EjecutarAsync(async () =>
+            {
+                ventaBotoneraViewModel.PaginaActual++;
+                await CargarProductosEnBotoneraAsync();
+            });
+        }
+
+        private async Task CargarProductosEnBotoneraAsync()
+        {
+            int totalElementos = await ventaBotoneraViewModel.CargarProductosAsync(botoneraProductos.PaginaActual, botoneraProductos.ElementosPorPagina);
+            List<Tuple<string, Image>> elementos = ventaBotoneraViewModel.Productos.Select(x => new Tuple<string, Image>(x.Descripcion, x.ObtenerImagen() ?? Resources.no_foto)).ToList();
+
+            botoneraProductos.TotalElementos = totalElementos;
+            botoneraProductos.Cargar(elementos);
+        }
+
+        private async Task CargarCategoriasEnBotoneraAsync()
+        {
+                List<string> categoriasPagina = ventaBotoneraViewModel.Categorias.Skip(botoneraCategorias.ElementosPorPagina * (botoneraCategorias.PaginaActual - 1))
+                                                                                 .Take(botoneraCategorias.ElementosPorPagina)
+                                                                                 .ToList();
+
+            List<Tuple<string, Image>> elementos = categoriasPagina.Select(x => new Tuple<string, Image>(x, null)).ToList();
+
+            botoneraCategorias.TotalElementos = ventaBotoneraViewModel.Categorias.Count;
+            botoneraCategorias.Cargar(elementos);
+        }
+
     }
 }

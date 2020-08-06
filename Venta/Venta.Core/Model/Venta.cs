@@ -10,11 +10,13 @@ namespace Venta.Core.Model
         public DateTime FechaAlta { get; protected set; }
         public string UsuarioAlta { get; protected set; }
         public IList<VentaItem> VentaItems { get; protected set; }
+        public int IdCaja { get; protected set; }
         public int IdPago { get; protected set; }
         public Pago Pago { get; protected set; }
         public decimal SubTotal => VentaItems == null? 0 : VentaItems.Sum(x => x.Total);
         public decimal Descuento { get; protected set; }
         public decimal Total => SubTotal - Descuento;
+        public decimal Vuelto => Pago.MontoPago - Total;
         public bool Anulada { get; protected set; }
         public string MotivoAnulada { get; protected set; }
         public DateTime? FechaAnulada { get; protected set; }
@@ -23,8 +25,9 @@ namespace Venta.Core.Model
         internal Venta()
         { }
 
-        public Venta(string usuario, IList<VentaItem> ventaItems, Pago pago, decimal descuento)
+        public Venta(string usuario, int idCaja, IList<VentaItem> ventaItems, Pago pago, decimal descuento)
         {
+            IdCaja = idCaja;
             FechaAlta = DateTime.Now;
             UsuarioAlta = usuario;
             VentaItems = ventaItems;

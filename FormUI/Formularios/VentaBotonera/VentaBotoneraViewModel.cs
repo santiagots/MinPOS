@@ -14,20 +14,26 @@ using FormUI.Formularios.Venta;
 using FormUI.Properties;
 using FormUI.Imprimir.Documento;
 using Dispositivos;
+using System.Drawing;
 
 namespace FormUI.Formularios.VentaBotonera
 {
     class VentaBotoneraViewModel: CommonViewModel
     {
+        private const string FAVORITOS = "Favoritos";
+
         public string nombre { get; set; }
+        public string CategoriaSeleccionada { get; set; }
         public List<string> Categorias { get; set; } = new List<string>();
-        public List<string> Productos { get; set; } = new List<string>();
+        public List<Modelo.Producto> Productos { get; set; } = new List<Modelo.Producto>();
         public decimal Total => VentaBotoneraItem.Sum(x => x.Total);
         public int Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
         public decimal Subtotal => Cantidad * PrecioUnitario;
         private Modelo.Producto ProductoSeleccionado { get; set; }
         public BindingList<VentaBotoneraItem> VentaBotoneraItem { get; set; } = new BindingList<VentaBotoneraItem>();
+        public int PaginaActual { get; set; } = 1;
+        public int TotalElementos { get; set; }
 
         public VentaBotoneraViewModel()
         {
@@ -37,16 +43,25 @@ namespace FormUI.Formularios.VentaBotonera
         {
             IList<Categoria> categorias = await CategoriaService.Buscar(null, true);
             Categorias.AddRange(categorias.Select(x => x.Descripcion));
+            Categorias.Insert(0, FAVORITOS);
             NotifyPropertyChanged(nameof(Categorias));
         }
         
 
-        internal async Task CargarProductosAsync(string categoria)
+        internal async Task<int> CargarProductosAsync(int PaginaActual, int ElementosPorPagina)
         {
             Productos.Clear();
-            IList<string> productosDescripciones = await ProductoService.ObtenerDescripciones(categoria);
+            int totalElementos = 0;
+            List<Modelo.Producto> productosDescripciones = new List<Modelo.Producto>();
+
+            if (CategoriaSeleccionada == FAVORITOS)
+                productosDescripciones = await ProductoService.ObtenerFavoritos( PaginaActual, ElementosPorPagina, out totalElementos);
+            else
+                productosDescripciones = await ProductoService.ObtenerProductos(CategoriaSeleccionada, PaginaActual, ElementosPorPagina, out totalElementos);
+
             Productos.AddRange(productosDescripciones);
             NotifyPropertyChanged(nameof(Categorias));
+            return totalElementos;
         }
 
         internal void AgregarProducto()
@@ -99,13 +114,13 @@ namespace FormUI.Formularios.VentaBotonera
 
                 IList<Modelo.VentaItem> ventaItems = VentaBotoneraItem.Select(x => new Modelo.VentaItem(x.Producto, x.Cantidad, x.Precio)).ToList();
 
-                Modelo.Venta venta = new Modelo.Venta(Sesion.Usuario.Alias, ventaItems, pago, cobroForm.MontoDescuento);
+                Modelo.Venta venta = new Modelo.Venta(Sesion.Usuario.Alias, Sesion.Caja.Id, ventaItems, pago, cobroForm.MontoDescuento);
                 venta.DisminuirStock();
                 await VentaService.Guardar(venta);
 
                 Imprimir(venta);
 
-                VueltoForm vueltoForm = new VueltoForm(pago.Vuelto);
+                VueltoForm vueltoForm = new VueltoForm(venta.Vuelto);
                 vueltoForm.ShowDialog();
 
                 VentaBotoneraItem.Clear();

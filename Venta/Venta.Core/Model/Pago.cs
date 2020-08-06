@@ -10,7 +10,6 @@ namespace Venta.Core.Model
         public decimal MontoPago { get; protected set; }
         public int NumeroLote { get; protected set; }
         public int NumeroComprobante { get; protected set; }
-        public decimal Vuelto => MontoPago - Monto;
 
         internal Pago() 
         { 

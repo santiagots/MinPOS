@@ -31,7 +31,7 @@ namespace FormUI.Formularios.Saldo
             CierreCajaItems.Clear();
 
             int totalElementos = 0;
-            List<CierreCaja> ventas = await CierreCajaService.Buscar(FechaDesde, FechaHasta, UsuarioSeleccionado.Key?.Alias, OrdenadoPor, DireccionOrdenamiento, PaginaActual, ElementosPorPagina, out totalElementos);
+            List<Caja> ventas = await CajaService.Buscar(FechaDesde, FechaHasta, UsuarioSeleccionado.Key?.Alias, OrdenadoPor, DireccionOrdenamiento, PaginaActual, ElementosPorPagina, out totalElementos);
             ventas.ForEach(x => CierreCajaItems.Add(new CierreCajaListadoItem(x)));
             TotalElementos = totalElementos;
 

@@ -9,7 +9,7 @@ namespace FormUI.Formularios.Saldo
 {
     class CierreCajaListadoItem
     {
-        public CierreCaja CierreCaja { get; private set; }
+        public Caja CierreCaja { get; private set; }
 
         public DateTime FechaApertura => CierreCaja.FechaApertura;
         public DateTime? FechaCierre => CierreCaja.FechaCierre;
@@ -21,7 +21,7 @@ namespace FormUI.Formularios.Saldo
         public decimal MontoRegistrado => CierreCaja.MontoEnCaja;
         public decimal Diferencia => CierreCaja.Diferencia;
 
-        public CierreCajaListadoItem(CierreCaja cierreCaja)
+        public CierreCajaListadoItem(Caja cierreCaja)
         {
             CierreCaja = cierreCaja;
         }

@@ -396,7 +396,7 @@
             this.cmbCategoria.DisplayMember = "Value";
             this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(513, 33);
+            this.cmbCategoria.Location = new System.Drawing.Point(513, 36);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(164, 28);
             this.cmbCategoria.TabIndex = 3;
@@ -406,6 +406,7 @@
             // 
             this.numeroTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numeroTextBox4.CantidadDecimales = 2;
+            this.numeroTextBox4.CantidadEnteros = 9;
             this.numeroTextBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoIngresoMasivoViewModelBindingSource, "StockActual", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.numeroTextBox4.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.productoIngresoMasivoViewModelBindingSource, "Empaquetado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numeroTextBox4.Location = new System.Drawing.Point(683, 103);
@@ -419,6 +420,7 @@
             // 
             this.numeroTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numeroTextBox2.CantidadDecimales = 2;
+            this.numeroTextBox2.CantidadEnteros = 9;
             this.numeroTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoIngresoMasivoViewModelBindingSource, "Costo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
             this.numeroTextBox2.Location = new System.Drawing.Point(3, 103);
             this.numeroTextBox2.MostrarNullConValorCero = true;
@@ -538,7 +540,7 @@
             this.cmbProveedor.DisplayMember = "Value";
             this.cmbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProveedor.FormattingEnabled = true;
-            this.cmbProveedor.Location = new System.Drawing.Point(343, 33);
+            this.cmbProveedor.Location = new System.Drawing.Point(343, 36);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(164, 28);
             this.cmbProveedor.TabIndex = 2;
@@ -558,8 +560,8 @@
             // 
             this.numeroTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numeroTextBox1.CantidadDecimales = 2;
+            this.numeroTextBox1.CantidadEnteros = 9;
             this.numeroTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoIngresoMasivoViewModelBindingSource, "Precio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "C2"));
-            this.numeroTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.productoIngresoMasivoViewModelBindingSource, "Empaquetado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numeroTextBox1.Location = new System.Drawing.Point(173, 103);
             this.numeroTextBox1.MostrarNullConValorCero = true;
             this.numeroTextBox1.Name = "numeroTextBox1";
@@ -571,6 +573,7 @@
             // 
             this.numeroTextBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numeroTextBox5.CantidadDecimales = 2;
+            this.numeroTextBox5.CantidadEnteros = 9;
             this.numeroTextBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoIngresoMasivoViewModelBindingSource, "StockOptimo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.numeroTextBox5.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.productoIngresoMasivoViewModelBindingSource, "Empaquetado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numeroTextBox5.Location = new System.Drawing.Point(343, 103);
@@ -604,6 +607,7 @@
             // 
             this.numeroTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numeroTextBox3.CantidadDecimales = 2;
+            this.numeroTextBox3.CantidadEnteros = 9;
             this.numeroTextBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoIngresoMasivoViewModelBindingSource, "StockMinimo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.numeroTextBox3.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.productoIngresoMasivoViewModelBindingSource, "Empaquetado", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numeroTextBox3.Location = new System.Drawing.Point(513, 103);

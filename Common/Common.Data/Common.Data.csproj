@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
+    <Compile Include="Extension\EF.cs" />
     <Compile Include="Migrations\202007112330520_inicial.cs" />
     <Compile Include="Migrations\202007112330520_inicial.designer.cs">
       <DependentUpon>202007112330520_inicial.cs</DependentUpon>

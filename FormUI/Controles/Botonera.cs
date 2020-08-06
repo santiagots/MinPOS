@@ -10,6 +10,10 @@ namespace FormUI.Controles
 {
     public partial class Botonera : UserControl
     {
+        public event EventHandler PaginaAnteriorClick;
+        public event EventHandler PaginaSiguienteClick;
+        public event Action<string> ClickEventHandler;
+
         [Category("Label"), Browsable(true)]
         public Font FuenteLabel { get; set; } = new Font("Microsoft Sans Serif", 12);
         [Category("Label"), Browsable(true)]
@@ -33,12 +37,11 @@ namespace FormUI.Controles
         [Category("Botones"), Browsable(true)]
         public int FlatBorderSize { get; set; } = 1;
         [Category("Botones"), Browsable(true)]
-        public event Action<string> ClickEventHandler;
-        private List<string> Elementos = new List<string>();
-        private int ElementosPorPagina => columnas * filas;
+        private List<Tuple<string, Image>> Elementos = new List<Tuple<string, Image>>();
+        public int ElementosPorPagina => columnas * filas;
         private int TotalPaginas => TotalElementos % ElementosPorPagina > 0 ? (TotalElementos / ElementosPorPagina) + 1 : TotalElementos / ElementosPorPagina;
-        private int TotalElementos => Elementos.Count;
-        private int PaginaActual = 1;
+        public int TotalElementos { get; set; }
+        public int PaginaActual { get; set; } = 1;
 
         public Botonera()
         {
@@ -66,6 +69,7 @@ namespace FormUI.Controles
         private void btnSiguente_Click(object sender, EventArgs e)
         {
             PaginaActual++;
+            PaginaSiguienteClick?.Invoke(sender, e);
             CargarBotones();
             ActualizarBotones();
         }
@@ -73,11 +77,12 @@ namespace FormUI.Controles
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             PaginaActual--;
+            PaginaAnteriorClick?.Invoke(sender, e);
             CargarBotones();
             ActualizarBotones();
         }
 
-        public void Cargar(List<string> elementos)
+        public void Cargar(List<Tuple<string, Image>> elementos)
         {
             Elementos = elementos;
             PaginaActual = 1;
@@ -91,9 +96,25 @@ namespace FormUI.Controles
             btnSiguente.Enabled = PaginaActual < TotalPaginas && TotalPaginas > 1;
         }
 
-        private Button ObtenerBoton(string texto)
+        private Button ObtenerBoton(string texto, Image imagen)
         {
-            Button btn = new Button();
+            Button btn;
+
+            if (imagen == null)
+            {
+                btn = new Button();
+                btn.Text = texto;
+                btn.ForeColor = Color.Black;
+            }
+            else
+            {
+                btn = new ImageButton();
+                ((ImageButton)btn).Texto = texto;
+                btn.ForeColor = Color.White;
+                btn.BackgroundImage = imagen;
+                btn.BackgroundImageLayout = ImageLayout.Zoom;
+            }
+
             btn.Click += btn_Click;
             btn.BackColor = ButtonBackColor;
             btn.FlatStyle = FlatStyle;
@@ -101,7 +122,6 @@ namespace FormUI.Controles
             btn.FlatAppearance.BorderSize = FlatBorderSize;
             btn.FlatAppearance.MouseDownBackColor = FlatMouseDownBackColor;
             btn.FlatAppearance.MouseOverBackColor = FlatMouseOverBackColor;
-            btn.Text = texto;
             btn.Dock = DockStyle.Fill;
             btn.Font = FuenteBoton;
             return btn;
@@ -111,7 +131,7 @@ namespace FormUI.Controles
         {
             if (!Elementos.Any()) return;
 
-            string[] tempElementos = Elementos.OrderBy(x => x)
+            Tuple<string, Image>[] tempElementos = Elementos
                                               .Skip(ElementosPorPagina * (PaginaActual - 1))
                                               .Take(ElementosPorPagina)
                                               .ToArray();
@@ -126,7 +146,7 @@ namespace FormUI.Controles
                     if (tempElementos.Length <= posicionControl)
                         return;
 
-                    Button btn = ObtenerBoton(tempElementos[posicionControl]);
+                    Button btn = ObtenerBoton(tempElementos[posicionControl].Item1, tempElementos[posicionControl].Item2);
                     tableLayoutPanel.Controls.Add(btn);
                     posicionControl++;
                 }
@@ -140,7 +160,34 @@ namespace FormUI.Controles
 
             Button btnEvento = (Button)sender;
             btnEvento.BackColor = btnEvento.FlatAppearance.MouseOverBackColor;
-            ClickEventHandler?.Invoke(btnEvento.Text);
+            if(sender is ImageButton)
+                ClickEventHandler?.Invoke(((ImageButton)btnEvento).Texto);
+            else
+                ClickEventHandler?.Invoke(btnEvento.Text);
+        }
+    }
+
+    public class ImageButton : Button
+    {
+        public string Texto { get; set; }
+
+        protected override void OnPaint(PaintEventArgs pevent)
+        {
+            base.OnPaint(pevent);
+
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+
+            SizeF stringSize = pevent.Graphics.MeasureString(Texto, Font, new SizeF(Width, Height), stringFormat);
+            
+            Rectangle rect = new Rectangle(0, Height - (int)stringSize.Height, Width, (int)stringSize.Height);
+
+            SolidBrush semiTransBrush = new SolidBrush(Color.FromArgb(128, 0, 0, 0));
+            pevent.Graphics.FillRectangle(semiTransBrush, rect);
+
+            SolidBrush stringBrush = new SolidBrush(ForeColor);
+            pevent.Graphics.DrawString(Texto, Font, stringBrush, rect, stringFormat);
         }
     }
 }

@@ -18,14 +18,14 @@ namespace FormUI.Formularios.Saldo
 {
     class ResumenDiarioViewModel : CommonViewModel
     {
-        private CierreCaja cierreCajaModel;
+        private Caja cierreCajaModel;
         public DateTime FechaApertura => cierreCajaModel.FechaApertura;
         public DateTime? FechaCierre => cierreCajaModel.FechaCierre;
         public string UsuarioApertura => cierreCajaModel.UsuarioApertura;
         public string UsuarioCierre => cierreCajaModel.UsuarioCierre;
-        public BindingList<ResumenDiarioItem> Egresos => new BindingList<ResumenDiarioItem>(cierreCajaModel.Egresos.Select(x => new ResumenDiarioItem(x.Id, true, x.Concepto, x.Monto)).ToList());
+        public BindingList<ResumenDiarioItem> Egresos => new BindingList<ResumenDiarioItem>(cierreCajaModel.Gastos.Select(x => new ResumenDiarioItem(x.Id, true, x.TipoGasto.Descripcion, x.Monto)).ToList());
         public decimal TotalEgresos => cierreCajaModel.EgresosTotal;
-        public BindingList<ResumenDiarioItem> Ingresos => new BindingList<ResumenDiarioItem>(cierreCajaModel.Ingresos.Select(x => new ResumenDiarioItem(x.Id, x.ModificaCaja, x.Concepto, x.Monto)).ToList());
+        public BindingList<ResumenDiarioItem> Ingresos => new BindingList<ResumenDiarioItem>(cierreCajaModel.Ventas.Select(x => new ResumenDiarioItem(x.Id, true, x.Pago.FormaPago.ToString(), x.Total)).ToList());
         public decimal TotalIngresos => cierreCajaModel.IngresosTotal;
         public decimal Saldo => cierreCajaModel.SaldoTotal;
         public decimal MontoCierreCaja { get; set; }
@@ -34,7 +34,7 @@ namespace FormUI.Formularios.Saldo
         public bool AbiertaCaja => Estado == EstadoCaja.Cerrada && FechaApertura.Date == DateTime.Now.Date;
         public bool CerradaCaja => Estado == EstadoCaja.Abierta;
 
-        public ResumenDiarioViewModel(CierreCaja cierreCaja)
+        public ResumenDiarioViewModel(Caja cierreCaja)
         {
             cierreCajaModel = cierreCaja;
             MontoCierreCaja = cierreCaja.MontoEnCaja;
@@ -42,13 +42,7 @@ namespace FormUI.Formularios.Saldo
 
         public async Task CargarAsync()
         {
-            if (cierreCajaModel.FechaApertura.Date == DateTime.Now.Date)
-            {
-                await CargarDatosCajaAbiertaAsync();
 
-                NotifyPropertyChanged(nameof(Egresos));
-                NotifyPropertyChanged(nameof(Ingresos));
-            }
         }
 
         internal void ImprimirCaja()
@@ -62,8 +56,7 @@ namespace FormUI.Formularios.Saldo
         internal async Task AbrirCajaAsync()
         {
             cierreCajaModel.Abrir(Sesion.Usuario.Alias);
-            await CierreCajaService.GuardarAsync(cierreCajaModel);
-            await CargarDatosCajaAbiertaAsync();
+            await CajaService.GuardarAsync(cierreCajaModel);
 
             NotifyPropertyChanged(nameof(Estado));
         }
@@ -71,25 +64,9 @@ namespace FormUI.Formularios.Saldo
         internal async Task CerraCajaAsync()
         {
             cierreCajaModel.Cerrar(Sesion.Usuario.Alias, MontoCierreCaja);
-            await CierreCajaService.GuardarAsync(cierreCajaModel);
+            await CajaService.GuardarAsync(cierreCajaModel);
 
             NotifyPropertyChanged(nameof(Estado));
-        }
-
-        private async Task CargarDatosCajaAbiertaAsync()
-        {
-            Task<List<MovimientoMonto>> egresos = Task.Run(() => GastoService.Saldo(FechaApertura));
-            Task<List<MovimientoMonto>> ingresos = Task.Run(() => VentaService.Saldo(FechaApertura));
-
-            await Task.WhenAll(egresos, ingresos);
-
-            List<Ingresos> ingresosModel = new List<Ingresos>();
-            ingresosModel.AddRange(ingresos.Result.Select(x => new Ingresos(x.Id, cierreCajaModel.Id, x.ModificaCaja, x.Concepto, x.Monto)));
-            cierreCajaModel.AgregarIngresos(ingresosModel);
-
-            List<Egresos> egresosModel = new List<Egresos>();
-            egresosModel.AddRange(egresos.Result.Select(x => new Egresos(x.Id, cierreCajaModel.Id, x.ModificaCaja, x.Concepto, x.Monto)));
-            cierreCajaModel.AgregarEgresos(egresosModel);
         }
     }
 }

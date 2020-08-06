@@ -14,7 +14,7 @@ namespace FormUI.Imprimir.Documento
         public static readonly Font cuerpo1 = new Font("Courier New", 9);
         public static readonly Font cuerpo1Negrita = new Font("Courier New", 9, FontStyle.Bold);
 
-        public CierreCaja(string NombreFantasia, string Direccion, string Separador, Modelo.CierreCaja cierreCaja)
+        public CierreCaja(string NombreFantasia, string Direccion, string Separador, Modelo.Caja cierreCaja)
         {
             Texto nombreFantasia = new Texto(NombreFantasia, StringAlignment.Center);
             AgregarLinea(Cabecera1, nombreFantasia);
@@ -39,12 +39,12 @@ namespace FormUI.Imprimir.Documento
             }
             AgregarLineaSeparador(cuerpo1, Separador);
 
-            IList<(string, decimal)> ingresos = cierreCaja.Ingresos.Select(x => (x.Concepto, x.Monto)).ToList();
+            IList<(string, decimal)> ingresos = cierreCaja.Ventas.Select(x => (x.Pago.FormaPago.ToString(), x.Total)).ToList();
             AgregarMovimientos(ingresos, "Ingresos", "SubTotal Ingresos");
 
             AgregarLineaBlanco(cuerpo1);
 
-            IList<(string, decimal)> egresos = cierreCaja.Egresos.Select(x => (x.Concepto, x.Monto)).ToList();
+            IList<(string, decimal)> egresos = cierreCaja.Gastos.Select(x => (x.TipoGasto.Descripcion, x.Monto)).ToList();
             AgregarMovimientos(egresos, "Egresos", "SubTotal Egresos");
 
             AgregarLineaBlanco(cuerpo1);

@@ -11,27 +11,27 @@ using Common.Core.Enum;
 
 namespace Saldo.Data.Service
 {
-    public class CierreCajaService
+    public class CajaService
     {
-        public static Task<CierreCaja> Obtener(DateTime fecha)
+        public static Task<Caja> Obtener(DateTime fecha)
         {
-            CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(new Context());
+            CajaRepository cierreCajaRepository = new CajaRepository(new Context());
             return cierreCajaRepository.Obtener(fecha);
         }
 
-        public static Task<List<CierreCaja>> Buscar(DateTime fechaDesdes, DateTime fechaHasta, string usuario, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
+        public static Task<List<Caja>> Buscar(DateTime fechaDesdes, DateTime fechaHasta, string usuario, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
-            CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(new Context());
+            CajaRepository cierreCajaRepository = new CajaRepository(new Context());
             return cierreCajaRepository.Buscar(fechaDesdes, fechaHasta, usuario, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
         }
 
-        public static Task<List<CierreCaja>> ObtenerCajaCerradaAbiertas()
+        public static Task<List<Caja>> ObtenerCajaCerradaAbiertas()
         {
-            CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(new Context());
+            CajaRepository cierreCajaRepository = new CajaRepository(new Context());
             return cierreCajaRepository.ObtenerCajaCerradaAbiertas();
         }
 
-        public static async Task GuardarAsync(CierreCaja cierreCaja)
+        public static async Task GuardarAsync(Caja cierreCaja)
         {
             CierreCajaValidador validador = new CierreCajaValidador();
             ValidationResult validadorResultado = validador.Validate(cierreCaja);
@@ -39,7 +39,7 @@ namespace Saldo.Data.Service
             if (!validadorResultado.IsValid)
                 throw new NegocioException(string.Join(Environment.NewLine, validadorResultado.Errors.Select(x => x.ErrorMessage)));
 
-            CierreCajaRepository cierreCajaRepository = new CierreCajaRepository(new Context());
+            CajaRepository cierreCajaRepository = new CajaRepository(new Context());
             await cierreCajaRepository.GuardarAsync(cierreCaja);
         }
     }

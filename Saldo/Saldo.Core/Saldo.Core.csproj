@@ -49,9 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\EstadoCaja.cs" />
-    <Compile Include="Model\CierreCaja.cs" />
-    <Compile Include="Model\Ingresos.cs" />
-    <Compile Include="Model\Egresos.cs" />
+    <Compile Include="Model\Caja.cs" />
+    <Compile Include="Model\Gasto.cs" />
+    <Compile Include="Model\Pago.cs" />
+    <Compile Include="Model\TipoGasto.cs" />
+    <Compile Include="Model\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validadores\CierreCajaValidador.cs" />
   </ItemGroup>

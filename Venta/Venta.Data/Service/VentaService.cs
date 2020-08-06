@@ -38,11 +38,5 @@ namespace Venta.Data.Service
             VentaRepository ventaRepository = new VentaRepository(new Context());
             return ventaRepository.Obtener(id);
         }
-
-        public static List<MovimientoMonto> Saldo(DateTime fecha)
-        {
-            VentaRepository categoriaRepository = new VentaRepository(new Context());
-            return categoriaRepository.Saldo(fecha);
-        }
     }
 }

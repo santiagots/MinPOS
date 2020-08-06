@@ -44,8 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.numeroTextBox1 = new FormUI.Controles.NumeroTextBox();
             this.dgProductos = new System.Windows.Forms.DataGridView();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,10 +82,12 @@
             this.botoneraCategorias.FuenteLabel = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botoneraCategorias.Location = new System.Drawing.Point(3, 3);
             this.botoneraCategorias.Name = "botoneraCategorias";
+            this.botoneraCategorias.PaginaActual = 1;
             this.tableLayoutPanel2.SetRowSpan(this.botoneraCategorias, 2);
             this.botoneraCategorias.Size = new System.Drawing.Size(174, 755);
             this.botoneraCategorias.TabIndex = 0;
             this.botoneraCategorias.TextoLabel = "Categoría";
+            this.botoneraCategorias.TotalElementos = 0;
             this.botoneraCategorias.ClickEventHandler += new System.Action<string>(this.botoneraCategorias_ClickEventHandler);
             // 
             // botoneraProductos
@@ -104,9 +106,13 @@
             this.botoneraProductos.FuenteLabel = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botoneraProductos.Location = new System.Drawing.Point(183, 3);
             this.botoneraProductos.Name = "botoneraProductos";
+            this.botoneraProductos.PaginaActual = 1;
             this.botoneraProductos.Size = new System.Drawing.Size(446, 624);
             this.botoneraProductos.TabIndex = 1;
             this.botoneraProductos.TextoLabel = "Productos";
+            this.botoneraProductos.TotalElementos = 0;
+            this.botoneraProductos.PaginaAnteriorClick += new System.EventHandler(this.botoneraProductos_PaginaAnteriorClick);
+            this.botoneraProductos.PaginaSiguienteClick += new System.EventHandler(this.botoneraProductos_PaginaSiguienteClick);
             this.botoneraProductos.ClickEventHandler += new System.Action<string>(this.botoneraProductos_ClickEventHandler);
             // 
             // tableLayoutPanel1
@@ -120,8 +126,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAgregar, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numeroTextBox1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(183, 633);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -193,18 +199,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Subtotal";
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaBotoneraViewModelBindingSource, "Cantidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(112, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(247, 38);
-            this.textBox1.TabIndex = 3;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.BackgroundImage = global::FormUI.Properties.Resources.icono_add2;
@@ -221,6 +215,20 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // numeroTextBox1
+            // 
+            this.numeroTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numeroTextBox1.CantidadDecimales = 0;
+            this.numeroTextBox1.CantidadEnteros = 9;
+            this.numeroTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ventaBotoneraViewModelBindingSource, "Cantidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
+            this.numeroTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.numeroTextBox1.Location = new System.Drawing.Point(112, 3);
+            this.numeroTextBox1.MostrarNullConValorCero = true;
+            this.numeroTextBox1.Name = "numeroTextBox1";
+            this.numeroTextBox1.PermiteNegativos = true;
+            this.numeroTextBox1.Size = new System.Drawing.Size(247, 38);
+            this.numeroTextBox1.TabIndex = 7;
+            // 
             // dgProductos
             // 
             this.dgProductos.AutoGenerateColumns = false;
@@ -230,8 +238,8 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -246,13 +254,14 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgProductos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgProductos.Location = new System.Drawing.Point(635, 3);
             this.dgProductos.Name = "dgProductos";
+            this.dgProductos.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -282,6 +291,7 @@
             this.precioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
             this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
             this.precioDataGridViewTextBoxColumn.Width = 108;
             // 
             // cantidadDataGridViewTextBoxColumn
@@ -290,6 +300,7 @@
             this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad";
             this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cant.";
             this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
+            this.cantidadDataGridViewTextBoxColumn.ReadOnly = true;
             this.cantidadDataGridViewTextBoxColumn.Width = 93;
             // 
             // totalDataGridViewTextBoxColumn
@@ -309,6 +320,7 @@
             this.Eliminar.HeaderText = "";
             this.Eliminar.Image = global::FormUI.Properties.Resources.btn_eliminar32;
             this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             this.Eliminar.Width = 5;
             // 
             // ventaBotoneraItemBindingSource
@@ -433,7 +445,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dgProductos;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCobrar;
@@ -448,5 +459,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private Controles.NumeroTextBox numeroTextBox1;
     }
 }

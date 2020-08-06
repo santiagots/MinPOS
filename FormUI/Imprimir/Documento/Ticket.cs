@@ -66,7 +66,7 @@ namespace FormUI.Imprimir.Documento
             AgregarLineaBlanco(cuerpo1);
 
             Texto vueltoLeyenda = new Texto("Su vuelto", StringAlignment.Near, 0.5f);
-            Texto vuelto = new Texto(Venta.Pago.Vuelto.ToString("c2"), StringAlignment.Far, 0.5f);
+            Texto vuelto = new Texto(Venta.Vuelto.ToString("c2"), StringAlignment.Far, 0.5f);
             AgregarLinea(Cabecera2Negrita, vueltoLeyenda, vuelto);
         }
 

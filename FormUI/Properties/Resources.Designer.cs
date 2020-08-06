@@ -710,6 +710,16 @@ namespace FormUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap no_foto {
+            get {
+                object obj = ResourceManager.GetObject("no_foto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nota_Pedido_2r {
             get {
                 object obj = ResourceManager.GetObject("Nota_Pedido_2r", resourceCulture);

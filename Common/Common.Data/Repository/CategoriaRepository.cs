@@ -22,7 +22,7 @@ namespace Common.Data.Repository
             if (habilitado.HasValue)
                 categoria = categoria.Where(x => x.Habilitada == habilitado);
 
-            return await categoria.ToListAsync();
+            return await categoria.OrderBy(x => x.Descripcion).ToListAsync();
         }
 
         internal async Task Guardar(Categoria categoria)

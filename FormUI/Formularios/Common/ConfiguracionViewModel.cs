@@ -21,6 +21,10 @@ namespace FormUI.Formularios.Common
         public string CabeceraTicket { get; set; }
         public string PieTicket { get; set; }
         public string SeparadorTicket { get; set; }
+        public int VentaCategoriaNumeroFilas { get; set; }
+        public int VentaCategoriaNumeroColumnas { get; set; }
+        public int VentaCategoriaProductosFilas { get; set; }
+        public int VentaCategoriaProductosColumnas { get; set; }
 
         public ConfiguracionViewModel()
         {
@@ -32,6 +36,10 @@ namespace FormUI.Formularios.Common
             PieTicket = Settings.Default.ComprobanteCompraPie;
             SeparadorTicket = Settings.Default.ComprobanteCompraSeparador;
             AnticipacionAvisoIngresoMercaderia = Settings.Default.AnticipacionAvisoIngresoMercaderia;
+            VentaCategoriaNumeroFilas = Settings.Default.VentaCategoriaNumeroFilas;
+            VentaCategoriaNumeroColumnas = Settings.Default.VentaCategoriaNumeroColumnas;
+            VentaCategoriaProductosFilas = Settings.Default.VentaCategoriaProductosFilas;
+            VentaCategoriaProductosColumnas = Settings.Default.VentaCategoriaProductosColumnas;
         }
 
         internal void Guardar()
@@ -44,6 +52,11 @@ namespace FormUI.Formularios.Common
             Settings.Default.ComprobanteCompraCabecera = CabeceraTicket;
             Settings.Default.ComprobanteCompraPie = PieTicket;
             Settings.Default.ComprobanteCompraSeparador = SeparadorTicket;
+            Settings.Default.VentaCategoriaNumeroFilas = VentaCategoriaNumeroFilas;
+            Settings.Default.VentaCategoriaNumeroColumnas = VentaCategoriaNumeroColumnas;
+            Settings.Default.VentaCategoriaProductosFilas = VentaCategoriaProductosFilas;
+            Settings.Default.VentaCategoriaProductosColumnas = VentaCategoriaProductosColumnas;
+
             Settings.Default.Save();
         }
 
@@ -64,7 +77,7 @@ namespace FormUI.Formularios.Common
             ventaItems.Add(new Modelo.VentaItem(productoPrueba, 3, 100));
             ventaItems.Add(new Modelo.VentaItem(productoPrueba, 4, 100));
             Modelo.Pago pago = new Modelo.Pago(FormaPago.Efectivo, 1000, 1200, 0, 0);
-            Modelo.Venta venta = new Modelo.Venta("Prueba", ventaItems, pago, 0);
+            Modelo.Venta venta = new Modelo.Venta("Prueba", 0, ventaItems, pago, 0);
 
             string[] cabeceras = CabeceraTicket.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             string[] pie = PieTicket.Split(new string[] { "\r\n" }, StringSplitOptions.None);

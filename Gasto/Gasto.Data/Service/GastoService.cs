@@ -37,11 +37,5 @@ namespace Gasto.Data.Service
             GastoRepository categoriaRepository = new GastoRepository(new Context());
             return categoriaRepository.Buscar(fechaDesde, fechaHasta, tipoGasto, usuario, anulada, saleDeCaja, ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos);
         }
-
-        public static List<MovimientoMonto> Saldo(DateTime fecha)
-        {
-            GastoRepository categoriaRepository = new GastoRepository(new Context());
-            return categoriaRepository.Saldo(fecha);
-        }
     }
 }

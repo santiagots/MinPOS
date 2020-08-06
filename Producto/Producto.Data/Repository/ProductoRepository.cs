@@ -1,5 +1,6 @@
 ﻿using Common.Core.Enum;
 using Common.Core.Exception;
+using Common.Core.Extension;
 using Common.Core.Model;
 using Common.Data.Repository;
 using Producto.Core.Model;
@@ -28,12 +29,7 @@ namespace Producto.Data.Repository
         internal Task<List<Modelo.Producto>> Buscar(string codigo, Categoria categoria, Proveedor proveedor, bool? habilitado, bool? faltante, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             IQueryable<Modelo.Producto> productos = Filtro(codigo, categoria, proveedor, habilitado, faltante);
-            totalElementos = productos.Count();
-            return productos                        
-                        .OrderBy($"{ordenadoPor} {direccionOrdenamiento}")
-                        .Skip(elementosPorPagina * (pagina - 1))
-                        .Take(elementosPorPagina)
-                        .ToListAsync();
+            return productos.Paginar(ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos).ToListAsync();
         }
 
         internal Task<List<string>> ObtenerCodigos(Common.Core.Model.Categoria categoria, Modelo.Proveedor proveedor, bool? habilitado, bool? faltante)
@@ -52,14 +48,22 @@ namespace Producto.Data.Repository
 
             if (producto.Id == 0)
             {
-                var a = await Obtener(producto.Codigo);
-                if (await Obtener(producto.Codigo) != null)
+                if (await _context.Producto.AnyAsync(x => x.Codigo == producto.Codigo))
                     throw new NegocioException($"Ya existe un producto con código {producto.Codigo}.");
+
+                if (await _context.Producto.AnyAsync(x => x.Descripcion == producto.Descripcion))
+                    throw new NegocioException($"Ya existe un producto con descripción {producto.Codigo}.");
 
                 _context.Producto.Add(producto);
             }
             else
             {
+                if (await _context.Producto.AnyAsync(x => x.Id != producto.Id && x.Codigo == producto.Codigo))
+                    throw new NegocioException($"Ya existe un producto con código {producto.Codigo}.");
+
+                if (await _context.Producto.AnyAsync(x => x.Id != producto.Id && x.Descripcion == producto.Descripcion))
+                    throw new NegocioException($"Ya existe un producto con descripción {producto.Codigo}.");
+
                 var ProductoDB = _context.Producto
                                          .Include(x => x.Proveedores)
                                          .Include(x => x.Categoria)

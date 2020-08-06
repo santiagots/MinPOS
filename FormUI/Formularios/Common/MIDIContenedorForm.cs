@@ -82,7 +82,7 @@ namespace FormUI.Formularios.Common
             Application.Exit();
         }
 
-        private void tsbNuevaVenta_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(VentaForm), this);
+        private void tsbNuevaVenta_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(VentaBotoneraForm), this);
 
         private void tsbNuevaGasto_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(GastoDetalleForm), this, true);
 

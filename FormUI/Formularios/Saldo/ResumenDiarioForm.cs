@@ -13,7 +13,7 @@ namespace FormUI.Formularios.Saldo
 
         private ResumenDiarioViewModel resumenDiarioViewModel;
 
-        public ResumenDiarioForm(CierreCaja cierreCaja, Action<bool> modificarHabilitacionSisitema)
+        public ResumenDiarioForm(Caja cierreCaja, Action<bool> modificarHabilitacionSisitema)
         {
             InitializeComponent();
 
