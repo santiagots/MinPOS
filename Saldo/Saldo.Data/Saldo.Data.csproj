@@ -74,6 +74,10 @@
     <Compile Include="Migrations\202007312019248_V1.0.4.0.designer.cs">
       <DependentUpon>202007312019248_V1.0.4.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008070306372_V1.0.5.0.cs" />
+    <Compile Include="Migrations\202008070306372_V1.0.5.0.designer.cs">
+      <DependentUpon>202008070306372_V1.0.5.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CajaRepository.cs" />
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007312019248_V1.0.4.0.resx">
       <DependentUpon>202007312019248_V1.0.4.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008070306372_V1.0.5.0.resx">
+      <DependentUpon>202008070306372_V1.0.5.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -53,18 +53,20 @@ namespace FormUI.Formularios.Common
 
         internal async Task AbrirCajasDelDia(Action<bool> modificacionHabilitacionFunciones)
         {
-            //Caja cajasCajaDelDia = await CajaService.Obtener(DateTime.Now);
-            //if (cajasCajaDelDia == null)
-            //{
-            //    Caja cierrarCaja = new Caja();
-            //    cierrarCaja.Abrir(Sesion.Usuario.Alias);
-            //    await CajaService.GuardarAsync(cierrarCaja);
-            //    CustomMessageBox.ShowDialog(string.Format(Resources.aperturaCaja, Sesion.Usuario.Alias), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
-            //}
-            //else 
-            //{
-            //    modificacionHabilitacionFunciones(cajasCajaDelDia.Estado != EstadoCaja.Cerrada);
-            //}
+            Caja cajasCajaDelDia = await CajaService.Obtener(DateTime.Now);
+            if (cajasCajaDelDia == null)
+            {
+                cajasCajaDelDia = new Caja();
+                cajasCajaDelDia.Abrir(Sesion.Usuario.Alias);
+                await CajaService.GuardarAsync(cajasCajaDelDia);
+                CustomMessageBox.ShowDialog(string.Format(Resources.aperturaCaja, Sesion.Usuario.Alias), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
+            }
+            else
+            {
+                modificacionHabilitacionFunciones(cajasCajaDelDia.Estado != EstadoCaja.Cerrada);
+            }
+
+            Sesion.Caja = cajasCajaDelDia;
         }
 
         private static async Task<bool> ExisteCajaParaDiaEnCursoAsync()

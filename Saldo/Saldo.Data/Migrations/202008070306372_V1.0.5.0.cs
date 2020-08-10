@@ -1,10 +1,9 @@
-﻿namespace Venta.Data.Migrations
+﻿namespace Saldo.Data.Migrations
 {
     using Common.Data.Extension;
-    using System;
     using System.Data.Entity.Migrations;
     
-    public partial class V1030 : DbMigration
+    public partial class V1050 : DbMigration
     {
         public override void Up()
         {

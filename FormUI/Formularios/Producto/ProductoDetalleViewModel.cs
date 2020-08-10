@@ -22,7 +22,6 @@ namespace FormUI.Formularios.Producto
         private int StockMinimoAuxiliar = 0;
         private int StockOptimoAuxiliar = 0;
         private int StockActualAuxiliar = 0;
-        private decimal PrecioAuxiliar = 0;
 
         public int Id { get; set; }
         public string Codigo { get; set; }
@@ -77,7 +76,6 @@ namespace FormUI.Formularios.Producto
             StockMinimoAuxiliar = StockMinimo;
             StockOptimoAuxiliar = StockOptimo;
             StockActualAuxiliar = StockActual;
-            PrecioAuxiliar = Precio;
 
             if (producto.Categoria != null)
                 CategoriaSeleccionada = new KeyValuePair<Categoria, string>(producto.Categoria, producto.Categoria.Descripcion);
@@ -120,24 +118,20 @@ namespace FormUI.Formularios.Producto
                 StockMinimoAuxiliar = StockMinimo;
                 StockOptimoAuxiliar = StockOptimo;
                 StockActualAuxiliar = StockActual;
-                PrecioAuxiliar = Precio;
 
                 StockMinimo = 0;
                 StockOptimo = 0;
                 StockActual = 0;
-                Precio = 0;
             }
             else
             {
                 StockMinimo = StockMinimoAuxiliar;
                 StockOptimo = StockOptimoAuxiliar;
                 StockActual = StockActualAuxiliar;
-                Precio = PrecioAuxiliar;
             }
             NotifyPropertyChanged(nameof(StockMinimo));
             NotifyPropertyChanged(nameof(StockOptimo));
             NotifyPropertyChanged(nameof(StockActual));
-            NotifyPropertyChanged(nameof(Precio));
         }
 
         internal async Task GuardarAsync()

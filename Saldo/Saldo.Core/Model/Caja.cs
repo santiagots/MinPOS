@@ -24,7 +24,6 @@ namespace Saldo.Core.Model
 
         public Caja()
         {
-            Id = 1;
         }
 
         public void Cerrar(string usuarioCierre, decimal montoEnCaja)

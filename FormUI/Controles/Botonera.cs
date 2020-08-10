@@ -124,9 +124,9 @@ namespace FormUI.Controles
 
         private void CargarBotones()
         {
+            tableLayoutPanel.Controls.Clear();
             if (!Elementos.Any()) return;
 
-            tableLayoutPanel.Controls.Clear();
             int posicionControl = 0;
 
             for (int i = 0; i < filas; i++)

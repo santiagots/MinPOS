@@ -48,20 +48,20 @@ namespace Producto.Data.Repository
 
             if (producto.Id == 0)
             {
-                if (await _context.Producto.AnyAsync(x => x.Codigo == producto.Codigo))
+                if (await _context.Producto.AnyAsync(x => !x.Borrado && x.Codigo == producto.Codigo))
                     throw new NegocioException($"Ya existe un producto con código {producto.Codigo}.");
 
-                if (await _context.Producto.AnyAsync(x => x.Descripcion == producto.Descripcion))
+                if (await _context.Producto.AnyAsync(x => !x.Borrado && x.Descripcion == producto.Descripcion))
                     throw new NegocioException($"Ya existe un producto con descripción {producto.Codigo}.");
 
                 _context.Producto.Add(producto);
             }
             else
             {
-                if (await _context.Producto.AnyAsync(x => x.Id != producto.Id && x.Codigo == producto.Codigo))
+                if (await _context.Producto.AnyAsync(x => !x.Borrado && x.Id != producto.Id && x.Codigo == producto.Codigo))
                     throw new NegocioException($"Ya existe un producto con código {producto.Codigo}.");
 
-                if (await _context.Producto.AnyAsync(x => x.Id != producto.Id && x.Descripcion == producto.Descripcion))
+                if (await _context.Producto.AnyAsync(x => !x.Borrado && x.Id != producto.Id && x.Descripcion == producto.Descripcion))
                     throw new NegocioException($"Ya existe un producto con descripción {producto.Codigo}.");
 
                 var ProductoDB = _context.Producto
