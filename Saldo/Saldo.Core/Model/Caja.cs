@@ -13,18 +13,18 @@ namespace Saldo.Core.Model
         public DateTime? FechaCierre { get; protected set; }
         public string UsuarioApertura { get; protected set; }
         public string UsuarioCierre { get; protected set; }
+        public decimal Inicio { get; set; }
         public EstadoCaja Estado { get; protected set; }
-        public IList<Venta> Ventas { get; protected set; }
+        public IList<Venta> Ventas { get; protected set; } = new List<Venta>();
         public decimal IngresosTotal => Ventas.Where(x => !x.Anulada).Sum(x => x.Total);
-        public IList<Gasto> Gastos { get; protected set; }
+        public IList<Gasto> Gastos { get; protected set; } = new List<Gasto>();
         public decimal EgresosTotal => Gastos.Where(x => !x.Anulada).Sum(x => x.Monto);
-        public decimal SaldoTotal => Ventas.Where(x => !x.Anulada && x.Pago.FormaPago == FormaPago.Efectivo).Sum(x => x.Total) - EgresosTotal;
+        public decimal EfectivoTotal => Ventas.Where(x => !x.Anulada && x.Pago.FormaPago == FormaPago.Efectivo).Sum(x => x.Total);
+        public decimal RegistroTotal => Inicio + EfectivoTotal - EgresosTotal;
         public decimal MontoEnCaja { get; protected set; }
         public decimal Diferencia { get; protected set; }
 
-        public Caja()
-        {
-        }
+        public Caja() { }
 
         public void Cerrar(string usuarioCierre, decimal montoEnCaja)
         {
@@ -32,18 +32,19 @@ namespace Saldo.Core.Model
             UsuarioCierre = usuarioCierre;
             FechaCierre = DateTime.Now;
             MontoEnCaja = montoEnCaja;
-            Diferencia = montoEnCaja - SaldoTotal;
+            Diferencia = montoEnCaja - RegistroTotal;
         }
 
-        public void CerrarAutomatico() => Cerrar("Automático", SaldoTotal);
+        public void CerrarAutomatico() => Cerrar("Automático", EfectivoTotal);
 
-        public void Abrir(string usuarioApertura)
+        public void Abrir(string usuarioApertura, decimal inicio)
         {
             Estado = EstadoCaja.Abierta;
             UsuarioCierre = "";
             UsuarioApertura = usuarioApertura;
             FechaApertura = DateTime.Now;
             FechaCierre = null;
+            Inicio = inicio;
             MontoEnCaja = 0;
             Diferencia = 0;
         }

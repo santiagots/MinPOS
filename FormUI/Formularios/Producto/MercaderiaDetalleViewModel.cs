@@ -40,6 +40,7 @@ namespace FormUI.Formularios.Producto
 
         public MercaderiaDetalleViewModel(List<Modelo.Producto> productos, Modelo.Proveedor proveedor)
         {
+            ProveedorSeleccionado = new KeyValuePair<Proveedor, string>(proveedor, proveedor.RazonSocial);
             mercaderiaModel.AgregarProveedor(proveedor);
             mercaderiaModel.AgregarProductos(productos);
         }

@@ -26,7 +26,7 @@
     <ProductName>miniPOS Helados</ProductName>
     <PublisherName>miniPOS</PublisherName>
     <SuiteName>miniPOS</SuiteName>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -210,16 +210,16 @@
     <Compile Include="Formularios\Producto\ProveedorBusquedaViewModel.cs" />
     <Compile Include="Formularios\Producto\ProveedorDetalleViewModel.cs" />
     <Compile Include="Formularios\Producto\ProveedorListadoViewModel.cs" />
-    <Compile Include="Formularios\Saldo\CierreCajaListado.cs">
+    <Compile Include="Formularios\Saldo\CajaListado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Saldo\CierreCajaListado.Designer.cs">
-      <DependentUpon>CierreCajaListado.cs</DependentUpon>
+    <Compile Include="Formularios\Saldo\CajaListado.Designer.cs">
+      <DependentUpon>CajaListado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Saldo\CierreCajaListadoItem.cs" />
-    <Compile Include="Formularios\Saldo\CierreCajaListadoViewModel.cs" />
-    <Compile Include="Formularios\Saldo\ResumenDiarioItem.cs" />
-    <Compile Include="Formularios\Saldo\ResumenDiarioViewModel.cs" />
+    <Compile Include="Formularios\Saldo\CajaListadoItem.cs" />
+    <Compile Include="Formularios\Saldo\CajaListadoViewModel.cs" />
+    <Compile Include="Formularios\Saldo\CajaItem.cs" />
+    <Compile Include="Formularios\Saldo\CajaViewModel.cs" />
     <Compile Include="Formularios\Usuario\LogInViewModel.cs" />
     <Compile Include="Formularios\Usuario\UsuarioDetalleViewModel.cs" />
     <Compile Include="Formularios\Usuario\UsuarioListadoViewModel.cs" />
@@ -310,11 +310,11 @@
     <Compile Include="Formularios\Producto\ProveedorListadoForm.Designer.cs">
       <DependentUpon>ProveedorListadoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Saldo\ResumenDiarioForm.cs">
+    <Compile Include="Formularios\Saldo\CajaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Saldo\ResumenDiarioForm.Designer.cs">
-      <DependentUpon>ResumenDiarioForm.cs</DependentUpon>
+    <Compile Include="Formularios\Saldo\CajaForm.Designer.cs">
+      <DependentUpon>CajaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Usuario\UsuarioDetalleForm.cs">
       <SubType>Form</SubType>
@@ -401,8 +401,8 @@
     <EmbeddedResource Include="Formularios\Producto\ProveedorBusquedaForm.resx">
       <DependentUpon>ProveedorBusquedaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Saldo\CierreCajaListado.resx">
-      <DependentUpon>CierreCajaListado.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Saldo\CajaListado.resx">
+      <DependentUpon>CajaListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\VentaBotonera\CobroForm.resx">
       <DependentUpon>CobroForm.cs</DependentUpon>
@@ -446,8 +446,8 @@
     <EmbeddedResource Include="Formularios\Producto\ProveedorListadoForm.resx">
       <DependentUpon>ProveedorListadoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Saldo\ResumenDiarioForm.resx">
-      <DependentUpon>ResumenDiarioForm.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Saldo\CajaForm.resx">
+      <DependentUpon>CajaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Usuario\UsuarioDetalleForm.resx">
       <DependentUpon>UsuarioDetalleForm.cs</DependentUpon>

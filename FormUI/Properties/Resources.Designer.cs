@@ -337,11 +337,38 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de que desea cerra la caja?.
+        /// </summary>
+        internal static string cajaCierre {
+            get {
+                return ResourceManager.GetString("cajaCierre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se puede abrir una nueva caja, ya existe una caja en curso. Para abrir una nueva caja primero debe cerrar la caja en curso..
+        /// </summary>
+        internal static string cajaErrorAlAbrirUnaSegundaCaja {
+            get {
+                return ResourceManager.GetString("cajaErrorAlAbrirUnaSegundaCaja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Se encontraron {0} cajas pendientes de cierre y se cerraran de forma automática..
         /// </summary>
         internal static string cajasCierreAutomaticas {
             get {
                 return ResourceManager.GetString("cajasCierreAutomaticas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se encontró una caja en curso abierta por el usuario {0} se retoma su utilización..
+        /// </summary>
+        internal static string cajasRecuperadaDiaEnCurso {
+            get {
+                return ResourceManager.GetString("cajasRecuperadaDiaEnCurso", resourceCulture);
             }
         }
         
@@ -352,15 +379,6 @@ namespace FormUI.Properties {
             get {
                 object obj = ResourceManager.GetObject("cargando", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ¿Está seguro de que desea cerra la caja?.
-        /// </summary>
-        internal static string cerrarCaja {
-            get {
-                return ResourceManager.GetString("cerrarCaja", resourceCulture);
             }
         }
         

@@ -301,7 +301,7 @@
             // 
             this.administrarToolStripMenuItem3.Image = global::FormUI.Properties.Resources.btn_resumen_32;
             this.administrarToolStripMenuItem3.Name = "administrarToolStripMenuItem3";
-            this.administrarToolStripMenuItem3.Size = new System.Drawing.Size(207, 24);
+            this.administrarToolStripMenuItem3.Size = new System.Drawing.Size(190, 24);
             this.administrarToolStripMenuItem3.Text = "Administrar";
             this.administrarToolStripMenuItem3.Click += new System.EventHandler(this.administrarToolStripMenuItem3_Click);
             // 
@@ -310,8 +310,8 @@
             this.resumenDiarioToolStripMenuItem.Image = global::FormUI.Properties.Resources.Detalle_Pequeno;
             this.resumenDiarioToolStripMenuItem.Name = "resumenDiarioToolStripMenuItem";
             this.resumenDiarioToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.resumenDiarioToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
-            this.resumenDiarioToolStripMenuItem.Text = "Resumen Diario";
+            this.resumenDiarioToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.resumenDiarioToolStripMenuItem.Text = "Caja en curso";
             this.resumenDiarioToolStripMenuItem.Click += new System.EventHandler(this.resumenDiarioToolStripMenuItem_Click);
             // 
             // ingresoMercaderiaToolStripMenuItem

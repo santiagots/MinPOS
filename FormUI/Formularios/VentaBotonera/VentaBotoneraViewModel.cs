@@ -113,7 +113,7 @@ namespace FormUI.Formularios.VentaBotonera
 
                 IList<Modelo.VentaItem> ventaItems = VentaBotoneraItem.Select(x => new Modelo.VentaItem(x.Producto, x.Cantidad, x.Precio)).ToList();
 
-                Modelo.Venta venta = new Modelo.Venta(Sesion.Usuario.Alias, Sesion.Caja.Id, ventaItems, pago, cobroForm.MontoDescuento);
+                Modelo.Venta venta = new Modelo.Venta(Sesion.Usuario.Alias, Sesion.IdCaja.Value, ventaItems, pago, cobroForm.MontoDescuento);
                 venta.DisminuirStock();
                 await VentaService.Guardar(venta);
 

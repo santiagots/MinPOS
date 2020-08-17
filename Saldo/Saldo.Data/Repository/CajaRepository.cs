@@ -18,27 +18,35 @@ namespace Saldo.Data.Repository
         {
         }
 
-        internal Task<Caja> Obtener(DateTime fecha)
+        internal Task<Caja> Obtener(int idCaja)
         {
             IQueryable<Caja> cierreCaja = ObtenerConsulta();
-            cierreCaja = cierreCaja.Where(x => DbFunctions.TruncateTime(x.FechaApertura).Value == DbFunctions.TruncateTime(fecha));
+            return cierreCaja.Where(x => x.Id == idCaja).FirstOrDefaultAsync();
+        }
+
+        internal Task<Caja> ObtenerCajaAbierta()
+        {
+            IQueryable<Caja> cierreCaja = ObtenerConsulta();
+            cierreCaja = cierreCaja.Where(x => x.Estado == EstadoCaja.Abierta && DbFunctions.TruncateTime(x.FechaApertura).Value == DbFunctions.TruncateTime(DateTime.Now));
 
             return cierreCaja.FirstOrDefaultAsync();
         }
 
-        internal Task<List<Caja>> Buscar(DateTime fechaDesde, DateTime fechaHasta, string usuario, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
+        internal Task<List<Caja>> Buscar(DateTime fechaDesde, DateTime fechaHasta, EstadoCaja? estado, string usuario, string ordenadoPor, DireccionOrdenamiento direccionOrdenamiento, int pagina, int elementosPorPagina, out int totalElementos)
         {
             IQueryable<Caja> cierreCaja = ObtenerConsulta()
                                                     .Where(x => DbFunctions.TruncateTime(x.FechaApertura) >= DbFunctions.TruncateTime(fechaDesde) &&
                                                                 DbFunctions.TruncateTime(x.FechaApertura).Value <= DbFunctions.TruncateTime(fechaHasta));
-            
+            if(estado.HasValue)
+                cierreCaja = cierreCaja.Where(x => x.Estado == estado.Value);
+
             if (!string.IsNullOrEmpty(usuario))
                 cierreCaja = cierreCaja.Where(x => x.UsuarioApertura == usuario || x.UsuarioCierre == usuario);
 
             return cierreCaja.Paginar(ordenadoPor, direccionOrdenamiento, pagina, elementosPorPagina, out totalElementos).ToListAsync();
         }
 
-        internal Task<List<Caja>> ObtenerCajaCerradaAbiertas()
+        internal Task<List<Caja>> ObtenerCajaPendienteDeCierre()
         {
            return ObtenerConsulta().Where(x => x.Estado == EstadoCaja.Abierta && DbFunctions.TruncateTime(x.FechaApertura) != DbFunctions.TruncateTime(DateTime.Now)).ToListAsync();
         }
@@ -52,7 +60,7 @@ namespace Saldo.Data.Repository
                 Caja cierreCajaBD = await ObtenerConsulta().Where(x => x.Id == cierreCaja.Id).FirstOrDefaultAsync();
                 if (cierreCaja.Estado == EstadoCaja.Abierta)
                 {
-                    cierreCajaBD.Abrir(cierreCaja.UsuarioApertura);
+                    cierreCajaBD.Abrir(cierreCaja.UsuarioApertura, cierreCaja.Inicio);
                 }
                 else
                 {
@@ -65,7 +73,7 @@ namespace Saldo.Data.Repository
         private IQueryable<Caja> ObtenerConsulta()
         {
             return _context.CierreCaja
-                            .Include(x => x.Ventas)
+                            .Include(x => x.Ventas.Select(y => y.Pago))
                             .Include(x => x.Gastos);
         }
     }

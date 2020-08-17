@@ -68,7 +68,7 @@ namespace FormUI.Formularios.Gasto
 
         internal async Task GuardarAsync()
         {
-            Modelo.Gasto gasto = new Modelo.Gasto(Id, Fecha, TipoGastoSeleccionada.Key, Monto, SaleDeCaja, Sesion.Caja.Id, Comentario, Anulada, MotivoAnulada, FechaActualizacion, Sesion.Usuario.Alias);
+            Modelo.Gasto gasto = new Modelo.Gasto(Id, Fecha, TipoGastoSeleccionada.Key, Monto, SaleDeCaja, Sesion.IdCaja, Comentario, Anulada, MotivoAnulada, FechaActualizacion, Sesion.Usuario.Alias);
             await GastoService.Guardar(gasto);
         }
     }

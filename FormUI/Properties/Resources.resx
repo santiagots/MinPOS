@@ -208,7 +208,7 @@
   <data name="icono_add2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\icono_add2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cerrarCaja" xml:space="preserve">
+  <data name="cajaCierre" xml:space="preserve">
     <value>¿Está seguro de que desea cerra la caja?</value>
   </data>
   <data name="NavigatorLastItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -360,5 +360,11 @@
   </data>
   <data name="no_foto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\no_foto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cajaErrorAlAbrirUnaSegundaCaja" xml:space="preserve">
+    <value>No se puede abrir una nueva caja, ya existe una caja en curso. Para abrir una nueva caja primero debe cerrar la caja en curso.</value>
+  </data>
+  <data name="cajasRecuperadaDiaEnCurso" xml:space="preserve">
+    <value>Se encontró una caja en curso abierta por el usuario {0} se retoma su utilización.</value>
   </data>
 </root>

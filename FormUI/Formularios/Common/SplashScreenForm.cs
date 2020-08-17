@@ -48,7 +48,7 @@ namespace FormUI.Formularios.Common
             {
                 List<Task> tareas = new List<Task>();
                 tareas.Add(Task.Run(() => BaseDatos.InstalarEnCarpetaLocal("MiniPOS")));
-                //tareas.Add(CommonService.InicializarBase());
+                tareas.Add(CommonService.InicializarBase());
                 tareas.Add(Task.Delay(5000)); //agrego una tarea de 5 segundos como timpo minimo de mostrado
 
                 await Task.WhenAll(tareas);

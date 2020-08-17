@@ -33,15 +33,16 @@ namespace FormUI.Formularios.VentaBotonera
         public CobroViewModel(decimal totalACobrar)
         {
             SubTotal = totalACobrar;
+            PagaCon = Total;
         }
 
         internal void ActualizarPorcentajeDescuento()
         {
-
             decimal porcentaje = DescuentoMonto / SubTotal;
             if (porcentaje >= 0 && porcentaje <= 1)
             {
                 DescuentoPorcentaje = porcentaje;
+                PagaCon = Total;
                 NotifyPropertyChanged(nameof(DescuentoPorcentaje));
             }
         }
@@ -52,6 +53,7 @@ namespace FormUI.Formularios.VentaBotonera
             if (monto >= 0 && monto <= SubTotal)
             {
                 DescuentoMonto = monto;
+                PagaCon = Total;
                 NotifyPropertyChanged(nameof(DescuentoMonto));
             }
         }

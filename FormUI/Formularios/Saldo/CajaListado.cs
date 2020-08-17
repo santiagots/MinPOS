@@ -5,10 +5,12 @@ using System.Windows.Forms;
 
 namespace FormUI.Formularios.Saldo
 {
-    public partial class CierreCajaListado : CommonForm
+    public partial class CajaListado : CommonForm
     {
-        CierreCajaListadoViewModel cierreCajaListadoViewModel = new CierreCajaListadoViewModel();
-        public CierreCajaListado()
+        public Action<bool> ModificarHabilitacionSisitema;
+
+        CajaListadoViewModel cierreCajaListadoViewModel = new CajaListadoViewModel();
+        public CajaListado()
         {
             InitializeComponent();
         }
@@ -20,6 +22,7 @@ namespace FormUI.Formularios.Saldo
                 cierreCajaListadoViewModel.ElementosPorPagina = paginado.ElementosPorPagina;
                 cierreCajaListadoViewModelBindingSource.DataSource = cierreCajaListadoViewModel;
                 this.WindowState = FormWindowState.Maximized;
+                cierreCajaListadoViewModel.CargarEstados();
                 await cierreCajaListadoViewModel.CargarUsuarios();
                 await cierreCajaListadoViewModel.BuscarAsync();
             });
@@ -32,7 +35,7 @@ namespace FormUI.Formularios.Saldo
                 if (e.RowIndex < 0)
                     return;
 
-                CierreCajaListadoItem cierreCajaListadoItem = (CierreCajaListadoItem)dgCierreCaja.CurrentRow.DataBoundItem;
+                CajaListadoItem cierreCajaListadoItem = (CajaListadoItem)dgCierreCaja.CurrentRow.DataBoundItem;
                 cierreCajaListadoViewModel.Ver(cierreCajaListadoItem);
             });
         }
@@ -46,7 +49,7 @@ namespace FormUI.Formularios.Saldo
 
                 if (dgCierreCaja.Columns[e.ColumnIndex].Name == "Ver")
                 {
-                    CierreCajaListadoItem cierreCajaListadoItem = (CierreCajaListadoItem)dgCierreCaja.CurrentRow.DataBoundItem;
+                    CajaListadoItem cierreCajaListadoItem = (CajaListadoItem)dgCierreCaja.CurrentRow.DataBoundItem;
                     cierreCajaListadoViewModel.Ver(cierreCajaListadoItem);
                 }
             });
@@ -107,6 +110,14 @@ namespace FormUI.Formularios.Saldo
                     await cierreCajaListadoViewModel.BuscarAsync();
                     dgCierreCaja.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = cierreCajaListadoViewModel.DireccionOrdenamiento == DireccionOrdenamiento.Asc ? SortOrder.Ascending : SortOrder.Descending;
                 }
+            });
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            EjecutarAsync(async () =>
+            {
+                await cierreCajaListadoViewModel.AbrirNuevaCajaAsync();
             });
         }
     }

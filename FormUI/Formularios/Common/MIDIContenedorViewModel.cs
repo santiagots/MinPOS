@@ -1,4 +1,5 @@
 ﻿using Common.Core.Enum;
+using Common.Core.Exception;
 using Common.Core.Model;
 using FormUI.Componentes;
 using FormUI.Enum;
@@ -39,44 +40,44 @@ namespace FormUI.Formularios.Common
             }
         }
 
+        internal async Task AdministrarCajaEnCurso(Action<bool> modificacionHabilitacionFunciones)
+        {
+            Caja cajaAbiertaDelDiaEnCurso = await CajaService.ObtenerCajaAbierta();
+            if (cajaAbiertaDelDiaEnCurso != null)
+            {
+                CustomMessageBox.ShowDialog(string.Format(Resources.cajasRecuperadaDiaEnCurso, cajaAbiertaDelDiaEnCurso.UsuarioApertura), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
+                Sesion.IdCaja = cajaAbiertaDelDiaEnCurso.Id;
+                modificacionHabilitacionFunciones(true);
+            }
+            else
+            {
+                modificacionHabilitacionFunciones(false);
+            }
+        }
+
         internal void CargarUsuario(ToolStripStatusLabel toolStripStatusUsuario)
         {
             toolStripStatusUsuario.Text = $"Usuario: {Sesion.Usuario.Alias}";
         }
 
-        internal async Task MostrarResumenDiarioAsync(Action<bool> modificacionHabilitacionFunciones)
+        internal async Task MostrarCajaAsync()
         {
-            Caja cajasCajaDelDia = await CajaService.Obtener(DateTime.Now);
-            ResumenDiarioForm resumenDiarioForm = new ResumenDiarioForm(cajasCajaDelDia, modificacionHabilitacionFunciones);
-            resumenDiarioForm.ShowDialog();
-        }
-
-        internal async Task AbrirCajasDelDia(Action<bool> modificacionHabilitacionFunciones)
-        {
-            Caja cajasCajaDelDia = await CajaService.Obtener(DateTime.Now);
-            if (cajasCajaDelDia == null)
+            if (!Sesion.IdCaja.HasValue)
             {
-                cajasCajaDelDia = new Caja();
-                cajasCajaDelDia.Abrir(Sesion.Usuario.Alias);
-                await CajaService.GuardarAsync(cajasCajaDelDia);
-                CustomMessageBox.ShowDialog(string.Format(Resources.aperturaCaja, Sesion.Usuario.Alias), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);
+                CajaForm cajaForm = new CajaForm();
+                cajaForm.ShowDialog();
             }
             else
             {
-                modificacionHabilitacionFunciones(cajasCajaDelDia.Estado != EstadoCaja.Cerrada);
+                Caja cajasEnCurso = await CajaService.Obtener(Sesion.IdCaja.Value);
+                CajaForm resumenDiarioForm = new CajaForm(cajasEnCurso);
+                resumenDiarioForm.ShowDialog();
             }
-
-            Sesion.Caja = cajasCajaDelDia;
-        }
-
-        private static async Task<bool> ExisteCajaParaDiaEnCursoAsync()
-        {
-            return await CajaService.Obtener(DateTime.Now) != null;
         }
 
         internal async Task CerrarCajasPendientes(Form mdiParent)
         {
-            List<Caja> cajasPendientesDeCierre = await CajaService.ObtenerCajaCerradaAbiertas();
+            List<Caja> cajasPendientesDeCierre = await CajaService.ObtenerCajaPendienteDeCierre();
             if (cajasPendientesDeCierre.Count > 0)
             {
                 CustomMessageBox.ShowDialog(string.Format(Resources.cajasCierreAutomaticas, cajasPendientesDeCierre.Count), "Cierre Caja", MessageBoxButtons.OK, CustomMessageBoxIcon.Info);

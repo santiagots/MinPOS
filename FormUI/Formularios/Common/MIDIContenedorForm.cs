@@ -15,9 +15,12 @@ namespace FormUI.Formularios.Common
     public partial class MIDIContenedorForm : CommonForm
     {
         MIDIContenedorViewModel MidiContenedorViewModel = new MIDIContenedorViewModel();
+        private static MIDIContenedorForm instancia;
+
         public MIDIContenedorForm()
         {
             InitializeComponent();
+            instancia = this;
         }
 
         private void MIDIContenedorForm_Load(object sender, EventArgs e)
@@ -29,8 +32,8 @@ namespace FormUI.Formularios.Common
 
                 MidiContenedorViewModel.CargarUsuario(toolStripStatusUsuario);
                 await ActualizarMercaderiaARecibirAsync();
-                await MidiContenedorViewModel.AbrirCajasDelDia(ModificacionHabilitacionFunciones);
                 await MidiContenedorViewModel.CerrarCajasPendientes(this);
+                await MidiContenedorViewModel.AdministrarCajaEnCurso(ModificacionHabilitacionFunciones);
             });
         }
 
@@ -53,14 +56,11 @@ namespace FormUI.Formularios.Common
 
         private void administrarToolStripMenuItem2_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(ProveedorListadoForm), this);
 
-        private void administrarToolStripMenuItem3_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(CierreCajaListado), this);
+        private void administrarToolStripMenuItem3_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(CajaListado), this);
 
         private void resumenDiarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EjecutarAsync(async () =>
-            {
-                await MidiContenedorViewModel.MostrarResumenDiarioAsync(ModificacionHabilitacionFunciones);
-            });
+            Ejecutar(() => MidiContenedorViewModel.MostrarCajaAsync());
         }
 
         private void administrarToolStripMenuItem4_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(MercaderiaListadoForm), this);
@@ -88,10 +88,7 @@ namespace FormUI.Formularios.Common
 
         private void tsbCierreCaja_Click(object sender, EventArgs e)
         {
-            EjecutarAsync(async () =>
-            {
-                await MidiContenedorViewModel.MostrarResumenDiarioAsync(ModificacionHabilitacionFunciones);
-            });
+            Ejecutar(() => MidiContenedorViewModel.MostrarCajaAsync());
         }
 
 
@@ -115,13 +112,17 @@ namespace FormUI.Formularios.Common
         
         private void cerraToolStripMenuItem_Click(object sender, EventArgs e) => MdiChildren.ToList().ForEach(x => x.Close());
 
-        public void ModificacionHabilitacionFunciones(bool habilitar)
+        public static void ModificacionHabilitacionFunciones(bool habilitar)
         {
-            ModificarHabilitacionToolStripMenuItem(adminiToolStripMenuItem, habilitar);
+            instancia.ModificarEstado(habilitar);
+        }
+
+        private void ModificarEstado(bool habilitar)
+        {
+            ModificarHabilitacionToolStripMenuItem(ventaToolStripMenuItem, habilitar);
+            ModificarHabilitacionToolStripMenuItem(gastosToolStripMenuItem, habilitar);
             tsbNuevaVenta.Enabled = habilitar;
             tsbNuevaGasto.Enabled = habilitar;
-            tsbProductos.Enabled = habilitar;
-            tsbIngresos.Enabled = habilitar;
         }
 
         public async Task ActualizarMercaderiaARecibirAsync()

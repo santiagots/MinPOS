@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Saldo.Core.Model;
+using Saldo.Data.Service;
 
 namespace impresoraText
 {
@@ -17,6 +20,14 @@ namespace impresoraText
             Bitmap bm = new Bitmap(comprimida);
             bm.Save("holaa.jpg", ImageFormat.Jpeg);
         }
+
+        [TestMethod]
+        public async Task TestCajaAsync()
+        {
+            List<Caja> cajasPendientesDeCierre = await CajaService.ObtenerCajaPendienteDeCierre();
+            Assert.IsTrue(cajasPendientesDeCierre[0].EfectivoTotal > 0, "Exito");
+        }
+
 
         [TestMethod]
         public void TestMethod1()

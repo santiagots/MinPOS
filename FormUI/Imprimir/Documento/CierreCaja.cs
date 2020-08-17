@@ -49,17 +49,29 @@ namespace FormUI.Imprimir.Documento
 
             AgregarLineaBlanco(cuerpo1);
 
-            Texto montoTotalDescripcion = new Texto("Monto Total", StringAlignment.Near, 0.5f);
-            Texto montoTotal = new Texto(cierreCaja.SaldoTotal.ToString("c2"), StringAlignment.Far, 0.5f); 
-            AgregarLinea(Cabecera2Negrita, montoTotalDescripcion, montoTotal);
+            Texto totalDescripcion = new Texto("Inicio", StringAlignment.Near, 0.5f);
+            Texto montoTotal = new Texto(cierreCaja.Inicio.ToString("c2"), StringAlignment.Far, 0.5f); 
+            AgregarLinea(Cabecera2Negrita, totalDescripcion, montoTotal);
 
-            Texto montoEnCajaDescripcion = new Texto("Monto En Caja", StringAlignment.Near, 0.5f);
-            Texto montoEnCaja = new Texto(cierreCaja.MontoEnCaja.ToString("c2"), StringAlignment.Far, 0.5f);
-            AgregarLinea(Cabecera2Negrita, montoEnCajaDescripcion, montoEnCaja);
+            totalDescripcion = new Texto("T. Efectivo", StringAlignment.Near, 0.5f);
+            montoTotal = new Texto(cierreCaja.EfectivoTotal.ToString("c2"), StringAlignment.Far, 0.5f);
+            AgregarLinea(Cabecera2Negrita, totalDescripcion, montoTotal);
 
-            Texto montoDiferenciaDescripcion = new Texto("Diferencia", StringAlignment.Near, 0.5f);
-            Texto montoDiferencia = new Texto(cierreCaja.Diferencia.ToString("c2"), StringAlignment.Far, 0.5f);
-            AgregarLinea(Cabecera2Negrita, montoDiferenciaDescripcion, montoDiferencia);
+            totalDescripcion = new Texto("T. Egresos", StringAlignment.Near, 0.5f);
+            montoTotal = new Texto(cierreCaja.EgresosTotal.ToString("c2"), StringAlignment.Far, 0.5f);
+            AgregarLinea(Cabecera2Negrita, totalDescripcion, montoTotal);
+
+            totalDescripcion = new Texto("T. Registrado", StringAlignment.Near, 0.5f);
+            montoTotal = new Texto(cierreCaja.RegistroTotal.ToString("c2"), StringAlignment.Far, 0.5f);
+            AgregarLinea(Cabecera2Negrita, totalDescripcion, montoTotal);
+
+            totalDescripcion = new Texto("T. en Caja", StringAlignment.Near, 0.5f);
+            montoTotal = new Texto(cierreCaja.MontoEnCaja.ToString("c2"), StringAlignment.Far, 0.5f);
+            AgregarLinea(Cabecera2Negrita, totalDescripcion, montoTotal);
+
+            totalDescripcion = new Texto("Diferencia", StringAlignment.Near, 0.5f);
+            montoTotal = new Texto(cierreCaja.Diferencia.ToString("c2"), StringAlignment.Far, 0.5f);
+            AgregarLinea(Cabecera2Negrita, totalDescripcion, montoTotal);
         }
 
         private void AgregarMovimientos(IList<(string, decimal)> movimientos, string leyendaGrupo, string leyendaTotalizado)

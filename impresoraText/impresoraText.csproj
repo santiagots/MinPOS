@@ -59,12 +59,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.Core\Common.Core.csproj">
       <Project>{f3385d32-8ffc-434b-8311-04313ccfde33}</Project>
       <Name>Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Saldo\Saldo.Core\Saldo.Core.csproj">
+      <Project>{6DAEDDA0-83DC-4EBD-B223-9FB1D55281CA}</Project>
+      <Name>Saldo.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Saldo\Saldo.Data\Saldo.Data.csproj">
+      <Project>{2F508BA1-7672-4896-88F1-5EA82506871F}</Project>
+      <Name>Saldo.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
