@@ -1,7 +1,9 @@
 ﻿using FormUI.Componentes;
+using FormUI.Enum;
 using FormUI.Formularios.Common;
 using FormUI.Formularios.Usuario;
 using FormUI.Formularios.VentaBotonera;
+using FormUI.Properties;
 using System;
 using System.Globalization;
 using System.Windows.Forms;
@@ -16,6 +18,9 @@ namespace FormUI
         [STAThread]
         static void Main()
        {
+            if(AplicacionEnEjecucion())
+                CustomMessageBox.ShowDialog(Resources.aplicacionEnEjecucion, "Error", MessageBoxButtons.OK, CustomMessageBoxIcon.Error);
+
             ConfigurarCultura();
 
             Application.EnableVisualStyles();
@@ -36,5 +41,8 @@ namespace FormUI
             //Culture for UI in any thread
             CultureInfo.DefaultThreadCurrentUICulture = ci;
         }
+
+        private static bool AplicacionEnEjecucion() => System.Diagnostics.Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Length > 1;
+                
     }
 }

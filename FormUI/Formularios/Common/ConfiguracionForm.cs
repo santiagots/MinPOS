@@ -34,5 +34,6 @@ namespace FormUI.Formularios.Common
         {
             Ejecutar(() => configuracionViewModel.PruebaTicket());
         }
+
     }
 }

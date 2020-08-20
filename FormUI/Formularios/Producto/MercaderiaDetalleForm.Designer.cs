@@ -513,6 +513,7 @@
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.CantidadDecimales = 0;
+            this.textBox4.CantidadEnteros = 9;
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mercaderiaDetalleViewModelBindingSource, "Cantidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.mercaderiaDetalleViewModelBindingSource, "HabilitarProducto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);

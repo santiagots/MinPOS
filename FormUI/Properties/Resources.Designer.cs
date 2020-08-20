@@ -97,6 +97,24 @@ namespace FormUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Existe una caja en curso que debe ser cerrada. ¿Está seguro que desea salir?.
+        /// </summary>
+        internal static string aplicacionCerrarConCajaAbierta {
+            get {
+                return ResourceManager.GetString("aplicacionCerrarConCajaAbierta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La aplicación ya se encuentra en ejecución. No se permite abrir nuevamente..
+        /// </summary>
+        internal static string aplicacionEnEjecucion {
+            get {
+                return ResourceManager.GetString("aplicacionEnEjecucion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap arrows_left48 {

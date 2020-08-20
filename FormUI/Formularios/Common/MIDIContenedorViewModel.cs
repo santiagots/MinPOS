@@ -1,25 +1,18 @@
 ﻿using Common.Core.Enum;
-using Common.Core.Exception;
-using Common.Core.Model;
 using FormUI.Componentes;
 using FormUI.Enum;
 using FormUI.Formularios.Saldo;
 using FormUI.Properties;
-using Gasto.Data.Service;
 using Producto.Core.Enum;
 using Producto.Core.Model;
 using Producto.Data.Service;
-using Saldo.Core.Enum;
 using Saldo.Core.Model;
 using Saldo.Data.Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
-using Venta.Data.Service;
 
 namespace FormUI.Formularios.Common
 {

@@ -63,18 +63,20 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.impresorasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabVenta = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.numeroTextBox6 = new FormUI.Controles.NumeroTextBox();
             this.numeroTextBox5 = new FormUI.Controles.NumeroTextBox();
-            this.numeroTextBox4 = new FormUI.Controles.NumeroTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.numeroTextBox3 = new FormUI.Controles.NumeroTextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.numeroTextBox4 = new FormUI.Controles.NumeroTextBox();
+            this.numeroTextBox3 = new FormUI.Controles.NumeroTextBox();
             this.tabConfiguracion.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -91,6 +93,8 @@
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.impresorasBindingSource)).BeginInit();
             this.tabVenta.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
@@ -474,6 +478,7 @@
             // 
             // tabVenta
             // 
+            this.tabVenta.Controls.Add(this.groupBox7);
             this.tabVenta.Controls.Add(this.groupBox6);
             this.tabVenta.Location = new System.Drawing.Point(4, 29);
             this.tabVenta.Name = "tabVenta";
@@ -481,6 +486,58 @@
             this.tabVenta.TabIndex = 2;
             this.tabVenta.Text = "Venta";
             this.tabVenta.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.tableLayoutPanel7);
+            this.groupBox7.Location = new System.Drawing.Point(9, 108);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(616, 96);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Disposición Botones Productos";
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.numeroTextBox6, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label16, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.numeroTextBox4, 1, 1);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 22);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(610, 71);
+            this.tableLayoutPanel7.TabIndex = 0;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 7);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(164, 20);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Nro. Columnas";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 43);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(164, 20);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Nro. Filas";
             // 
             // groupBox6
             // 
@@ -492,23 +549,19 @@
             this.groupBox6.Size = new System.Drawing.Size(616, 96);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Disposición Botones";
+            this.groupBox6.Text = "Disposición Botones Categorías";
             // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.ColumnCount = 4;
+            this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.numeroTextBox6, 3, 1);
-            this.tableLayoutPanel6.Controls.Add(this.numeroTextBox5, 3, 0);
-            this.tableLayoutPanel6.Controls.Add(this.numeroTextBox4, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label12, 2, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label11, 2, 0);
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label10, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.numeroTextBox3, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.numeroTextBox3, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.numeroTextBox5, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 22);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -524,11 +577,11 @@
             this.numeroTextBox6.CantidadDecimales = 2;
             this.numeroTextBox6.CantidadEnteros = 9;
             this.numeroTextBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "VentaCategoriaProductosColumnas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.numeroTextBox6.Location = new System.Drawing.Point(418, 40);
+            this.numeroTextBox6.Location = new System.Drawing.Point(173, 4);
             this.numeroTextBox6.MostrarNullConValorCero = true;
             this.numeroTextBox6.Name = "numeroTextBox6";
             this.numeroTextBox6.PermiteNegativos = true;
-            this.numeroTextBox6.Size = new System.Drawing.Size(189, 26);
+            this.numeroTextBox6.Size = new System.Drawing.Size(434, 26);
             this.numeroTextBox6.TabIndex = 7;
             // 
             // numeroTextBox5
@@ -537,47 +590,12 @@
             this.numeroTextBox5.CantidadDecimales = 2;
             this.numeroTextBox5.CantidadEnteros = 9;
             this.numeroTextBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "VentaCategoriaNumeroColumnas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.numeroTextBox5.Location = new System.Drawing.Point(418, 4);
+            this.numeroTextBox5.Location = new System.Drawing.Point(173, 4);
             this.numeroTextBox5.MostrarNullConValorCero = true;
             this.numeroTextBox5.Name = "numeroTextBox5";
             this.numeroTextBox5.PermiteNegativos = true;
-            this.numeroTextBox5.Size = new System.Drawing.Size(189, 26);
+            this.numeroTextBox5.Size = new System.Drawing.Size(434, 26);
             this.numeroTextBox5.TabIndex = 6;
-            // 
-            // numeroTextBox4
-            // 
-            this.numeroTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numeroTextBox4.CantidadDecimales = 2;
-            this.numeroTextBox4.CantidadEnteros = 9;
-            this.numeroTextBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "VentaCategoriaProductosFilas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.numeroTextBox4.Location = new System.Drawing.Point(173, 40);
-            this.numeroTextBox4.MostrarNullConValorCero = true;
-            this.numeroTextBox4.Name = "numeroTextBox4";
-            this.numeroTextBox4.PermiteNegativos = true;
-            this.numeroTextBox4.Size = new System.Drawing.Size(189, 26);
-            this.numeroTextBox4.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(368, 43);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 20);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "X";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(368, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 20);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "X";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -587,7 +605,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(164, 20);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Categorías";
+            this.label9.Text = "Nro. Columnas";
             // 
             // label10
             // 
@@ -597,20 +615,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(164, 20);
             this.label10.TabIndex = 1;
-            this.label10.Text = "Productos";
-            // 
-            // numeroTextBox3
-            // 
-            this.numeroTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numeroTextBox3.CantidadDecimales = 2;
-            this.numeroTextBox3.CantidadEnteros = 9;
-            this.numeroTextBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "VentaCategoriaNumeroFilas", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
-            this.numeroTextBox3.Location = new System.Drawing.Point(173, 4);
-            this.numeroTextBox3.MostrarNullConValorCero = true;
-            this.numeroTextBox3.Name = "numeroTextBox3";
-            this.numeroTextBox3.PermiteNegativos = true;
-            this.numeroTextBox3.Size = new System.Drawing.Size(189, 26);
-            this.numeroTextBox3.TabIndex = 4;
+            this.label10.Text = "Nro. Filas";
             // 
             // btnGuardar
             // 
@@ -641,6 +646,32 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // numeroTextBox4
+            // 
+            this.numeroTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numeroTextBox4.CantidadDecimales = 2;
+            this.numeroTextBox4.CantidadEnteros = 9;
+            this.numeroTextBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "VentaCategoriaProductosFilas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
+            this.numeroTextBox4.Location = new System.Drawing.Point(173, 40);
+            this.numeroTextBox4.MostrarNullConValorCero = true;
+            this.numeroTextBox4.Name = "numeroTextBox4";
+            this.numeroTextBox4.PermiteNegativos = true;
+            this.numeroTextBox4.Size = new System.Drawing.Size(434, 26);
+            this.numeroTextBox4.TabIndex = 5;
+            // 
+            // numeroTextBox3
+            // 
+            this.numeroTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numeroTextBox3.CantidadDecimales = 2;
+            this.numeroTextBox3.CantidadEnteros = 9;
+            this.numeroTextBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "VentaCategoriaNumeroFilas", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
+            this.numeroTextBox3.Location = new System.Drawing.Point(173, 40);
+            this.numeroTextBox3.MostrarNullConValorCero = true;
+            this.numeroTextBox3.Name = "numeroTextBox3";
+            this.numeroTextBox3.PermiteNegativos = true;
+            this.numeroTextBox3.Size = new System.Drawing.Size(434, 26);
+            this.numeroTextBox3.TabIndex = 4;
             // 
             // ConfiguracionForm
             // 
@@ -675,6 +706,9 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.impresorasBindingSource)).EndInit();
             this.tabVenta.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
@@ -723,11 +757,13 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private Controles.NumeroTextBox numeroTextBox6;
         private Controles.NumeroTextBox numeroTextBox5;
-        private Controles.NumeroTextBox numeroTextBox4;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private Controles.NumeroTextBox numeroTextBox4;
         private Controles.NumeroTextBox numeroTextBox3;
     }
 }

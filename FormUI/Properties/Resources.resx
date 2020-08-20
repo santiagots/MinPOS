@@ -367,4 +367,10 @@
   <data name="cajasRecuperadaDiaEnCurso" xml:space="preserve">
     <value>Se encontró una caja en curso abierta por el usuario {0} se retoma su utilización.</value>
   </data>
+  <data name="aplicacionCerrarConCajaAbierta" xml:space="preserve">
+    <value>Existe una caja en curso que debe ser cerrada. ¿Está seguro que desea salir?</value>
+  </data>
+  <data name="aplicacionEnEjecucion" xml:space="preserve">
+    <value>La aplicación ya se encuentra en ejecución. No se permite abrir nuevamente.</value>
+  </data>
 </root>

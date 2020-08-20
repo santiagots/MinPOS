@@ -1,10 +1,12 @@
 ﻿using FormUI.Componentes;
+using FormUI.Enum;
 using FormUI.Formularios.Gasto;
 using FormUI.Formularios.Producto;
 using FormUI.Formularios.Saldo;
 using FormUI.Formularios.Usuario;
 using FormUI.Formularios.Venta;
 using FormUI.Formularios.VentaBotonera;
+using FormUI.Properties;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -77,11 +79,6 @@ namespace FormUI.Formularios.Common
         
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
-        private void MIDIContenedorForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void tsbNuevaVenta_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(VentaBotoneraForm), this);
 
         private void tsbNuevaGasto_Click(object sender, EventArgs e) => MostrarFormularioEnContenedor(typeof(GastoDetalleForm), this, true);
@@ -138,6 +135,17 @@ namespace FormUI.Formularios.Common
             {
                 if (item is ToolStripMenuItem)
                     ModificarHabilitacionToolStripMenuItem((ToolStripMenuItem)item, habilitar);
+            }
+        }
+
+        private void MIDIContenedorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Sesion.IdCaja > 0)
+            {
+                if (CustomMessageBox.ShowDialog(Resources.aplicacionCerrarConCajaAbierta, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info) == DialogResult.Yes)
+                    Application.Exit();
+                else
+                    e.Cancel = true;
             }
         }
     }
