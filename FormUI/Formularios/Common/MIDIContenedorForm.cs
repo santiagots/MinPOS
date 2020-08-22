@@ -140,13 +140,14 @@ namespace FormUI.Formularios.Common
 
         private void MIDIContenedorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Sesion.IdCaja > 0)
-            {
-                if (CustomMessageBox.ShowDialog(Resources.aplicacionCerrarConCajaAbierta, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info) == DialogResult.Yes)
-                    Application.Exit();
-                else
+            if (Sesion.IdCaja > 0  
+                && DialogResult.No == CustomMessageBox.ShowDialog(Resources.aplicacionCerrarConCajaAbierta, this.Text, MessageBoxButtons.YesNo, CustomMessageBoxIcon.Info))
                     e.Cancel = true;
-            }
+        }
+
+        private void MIDIContenedorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

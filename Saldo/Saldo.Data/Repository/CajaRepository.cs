@@ -74,7 +74,7 @@ namespace Saldo.Data.Repository
         {
             return _context.CierreCaja
                             .Include(x => x.Ventas.Select(y => y.Pago))
-                            .Include(x => x.Gastos);
+                            .Include(x => x.Gastos.Select(y => y.TipoGasto));
         }
     }
 }

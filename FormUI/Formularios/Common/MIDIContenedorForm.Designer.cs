@@ -509,6 +509,7 @@
             this.Text = "MiniPOS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MIDIContenedorForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MIDIContenedorForm_FormClosed);
             this.Load += new System.EventHandler(this.MIDIContenedorForm_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
