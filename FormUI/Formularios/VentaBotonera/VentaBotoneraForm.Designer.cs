@@ -89,6 +89,8 @@
             this.botoneraCategorias.TabIndex = 0;
             this.botoneraCategorias.TextoLabel = "Categoría";
             this.botoneraCategorias.TotalElementos = 0;
+            this.botoneraCategorias.PaginaAnteriorClick += new System.EventHandler(this.botoneraCategorias_PaginaAnteriorClick);
+            this.botoneraCategorias.PaginaSiguienteClick += new System.EventHandler(this.botoneraCategorias_PaginaSiguienteClick);
             this.botoneraCategorias.ClickEventHandler += new System.Action<string>(this.botoneraCategorias_ClickEventHandler);
             // 
             // botoneraProductos

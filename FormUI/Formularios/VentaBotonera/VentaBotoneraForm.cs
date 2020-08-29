@@ -32,7 +32,7 @@ namespace FormUI.Formularios.VentaBotonera
                 ventaBotoneraViewModelBindingSource.DataSource = ventaBotoneraViewModel;
                 this.WindowState = FormWindowState.Maximized;
                 await ventaBotoneraViewModel.CargarCategoriasAsync();
-                await CargarCategoriasEnBotoneraAsync();
+                CargarCategoriasEnBotonera();
                 await CargarProductosEnBotoneraAsync();
             });
         }
@@ -101,6 +101,16 @@ namespace FormUI.Formularios.VentaBotonera
             });
         }
 
+        private void botoneraCategorias_PaginaAnteriorClick(object sender, EventArgs e)
+        {
+            Ejecutar(() => CargarCategoriasEnBotonera());
+        }
+
+        private void botoneraCategorias_PaginaSiguienteClick(object sender, EventArgs e)
+        {
+            Ejecutar(() => CargarCategoriasEnBotonera());
+        }
+
         private async Task CargarProductosEnBotoneraAsync()
         {
             int totalElementos = await ventaBotoneraViewModel.CargarProductosAsync(botoneraProductos.PaginaActual, botoneraProductos.ElementosPorPagina);
@@ -109,16 +119,15 @@ namespace FormUI.Formularios.VentaBotonera
             botoneraProductos.Cargar(elementos, totalElementos);
         }
 
-        private async Task CargarCategoriasEnBotoneraAsync()
+        private void CargarCategoriasEnBotonera()
         {
-                List<string> categoriasPagina = ventaBotoneraViewModel.Categorias.Skip(botoneraCategorias.ElementosPorPagina * (botoneraCategorias.PaginaActual - 1))
-                                                                                 .Take(botoneraCategorias.ElementosPorPagina)
-                                                                                 .ToList();
+            List<string> categoriasPagina = ventaBotoneraViewModel.Categorias.Skip(botoneraCategorias.ElementosPorPagina * (botoneraCategorias.PaginaActual - 1))
+                                                                             .Take(botoneraCategorias.ElementosPorPagina)
+                                                                             .ToList();
 
             List<Tuple<string, Image>> elementos = categoriasPagina.Select(x => new Tuple<string, Image>(x, null)).ToList();
 
             botoneraCategorias.Cargar(elementos, ventaBotoneraViewModel.Categorias.Count);
         }
-
     }
 }
