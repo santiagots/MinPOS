@@ -708,8 +708,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DB\MiniPOS_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>MiniPOS.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DB\Scripts\V0.0.0.1.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -742,6 +742,7 @@
     <None Include="Imagenes\double_arrow_right48.png" />
     <None Include="Imagenes\double_arrow_up48.png" />
     <None Include="Imagenes\double_arrows_left48.png" />
+    <Content Include="DB\Scripts\V0.0.0.2.sql" />
     <Content Include="Imagenes\adelantos.png" />
     <Content Include="Imagenes\Administracion.png" />
     <Content Include="Imagenes\Ayuda.png" />
@@ -855,16 +856,6 @@
     <None Include="Imagenes\icono_imprimir.gif" />
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="DB\MiniPOS.mdf">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
     <PublishFile Include="DB\MiniPOS_log.ldf">
       <Visible>False</Visible>
       <Group>

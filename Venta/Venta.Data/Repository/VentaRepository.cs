@@ -62,7 +62,7 @@ namespace Venta.Data.Repository
         internal List<MovimientoMonto> Saldo(DateTime fecha)
         {
             List<Model.Venta> venta = _context.Venta.Include(x => x.Pago)
-                                                    .Where(x => DbFunctions.TruncateTime(x.FechaAlta).Value == fecha.Date)
+                                                    .Where(x => !x.Anulada && DbFunctions.TruncateTime(x.FechaAlta).Value == fecha.Date)
                                                     .ToList();
 
             return venta.GroupBy(x => x.Pago.FormaPago)

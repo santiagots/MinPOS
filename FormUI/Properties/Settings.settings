@@ -26,5 +26,8 @@
     <Setting Name="AnticipacionAvisoIngresoMercaderia" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
+    <Setting Name="ImprimirTicket" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

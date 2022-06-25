@@ -18,6 +18,7 @@ namespace FormUI.Formularios.Venta
 
         private void VentaForm_Load(object sender, System.EventArgs e)
         {
+            txtCodigoDescirpcion.Focus();
             EjecutarAsync(async () =>
             {
                 ventaViewModelBindingSource.DataSource = ventaViewModel;
@@ -36,6 +37,18 @@ namespace FormUI.Formularios.Venta
         }
 
         private void txtCodigoDescirpcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            EjecutarAsync(async () =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    await ventaViewModel.AgregarAsync();
+                    dgProductos.FirstDisplayedScrollingRowIndex = dgProductos.RowCount - 1;
+                }
+            });
+        }
+
+        private void txtCantidad_Click_KeyDown(object sender, KeyEventArgs e)
         {
             EjecutarAsync(async () =>
             {

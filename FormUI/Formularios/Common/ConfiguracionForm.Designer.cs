@@ -59,6 +59,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.chkSuelto = new FormUI.Controles.SiNo();
+            this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.impresorasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -92,7 +94,7 @@
             this.tabConfiguracion.Location = new System.Drawing.Point(12, 12);
             this.tabConfiguracion.Name = "tabConfiguracion";
             this.tabConfiguracion.SelectedIndex = 0;
-            this.tabConfiguracion.Size = new System.Drawing.Size(640, 379);
+            this.tabConfiguracion.Size = new System.Drawing.Size(640, 436);
             this.tabConfiguracion.TabIndex = 0;
             // 
             // tabGeneral
@@ -103,7 +105,7 @@
             this.tabGeneral.Location = new System.Drawing.Point(4, 29);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(632, 346);
+            this.tabGeneral.Size = new System.Drawing.Size(632, 403);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
@@ -149,6 +151,7 @@
             // 
             this.numeroTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numeroTextBox2.CantidadDecimales = 0;
+            this.numeroTextBox2.CantidadEnteros = 9;
             this.numeroTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "AnticipacionAvisoIngresoMercaderia", true));
             this.numeroTextBox2.Location = new System.Drawing.Point(173, 16);
             this.numeroTextBox2.MostrarNullConValorCero = true;
@@ -202,6 +205,7 @@
             // 
             this.numeroTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numeroTextBox1.CantidadDecimales = 0;
+            this.numeroTextBox1.CantidadEnteros = 9;
             this.numeroTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "CantidadElementosPorPagina", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numeroTextBox1.Location = new System.Drawing.Point(173, 8);
             this.numeroTextBox1.MostrarNullConValorCero = true;
@@ -286,7 +290,7 @@
             this.tabTickets.Location = new System.Drawing.Point(4, 29);
             this.tabTickets.Name = "tabTickets";
             this.tabTickets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTickets.Size = new System.Drawing.Size(632, 346);
+            this.tabTickets.Size = new System.Drawing.Size(632, 403);
             this.tabTickets.TabIndex = 1;
             this.tabTickets.Text = "Ticket";
             this.tabTickets.UseVisualStyleBackColor = true;
@@ -294,10 +298,11 @@
             // btnPruebaTicket
             // 
             this.btnPruebaTicket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPruebaTicket.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.configuracionViewModelBindingSource, "ImprimirTicket", true));
             this.btnPruebaTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPruebaTicket.Image = global::FormUI.Properties.Resources.TicketPequeño;
             this.btnPruebaTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPruebaTicket.Location = new System.Drawing.Point(484, 297);
+            this.btnPruebaTicket.Location = new System.Drawing.Point(484, 354);
             this.btnPruebaTicket.Name = "btnPruebaTicket";
             this.btnPruebaTicket.Size = new System.Drawing.Size(136, 40);
             this.btnPruebaTicket.TabIndex = 5;
@@ -312,9 +317,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(9, 87);
+            this.groupBox2.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.configuracionViewModelBindingSource, "ImprimirTicket", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.groupBox2.Location = new System.Drawing.Point(9, 123);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(616, 204);
+            this.groupBox2.Size = new System.Drawing.Size(616, 225);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Ticket";
@@ -337,7 +343,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(610, 179);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(610, 200);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // textBox6
@@ -345,10 +351,10 @@
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "PieTicket", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox6.Location = new System.Drawing.Point(173, 75);
+            this.textBox6.Location = new System.Drawing.Point(173, 85);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(434, 66);
+            this.textBox6.Size = new System.Drawing.Size(434, 76);
             this.textBox6.TabIndex = 14;
             // 
             // textBox5
@@ -359,14 +365,14 @@
             this.textBox5.Location = new System.Drawing.Point(173, 3);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(434, 66);
+            this.textBox5.Size = new System.Drawing.Size(434, 76);
             this.textBox5.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 151);
+            this.label7.Location = new System.Drawing.Point(3, 172);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 20);
             this.label7.TabIndex = 3;
@@ -376,7 +382,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 26);
+            this.label3.Location = new System.Drawing.Point(3, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 20);
             this.label3.TabIndex = 0;
@@ -386,7 +392,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 98);
+            this.label6.Location = new System.Drawing.Point(3, 113);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(164, 20);
             this.label6.TabIndex = 2;
@@ -396,7 +402,7 @@
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionViewModelBindingSource, "SeparadorTicket", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBox3.Location = new System.Drawing.Point(173, 148);
+            this.textBox3.Location = new System.Drawing.Point(173, 169);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(434, 26);
             this.textBox3.TabIndex = 15;
@@ -406,9 +412,9 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.tableLayoutPanel3);
-            this.groupBox3.Location = new System.Drawing.Point(6, 6);
+            this.groupBox3.Location = new System.Drawing.Point(9, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(620, 75);
+            this.groupBox3.Size = new System.Drawing.Size(620, 111);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Impresora";
@@ -418,22 +424,45 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.comboBox1, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.chkSuelto, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 22);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(614, 50);
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.67442F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.32558F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(614, 86);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // chkSuelto
+            // 
+            this.chkSuelto.DataBindings.Add(new System.Windows.Forms.Binding("Valor", this.configuracionViewModelBindingSource, "ImprimirTicket", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkSuelto.Location = new System.Drawing.Point(173, 3);
+            this.chkSuelto.Name = "chkSuelto";
+            this.chkSuelto.Size = new System.Drawing.Size(112, 35);
+            this.chkSuelto.TabIndex = 18;
+            this.chkSuelto.Valor = false;
+            this.chkSuelto.CheckedChanged += new System.EventHandler(this.chkSuelto_CheckedChanged);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(164, 20);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Emitir Ticket";
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 15);
+            this.label4.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.configuracionViewModelBindingSource, "ImprimirTicket", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label4.Location = new System.Drawing.Point(3, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(164, 20);
             this.label4.TabIndex = 1;
@@ -443,9 +472,10 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.configuracionViewModelBindingSource, "ImpresoraSeleccionada", true));
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.configuracionViewModelBindingSource, "ImprimirTicket", true));
             this.comboBox1.DataSource = this.impresorasBindingSource;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(173, 14);
+            this.comboBox1.Location = new System.Drawing.Point(173, 49);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(438, 28);
             this.comboBox1.TabIndex = 2;
@@ -461,7 +491,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::FormUI.Properties.Resources.conectado_32;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(542, 397);
+            this.btnGuardar.Location = new System.Drawing.Point(542, 454);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(106, 40);
             this.btnGuardar.TabIndex = 3;
@@ -477,7 +507,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::FormUI.Properties.Resources.desconectado_32;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(431, 397);
+            this.btnCancelar.Location = new System.Drawing.Point(431, 454);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(105, 40);
             this.btnCancelar.TabIndex = 4;
@@ -489,7 +519,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 444);
+            this.ClientSize = new System.Drawing.Size(664, 501);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.tabConfiguracion);
@@ -557,5 +587,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label8;
         private Controles.NumeroTextBox numeroTextBox2;
+        private System.Windows.Forms.Label label9;
+        private Controles.SiNo chkSuelto;
     }
 }

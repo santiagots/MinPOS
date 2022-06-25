@@ -2,7 +2,6 @@
 using FormUI.Imprimir.Documento;
 using FormUI.Properties;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using Venta.Core.Enum;
@@ -21,9 +20,20 @@ namespace FormUI.Formularios.Common
         public string CabeceraTicket { get; set; }
         public string PieTicket { get; set; }
         public string SeparadorTicket { get; set; }
+        private bool _ImprimirTicket;
+        public bool ImprimirTicket
+        {
+            get { return _ImprimirTicket; }
+            set
+            {
+                _ImprimirTicket = value;
+                NotifyPropertyChanged(nameof(ImprimirTicket));
+            }
+        }
 
         public ConfiguracionViewModel()
         {
+            _ImprimirTicket = Settings.Default.ImprimirTicket;
             NombreSucursal = Settings.Default.NombreFantasia;
             DireccionSucursal = Settings.Default.Direccion;
             CantidadElementosPorPagina = Settings.Default.PaginadoCantidadElementosPorPagina;
@@ -36,6 +46,7 @@ namespace FormUI.Formularios.Common
 
         internal void Guardar()
         {
+            Settings.Default.ImprimirTicket = _ImprimirTicket;
             Settings.Default.NombreFantasia = NombreSucursal;
             Settings.Default.Direccion = DireccionSucursal;
             Settings.Default.PaginadoCantidadElementosPorPagina = CantidadElementosPorPagina;

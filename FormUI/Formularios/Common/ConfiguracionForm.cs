@@ -34,5 +34,10 @@ namespace FormUI.Formularios.Common
         {
             Ejecutar(() => configuracionViewModel.PruebaTicket());
         }
+
+        private void chkSuelto_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

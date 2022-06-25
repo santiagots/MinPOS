@@ -44,7 +44,8 @@ namespace FormUI.Formularios.Venta
                 venta.DisminuirStock();
                 await VentaService.Guardar(venta);
 
-                Imprimir(venta);
+                if(Settings.Default.ImprimirTicket)
+                    Imprimir(venta);
 
                 VueltoForm vueltoForm = new VueltoForm(pago.Vuelto);
                 vueltoForm.ShowDialog();

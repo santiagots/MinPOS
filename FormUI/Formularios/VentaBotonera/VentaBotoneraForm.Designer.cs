@@ -104,7 +104,7 @@
             this.botoneraProductos.FuenteLabel = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botoneraProductos.Location = new System.Drawing.Point(183, 3);
             this.botoneraProductos.Name = "botoneraProductos";
-            this.botoneraProductos.Size = new System.Drawing.Size(446, 624);
+            this.botoneraProductos.Size = new System.Drawing.Size(446, 625);
             this.botoneraProductos.TabIndex = 1;
             this.botoneraProductos.TextoLabel = "Productos";
             this.botoneraProductos.ClickEventHandler += new System.Action<string>(this.botoneraProductos_ClickEventHandler);
@@ -123,13 +123,13 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAgregar, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(183, 633);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(183, 634);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 125);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 124);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // textBox3
@@ -187,7 +187,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 91);
+            this.label3.Location = new System.Drawing.Point(3, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 25);
             this.label3.TabIndex = 2;
@@ -215,7 +215,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(365, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.tableLayoutPanel1.SetRowSpan(this.btnAgregar, 3);
-            this.btnAgregar.Size = new System.Drawing.Size(78, 119);
+            this.btnAgregar.Size = new System.Drawing.Size(78, 118);
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -261,7 +261,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgProductos.RowHeadersVisible = false;
-            this.dgProductos.Size = new System.Drawing.Size(446, 624);
+            this.dgProductos.Size = new System.Drawing.Size(446, 625);
             this.dgProductos.TabIndex = 3;
             this.dgProductos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgProductos_CellMouseClick);
             // 
@@ -322,7 +322,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::FormUI.Properties.Resources.desconectado_32;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(103, 68);
+            this.btnCancelar.Location = new System.Drawing.Point(103, 67);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(176, 54);
             this.btnCancelar.TabIndex = 5;
@@ -337,7 +337,7 @@
             this.btnCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.Image = global::FormUI.Properties.Resources.bt_Egresos_32;
             this.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCobrar.Location = new System.Drawing.Point(286, 68);
+            this.btnCobrar.Location = new System.Drawing.Point(286, 67);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(157, 54);
             this.btnCobrar.TabIndex = 4;
@@ -390,12 +390,12 @@
             this.tableLayoutPanel3.Controls.Add(this.btnCobrar, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnCancelar, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(635, 633);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(635, 634);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(446, 125);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(446, 124);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
             // VentaBotoneraForm

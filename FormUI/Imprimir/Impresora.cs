@@ -1,4 +1,6 @@
-﻿using FormUI.Imprimir.Documento;
+﻿using Common.Core.Exception;
+using FormUI.Imprimir.Documento;
+using FormUI.Properties;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 
@@ -17,6 +19,8 @@ namespace Dispositivos
 
         public void Imprimir()
         {
+            if(!Settings.Default.ImprimirTicket)
+                throw new NegocioException("No se puede realizar una impresión porque no se tiene configurada una impresora. Por favor, configure una impresora en la opción de Configuración -> Ticket");
 #if DEBUG
             PrintDialog pd = new PrintDialog();
             PrintDocument pdoc = new PrintDocument();
